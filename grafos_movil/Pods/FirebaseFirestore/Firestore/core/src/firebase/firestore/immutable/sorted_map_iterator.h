@@ -61,7 +61,11 @@ class SortedMapIterator {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   SortedMapIterator(SortedMapIterator&& other) noexcept : tag_(other.tag_) {
+=======
+  SortedMapIterator(SortedMapIterator&& other) : tag_(other.tag_) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   SortedMapIterator(SortedMapIterator&& other) : tag_(other.tag_) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -104,7 +108,11 @@ class SortedMapIterator {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   SortedMapIterator& operator=(SortedMapIterator&& other) noexcept {
+=======
+  SortedMapIterator& operator=(SortedMapIterator&& other) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   SortedMapIterator& operator=(SortedMapIterator&& other) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

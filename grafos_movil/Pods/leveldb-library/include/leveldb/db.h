@@ -8,8 +8,11 @@
 #include <stdint.h>
 #include <stdio.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include "leveldb/export.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/iterator.h"
@@ -18,9 +21,15 @@
 namespace leveldb {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Update CMakeLists.txt if you change these
 static const int kMajorVersion = 1;
 static const int kMinorVersion = 22;
+=======
+// Update Makefile if you change these
+static const int kMajorVersion = 1;
+static const int kMinorVersion = 20;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 // Update Makefile if you change these
 static const int kMajorVersion = 1;
@@ -36,7 +45,11 @@ class WriteBatch;
 // A Snapshot is an immutable object and can therefore be safely
 // accessed from multiple threads without any external synchronization.
 <<<<<<< HEAD
+<<<<<<< HEAD
 class LEVELDB_EXPORT Snapshot {
+=======
+class Snapshot {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class Snapshot {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -46,6 +59,7 @@ class Snapshot {
 
 // A range of keys
 <<<<<<< HEAD
+<<<<<<< HEAD
 struct LEVELDB_EXPORT Range {
   Range() {}
   Range(const Slice& s, const Slice& l) : start(s), limit(l) {}
@@ -53,12 +67,17 @@ struct LEVELDB_EXPORT Range {
   Slice start;  // Included in the range
   Slice limit;  // Not included in the range
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 struct Range {
   Slice start;          // Included in the range
   Slice limit;          // Not included in the range
 
   Range() { }
   Range(const Slice& s, const Slice& l) : start(s), limit(l) { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
@@ -66,7 +85,11 @@ struct Range {
 // A DB is safe for concurrent access from multiple threads without
 // any external synchronization.
 <<<<<<< HEAD
+<<<<<<< HEAD
 class LEVELDB_EXPORT DB {
+=======
+class DB {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class DB {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -74,6 +97,7 @@ class DB {
   // Open the database with the specified "name".
   // Stores a pointer to a heap-allocated database in *dbptr and returns
   // OK on success.
+<<<<<<< HEAD
 <<<<<<< HEAD
   // Stores nullptr in *dbptr and returns a non-OK status on error.
   // Caller should delete *dbptr when it is no longer needed.
@@ -86,6 +110,8 @@ class DB {
   DB& operator=(const DB&) = delete;
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Stores NULL in *dbptr and returns a non-OK status on error.
   // Caller should delete *dbptr when it is no longer needed.
   static Status Open(const Options& options,
@@ -93,6 +119,9 @@ class DB {
                      DB** dbptr);
 
   DB() { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual ~DB();
 
@@ -100,7 +129,12 @@ class DB {
   // and a non-OK status on error.
   // Note: consider setting options.sync = true.
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual Status Put(const WriteOptions& options, const Slice& key,
+=======
+  virtual Status Put(const WriteOptions& options,
+                     const Slice& key,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual Status Put(const WriteOptions& options,
                      const Slice& key,
@@ -126,8 +160,13 @@ class DB {
   //
   // May return some other Status on an error.
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual Status Get(const ReadOptions& options, const Slice& key,
                      std::string* value) = 0;
+=======
+  virtual Status Get(const ReadOptions& options,
+                     const Slice& key, std::string* value) = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual Status Get(const ReadOptions& options,
                      const Slice& key, std::string* value) = 0;
@@ -187,12 +226,15 @@ class DB {
   // be invoked by users who understand the underlying implementation.
   //
 <<<<<<< HEAD
+<<<<<<< HEAD
   // begin==nullptr is treated as a key before all keys in the database.
   // end==nullptr is treated as a key after all keys in the database.
   // Therefore the following call will compact the entire database:
   //    db->CompactRange(nullptr, nullptr);
   virtual void CompactRange(const Slice* begin, const Slice* end) = 0;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // begin==NULL is treated as a key before all keys in the database.
   // end==NULL is treated as a key after all keys in the database.
   // Therefore the following call will compact the entire database:
@@ -203,11 +245,15 @@ class DB {
   // No copying allowed
   DB(const DB&);
   void operator=(const DB&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 // Destroy the contents of the specified database.
 // Be very careful using this method.
+<<<<<<< HEAD
 <<<<<<< HEAD
 //
 // Note: For backwards compatibility, if DestroyDB is unable to list the
@@ -217,14 +263,21 @@ LEVELDB_EXPORT Status DestroyDB(const std::string& name,
 =======
 Status DestroyDB(const std::string& name, const Options& options);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+Status DestroyDB(const std::string& name, const Options& options);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 // If a DB cannot be opened, you may attempt to call this method to
 // resurrect as much of the contents of the database as possible.
 // Some data may be lost, so be careful when calling this function
 // on a database that contains important information.
 <<<<<<< HEAD
+<<<<<<< HEAD
 LEVELDB_EXPORT Status RepairDB(const std::string& dbname,
                                const Options& options);
+=======
+Status RepairDB(const std::string& dbname, const Options& options);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Status RepairDB(const std::string& dbname, const Options& options);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -15,6 +15,7 @@
 #include <sys/utsname.h>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if __has_include(<UIKit/UIKit.h>)
 #import <UIKit/UIKit.h>
 #endif
@@ -28,19 +29,26 @@
 =======
 #import "FIRApp.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+#import "FIRApp.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Private/FIRAnalyticsConfiguration.h"
 #import "Private/FIRAppInternal.h"
 #import "Private/FIRBundleUtil.h"
 #import "Private/FIRComponentContainerInternal.h"
 #import "Private/FIRConfigurationInternal.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "Private/FIRCoreDiagnosticsConnector.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Private/FIRLibrary.h"
 #import "Private/FIRLogger.h"
 #import "Private/FIROptionsInternal.h"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // The kFIRService strings are only here while transitioning CoreDiagnostics from the Analytics
 // pod to a Core dependency. These symbols are not used and should be deleted after the transition.
@@ -62,6 +70,8 @@ NSString *const kFIRServiceStorage;
 NSString *const kGGLServiceAnalytics;
 NSString *const kGGLServiceSignIn;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 NSString *const kFIRServiceAdMob = @"AdMob";
 NSString *const kFIRServiceAuth = @"Auth";
 NSString *const kFIRServiceAuthUI = @"AuthUI";
@@ -79,6 +89,9 @@ NSString *const kFIRServiceRemoteConfig = @"RemoteConfig";
 NSString *const kFIRServiceStorage = @"Storage";
 NSString *const kGGLServiceAnalytics = @"Analytics";
 NSString *const kGGLServiceSignIn = @"SignIn";
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 NSString *const kFIRDefaultAppName = @"__FIRAPP_DEFAULT";
@@ -143,7 +156,10 @@ static NSMutableDictionary *sLibraryVersions;
   FIROptions *options = [FIROptions defaultOptions];
   if (!options) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     // Read the Info.plist to see if the flag is set. At this point we can't check any user defaults
     // since the app isn't configured at all, so only rely on the Info.plist value.
     NSNumber *collectionEnabledPlistValue = [[self class] readDataCollectionSwitchFromPlist];
@@ -157,6 +173,9 @@ static NSMutableDictionary *sLibraryVersions;
                       }];
     }
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     [NSException raise:kFirebaseCoreErrorDomain
                 format:@"`[FIRApp configure];` (`FirebaseApp.configure()` in Swift) could not find "
@@ -333,6 +352,7 @@ static NSMutableDictionary *sLibraryVersions;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -345,6 +365,8 @@ static NSMutableDictionary *sLibraryVersions;
 
   [self logCoreTelemetryIfEnabled];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (BOOL)configureCore {
   [self checkExpectedBundleID];
   if (![self isAppIDValid]) {
@@ -369,6 +391,9 @@ static NSMutableDictionary *sLibraryVersions;
                       kFIRAppDiagnosticsFIRAppKey : self
                     }];
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 #if TARGET_OS_IOS
@@ -395,8 +420,11 @@ static NSMutableDictionary *sLibraryVersions;
 #endif
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   [self subscribeForAppDidBecomeActiveNotifications];
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return YES;
@@ -426,7 +454,11 @@ static NSMutableDictionary *sLibraryVersions;
 
   // Check if the Analytics flag is explicitly set. If so, no further actions are necessary.
 <<<<<<< HEAD
+<<<<<<< HEAD
   if ([self.options isAnalyticsCollectionExplicitlySet]) {
+=======
+  if ([self.options isAnalyticsCollectionExpicitlySet]) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if ([self.options isAnalyticsCollectionExpicitlySet]) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -875,6 +907,7 @@ static NSMutableDictionary *sLibraryVersions;
 #pragma mark - Sending Logs
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-parameter"
 - (void)sendLogsWithServiceName:(NSString *)serviceName
@@ -910,6 +943,8 @@ static NSMutableDictionary *sLibraryVersions;
     [FIRCoreDiagnosticsConnector logCoreTelemetryWithOptions:_options];
   }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (void)sendLogsWithServiceName:(NSString *)serviceName
                         version:(NSString *)version
                           error:(NSError *)error {
@@ -930,6 +965,9 @@ static NSMutableDictionary *sLibraryVersions;
   [[NSNotificationCenter defaultCenter] postNotificationName:kFIRAppDiagnosticsNotification
                                                       object:nil
                                                     userInfo:userInfo];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

@@ -6,10 +6,16 @@
 #define STORAGE_LEVELDB_TABLE_BLOCK_BUILDER_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <stdint.h>
 
 #include <vector>
 
+=======
+#include <vector>
+
+#include <stdint.h>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <vector>
 
@@ -26,9 +32,12 @@ class BlockBuilder {
   explicit BlockBuilder(const Options* options);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   BlockBuilder(const BlockBuilder&) = delete;
   BlockBuilder& operator=(const BlockBuilder&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Reset the contents as if the BlockBuilder was just constructed.
@@ -49,6 +58,7 @@ class BlockBuilder {
 
   // Return true iff no entries have been added since the last Reset()
 <<<<<<< HEAD
+<<<<<<< HEAD
   bool empty() const { return buffer_.empty(); }
 
  private:
@@ -59,6 +69,8 @@ class BlockBuilder {
   bool finished_;                   // Has Finish() been called?
   std::string last_key_;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   bool empty() const {
     return buffer_.empty();
   }
@@ -74,6 +86,9 @@ class BlockBuilder {
   // No copying allowed
   BlockBuilder(const BlockBuilder&);
   void operator=(const BlockBuilder&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

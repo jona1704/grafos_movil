@@ -30,6 +30,7 @@ namespace util {
  * obtained from GetLastError().
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 static Error CodeForLastError(DWORD error) {
   switch (error) {
     case ERROR_SUCCESS:
@@ -37,21 +38,32 @@ static Error CodeForLastError(DWORD error) {
 
       // return Error::Internal;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 static FirestoreErrorCode CodeForLastError(DWORD error) {
   switch (error) {
     case ERROR_SUCCESS:
       return FirestoreErrorCode::Ok;
 
       // return FirestoreErrorCode::Internal;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
     case ERROR_INVALID_FUNCTION:
     case ERROR_INVALID_HANDLE:
     case ERROR_INVALID_NAME:
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::InvalidArgument;
 
       // return Error::DeadlineExceeded;
+=======
+      return FirestoreErrorCode::InvalidArgument;
+
+      // return FirestoreErrorCode::DeadlineExceeded;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::InvalidArgument;
 
@@ -64,17 +76,23 @@ static FirestoreErrorCode CodeForLastError(DWORD error) {
     case ERROR_BAD_NETPATH:
     case ERROR_DEV_NOT_EXIST:
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::NotFound;
 
     case ERROR_FILE_EXISTS:
     case ERROR_ALREADY_EXISTS:
       return Error::AlreadyExists;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       return FirestoreErrorCode::NotFound;
 
     case ERROR_FILE_EXISTS:
     case ERROR_ALREADY_EXISTS:
       return FirestoreErrorCode::AlreadyExists;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
     case ERROR_ACCESS_DENIED:
@@ -83,9 +101,15 @@ static FirestoreErrorCode CodeForLastError(DWORD error) {
     case ERROR_WRITE_PROTECT:
     case ERROR_LOCK_VIOLATION:
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::PermissionDenied;
 
       // return Error::FailedPrecondition;
+=======
+      return FirestoreErrorCode::PermissionDenied;
+
+      // return FirestoreErrorCode::FailedPrecondition;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::PermissionDenied;
 
@@ -98,6 +122,7 @@ static FirestoreErrorCode CodeForLastError(DWORD error) {
     case ERROR_NO_MORE_FILES:
     case ERROR_DISK_FULL:
     case ERROR_HANDLE_DISK_FULL:
+<<<<<<< HEAD
 <<<<<<< HEAD
       return Error::ResourceExhausted;
 
@@ -116,6 +141,8 @@ static FirestoreErrorCode CodeForLastError(DWORD error) {
     default:
       return Error::Unknown;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       return FirestoreErrorCode::ResourceExhausted;
 
       // return FirestoreErrorCode::OutOfRange;
@@ -132,6 +159,9 @@ static FirestoreErrorCode CodeForLastError(DWORD error) {
 
     default:
       return FirestoreErrorCode::Unknown;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 }
@@ -142,7 +172,11 @@ Status Status::FromLastError(DWORD error, absl::string_view msg) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Error canonical_code = CodeForLastError(error);
+=======
+  FirestoreErrorCode canonical_code = CodeForLastError(error);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FirestoreErrorCode canonical_code = CodeForLastError(error);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

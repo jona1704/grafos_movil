@@ -25,7 +25,10 @@
 #include <string>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
@@ -41,6 +44,10 @@
 
 #import "Firestore/Source/Core/FSTTypes.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#import "Firestore/Source/Local/FSTQueryData.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "Firestore/Source/Local/FSTQueryData.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -90,7 +97,11 @@ class WatchStream : public Stream {
  public:
   WatchStream(const std::shared_ptr<util::AsyncQueue>& async_queue,
 <<<<<<< HEAD
+<<<<<<< HEAD
               std::shared_ptr<auth::CredentialsProvider> credentials_provider,
+=======
+              auth::CredentialsProvider* credentials_provider,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
               auth::CredentialsProvider* credentials_provider,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -105,8 +116,12 @@ class WatchStream : public Stream {
    * target ID included in `query`.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual /*virtual for tests only*/ void WatchQuery(
       const local::QueryData& query);
+=======
+  virtual /*virtual for tests only*/ void WatchQuery(FSTQueryData* query);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual /*virtual for tests only*/ void WatchQuery(FSTQueryData* query);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

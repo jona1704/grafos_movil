@@ -22,7 +22,10 @@
 #include <vector>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/query.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/local/index_manager.h"
@@ -35,11 +38,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class FSTMaybeDocument;
 @class FSTMutationBatch;
 @class FSTQuery;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -68,8 +77,12 @@ class LocalDocumentsView {
    * for it.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   absl::optional<model::MaybeDocument> GetDocument(
       const model::DocumentKey& key);
+=======
+  FSTMaybeDocument* _Nullable GetDocument(const model::DocumentKey& key);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTMaybeDocument* _Nullable GetDocument(const model::DocumentKey& key);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -78,8 +91,13 @@ class LocalDocumentsView {
    * Gets the local view of the documents identified by `keys`.
    *
 <<<<<<< HEAD
+<<<<<<< HEAD
    * If we don't have cached state for a document in `keys`, a DeletedDocument
    * will be stored for that key in the resulting set.
+=======
+   * If we don't have cached state for a document in `keys`, a
+   * FSTDeletedDocument will be stored for that key in the resulting set.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
    * If we don't have cached state for a document in `keys`, a
    * FSTDeletedDocument will be stored for that key in the resulting set.
@@ -93,6 +111,7 @@ class LocalDocumentsView {
    */
   model::MaybeDocumentMap GetLocalViewOfDocuments(
 <<<<<<< HEAD
+<<<<<<< HEAD
       const model::OptionalMaybeDocumentMap& base_docs);
 
   /** Performs a query against the local view of all documents. */
@@ -104,6 +123,8 @@ class LocalDocumentsView {
       const model::DocumentKey& key,
       const std::vector<model::MutationBatch>& batches);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       const model::MaybeDocumentMap& base_docs);
 
   /** Performs a query against the local view of all documents. */
@@ -114,6 +135,9 @@ class LocalDocumentsView {
   FSTMaybeDocument* _Nullable GetDocument(
       const model::DocumentKey& key,
       const std::vector<FSTMutationBatch*>& batches);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   /**
@@ -121,9 +145,15 @@ class LocalDocumentsView {
    * all mutations in the given `batches`.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::OptionalMaybeDocumentMap ApplyLocalMutationsToDocuments(
       const model::OptionalMaybeDocumentMap& docs,
       const std::vector<model::MutationBatch>& batches);
+=======
+  model::MaybeDocumentMap ApplyLocalMutationsToDocuments(
+      const model::MaybeDocumentMap& docs,
+      const std::vector<FSTMutationBatch*>& batches);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   model::MaybeDocumentMap ApplyLocalMutationsToDocuments(
       const model::MaybeDocumentMap& docs,
@@ -135,6 +165,7 @@ class LocalDocumentsView {
       const model::ResourcePath& doc_path);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::DocumentMap GetDocumentsMatchingCollectionGroupQuery(
       const core::Query& query);
 
@@ -142,10 +173,15 @@ class LocalDocumentsView {
   model::DocumentMap GetDocumentsMatchingCollectionQuery(
       const core::Query& query);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   model::DocumentMap GetDocumentsMatchingCollectionGroupQuery(FSTQuery* query);
 
   /** Queries the remote documents and overlays mutations. */
   model::DocumentMap GetDocumentsMatchingCollectionQuery(FSTQuery* query);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   /**
@@ -159,7 +195,11 @@ class LocalDocumentsView {
    */
   model::DocumentMap AddMissingBaseDocuments(
 <<<<<<< HEAD
+<<<<<<< HEAD
       const std::vector<model::MutationBatch>& matching_batches,
+=======
+      const std::vector<FSTMutationBatch*>& matching_batches,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       const std::vector<FSTMutationBatch*>& matching_batches,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

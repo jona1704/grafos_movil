@@ -18,8 +18,11 @@
 
 #include <cstdlib>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <ostream>
 #include <sstream>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <utility>
@@ -30,8 +33,11 @@
 #include "Firestore/core/src/firebase/firestore/model/no_document.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/util/to_string.h"
 #include "absl/strings/str_cat.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -39,6 +45,7 @@ namespace firebase {
 namespace firestore {
 namespace model {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 std::string MutationResult::ToString() const {
   return absl::StrCat(
@@ -62,11 +69,16 @@ bool Mutation::Rep::Equals(const Mutation::Rep& other) const {
 void Mutation::Rep::VerifyKeyMatches(
     const absl::optional<MaybeDocument>& maybe_doc) const {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Mutation::Mutation(DocumentKey&& key, Precondition&& precondition)
     : key_(std::move(key)), precondition_(std::move(precondition)) {
 }
 
 void Mutation::VerifyKeyMatches(const MaybeDocument* maybe_doc) const {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (maybe_doc) {
     HARD_ASSERT(maybe_doc->key() == key(),
@@ -75,8 +87,13 @@ void Mutation::VerifyKeyMatches(const MaybeDocument* maybe_doc) const {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 SnapshotVersion Mutation::Rep::GetPostMutationVersion(
     const absl::optional<MaybeDocument>& maybe_doc) {
+=======
+SnapshotVersion Mutation::GetPostMutationVersion(
+    const MaybeDocument* maybe_doc) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 SnapshotVersion Mutation::GetPostMutationVersion(
     const MaybeDocument* maybe_doc) {
@@ -88,6 +105,7 @@ SnapshotVersion Mutation::GetPostMutationVersion(
   }
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 bool operator==(const Mutation& lhs, const Mutation& rhs) {
   return lhs.rep_ == nullptr
@@ -102,6 +120,8 @@ size_t Mutation::Rep::Hash() const {
 std::ostream& operator<<(std::ostream& os, const Mutation& mutation) {
   return os << mutation.ToString();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 bool Mutation::equal_to(const Mutation& other) const {
   return key_ == other.key_ && precondition_ == other.precondition_ &&
          type() == other.type();
@@ -253,6 +273,9 @@ MaybeDocumentPtr DeleteMutation::ApplyToLocalView(
 
   return absl::make_unique<NoDocument>(key(), SnapshotVersion::None(),
                                        /*hasCommittedMutations=*/false);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

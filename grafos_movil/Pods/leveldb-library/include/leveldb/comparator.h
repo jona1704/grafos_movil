@@ -8,8 +8,11 @@
 #include <string>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "leveldb/export.h"
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace leveldb {
@@ -21,7 +24,11 @@ class Slice;
 // must be thread-safe since leveldb may invoke its methods concurrently
 // from multiple threads.
 <<<<<<< HEAD
+<<<<<<< HEAD
 class LEVELDB_EXPORT Comparator {
+=======
+class Comparator {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class Comparator {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -53,8 +60,14 @@ class Comparator {
   // Simple comparator implementations may return with *start unchanged,
   // i.e., an implementation of this method that does nothing is correct.
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual void FindShortestSeparator(std::string* start,
                                      const Slice& limit) const = 0;
+=======
+  virtual void FindShortestSeparator(
+      std::string* start,
+      const Slice& limit) const = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual void FindShortestSeparator(
       std::string* start,
@@ -71,7 +84,11 @@ class Comparator {
 // ordering.  The result remains the property of this module and
 // must not be deleted.
 <<<<<<< HEAD
+<<<<<<< HEAD
 LEVELDB_EXPORT const Comparator* BytewiseComparator();
+=======
+extern const Comparator* BytewiseComparator();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern const Comparator* BytewiseComparator();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

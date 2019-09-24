@@ -17,8 +17,13 @@
 #import <Foundation/Foundation.h>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "FIRAuthAppCredential.h"
 #import "FIRAuthKeychainServices.h"
+=======
+@class FIRAuthAppCredential;
+@class FIRAuthKeychain;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @class FIRAuthAppCredential;
 @class FIRAuthKeychain;
@@ -59,7 +64,11 @@ typedef void (^FIRAuthAppCredentialCallback)(FIRAuthAppCredential *credential);
     @return The initialized instance.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (instancetype)initWithKeychain:(FIRAuthKeychainServices *)keychain NS_DESIGNATED_INITIALIZER;
+=======
+- (instancetype)initWithKeychain:(FIRAuthKeychain *)keychain NS_DESIGNATED_INITIALIZER;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (instancetype)initWithKeychain:(FIRAuthKeychain *)keychain NS_DESIGNATED_INITIALIZER;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -34,6 +34,7 @@
 #import "Firestore/Source/API/FIRSnapshotMetadata+Internal.h"
 #import "Firestore/Source/API/FSTUserDataConverter.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include "Firestore/core/src/firebase/firestore/api/input_validation.h"
 #include "Firestore/core/src/firebase/firestore/api/query_core.h"
@@ -43,6 +44,8 @@
 #include "Firestore/core/src/firebase/firestore/core/firestore_client.h"
 #include "Firestore/core/src/firebase/firestore/core/order_by.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Core/FSTEventManager.h"
 #import "Firestore/Source/Core/FSTFirestoreClient.h"
 #import "Firestore/Source/Core/FSTQuery.h"
@@ -52,6 +55,9 @@
 #include "Firestore/core/src/firebase/firestore/api/query_core.h"
 #include "Firestore/core/src/firebase/firestore/core/direction.h"
 #include "Firestore/core/src/firebase/firestore/core/filter.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
@@ -74,7 +80,10 @@ using firebase::firestore::api::Source;
 using firebase::firestore::api::ThrowInvalidArgument;
 using firebase::firestore::core::AsyncEventListener;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using firebase::firestore::core::Bound;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::core::Direction;
@@ -82,12 +91,17 @@ using firebase::firestore::core::EventListener;
 using firebase::firestore::core::Filter;
 using firebase::firestore::core::ListenOptions;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using firebase::firestore::core::OrderBy;
 using firebase::firestore::core::OrderByList;
 using firebase::firestore::core::QueryListener;
 using firebase::firestore::core::ViewSnapshot;
 using firebase::firestore::model::DatabaseId;
 using firebase::firestore::model::Document;
+=======
+using firebase::firestore::core::QueryListener;
+using firebase::firestore::core::ViewSnapshot;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 using firebase::firestore::core::QueryListener;
 using firebase::firestore::core::ViewSnapshot;
@@ -127,8 +141,13 @@ FIRQuery *Wrap(Query &&query) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (instancetype)initWithQuery:(core::Query)query firestore:(std::shared_ptr<Firestore>)firestore {
   return [self initWithQuery:Query{std::move(query), std::move(firestore)}];
+=======
+- (instancetype)initWithQuery:(FSTQuery *)query firestore:(std::shared_ptr<Firestore>)firestore {
+  return [self initWithQuery:Query{query, std::move(firestore)}];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (instancetype)initWithQuery:(FSTQuery *)query firestore:(std::shared_ptr<Firestore>)firestore {
   return [self initWithQuery:Query{query, std::move(firestore)}];
@@ -183,7 +202,11 @@ FIRQuery *Wrap(Query &&query) {
                                                                  (FIRQuerySnapshotBlock)listener {
   std::shared_ptr<Firestore> firestore = self.firestore.wrapped;
 <<<<<<< HEAD
+<<<<<<< HEAD
   const core::Query &query = self.query;
+=======
+  FSTQuery *query = self.query;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTQuery *query = self.query;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -208,17 +231,23 @@ FIRQuery *Wrap(Query &&query) {
 
   // Call the view_listener on the user Executor.
 <<<<<<< HEAD
+<<<<<<< HEAD
   auto async_listener = AsyncEventListener<ViewSnapshot>::Create(
       firestore->client()->user_executor(), std::move(view_listener));
 
   std::shared_ptr<QueryListener> query_listener =
       firestore->client()->ListenToQuery(query, internalOptions, async_listener);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   auto async_listener = AsyncEventListener<ViewSnapshot>::Create(firestore->client().userExecutor,
                                                                  std::move(view_listener));
 
   std::shared_ptr<QueryListener> query_listener =
       [firestore->client() listenToQuery:query options:internalOptions listener:async_listener];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   return [[FSTListenerRegistration alloc]
@@ -401,6 +430,7 @@ FIRQuery *Wrap(Query &&query) {
 
 - (FIRQuery *)queryStartingAtDocument:(FIRDocumentSnapshot *)snapshot {
 <<<<<<< HEAD
+<<<<<<< HEAD
   Bound bound = [self boundFromSnapshot:snapshot isBefore:YES];
   return Wrap(_query.StartAt(std::move(bound)));
 }
@@ -439,6 +469,8 @@ FIRQuery *Wrap(Query &&query) {
   Bound bound = [self boundFromFieldValues:fieldValues isBefore:NO];
   return Wrap(_query.EndAt(std::move(bound)));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   FSTBound *bound = [self boundFromSnapshot:snapshot isBefore:YES];
   return Wrap(_query.StartAt(bound));
 }
@@ -476,6 +508,9 @@ FIRQuery *Wrap(Query &&query) {
 - (FIRQuery *)queryEndingAtValues:(NSArray *)fieldValues {
   FSTBound *bound = [self boundFromFieldValues:fieldValues isBefore:NO];
   return Wrap(_query.EndAt(bound));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -525,9 +560,15 @@ FIRQuery *Wrap(Query &&query) {
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Create a Bound from a query given the document.
  *
  * Note that the Bound will always include the key of the document and the position will be
+=======
+ * Create a FSTBound from a query given the document.
+ *
+ * Note that the FSTBound will always include the key of the document and the position will be
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  * Create a FSTBound from a query given the document.
  *
@@ -540,7 +581,11 @@ FIRQuery *Wrap(Query &&query) {
  * timestamp.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (Bound)boundFromSnapshot:(FIRDocumentSnapshot *)snapshot isBefore:(BOOL)isBefore {
+=======
+- (FSTBound *)boundFromSnapshot:(FIRDocumentSnapshot *)snapshot isBefore:(BOOL)isBefore {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTBound *)boundFromSnapshot:(FIRDocumentSnapshot *)snapshot isBefore:(BOOL)isBefore {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -549,8 +594,13 @@ FIRQuery *Wrap(Query &&query) {
                          "that doesn't exist.");
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   const Document &document = *snapshot.internalDocument;
   const DatabaseId &databaseID = self.firestore.databaseID;
+=======
+  FSTDocument *document = snapshot.internalDocument;
+  const model::DatabaseId &databaseID = self.firestore.databaseID;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTDocument *document = snapshot.internalDocument;
   const model::DatabaseId &databaseID = self.firestore.databaseID;
@@ -563,17 +613,23 @@ FIRQuery *Wrap(Query &&query) {
   // continues/ends exactly at the provided document. Without the key (by using the explicit sort
   // orders), multiple documents could match the position, yielding duplicate results.
 <<<<<<< HEAD
+<<<<<<< HEAD
   for (const OrderBy &orderBy : self.query.order_bys()) {
     if (orderBy.field() == FieldPath::KeyFieldPath()) {
       components.push_back(FieldValue::FromReference(databaseID, document.key()));
     } else {
       absl::optional<FieldValue> value = document.field(orderBy.field());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   for (FSTSortOrder *sortOrder in self.query.sortOrders) {
     if (sortOrder.field == FieldPath::KeyFieldPath()) {
       components.push_back(FieldValue::FromReference(databaseID, document.key));
     } else {
       absl::optional<FieldValue> value = [document fieldForPath:sortOrder.field];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
       if (value) {
@@ -583,7 +639,11 @@ FIRQuery *Wrap(Query &&query) {
               "the field '%s' is an uncommitted server timestamp. (Since the value of this field "
               "is unknown, you cannot start/end a query with it.)",
 <<<<<<< HEAD
+<<<<<<< HEAD
               orderBy.field().CanonicalString());
+=======
+              sortOrder.field.CanonicalString());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
               sortOrder.field.CanonicalString());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -594,6 +654,7 @@ FIRQuery *Wrap(Query &&query) {
         ThrowInvalidArgument(
             "Invalid query. You are trying to start or end a query using a document for which the "
             "field '%s' (used as the order by) does not exist.",
+<<<<<<< HEAD
 <<<<<<< HEAD
             orderBy.field().CanonicalString());
       }
@@ -608,6 +669,8 @@ FIRQuery *Wrap(Query &&query) {
   const OrderByList &explicitSortOrders = self.query.explicit_order_bys();
   if (fieldValues.count > explicitSortOrders.size()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
             sortOrder.field.CanonicalString());
       }
     }
@@ -620,6 +683,9 @@ FIRQuery *Wrap(Query &&query) {
   // Use explicit sort order because it has to match the query the user made
   NSArray<FSTSortOrder *> *explicitSortOrders = self.query.explicitSortOrders;
   if (fieldValues.count > explicitSortOrders.count) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     ThrowInvalidArgument("Invalid query. You are trying to start or end a query using more values "
                          "than were specified in the order by.");
@@ -629,22 +695,32 @@ FIRQuery *Wrap(Query &&query) {
   for (NSUInteger idx = 0, max = fieldValues.count; idx < max; ++idx) {
     id rawValue = fieldValues[idx];
 <<<<<<< HEAD
+<<<<<<< HEAD
     const OrderBy &sortOrder = explicitSortOrders[idx];
 
     FieldValue fieldValue = [self parsedQueryValue:rawValue];
     if (sortOrder.field().IsKeyFieldPath()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     FSTSortOrder *sortOrder = explicitSortOrders[idx];
 
     FieldValue fieldValue = [self parsedQueryValue:rawValue];
     if (sortOrder.field.IsKeyFieldPath()) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       if (fieldValue.type() != FieldValue::Type::String) {
         ThrowInvalidArgument("Invalid query. Expected a string for the document ID.");
       }
       const std::string &documentID = fieldValue.string_value();
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (!self.query.IsCollectionGroupQuery() && documentID.find('/') != std::string::npos) {
+=======
+      if (![self.query isCollectionGroupQuery] && documentID.find('/') != std::string::npos) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       if (![self.query isCollectionGroupQuery] && documentID.find('/') != std::string::npos) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -653,7 +729,11 @@ FIRQuery *Wrap(Query &&query) {
                              documentID);
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
       ResourcePath path = self.query.path().Append(ResourcePath::FromString(documentID));
+=======
+      ResourcePath path = self.query.path.Append(ResourcePath::FromString(documentID));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       ResourcePath path = self.query.path.Append(ResourcePath::FromString(documentID));
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -671,7 +751,11 @@ FIRQuery *Wrap(Query &&query) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return Bound(std::move(components), isBefore);
+=======
+  return [FSTBound boundWithPosition:components isBefore:isBefore];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return [FSTBound boundWithPosition:components isBefore:isBefore];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -681,6 +765,7 @@ FIRQuery *Wrap(Query &&query) {
 
 @implementation FIRQuery (Internal)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (FIRQuery *)queryWhereField:(NSString *)field arrayContainsAny:(id)value {
   return [self queryWithFilterOperator:Filter::Operator::ArrayContainsAny field:field value:value];
@@ -701,6 +786,9 @@ FIRQuery *Wrap(Query &&query) {
 }
 
 - (const core::Query &)query {
+=======
+- (FSTQuery *)query {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTQuery *)query {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

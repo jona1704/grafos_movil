@@ -63,12 +63,15 @@ class ExponentialBackoff {
 
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
    * Instantiates the exponential backoff with the default values.
    */
   ExponentialBackoff(const std::shared_ptr<util::AsyncQueue>& queue,
                      util::TimerId timer_id);
 
   /**
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
    * Resets the backoff delay.
@@ -104,6 +107,10 @@ class ExponentialBackoff {
  private:
   using Milliseconds = util::AsyncQueue::Milliseconds;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

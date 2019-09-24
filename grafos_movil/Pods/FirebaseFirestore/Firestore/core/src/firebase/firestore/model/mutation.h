@@ -18,9 +18,13 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_MODEL_MUTATION_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <iosfwd>
 #include <memory>
 #include <string>
+=======
+#include <memory>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <memory>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -34,8 +38,11 @@
 #include "Firestore/core/src/firebase/firestore/model/precondition.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 #include "absl/types/optional.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -44,6 +51,11 @@ namespace firestore {
 namespace model {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+using MaybeDocumentPtr = std::shared_ptr<const MaybeDocument>;
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 using MaybeDocumentPtr = std::shared_ptr<const MaybeDocument>;
 
@@ -60,14 +72,20 @@ class MutationResult {
  public:
   MutationResult(
 <<<<<<< HEAD
+<<<<<<< HEAD
       SnapshotVersion version,
       absl::optional<const std::vector<FieldValue>> transform_results)
       : version_(version), transform_results_(std::move(transform_results)) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       SnapshotVersion&& version,
       const std::shared_ptr<const std::vector<ObjectValue>>& transform_results)
       : version_(std::move(version)),
         transform_results_(std::move(transform_results)) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -88,6 +106,7 @@ class MutationResult {
   /**
    * The resulting fields returned from the backend after a TransformMutation
 <<<<<<< HEAD
+<<<<<<< HEAD
    * has been committed. Contains one FieldValue for each FieldTransform that
    * was in the mutation.
    *
@@ -95,17 +114,23 @@ class MutationResult {
    */
   const absl::optional<const std::vector<FieldValue>>& transform_results()
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
    * has been committed.  Contains one ObjectValue for each FieldTransform
    * that was in the mutation.
    *
    * Will be null if the mutation was not a TransformMutation.
    */
   const std::shared_ptr<const std::vector<ObjectValue>>& transform_results()
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       const {
     return transform_results_;
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   std::string ToString() const;
 
@@ -115,6 +140,11 @@ class MutationResult {
  private:
   SnapshotVersion version_;
   absl::optional<const std::vector<FieldValue>> transform_results_;
+=======
+ private:
+  const SnapshotVersion version_;
+  const std::shared_ptr<const std::vector<ObjectValue>> transform_results_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  private:
   const SnapshotVersion version_;
@@ -150,6 +180,7 @@ class MutationResult {
  * DeleteMutation     null            NoDocument(v0)
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * For acknowledged mutations, we use the update_time of the WriteResponse as
  * the resulting version for Set, Patch, and Transform mutations. As deletes
  * have no explicit update time, we use the commit_time of the WriteResponse
@@ -159,6 +190,8 @@ class MutationResult {
  * check locally, we return an `UnknownDocument` and rely on Watch to send us
  * the updated version.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  * For acknowledged mutations, we use the updateTime of the WriteResponse as the
  * resulting version for Set, Patch, and Transform mutations. As deletes have no
  * explicit update time, we use the commitTime of the WriteResponse for
@@ -167,6 +200,9 @@ class MutationResult {
  * If a mutation is acknowledged by the backend but fails the precondition check
  * locally, we return an `UnknownDocument` and rely on Watch to send us the
  * updated version.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  *
  * Note that TransformMutations don't create Documents (in the case of being
@@ -175,6 +211,7 @@ class MutationResult {
  * or PatchMutation and we only want to apply the transform if the prior
  * mutation resulted in a Document (always true for a SetMutation, but not
  * necessarily for an PatchMutation).
+<<<<<<< HEAD
 <<<<<<< HEAD
  *
  * Note: Mutation and its subclasses are specially designed to avoid slicing.
@@ -191,12 +228,15 @@ class MutationResult {
  * the underlying data is not actually Type::Set.
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  */
 class Mutation {
  public:
   /**
    * Represents the mutation type. This is used in place of dynamic_cast.
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   enum class Type { Set, Patch, Transform, Delete };
 
@@ -385,6 +425,8 @@ inline bool operator!=(const Mutation& lhs, const Mutation& rhs) {
   return !(lhs == rhs);
 }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   enum class Type { kSet, kPatch, kDelete };
 
   virtual ~Mutation() {
@@ -577,6 +619,9 @@ class DeleteMutation : public Mutation {
       const MaybeDocument* base_doc,
       const Timestamp& local_write_time) const override;
 };
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 }  // namespace model

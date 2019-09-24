@@ -53,7 +53,11 @@ static NSString *const kURLResponseErrorCodeInvalidClientID = @"auth/invalid-oau
 /** @var kURLResponseErrorCodeNetworkRequestFailed
     @brief Error code that indicates that a network request within the SFSafariViewController or
 <<<<<<< HEAD
+<<<<<<< HEAD
         WKWebView failed.
+=======
+        UIWebView failed.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         UIWebView failed.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -63,7 +67,11 @@ static NSString *const kURLResponseErrorCodeNetworkRequestFailed = @"auth/networ
 /** @var kURLResponseErrorCodeInternalError
     @brief Error code that indicates that an internal error occurred within the
 <<<<<<< HEAD
+<<<<<<< HEAD
         SFSafariViewController or WKWebView failed.
+=======
+        SFSafariViewController or UIWebView failed.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         SFSafariViewController or UIWebView failed.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -421,7 +429,11 @@ static NSString *const kFIRAuthErrorMessageWebRequestFailed = @"A network error 
  */
 static NSString *const kFIRAuthErrorMessageWebInternalError = @"An internal error has occurred "
 <<<<<<< HEAD
+<<<<<<< HEAD
     "within the SFSafariViewController or WKWebView.";
+=======
+    "within the SFSafariViewController or UIWebView.";
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     "within the SFSafariViewController or UIWebView.";
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

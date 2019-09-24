@@ -23,15 +23,21 @@ class VersionEdit;
 // If no data is present in *iter, meta->file_size will be set to
 // zero, and no Table file will be produced.
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status BuildTable(const std::string& dbname, Env* env, const Options& options,
                   TableCache* table_cache, Iterator* iter, FileMetaData* meta);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern Status BuildTable(const std::string& dbname,
                          Env* env,
                          const Options& options,
                          TableCache* table_cache,
                          Iterator* iter,
                          FileMetaData* meta);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 }  // namespace leveldb

@@ -25,6 +25,11 @@
 #import "Firestore/Source/API/FIRQuery+Internal.h"
 #import "Firestore/Source/API/FIRSnapshotMetadata+Internal.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#import "Firestore/Source/Core/FSTQuery.h"
+#import "Firestore/Source/Model/FSTDocument.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Model/FSTDocument.h"
@@ -68,15 +73,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFirestore:(std::shared_ptr<Firestore>)firestore
 <<<<<<< HEAD
+<<<<<<< HEAD
                     originalQuery:(core::Query)query
                          snapshot:(ViewSnapshot &&)snapshot
                          metadata:(SnapshotMetadata)metadata {
   QuerySnapshot wrapped(firestore, std::move(query), std::move(snapshot), std::move(metadata));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                     originalQuery:(FSTQuery *)query
                          snapshot:(ViewSnapshot &&)snapshot
                          metadata:(SnapshotMetadata)metadata {
   QuerySnapshot wrapped(firestore, query, std::move(snapshot), std::move(metadata));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return [self initWithSnapshot:std::move(wrapped)];
 }

@@ -6,10 +6,15 @@
 #define STORAGE_LEVELDB_TABLE_FORMAT_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <stdint.h>
 
 #include <string>
 
+=======
+#include <string>
+#include <stdint.h>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <string>
 #include <stdint.h>
@@ -29,9 +34,12 @@ struct ReadOptions;
 class BlockHandle {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Maximum encoding length of a BlockHandle
   enum { kMaxEncodedLength = 10 + 10 };
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   BlockHandle();
@@ -48,6 +56,12 @@ class BlockHandle {
   Status DecodeFrom(Slice* input);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  // Maximum encoding length of a BlockHandle
+  enum { kMaxEncodedLength = 10 + 10 };
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // Maximum encoding length of a BlockHandle
   enum { kMaxEncodedLength = 10 + 10 };
@@ -63,12 +77,16 @@ class BlockHandle {
 class Footer {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Encoded length of a Footer.  Note that the serialization of a
   // Footer will always occupy exactly this many bytes.  It consists
   // of two block handles and a magic number.
   enum { kEncodedLength = 2 * BlockHandle::kMaxEncodedLength + 8 };
 
   Footer() {}
+=======
+  Footer() { }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Footer() { }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -79,22 +97,31 @@ class Footer {
 
   // The block handle for the index block of the table
 <<<<<<< HEAD
+<<<<<<< HEAD
   const BlockHandle& index_handle() const { return index_handle_; }
   void set_index_handle(const BlockHandle& h) { index_handle_ = h; }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   const BlockHandle& index_handle() const {
     return index_handle_;
   }
   void set_index_handle(const BlockHandle& h) {
     index_handle_ = h;
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   void EncodeTo(std::string* dst) const;
   Status DecodeFrom(Slice* input);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Encoded length of a Footer.  Note that the serialization of a
   // Footer will always occupy exactly this many bytes.  It consists
   // of two block handles and a magic number.
@@ -102,6 +129,9 @@ class Footer {
     kEncodedLength = 2*BlockHandle::kMaxEncodedLength + 8
   };
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  private:
   BlockHandle metaindex_handle_;
@@ -125,20 +155,32 @@ struct BlockContents {
 // Read the block identified by "handle" from "file".  On failure
 // return non-OK.  On success fill *result and return OK.
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status ReadBlock(RandomAccessFile* file, const ReadOptions& options,
                  const BlockHandle& handle, BlockContents* result);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern Status ReadBlock(RandomAccessFile* file,
                         const ReadOptions& options,
                         const BlockHandle& handle,
                         BlockContents* result);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 // Implementation details follow.  Clients should ignore,
 
 inline BlockHandle::BlockHandle()
 <<<<<<< HEAD
+<<<<<<< HEAD
     : offset_(~static_cast<uint64_t>(0)), size_(~static_cast<uint64_t>(0)) {}
+=======
+    : offset_(~static_cast<uint64_t>(0)),
+      size_(~static_cast<uint64_t>(0)) {
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     : offset_(~static_cast<uint64_t>(0)),
       size_(~static_cast<uint64_t>(0)) {

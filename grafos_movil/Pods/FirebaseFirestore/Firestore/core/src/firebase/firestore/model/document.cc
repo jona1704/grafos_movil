@@ -17,8 +17,11 @@
 #include "Firestore/core/src/firebase/firestore/model/document.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <ostream>
 #include <sstream>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <utility>
@@ -29,6 +32,7 @@ namespace firebase {
 namespace firestore {
 namespace model {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 static_assert(
     sizeof(MaybeDocument) == sizeof(Document),
@@ -173,6 +177,8 @@ std::ostream& operator<<(std::ostream& os, const Document& doc) {
 bool operator==(const Document& lhs, const Document& rhs) {
   return lhs.doc_rep().Equals(rhs.doc_rep());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Document::Document(ObjectValue&& data,
                    DocumentKey key,
                    SnapshotVersion version,
@@ -191,6 +197,9 @@ bool Document::Equals(const MaybeDocument& other) const {
   return MaybeDocument::Equals(other) &&
          document_state_ == other_doc.document_state_ &&
          data_ == other_doc.data_;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

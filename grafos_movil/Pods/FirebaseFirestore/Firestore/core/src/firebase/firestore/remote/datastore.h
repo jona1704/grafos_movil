@@ -22,6 +22,11 @@
 #endif  // !defined(__OBJC__)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#import <Foundation/Foundation.h>
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import <Foundation/Foundation.h>
 
@@ -49,6 +54,11 @@
 #include "grpcpp/support/status.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#import "Firestore/Source/Core/FSTTypes.h"
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "Firestore/Source/Core/FSTTypes.h"
 
@@ -75,21 +85,31 @@ namespace remote {
 class Datastore : public std::enable_shared_from_this<Datastore> {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   // TODO(varconst): change this to take a single `StatusOr` parameter.
   using LookupCallback = std::function<void(
       const std::vector<model::MaybeDocument>&, const util::Status&)>;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // TODO(varconst): once `FSTMaybeDocument` is replaced with a C++ equivalent,
   // this function could take a single `StatusOr` parameter.
   using LookupCallback = std::function<void(
       const std::vector<FSTMaybeDocument*>&, const util::Status&)>;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   using CommitCallback = std::function<void(const util::Status&)>;
 
   Datastore(const core::DatabaseInfo& database_info,
             const std::shared_ptr<util::AsyncQueue>& worker_queue,
 <<<<<<< HEAD
+<<<<<<< HEAD
             std::shared_ptr<auth::CredentialsProvider> credentials);
+=======
+            auth::CredentialsProvider* credentials);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             auth::CredentialsProvider* credentials);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -116,7 +136,11 @@ class Datastore : public std::enable_shared_from_this<Datastore> {
       WriteStreamCallback* callback);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   void CommitMutations(const std::vector<model::Mutation>& mutations,
+=======
+  void CommitMutations(const std::vector<FSTMutation*>& mutations,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void CommitMutations(const std::vector<FSTMutation*>& mutations,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -163,7 +187,11 @@ class Datastore : public std::enable_shared_from_this<Datastore> {
   Datastore(const core::DatabaseInfo& database_info,
             const std::shared_ptr<util::AsyncQueue>& worker_queue,
 <<<<<<< HEAD
+<<<<<<< HEAD
             std::shared_ptr<auth::CredentialsProvider> credentials,
+=======
+            auth::CredentialsProvider* credentials,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             auth::CredentialsProvider* credentials,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -189,7 +217,11 @@ class Datastore : public std::enable_shared_from_this<Datastore> {
   void CommitMutationsWithCredentials(
       const auth::Token& token,
 <<<<<<< HEAD
+<<<<<<< HEAD
       const std::vector<model::Mutation>& mutations,
+=======
+      const std::vector<FSTMutation*>& mutations,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       const std::vector<FSTMutation*>& mutations,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -219,7 +251,11 @@ class Datastore : public std::enable_shared_from_this<Datastore> {
 
   std::shared_ptr<util::AsyncQueue> worker_queue_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::shared_ptr<auth::CredentialsProvider> credentials_;
+=======
+  auth::CredentialsProvider* credentials_ = nullptr;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   auth::CredentialsProvider* credentials_ = nullptr;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

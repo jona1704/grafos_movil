@@ -16,7 +16,10 @@
 #define STORAGE_LEVELDB_INCLUDE_ITERATOR_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "leveldb/export.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/slice.h"
@@ -25,6 +28,7 @@
 namespace leveldb {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class LEVELDB_EXPORT Iterator {
  public:
   Iterator();
@@ -32,6 +36,11 @@ class LEVELDB_EXPORT Iterator {
   Iterator(const Iterator&) = delete;
   Iterator& operator=(const Iterator&) = delete;
 
+=======
+class Iterator {
+ public:
+  Iterator();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class Iterator {
  public:
@@ -87,6 +96,7 @@ class Iterator {
   // Note that unlike all of the preceding methods, this method is
   // not abstract and therefore clients should not override it.
 <<<<<<< HEAD
+<<<<<<< HEAD
   using CleanupFunction = void (*)(void* arg1, void* arg2);
   void RegisterCleanup(CleanupFunction function, void* arg1, void* arg2);
 
@@ -117,6 +127,8 @@ LEVELDB_EXPORT Iterator* NewEmptyIterator();
 // Return an empty iterator with the specified status.
 LEVELDB_EXPORT Iterator* NewErrorIterator(const Status& status);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   typedef void (*CleanupFunction)(void* arg1, void* arg2);
   void RegisterCleanup(CleanupFunction function, void* arg1, void* arg2);
 
@@ -139,6 +151,9 @@ extern Iterator* NewEmptyIterator();
 
 // Return an empty iterator with the specified status.
 extern Iterator* NewErrorIterator(const Status& status);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 }  // namespace leveldb

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # v6.2.3
 - [fixed] Make sure the first valid auth domain is retrieved. (#3493)
 - [fixed] Add assertion for Facebook generic IDP flow. (#3208)
@@ -96,6 +97,8 @@
 
 - [added] Adds support for passing the deep link (which is embedded in the sign-in link sent via email) to the
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 # v6.2.1
 - Add new client error MISSING_CLIENT_IDENTIFIER. (#3341)
 
@@ -183,11 +186,15 @@
   is thrown (#931).
 
 - Adds support for passing the deep link (which is embedded in the sign-in link sent via email) to the
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   `signInWithEmail:link:completion:` and `isSignInWithEmailLink:` methods during an
   email/link sign-in flow (#1023).
 
 # v4.5.0
+<<<<<<< HEAD
 <<<<<<< HEAD
 - [added] Adds new API which provides a way to determine the sign-in methods associated with an
   email address.
@@ -206,6 +213,8 @@
 # v4.4.2
 - [fixed] Fixes bug where the FIRAuthResult object returned following a Phone Number authentication
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - Adds new API which provides a way to determine the sign-in methods associated with an
   email address.
 - Adds new API which allows authentication using only an email link (Passwordless Authentication
@@ -222,13 +231,20 @@
 
 # v4.4.2
 - Fixes bug where the FIRAuthResult object returned following a Phone Number authentication
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   always contained a nil FIRAdditionalUserInfo object. Now the FIRAdditionalUserInfo object is
   never nil and its newUser field is populated correctly.
 
 # v4.4.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [fixed] Adds new APIs which return an AuthDataResult object after successfully creating an
+=======
+- Adds new APIs which return an AuthDataResult object after successfully creating an
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - Adds new APIs which return an AuthDataResult object after successfully creating an
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -237,6 +253,7 @@
   information pertaining to the new user.
 
 # v4.3.2
+<<<<<<< HEAD
 <<<<<<< HEAD
 - [fixed] Improves error handling for the phone number sign-in reCAPTCHA flow.
 - [fixed] Improves error handling for phone number linking flow.
@@ -335,6 +352,8 @@
   platforms.
 - [changed] A saved signed in user is now siloed between different Firebase projects
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - Improves error handling for the phone number sign-in reCAPTCHA flow.
 - Improves error handling for phone number linking flow.
 - Fixes issue where after linking an anonymous user to a phone number the user remained
@@ -431,6 +450,9 @@
 - Whether or not an user is considered anonymous is now consistent with other
   platforms.
 - A saved signed in user is now siloed between different Firebase projects
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   within the same app.
 

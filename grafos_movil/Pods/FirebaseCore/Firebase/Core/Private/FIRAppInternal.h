@@ -35,7 +35,10 @@ typedef NS_ENUM(NSInteger, FIRConfigType) {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /**
  * Names of services provided by Firebase.
  */
@@ -56,6 +59,9 @@ extern NSString *const kFIRServiceStorage;
 extern NSString *const kGGLServiceAnalytics;
 extern NSString *const kGGLServiceSignIn;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern NSString *const kFIRDefaultAppName;
 extern NSString *const kFIRAppReadyToConfigureSDKNotification;
@@ -164,8 +170,11 @@ extern NSString *const FIRAuthStateDidChangeInternalNotificationUIDKey;
 /**
  * Used by each SDK to send logs about SDK configuration status to Clearcut.
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
  * @note This API is a no-op, please remove calls to it.
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  */

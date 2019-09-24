@@ -4,6 +4,10 @@
 
 #include "util/arena.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#include <assert.h>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <assert.h>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -13,13 +17,19 @@ namespace leveldb {
 static const int kBlockSize = 4096;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Arena::Arena()
     : alloc_ptr_(nullptr), alloc_bytes_remaining_(0), memory_usage_(0) {}
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Arena::Arena() : memory_usage_(0) {
   alloc_ptr_ = NULL;  // First allocation will allocate a block
   alloc_bytes_remaining_ = 0;
 }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 Arena::~Arena() {
@@ -49,9 +59,14 @@ char* Arena::AllocateFallback(size_t bytes) {
 char* Arena::AllocateAligned(size_t bytes) {
   const int align = (sizeof(void*) > 8) ? sizeof(void*) : 8;
 <<<<<<< HEAD
+<<<<<<< HEAD
   static_assert((align & (align - 1)) == 0,
                 "Pointer size should be a power of 2");
   size_t current_mod = reinterpret_cast<uintptr_t>(alloc_ptr_) & (align - 1);
+=======
+  assert((align & (align-1)) == 0);   // Pointer size should be a power of 2
+  size_t current_mod = reinterpret_cast<uintptr_t>(alloc_ptr_) & (align-1);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   assert((align & (align-1)) == 0);   // Pointer size should be a power of 2
   size_t current_mod = reinterpret_cast<uintptr_t>(alloc_ptr_) & (align-1);
@@ -68,7 +83,11 @@ char* Arena::AllocateAligned(size_t bytes) {
     result = AllocateFallback(bytes);
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert((reinterpret_cast<uintptr_t>(result) & (align - 1)) == 0);
+=======
+  assert((reinterpret_cast<uintptr_t>(result) & (align-1)) == 0);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   assert((reinterpret_cast<uintptr_t>(result) & (align-1)) == 0);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -79,8 +98,13 @@ char* Arena::AllocateNewBlock(size_t block_bytes) {
   char* result = new char[block_bytes];
   blocks_.push_back(result);
 <<<<<<< HEAD
+<<<<<<< HEAD
   memory_usage_.fetch_add(block_bytes + sizeof(char*),
                           std::memory_order_relaxed);
+=======
+  memory_usage_.NoBarrier_Store(
+      reinterpret_cast<void*>(MemoryUsage() + block_bytes + sizeof(char*)));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   memory_usage_.NoBarrier_Store(
       reinterpret_cast<void*>(MemoryUsage() + block_bytes + sizeof(char*)));

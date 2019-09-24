@@ -7,9 +7,14 @@
 #include "table/block.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <algorithm>
 #include <vector>
 
+=======
+#include <vector>
+#include <algorithm>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <vector>
 #include <algorithm>
@@ -34,7 +39,11 @@ Block::Block(const BlockContents& contents)
     size_ = 0;  // Error marker
   } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
     size_t max_restarts_allowed = (size_ - sizeof(uint32_t)) / sizeof(uint32_t);
+=======
+    size_t max_restarts_allowed = (size_-sizeof(uint32_t)) / sizeof(uint32_t);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     size_t max_restarts_allowed = (size_-sizeof(uint32_t)) / sizeof(uint32_t);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -59,6 +68,7 @@ Block::~Block() {
 // "*value_length", respectively.  Will not dereference past "limit".
 //
 <<<<<<< HEAD
+<<<<<<< HEAD
 // If any errors are detected, returns nullptr.  Otherwise, returns a
 // pointer to the key delta (just past the three decoded values).
 static inline const char* DecodeEntry(const char* p, const char* limit,
@@ -66,6 +76,8 @@ static inline const char* DecodeEntry(const char* p, const char* limit,
                                       uint32_t* value_length) {
   if (limit - p < 3) return nullptr;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // If any errors are detected, returns NULL.  Otherwise, returns a
 // pointer to the key delta (just past the three decoded values).
 static inline const char* DecodeEntry(const char* p, const char* limit,
@@ -73,6 +85,9 @@ static inline const char* DecodeEntry(const char* p, const char* limit,
                                       uint32_t* non_shared,
                                       uint32_t* value_length) {
   if (limit - p < 3) return NULL;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   *shared = reinterpret_cast<const unsigned char*>(p)[0];
   *non_shared = reinterpret_cast<const unsigned char*>(p)[1];
@@ -82,6 +97,7 @@ static inline const char* DecodeEntry(const char* p, const char* limit,
     p += 3;
   } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if ((p = GetVarint32Ptr(p, limit, shared)) == nullptr) return nullptr;
     if ((p = GetVarint32Ptr(p, limit, non_shared)) == nullptr) return nullptr;
     if ((p = GetVarint32Ptr(p, limit, value_length)) == nullptr) return nullptr;
@@ -90,6 +106,8 @@ static inline const char* DecodeEntry(const char* p, const char* limit,
   if (static_cast<uint32_t>(limit - p) < (*non_shared + *value_length)) {
     return nullptr;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if ((p = GetVarint32Ptr(p, limit, shared)) == NULL) return NULL;
     if ((p = GetVarint32Ptr(p, limit, non_shared)) == NULL) return NULL;
     if ((p = GetVarint32Ptr(p, limit, value_length)) == NULL) return NULL;
@@ -97,6 +115,9 @@ static inline const char* DecodeEntry(const char* p, const char* limit,
 
   if (static_cast<uint32_t>(limit - p) < (*non_shared + *value_length)) {
     return NULL;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
   return p;
@@ -106,9 +127,15 @@ class Block::Iter : public Iterator {
  private:
   const Comparator* const comparator_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   const char* const data_;       // underlying block contents
   uint32_t const restarts_;      // Offset of restart array (list of fixed32)
   uint32_t const num_restarts_;  // Number of uint32_t entries in restart array
+=======
+  const char* const data_;      // underlying block contents
+  uint32_t const restarts_;     // Offset of restart array (list of fixed32)
+  uint32_t const num_restarts_; // Number of uint32_t entries in restart array
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   const char* const data_;      // underlying block contents
   uint32_t const restarts_;     // Offset of restart array (list of fixed32)
@@ -148,7 +175,13 @@ class Block::Iter : public Iterator {
 
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   Iter(const Comparator* comparator, const char* data, uint32_t restarts,
+=======
+  Iter(const Comparator* comparator,
+       const char* data,
+       uint32_t restarts,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Iter(const Comparator* comparator,
        const char* data,
@@ -211,15 +244,21 @@ class Block::Iter : public Iterator {
       uint32_t region_offset = GetRestartPoint(mid);
       uint32_t shared, non_shared, value_length;
 <<<<<<< HEAD
+<<<<<<< HEAD
       const char* key_ptr =
           DecodeEntry(data_ + region_offset, data_ + restarts_, &shared,
                       &non_shared, &value_length);
       if (key_ptr == nullptr || (shared != 0)) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       const char* key_ptr = DecodeEntry(data_ + region_offset,
                                         data_ + restarts_,
                                         &shared, &non_shared, &value_length);
       if (key_ptr == NULL || (shared != 0)) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         CorruptionError();
         return;
@@ -284,7 +323,11 @@ class Block::Iter : public Iterator {
     uint32_t shared, non_shared, value_length;
     p = DecodeEntry(p, limit, &shared, &non_shared, &value_length);
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (p == nullptr || key_.size() < shared) {
+=======
+    if (p == NULL || key_.size() < shared) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (p == NULL || key_.size() < shared) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -304,7 +347,11 @@ class Block::Iter : public Iterator {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Iterator* Block::NewIterator(const Comparator* comparator) {
+=======
+Iterator* Block::NewIterator(const Comparator* cmp) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Iterator* Block::NewIterator(const Comparator* cmp) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -316,7 +363,11 @@ Iterator* Block::NewIterator(const Comparator* cmp) {
     return NewEmptyIterator();
   } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return new Iter(comparator, data_, restart_offset_, num_restarts);
+=======
+    return new Iter(cmp, data_, restart_offset_, num_restarts);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return new Iter(cmp, data_, restart_offset_, num_restarts);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

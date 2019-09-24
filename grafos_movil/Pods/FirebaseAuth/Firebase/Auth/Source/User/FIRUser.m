@@ -939,7 +939,11 @@ static void callInMainThreadWithAuthDataResultAndError(
                                       authDate:authDate
                                   issuedAtDate:issuedDate
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 signInProvider:tokenPayloadDictionary[@"firebase"][@"sign_in_provider"]
+=======
+                                signInProvider:tokenPayloadDictionary[@"sign_in_provider"]
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                                 signInProvider:tokenPayloadDictionary[@"sign_in_provider"]
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1257,12 +1261,15 @@ static void callInMainThreadWithAuthDataResultAndError(
       setAccountInfoRequest.accessToken = accessToken;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (!self->_providerData[provider]) {
         completeAndCallbackWithError([FIRAuthErrorUtils noSuchProviderError]);
         return;
       }
       setAccountInfoRequest.deleteProviders = @[ provider ];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       if ([provider isEqualToString:FIREmailAuthProviderID]) {
         if (!self->_hasEmailPasswordCredential) {
           completeAndCallbackWithError([FIRAuthErrorUtils noSuchProviderError]);
@@ -1276,6 +1283,9 @@ static void callInMainThreadWithAuthDataResultAndError(
         }
         setAccountInfoRequest.deleteProviders = @[ provider ];
       }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
       [FIRAuthBackend setAccountInfo:setAccountInfoRequest

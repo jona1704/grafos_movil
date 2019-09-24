@@ -121,7 +121,11 @@ class Stream : public GrpcStreamObserver,
 
   Stream(const std::shared_ptr<util::AsyncQueue>& worker_queue,
 <<<<<<< HEAD
+<<<<<<< HEAD
          std::shared_ptr<auth::CredentialsProvider> credentials_provider,
+=======
+         auth::CredentialsProvider* credentials_provider,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
          auth::CredentialsProvider* credentials_provider,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -232,7 +236,11 @@ class Stream : public GrpcStreamObserver,
   std::unique_ptr<GrpcStream> grpc_stream_;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::shared_ptr<auth::CredentialsProvider> credentials_provider_;
+=======
+  auth::CredentialsProvider* credentials_provider_ = nullptr;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   auth::CredentialsProvider* credentials_provider_ = nullptr;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

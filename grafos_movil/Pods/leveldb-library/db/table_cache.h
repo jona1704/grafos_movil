@@ -8,10 +8,15 @@
 #define STORAGE_LEVELDB_DB_TABLE_CACHE_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <stdint.h>
 
 #include <string>
 
+=======
+#include <string>
+#include <stdint.h>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <string>
 #include <stdint.h>
@@ -28,7 +33,11 @@ class Env;
 class TableCache {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   TableCache(const std::string& dbname, const Options& options, int entries);
+=======
+  TableCache(const std::string& dbname, const Options* options, int entries);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   TableCache(const std::string& dbname, const Options* options, int entries);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -36,6 +45,7 @@ class TableCache {
 
   // Return an iterator for the specified file number (the corresponding
   // file length must be exactly "file_size" bytes).  If "tableptr" is
+<<<<<<< HEAD
 <<<<<<< HEAD
   // non-null, also sets "*tableptr" to point to the Table object
   // underlying the returned iterator, or to nullptr if no Table object
@@ -50,6 +60,8 @@ class TableCache {
   Status Get(const ReadOptions& options, uint64_t file_number,
              uint64_t file_size, const Slice& k, void* arg,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // non-NULL, also sets "*tableptr" to point to the Table object
   // underlying the returned iterator, or NULL if no Table object underlies
   // the returned iterator.  The returned "*tableptr" object is owned by
@@ -67,6 +79,9 @@ class TableCache {
              uint64_t file_size,
              const Slice& k,
              void* arg,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
              void (*handle_result)(void*, const Slice&, const Slice&));
 
@@ -75,6 +90,7 @@ class TableCache {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   Status FindTable(uint64_t file_number, uint64_t file_size, Cache::Handle**);
 
   Env* const env_;
@@ -82,12 +98,17 @@ class TableCache {
   const Options& options_;
   Cache* cache_;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Env* const env_;
   const std::string dbname_;
   const Options* options_;
   Cache* cache_;
 
   Status FindTable(uint64_t file_number, uint64_t file_size, Cache::Handle**);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

@@ -35,13 +35,19 @@
 #include "Firestore/core/src/firebase/firestore/model/types.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @class FSTMemoryPersistence;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class FSTLocalSerializer;
 @class FSTMemoryPersistence;
 @class FSTMutation;
 @class FSTMutationBatch;
 @class FSTQuery;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 NS_ASSUME_NONNULL_BEGIN
@@ -51,8 +57,11 @@ namespace firestore {
 namespace local {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class Sizer;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 class MemoryMutationQueue : public MutationQueue {
@@ -63,6 +72,7 @@ class MemoryMutationQueue : public MutationQueue {
 
   bool IsEmpty() override;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   void AcknowledgeBatch(const model::MutationBatch& batch,
                         const nanopb::ByteString& stream_token) override;
@@ -96,6 +106,8 @@ class MemoryMutationQueue : public MutationQueue {
   model::BatchId GetHighestUnacknowledgedBatchId() override;
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void AcknowledgeBatch(FSTMutationBatch* batch,
                         NSData* _Nullable stream_token) override;
 
@@ -125,21 +137,30 @@ class MemoryMutationQueue : public MutationQueue {
   FSTMutationBatch* _Nullable NextMutationBatchAfterBatchId(
       model::BatchId batch_id) override;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void PerformConsistencyCheck() override;
 
   bool ContainsKey(const model::DocumentKey& key);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   int64_t CalculateByteSize(const Sizer& sizer);
 
   nanopb::ByteString GetLastStreamToken() override;
   void SetLastStreamToken(const nanopb::ByteString& token) override;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   size_t CalculateByteSize(FSTLocalSerializer* serializer);
 
   NSData* _Nullable GetLastStreamToken() override;
   void SetLastStreamToken(NSData* _Nullable token) override;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:
@@ -147,7 +168,11 @@ class MemoryMutationQueue : public MutationQueue {
       immutable::SortedSet<DocumentKeyReference, DocumentKeyReference::ByKey>;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<model::MutationBatch> AllMutationBatchesWithIds(
+=======
+  std::vector<FSTMutationBatch*> AllMutationBatchesWithIds(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutationBatch*> AllMutationBatchesWithIds(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -185,7 +210,11 @@ class MemoryMutationQueue : public MutationQueue {
    * the head of the queue along with any tombstones that follow.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<model::MutationBatch> queue_;
+=======
+  std::vector<FSTMutationBatch*> queue_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutationBatch*> queue_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -202,7 +231,11 @@ class MemoryMutationQueue : public MutationQueue {
    * markers whose only real value is their inclusion in the next request.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   nanopb::ByteString last_stream_token_;
+=======
+  NSData* _Nullable last_stream_token_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData* _Nullable last_stream_token_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -6,7 +6,11 @@
 
 #include <stdlib.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+#include <unistd.h>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <unistd.h>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -47,6 +51,7 @@ using leveldb::WriteOptions;
 
 extern "C" {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 struct leveldb_t {
   DB* rep;
@@ -91,6 +96,8 @@ struct leveldb_filelock_t {
 struct leveldb_comparator_t : public Comparator {
   virtual ~leveldb_comparator_t() { (*destructor_)(state_); }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 struct leveldb_t              { DB*               rep; };
 struct leveldb_iterator_t     { Iterator*         rep; };
 struct leveldb_writebatch_t   { WriteBatch        rep; };
@@ -117,12 +124,16 @@ struct leveldb_comparator_t : public Comparator {
   virtual ~leveldb_comparator_t() {
     (*destructor_)(state_);
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   virtual int Compare(const Slice& a, const Slice& b) const {
     return (*compare_)(state_, a.data(), a.size(), b.data(), b.size());
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   virtual const char* Name() const { return (*name_)(state_); }
 
@@ -142,6 +153,8 @@ struct leveldb_filterpolicy_t : public FilterPolicy {
 
   virtual const char* Name() const { return (*name_)(state_); }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual const char* Name() const {
     return (*name_)(state_);
   }
@@ -172,6 +185,9 @@ struct leveldb_filterpolicy_t : public FilterPolicy {
   virtual const char* Name() const {
     return (*name_)(state_);
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   virtual void CreateFilter(const Slice* keys, int n, std::string* dst) const {
@@ -188,6 +204,7 @@ struct leveldb_filterpolicy_t : public FilterPolicy {
   }
 
   virtual bool KeyMayMatch(const Slice& key, const Slice& filter) const {
+<<<<<<< HEAD
 <<<<<<< HEAD
     return (*key_match_)(state_, key.data(), key.size(), filter.data(),
                          filter.size());
@@ -206,6 +223,11 @@ struct leveldb_filterpolicy_t : public FilterPolicy {
                          filter.data(), filter.size());
   }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+    return (*key_match_)(state_, key.data(), key.size(),
+                         filter.data(), filter.size());
+  }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 struct leveldb_env_t {
@@ -215,15 +237,21 @@ struct leveldb_env_t {
 
 static bool SaveError(char** errptr, const Status& s) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert(errptr != nullptr);
   if (s.ok()) {
     return false;
   } else if (*errptr == nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   assert(errptr != NULL);
   if (s.ok()) {
     return false;
   } else if (*errptr == NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     *errptr = strdup(s.ToString().c_str());
   } else {
@@ -241,12 +269,15 @@ static char* CopyString(const std::string& str) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 leveldb_t* leveldb_open(const leveldb_options_t* options, const char* name,
                         char** errptr) {
   DB* db;
   if (SaveError(errptr, DB::Open(options->rep, std::string(name), &db))) {
     return nullptr;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 leveldb_t* leveldb_open(
     const leveldb_options_t* options,
     const char* name,
@@ -254,6 +285,9 @@ leveldb_t* leveldb_open(
   DB* db;
   if (SaveError(errptr, DB::Open(options->rep, std::string(name), &db))) {
     return NULL;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
   leveldb_t* result = new leveldb_t;
@@ -267,21 +301,28 @@ void leveldb_close(leveldb_t* db) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void leveldb_put(leveldb_t* db, const leveldb_writeoptions_t* options,
                  const char* key, size_t keylen, const char* val, size_t vallen,
                  char** errptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void leveldb_put(
     leveldb_t* db,
     const leveldb_writeoptions_t* options,
     const char* key, size_t keylen,
     const char* val, size_t vallen,
     char** errptr) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   SaveError(errptr,
             db->rep->Put(options->rep, Slice(key, keylen), Slice(val, vallen)));
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 void leveldb_delete(leveldb_t* db, const leveldb_writeoptions_t* options,
                     const char* key, size_t keylen, char** errptr) {
@@ -298,6 +339,8 @@ char* leveldb_get(leveldb_t* db, const leveldb_readoptions_t* options,
                   char** errptr) {
   char* result = nullptr;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void leveldb_delete(
     leveldb_t* db,
     const leveldb_writeoptions_t* options,
@@ -322,6 +365,9 @@ char* leveldb_get(
     size_t* vallen,
     char** errptr) {
   char* result = NULL;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::string tmp;
   Status s = db->rep->Get(options->rep, Slice(key, keylen), &tmp);
@@ -339,7 +385,12 @@ char* leveldb_get(
 
 leveldb_iterator_t* leveldb_create_iterator(
 <<<<<<< HEAD
+<<<<<<< HEAD
     leveldb_t* db, const leveldb_readoptions_t* options) {
+=======
+    leveldb_t* db,
+    const leveldb_readoptions_t* options) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     leveldb_t* db,
     const leveldb_readoptions_t* options) {
@@ -350,7 +401,12 @@ leveldb_iterator_t* leveldb_create_iterator(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const leveldb_snapshot_t* leveldb_create_snapshot(leveldb_t* db) {
+=======
+const leveldb_snapshot_t* leveldb_create_snapshot(
+    leveldb_t* db) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 const leveldb_snapshot_t* leveldb_create_snapshot(
     leveldb_t* db) {
@@ -361,8 +417,14 @@ const leveldb_snapshot_t* leveldb_create_snapshot(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void leveldb_release_snapshot(leveldb_t* db,
                               const leveldb_snapshot_t* snapshot) {
+=======
+void leveldb_release_snapshot(
+    leveldb_t* db,
+    const leveldb_snapshot_t* snapshot) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void leveldb_release_snapshot(
     leveldb_t* db,
@@ -373,7 +435,13 @@ void leveldb_release_snapshot(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 char* leveldb_property_value(leveldb_t* db, const char* propname) {
+=======
+char* leveldb_property_value(
+    leveldb_t* db,
+    const char* propname) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 char* leveldb_property_value(
     leveldb_t* db,
@@ -384,6 +452,7 @@ char* leveldb_property_value(
     // We use strdup() since we expect human readable output.
     return strdup(tmp.c_str());
   } else {
+<<<<<<< HEAD
 <<<<<<< HEAD
     return nullptr;
   }
@@ -396,6 +465,8 @@ void leveldb_approximate_sizes(leveldb_t* db, int num_ranges,
                                const size_t* range_limit_key_len,
                                uint64_t* sizes) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     return NULL;
   }
 }
@@ -406,6 +477,9 @@ void leveldb_approximate_sizes(
     const char* const* range_start_key, const size_t* range_start_key_len,
     const char* const* range_limit_key, const size_t* range_limit_key_len,
     uint64_t* sizes) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Range* ranges = new Range[num_ranges];
   for (int i = 0; i < num_ranges; i++) {
@@ -416,6 +490,7 @@ void leveldb_approximate_sizes(
   delete[] ranges;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 void leveldb_compact_range(leveldb_t* db, const char* start_key,
                            size_t start_key_len, const char* limit_key,
@@ -435,6 +510,8 @@ void leveldb_destroy_db(const leveldb_options_t* options, const char* name,
 void leveldb_repair_db(const leveldb_options_t* options, const char* name,
                        char** errptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void leveldb_compact_range(
     leveldb_t* db,
     const char* start_key, size_t start_key_len,
@@ -457,6 +534,9 @@ void leveldb_repair_db(
     const leveldb_options_t* options,
     const char* name,
     char** errptr) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   SaveError(errptr, RepairDB(name, options->rep));
 }
@@ -483,10 +563,13 @@ void leveldb_iter_seek(leveldb_iterator_t* iter, const char* k, size_t klen) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void leveldb_iter_next(leveldb_iterator_t* iter) { iter->rep->Next(); }
 
 void leveldb_iter_prev(leveldb_iterator_t* iter) { iter->rep->Prev(); }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void leveldb_iter_next(leveldb_iterator_t* iter) {
   iter->rep->Next();
 }
@@ -494,6 +577,9 @@ void leveldb_iter_next(leveldb_iterator_t* iter) {
 void leveldb_iter_prev(leveldb_iterator_t* iter) {
   iter->rep->Prev();
 }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 const char* leveldb_iter_key(const leveldb_iterator_t* iter, size_t* klen) {
@@ -517,6 +603,7 @@ leveldb_writebatch_t* leveldb_writebatch_create() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void leveldb_writebatch_destroy(leveldb_writebatch_t* b) { delete b; }
 
 void leveldb_writebatch_clear(leveldb_writebatch_t* b) { b->rep.Clear(); }
@@ -537,6 +624,8 @@ void leveldb_writebatch_iterate(const leveldb_writebatch_t* b, void* state,
                                 void (*deleted)(void*, const char* k,
                                                 size_t klen)) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void leveldb_writebatch_destroy(leveldb_writebatch_t* b) {
   delete b;
 }
@@ -563,6 +652,9 @@ void leveldb_writebatch_iterate(
     void* state,
     void (*put)(void*, const char* k, size_t klen, const char* v, size_t vlen),
     void (*deleted)(void*, const char* k, size_t klen)) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   class H : public WriteBatch::Handler {
    public:
@@ -583,6 +675,7 @@ void leveldb_writebatch_iterate(
   b->rep.Iterate(&handler);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 void leveldb_writebatch_append(leveldb_writebatch_t* destination,
                                const leveldb_writebatch_t* source) {
@@ -616,6 +709,8 @@ void leveldb_options_set_error_if_exists(leveldb_options_t* opt,
 void leveldb_options_set_paranoid_checks(leveldb_options_t* opt,
                                          unsigned char v) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 leveldb_options_t* leveldb_options_create() {
   return new leveldb_options_t;
 }
@@ -648,11 +743,15 @@ void leveldb_options_set_error_if_exists(
 
 void leveldb_options_set_paranoid_checks(
     leveldb_options_t* opt, unsigned char v) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   opt->rep.paranoid_checks = v;
 }
 
 void leveldb_options_set_env(leveldb_options_t* opt, leveldb_env_t* env) {
+<<<<<<< HEAD
 <<<<<<< HEAD
   opt->rep.env = (env ? env->rep : nullptr);
 }
@@ -660,11 +759,16 @@ void leveldb_options_set_env(leveldb_options_t* opt, leveldb_env_t* env) {
 void leveldb_options_set_info_log(leveldb_options_t* opt, leveldb_logger_t* l) {
   opt->rep.info_log = (l ? l->rep : nullptr);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   opt->rep.env = (env ? env->rep : NULL);
 }
 
 void leveldb_options_set_info_log(leveldb_options_t* opt, leveldb_logger_t* l) {
   opt->rep.info_log = (l ? l->rep : NULL);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -689,10 +793,13 @@ void leveldb_options_set_block_restart_interval(leveldb_options_t* opt, int n) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void leveldb_options_set_max_file_size(leveldb_options_t* opt, size_t s) {
   opt->rep.max_file_size = s;
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void leveldb_options_set_compression(leveldb_options_t* opt, int t) {
@@ -701,16 +808,22 @@ void leveldb_options_set_compression(leveldb_options_t* opt, int t) {
 
 leveldb_comparator_t* leveldb_comparator_create(
 <<<<<<< HEAD
+<<<<<<< HEAD
     void* state, void (*destructor)(void*),
     int (*compare)(void*, const char* a, size_t alen, const char* b,
                    size_t blen),
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     void* state,
     void (*destructor)(void*),
     int (*compare)(
         void*,
         const char* a, size_t alen,
         const char* b, size_t blen),
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     const char* (*name)(void*)) {
   leveldb_comparator_t* result = new leveldb_comparator_t;
@@ -722,6 +835,7 @@ leveldb_comparator_t* leveldb_comparator_create(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void leveldb_comparator_destroy(leveldb_comparator_t* cmp) { delete cmp; }
 
 leveldb_filterpolicy_t* leveldb_filterpolicy_create(
@@ -732,6 +846,8 @@ leveldb_filterpolicy_t* leveldb_filterpolicy_create(
     unsigned char (*key_may_match)(void*, const char* key, size_t length,
                                    const char* filter, size_t filter_length),
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void leveldb_comparator_destroy(leveldb_comparator_t* cmp) {
   delete cmp;
 }
@@ -748,6 +864,9 @@ leveldb_filterpolicy_t* leveldb_filterpolicy_create(
         void*,
         const char* key, size_t length,
         const char* filter, size_t filter_length),
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     const char* (*name)(void*)) {
   leveldb_filterpolicy_t* result = new leveldb_filterpolicy_t;
@@ -769,8 +888,12 @@ leveldb_filterpolicy_t* leveldb_filterpolicy_create_bloom(int bits_per_key) {
   // supplied C functions.
   struct Wrapper : public leveldb_filterpolicy_t {
 <<<<<<< HEAD
+<<<<<<< HEAD
     static void DoNothing(void*) {}
 
+=======
+    const FilterPolicy* rep_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     const FilterPolicy* rep_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -783,6 +906,7 @@ leveldb_filterpolicy_t* leveldb_filterpolicy_create_bloom(int bits_per_key) {
       return rep_->KeyMayMatch(key, filter);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     const FilterPolicy* rep_;
   };
@@ -790,11 +914,16 @@ leveldb_filterpolicy_t* leveldb_filterpolicy_create_bloom(int bits_per_key) {
   wrapper->rep_ = NewBloomFilterPolicy(bits_per_key);
   wrapper->state_ = nullptr;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     static void DoNothing(void*) { }
   };
   Wrapper* wrapper = new Wrapper;
   wrapper->rep_ = NewBloomFilterPolicy(bits_per_key);
   wrapper->state_ = NULL;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   wrapper->destructor_ = &Wrapper::DoNothing;
   return wrapper;
@@ -804,6 +933,7 @@ leveldb_readoptions_t* leveldb_readoptions_create() {
   return new leveldb_readoptions_t;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 void leveldb_readoptions_destroy(leveldb_readoptions_t* opt) { delete opt; }
 
@@ -821,6 +951,8 @@ void leveldb_readoptions_set_snapshot(leveldb_readoptions_t* opt,
                                       const leveldb_snapshot_t* snap) {
   opt->rep.snapshot = (snap ? snap->rep : nullptr);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void leveldb_readoptions_destroy(leveldb_readoptions_t* opt) {
   delete opt;
 }
@@ -840,6 +972,9 @@ void leveldb_readoptions_set_snapshot(
     leveldb_readoptions_t* opt,
     const leveldb_snapshot_t* snap) {
   opt->rep.snapshot = (snap ? snap->rep : NULL);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -848,17 +983,23 @@ leveldb_writeoptions_t* leveldb_writeoptions_create() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void leveldb_writeoptions_destroy(leveldb_writeoptions_t* opt) { delete opt; }
 
 void leveldb_writeoptions_set_sync(leveldb_writeoptions_t* opt,
                                    unsigned char v) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void leveldb_writeoptions_destroy(leveldb_writeoptions_t* opt) {
   delete opt;
 }
 
 void leveldb_writeoptions_set_sync(
     leveldb_writeoptions_t* opt, unsigned char v) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   opt->rep.sync = v;
 }
@@ -887,6 +1028,7 @@ void leveldb_env_destroy(leveldb_env_t* env) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 char* leveldb_env_get_test_directory(leveldb_env_t* env) {
   std::string result;
   if (!env->rep->GetTestDirectory(&result).ok()) {
@@ -905,6 +1047,8 @@ int leveldb_major_version() { return kMajorVersion; }
 
 int leveldb_minor_version() { return kMinorVersion; }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void leveldb_free(void* ptr) {
   free(ptr);
 }
@@ -916,6 +1060,9 @@ int leveldb_major_version() {
 int leveldb_minor_version() {
   return kMinorVersion;
 }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 }  // end extern "C"

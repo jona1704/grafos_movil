@@ -14,6 +14,7 @@
 #define STORAGE_LEVELDB_INCLUDE_STATUS_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <algorithm>
 #include <string>
 
@@ -21,10 +22,14 @@
 =======
 #include <string>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+#include <string>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/slice.h"
 
 namespace leveldb {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 class LEVELDB_EXPORT Status {
  public:
@@ -38,6 +43,8 @@ class LEVELDB_EXPORT Status {
   Status(Status&& rhs) noexcept : state_(rhs.state_) { rhs.state_ = nullptr; }
   Status& operator=(Status&& rhs) noexcept;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 class Status {
  public:
   // Create a success status.
@@ -47,6 +54,9 @@ class Status {
   // Copy the specified status.
   Status(const Status& s);
   void operator=(const Status& s);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // Return a success status.
@@ -71,7 +81,11 @@ class Status {
 
   // Returns true iff the status indicates success.
 <<<<<<< HEAD
+<<<<<<< HEAD
   bool ok() const { return (state_ == nullptr); }
+=======
+  bool ok() const { return (state_ == NULL); }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   bool ok() const { return (state_ == NULL); }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -97,7 +111,10 @@ class Status {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // OK status has a NULL state_.  Otherwise, state_ is a new[] array
   // of the following form:
   //    state_[0..3] == length of message
@@ -105,6 +122,9 @@ class Status {
   //    state_[5..]  == message
   const char* state_;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   enum Code {
     kOk = 0,
@@ -117,7 +137,11 @@ class Status {
 
   Code code() const {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return (state_ == nullptr) ? kOk : static_cast<Code>(state_[4]);
+=======
+    return (state_ == NULL) ? kOk : static_cast<Code>(state_[4]);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return (state_ == NULL) ? kOk : static_cast<Code>(state_[4]);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -125,6 +149,7 @@ class Status {
 
   Status(Code code, const Slice& msg, const Slice& msg2);
   static const char* CopyState(const char* s);
+<<<<<<< HEAD
 <<<<<<< HEAD
 
   // OK status has a null state_.  Otherwise, state_ is a new[] array
@@ -151,6 +176,8 @@ inline Status& Status::operator=(Status&& rhs) noexcept {
   std::swap(state_, rhs.state_);
   return *this;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 inline Status::Status(const Status& s) {
@@ -163,6 +190,9 @@ inline void Status::operator=(const Status& s) {
     delete[] state_;
     state_ = (s.state_ == NULL) ? NULL : CopyState(s.state_);
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

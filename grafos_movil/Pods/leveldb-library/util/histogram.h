@@ -12,8 +12,13 @@ namespace leveldb {
 class Histogram {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   Histogram() {}
   ~Histogram() {}
+=======
+  Histogram() { }
+  ~Histogram() { }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Histogram() { }
   ~Histogram() { }
@@ -27,6 +32,7 @@ class Histogram {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   enum { kNumBuckets = 154 };
 
   double Median() const;
@@ -38,6 +44,8 @@ class Histogram {
 
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   double min_;
   double max_;
   double num_;
@@ -45,8 +53,11 @@ class Histogram {
   double sum_squares_;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   double buckets_[kNumBuckets];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   enum { kNumBuckets = 154 };
   static const double kBucketLimit[kNumBuckets];
   double buckets_[kNumBuckets];
@@ -55,6 +66,9 @@ class Histogram {
   double Percentile(double p) const;
   double Average() const;
   double StandardDeviation() const;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

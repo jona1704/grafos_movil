@@ -23,8 +23,11 @@
 
 #include <string>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include "leveldb/export.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/status.h"
@@ -33,6 +36,7 @@ namespace leveldb {
 
 class Slice;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 class LEVELDB_EXPORT WriteBatch {
  public:
@@ -54,6 +58,11 @@ class WriteBatch {
  public:
   WriteBatch();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+class WriteBatch {
+ public:
+  WriteBatch();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   ~WriteBatch();
 
   // Store the mapping "key->value" in the database.
@@ -65,6 +74,7 @@ class WriteBatch {
   // Clear all updates buffered in this batch.
   void Clear();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   // The size of the database changes caused by this batch.
   //
@@ -81,6 +91,8 @@ class WriteBatch {
 
   // Support for iterating over the contents of a batch.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Support for iterating over the contents of a batch.
   class Handler {
    public:
@@ -88,6 +100,9 @@ class WriteBatch {
     virtual void Put(const Slice& key, const Slice& value) = 0;
     virtual void Delete(const Slice& key) = 0;
   };
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Status Iterate(Handler* handler) const;
 
@@ -96,6 +111,11 @@ class WriteBatch {
 
   std::string rep_;  // See comment in write_batch.cc for the format of rep_
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+  // Intentionally copyable
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
   // Intentionally copyable

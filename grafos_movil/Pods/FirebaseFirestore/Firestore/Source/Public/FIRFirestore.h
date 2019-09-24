@@ -193,6 +193,7 @@ NS_SWIFT_NAME(Firestore)
 - (void)clearPersistenceWithCompletion:(nullable void (^)(NSError *_Nullable error))completion;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Waits until all currently pending writes for the active user have been acknowledged by the
  * backend.
@@ -234,6 +235,8 @@ NS_SWIFT_NAME(Firestore)
 - (void)terminateWithCompletion:(nullable void (^)(NSError *_Nullable error))completion
     NS_SWIFT_NAME(terminate(completion:));
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @end

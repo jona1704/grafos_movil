@@ -27,6 +27,7 @@
 
 #include "Firestore/core/include/firebase/firestore/timestamp.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
@@ -35,6 +36,8 @@
 #include "Firestore/core/src/firebase/firestore/nanopb/byte_string.h"
 #include "absl/types/optional.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
@@ -42,6 +45,9 @@
 @class FSTMutation;
 @class FSTMutationBatch;
 @class FSTQuery;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 NS_ASSUME_NONNULL_BEGIN
@@ -67,8 +73,13 @@ class MutationQueue {
 
   /** Acknowledges the given batch. */
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual void AcknowledgeBatch(const model::MutationBatch& batch,
                                 const nanopb::ByteString& stream_token) = 0;
+=======
+  virtual void AcknowledgeBatch(FSTMutationBatch* batch,
+                                NSData* _Nullable stream_token) = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual void AcknowledgeBatch(FSTMutationBatch* batch,
                                 NSData* _Nullable stream_token) = 0;
@@ -84,15 +95,21 @@ class MutationQueue {
    * @param mutations The user-provided mutations in this mutation batch.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual model::MutationBatch AddMutationBatch(
       const Timestamp& local_write_time,
       std::vector<model::Mutation>&& base_mutations,
       std::vector<model::Mutation>&& mutations) = 0;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual FSTMutationBatch* AddMutationBatch(
       const Timestamp& local_write_time,
       std::vector<FSTMutation*>&& base_mutations,
       std::vector<FSTMutation*>&& mutations) = 0;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   /**
@@ -103,7 +120,11 @@ class MutationQueue {
    * + Removing rejected mutations from anywhere in the queue
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual void RemoveMutationBatch(const model::MutationBatch& batch) = 0;
+=======
+  virtual void RemoveMutationBatch(FSTMutationBatch* batch) = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual void RemoveMutationBatch(FSTMutationBatch* batch) = 0;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -112,7 +133,11 @@ class MutationQueue {
   // TODO(mikelehen): PERF: Current consumer only needs mutated keys; if we can
   // provide that cheaply, we should replace this.
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual std::vector<model::MutationBatch> AllMutationBatches() = 0;
+=======
+  virtual std::vector<FSTMutationBatch*> AllMutationBatches() = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual std::vector<FSTMutationBatch*> AllMutationBatches() = 0;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -129,7 +154,11 @@ class MutationQueue {
    */
   // TODO(mcg): This should really return an iterator
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual std::vector<model::MutationBatch>
+=======
+  virtual std::vector<FSTMutationBatch*>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual std::vector<FSTMutationBatch*>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -148,8 +177,13 @@ class MutationQueue {
    */
   // TODO(mcg): This should really return an iterator
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual std::vector<model::MutationBatch>
   AllMutationBatchesAffectingDocumentKey(const model::DocumentKey& key) = 0;
+=======
+  virtual std::vector<FSTMutationBatch*> AllMutationBatchesAffectingDocumentKey(
+      const model::DocumentKey& key) = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual std::vector<FSTMutationBatch*> AllMutationBatchesAffectingDocumentKey(
       const model::DocumentKey& key) = 0;
@@ -165,7 +199,11 @@ class MutationQueue {
    * mutation batches that don't match the query at all if it's convenient.
    *
 <<<<<<< HEAD
+<<<<<<< HEAD
    * NOTE: A PatchMutation does not need to include all fields in the query
+=======
+   * NOTE: A FSTPatchMutation does not need to include all fields in the query
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
    * NOTE: A FSTPatchMutation does not need to include all fields in the query
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -175,17 +213,23 @@ class MutationQueue {
   // TODO(mikelehen): This should perhaps return an iterator, though I'm not
   // sure we can avoid loading them all in memory.
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual std::vector<model::MutationBatch> AllMutationBatchesAffectingQuery(
       const core::Query& query) = 0;
 
   /** Loads the mutation batch with the given batch_id. */
   virtual absl::optional<model::MutationBatch> LookupMutationBatch(
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual std::vector<FSTMutationBatch*> AllMutationBatchesAffectingQuery(
       FSTQuery* query) = 0;
 
   /** Loads the mutation batch with the given batch_id. */
   virtual FSTMutationBatch* _Nullable LookupMutationBatch(
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       model::BatchId batch_id) = 0;
 
@@ -198,6 +242,7 @@ class MutationQueue {
    *
    * @return the next mutation or nil if there wasn't one.
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   virtual absl::optional<model::MutationBatch> NextMutationBatchAfterBatchId(
       model::BatchId batch_id) = 0;
@@ -214,10 +259,15 @@ class MutationQueue {
 
   /**
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual FSTMutationBatch* _Nullable NextMutationBatchAfterBatchId(
       model::BatchId batch_id) = 0;
 
   /**
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
    * Performs a consistency check, examining the mutation queue for any leaks,
    * if possible.
@@ -226,15 +276,21 @@ class MutationQueue {
 
   /** Returns the current stream token for this mutation queue. */
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual nanopb::ByteString GetLastStreamToken() = 0;
 
   /** Sets the stream token for this mutation queue. */
   virtual void SetLastStreamToken(const nanopb::ByteString& stream_token) = 0;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual NSData* _Nullable GetLastStreamToken() = 0;
 
   /** Sets the stream token for this mutation queue. */
   virtual void SetLastStreamToken(NSData* _Nullable stream_token) = 0;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

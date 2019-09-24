@@ -67,7 +67,11 @@ NS_SWIFT_NAME(CollectionReference)
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Adds a new document to this collection with the specified data, assigning it a document ID
+=======
+ * Add a new document to this collection with the specified data, assigning it  a document ID
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  * Add a new document to this collection with the specified data, assigning it  a document ID
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -82,7 +86,11 @@ NS_SWIFT_NAME(CollectionReference)
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Adds a new document to this collection with the specified data, assigning it a document ID
+=======
+ * Add a new document to this collection with the specified data, assigning it a document ID
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  * Add a new document to this collection with the specified data, assigning it a document ID
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

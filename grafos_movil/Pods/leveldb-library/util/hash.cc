@@ -3,11 +3,17 @@
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "util/hash.h"
 
 #include <string.h>
 
 #include "util/coding.h"
+=======
+#include <string.h>
+#include "util/coding.h"
+#include "util/hash.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <string.h>
 #include "util/coding.h"
@@ -19,9 +25,13 @@
 // This one is a fallback version for unsupported compilers.
 #ifndef FALLTHROUGH_INTENDED
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define FALLTHROUGH_INTENDED \
   do {                       \
   } while (0)
+=======
+#define FALLTHROUGH_INTENDED do { } while (0)
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #define FALLTHROUGH_INTENDED do { } while (0)
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -63,6 +73,10 @@ uint32_t Hash(const char* data, size_t n, uint32_t seed) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

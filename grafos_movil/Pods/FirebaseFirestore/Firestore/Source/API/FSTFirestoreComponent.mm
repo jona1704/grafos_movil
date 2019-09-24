@@ -71,10 +71,13 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (NSString *)keyForDatabase:(NSString *)database {
   return [NSString stringWithFormat:@"%@|%@", self.app.name, database];
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #pragma mark - FSTInstanceProvider Conformance
@@ -85,12 +88,16 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   NSString *projectID = self.app.options.projectID;
   if (!projectID) {
     ThrowInvalidArgument("FIROptions.projectID must be set to a valid project ID.");
   }
 
   NSString *key = [self keyForDatabase:database];
+=======
+  NSString *key = [NSString stringWithFormat:@"%@|%@", self.app.name, database];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSString *key = [NSString stringWithFormat:@"%@|%@", self.app.name, database];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -110,20 +117,27 @@ NS_ASSUME_NONNULL_BEGIN
 
       id<FIRAuthInterop> auth = FIR_COMPONENT(FIRAuthInterop, self.app.container);
 <<<<<<< HEAD
+<<<<<<< HEAD
       auto credentialsProvider = std::make_shared<FirebaseCredentialsProvider>(self.app, auth);
 
       model::DatabaseId databaseID{util::MakeString(projectID), util::MakeString(database)};
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       auto credentialsProvider = absl::make_unique<FirebaseCredentialsProvider>(self.app, auth);
 
       model::DatabaseId databaseID{util::MakeString(self.app.options.projectID),
                                    util::MakeString(database)};
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       std::string persistenceKey = util::MakeString(self.app.name);
       firestore = [[FIRFirestore alloc] initWithDatabaseID:std::move(databaseID)
                                             persistenceKey:std::move(persistenceKey)
                                        credentialsProvider:std::move(credentialsProvider)
                                                workerQueue:std::move(workerQueue)
+<<<<<<< HEAD
 <<<<<<< HEAD
                                                firebaseApp:self.app
                                           instanceRegistry:self];
@@ -138,11 +152,16 @@ NS_ASSUME_NONNULL_BEGIN
     NSString *key = [self keyForDatabase:database];
     [_instances removeObjectForKey:key];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                                                firebaseApp:self.app];
       _instances[key] = firestore;
     }
 
     return firestore;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 }
@@ -150,6 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - FIRComponentLifecycleMaintainer
 
 - (void)appWillBeDeleted:(FIRApp *)app {
+<<<<<<< HEAD
 <<<<<<< HEAD
   NSDictionary<NSString *, FIRFirestore *> *instances;
   @synchronized(_instances) {
@@ -159,6 +179,10 @@ NS_ASSUME_NONNULL_BEGIN
   for (NSString *key in instances) {
     [instances[key] terminateInternalWithCompletion:nil];
   }
+=======
+  // Stop any actions and clean up resources since instances of Firestore associated with this app
+  // will be removed. Currently does not do anything.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // Stop any actions and clean up resources since instances of Firestore associated with this app
   // will be removed. Currently does not do anything.

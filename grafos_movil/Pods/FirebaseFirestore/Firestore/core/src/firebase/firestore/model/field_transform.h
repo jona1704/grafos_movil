@@ -18,17 +18,23 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_MODEL_FIELD_TRANSFORM_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <string>
 
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
 #include "Firestore/core/src/firebase/firestore/model/transform_operation.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <memory>
 #include <utility>
 
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
 #include "Firestore/core/src/firebase/firestore/model/transform_operations.h"
 #include "Firestore/core/src/firebase/firestore/util/hashing.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
@@ -39,12 +45,18 @@ namespace model {
 class FieldTransform {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   FieldTransform(FieldPath path, TransformOperation transformation) noexcept;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   FieldTransform(FieldPath path,
                  std::unique_ptr<TransformOperation> transformation) noexcept
       : path_{std::move(path)}, transformation_{std::move(transformation)} {
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   const FieldPath& path() const {
@@ -52,6 +64,7 @@ class FieldTransform {
   }
 
   const TransformOperation& transformation() const {
+<<<<<<< HEAD
 <<<<<<< HEAD
     return transformation_;
   }
@@ -66,6 +79,8 @@ class FieldTransform {
   FieldPath path_;
   TransformOperation transformation_;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     return *transformation_.get();
   }
 
@@ -85,6 +100,9 @@ class FieldTransform {
   FieldPath path_;
   // Shared by copies of the same FieldTransform.
   std::shared_ptr<const TransformOperation> transformation_;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

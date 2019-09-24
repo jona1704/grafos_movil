@@ -263,8 +263,14 @@ class TimestampValue : public BaseValue {
  * Notes:
  *   - ServerTimestampValue instances are created as the result of applying an
 <<<<<<< HEAD
+<<<<<<< HEAD
  *     TransformMutation. They can only exist in the local view of a document.
  *     Therefore they do not need to be parsed or serialized.
+=======
+ *     FSTTransformMutation (see [FSTTransformMutation applyTo]). They can only
+ *     exist in the local view of a document. Therefore they do not need to be
+ *     parsed or serialized.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  *     FSTTransformMutation (see [FSTTransformMutation applyTo]). They can only
  *     exist in the local view of a document. Therefore they do not need to be

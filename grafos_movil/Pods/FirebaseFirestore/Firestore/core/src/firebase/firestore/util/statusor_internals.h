@@ -119,7 +119,11 @@ class StatusOrData {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   StatusOrData& operator=(StatusOrData&& other) noexcept {
+=======
+  StatusOrData& operator=(StatusOrData&& other) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   StatusOrData& operator=(StatusOrData&& other) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

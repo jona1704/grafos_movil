@@ -27,8 +27,13 @@ namespace firestore {
 namespace util {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status::Status(Error code, absl::string_view msg) {
   HARD_ASSERT(code != Error::Ok);
+=======
+Status::Status(FirestoreErrorCode code, absl::string_view msg) {
+  HARD_ASSERT(code != FirestoreErrorCode::Ok);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Status::Status(FirestoreErrorCode code, absl::string_view msg) {
   HARD_ASSERT(code != FirestoreErrorCode::Ok);
@@ -58,7 +63,11 @@ Status& Status::CausedBy(const Status& cause) {
 
   // If this Status has no accompanying PlatformError but the cause does, create
 <<<<<<< HEAD
+<<<<<<< HEAD
   // a PlatformError for this Status ahead of time to preserve the causal chain
+=======
+  // an PlatformError for this Status ahead of time to preserve the causal chain
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // an PlatformError for this Status ahead of time to preserve the causal chain
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -97,6 +106,7 @@ std::string Status::ToString() const {
   } else {
     std::string result;
     switch (code()) {
+<<<<<<< HEAD
 <<<<<<< HEAD
       case Error::Cancelled:
         result = "Cancelled";
@@ -145,6 +155,8 @@ std::string Status::ToString() const {
         break;
       case Error::DataLoss:
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       case FirestoreErrorCode::Cancelled:
         result = "Cancelled";
         break;
@@ -191,6 +203,9 @@ std::string Status::ToString() const {
         result = "Unavailable";
         break;
       case FirestoreErrorCode::DataLoss:
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         result = "Data loss";
         break;

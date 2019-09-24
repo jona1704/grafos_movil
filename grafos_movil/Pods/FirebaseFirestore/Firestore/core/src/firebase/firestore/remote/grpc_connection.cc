@@ -265,8 +265,13 @@ void GrpcConnection::RegisterConnectivityMonitor() {
         for (GrpcCall* call : calls) {
           // This will trigger the observers.
 <<<<<<< HEAD
+<<<<<<< HEAD
           call->FinishAndNotify(
               Status{Error::Unavailable, "Network connectivity changed"});
+=======
+          call->FinishAndNotify(Status{FirestoreErrorCode::Unavailable,
+                                       "Network connectivity changed"});
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
           call->FinishAndNotify(Status{FirestoreErrorCode::Unavailable,
                                        "Network connectivity changed"});

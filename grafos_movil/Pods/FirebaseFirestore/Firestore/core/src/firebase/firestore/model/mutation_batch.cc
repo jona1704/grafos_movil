@@ -17,6 +17,7 @@
 #include "Firestore/core/src/firebase/firestore/model/mutation_batch.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <ostream>
 #include <utility>
 
@@ -28,11 +29,17 @@
 
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+#include <utility>
+
+#include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
 namespace firestore {
 namespace model {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 MutationBatch::MutationBatch(int batch_id,
                              Timestamp local_write_time,
@@ -124,6 +131,8 @@ DocumentKeySet MutationBatch::keys() const {
   }
   return set;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace {
 
 /**
@@ -155,12 +164,16 @@ MutationBatch::MutationBatch(int batch_id,
       local_write_time_(std::move(local_write_time)),
       mutations_(std::move(mutations)) {
   HARD_ASSERT(!mutations_.empty(), "Cannot create an empty mutation batch");
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
 bool operator==(const MutationBatch& lhs, const MutationBatch& rhs) {
   return lhs.batch_id() == rhs.batch_id() &&
          lhs.local_write_time() == rhs.local_write_time() &&
+<<<<<<< HEAD
 <<<<<<< HEAD
          lhs.base_mutations() == rhs.base_mutations() &&
          lhs.mutations() == rhs.mutations();
@@ -174,6 +187,9 @@ std::string MutationBatch::ToString() const {
 
 std::ostream& operator<<(std::ostream& os, const MutationBatch& batch) {
   return os << batch.ToString();
+=======
+         deep_equals(lhs.mutations(), rhs.mutations());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
          deep_equals(lhs.mutations(), rhs.mutations());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

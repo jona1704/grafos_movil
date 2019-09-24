@@ -23,10 +23,13 @@
 
 #include "Firestore/core/src/firebase/firestore/api/document_reference.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/mutation.h"
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 
@@ -34,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 OBJC_CLASS(FSTMutation);
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -69,7 +75,11 @@ class WriteBatch {
  private:
   std::shared_ptr<Firestore> firestore_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<model::Mutation> mutations_;
+=======
+  std::vector<FSTMutation*> mutations_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutation*> mutations_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -84,6 +94,11 @@ class WriteBatch {
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

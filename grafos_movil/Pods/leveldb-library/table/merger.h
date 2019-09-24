@@ -19,8 +19,13 @@ class Iterator;
 //
 // REQUIRES: n >= 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 Iterator* NewMergingIterator(const Comparator* comparator, Iterator** children,
                              int n);
+=======
+extern Iterator* NewMergingIterator(
+    const Comparator* comparator, Iterator** children, int n);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern Iterator* NewMergingIterator(
     const Comparator* comparator, Iterator** children, int n);

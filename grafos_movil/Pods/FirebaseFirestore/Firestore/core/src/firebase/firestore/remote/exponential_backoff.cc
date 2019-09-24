@@ -28,6 +28,7 @@ namespace firebase {
 namespace firestore {
 namespace remote {
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace {
 
 using firebase::firestore::util::AsyncQueue;
@@ -48,6 +49,13 @@ constexpr Milliseconds kDefaultBackoffMaxDelay = Milliseconds(60 * 1000);
 
 }  // namespace
 
+=======
+
+using firebase::firestore::util::AsyncQueue;
+using firebase::firestore::util::TimerId;
+namespace chr = std::chrono;
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
 using firebase::firestore::util::AsyncQueue;
@@ -77,6 +85,7 @@ ExponentialBackoff::ExponentialBackoff(const std::shared_ptr<AsyncQueue>& queue,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ExponentialBackoff::ExponentialBackoff(const std::shared_ptr<AsyncQueue>& queue,
                                        TimerId timer_id)
     : ExponentialBackoff(queue,
@@ -86,6 +95,8 @@ ExponentialBackoff::ExponentialBackoff(const std::shared_ptr<AsyncQueue>& queue,
                          kDefaultBackoffMaxDelay) {
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void ExponentialBackoff::BackoffAndRun(AsyncQueue::Operation&& operation) {
@@ -125,7 +136,11 @@ void ExponentialBackoff::BackoffAndRun(AsyncQueue::Operation&& operation) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Milliseconds ExponentialBackoff::GetDelayWithJitter() {
+=======
+ExponentialBackoff::Milliseconds ExponentialBackoff::GetDelayWithJitter() {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 ExponentialBackoff::Milliseconds ExponentialBackoff::GetDelayWithJitter() {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -136,7 +151,12 @@ ExponentialBackoff::Milliseconds ExponentialBackoff::GetDelayWithJitter() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Milliseconds ExponentialBackoff::ClampDelay(Milliseconds delay) const {
+=======
+ExponentialBackoff::Milliseconds ExponentialBackoff::ClampDelay(
+    Milliseconds delay) const {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 ExponentialBackoff::Milliseconds ExponentialBackoff::ClampDelay(
     Milliseconds delay) const {

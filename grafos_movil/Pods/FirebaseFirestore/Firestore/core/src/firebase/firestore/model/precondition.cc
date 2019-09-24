@@ -20,7 +20,10 @@
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "absl/strings/str_cat.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -50,6 +53,7 @@ Precondition Precondition::None() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool Precondition::IsValidFor(
     const absl::optional<MaybeDocument>& maybe_doc) const {
   switch (type_) {
@@ -59,6 +63,8 @@ bool Precondition::IsValidFor(
     case Type::Exists:
       return (exists_ == (maybe_doc &&
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 bool Precondition::IsValidFor(const MaybeDocument* maybe_doc) const {
   switch (type_) {
     case Type::UpdateTime:
@@ -67,6 +73,9 @@ bool Precondition::IsValidFor(const MaybeDocument* maybe_doc) const {
              maybe_doc->version() == update_time_;
     case Type::Exists:
       return (exists_ == (maybe_doc != nullptr &&
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                           maybe_doc->type() == MaybeDocument::Type::Document));
     case Type::None:
@@ -75,6 +84,7 @@ bool Precondition::IsValidFor(const MaybeDocument* maybe_doc) const {
   UNREACHABLE();
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 size_t Precondition::Hash() const {
   return util::Hash(update_time_, exists_, type_);
@@ -93,6 +103,8 @@ std::string Precondition::ToString() const {
   UNREACHABLE();
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }  // namespace model

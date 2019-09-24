@@ -7,10 +7,16 @@
 
 #include <string>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include "db/dbformat.h"
 #include "db/skiplist.h"
 #include "leveldb/db.h"
+=======
+#include "leveldb/db.h"
+#include "db/dbformat.h"
+#include "db/skiplist.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include "leveldb/db.h"
 #include "db/dbformat.h"
@@ -22,6 +28,10 @@ namespace leveldb {
 
 class InternalKeyComparator;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+class Mutex;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class Mutex;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -34,9 +44,12 @@ class MemTable {
   explicit MemTable(const InternalKeyComparator& comparator);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   MemTable(const MemTable&) = delete;
   MemTable& operator=(const MemTable&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Increase reference count.
@@ -67,7 +80,12 @@ class MemTable {
   // specified sequence number and with the specified type.
   // Typically value will be empty if type==kTypeDeletion.
 <<<<<<< HEAD
+<<<<<<< HEAD
   void Add(SequenceNumber seq, ValueType type, const Slice& key,
+=======
+  void Add(SequenceNumber seq, ValueType type,
+           const Slice& key,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void Add(SequenceNumber seq, ValueType type,
            const Slice& key,
@@ -81,6 +99,7 @@ class MemTable {
   bool Get(const LookupKey& key, std::string* value, Status* s);
 
  private:
+<<<<<<< HEAD
 <<<<<<< HEAD
   friend class MemTableIterator;
   friend class MemTableBackwardIterator;
@@ -96,6 +115,8 @@ class MemTable {
   ~MemTable();  // Private since only Unref() should be used to delete it
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   ~MemTable();  // Private since only Unref() should be used to delete it
 
   struct KeyComparator {
@@ -108,17 +129,26 @@ class MemTable {
 
   typedef SkipList<const char*, KeyComparator> Table;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   KeyComparator comparator_;
   int refs_;
   Arena arena_;
   Table table_;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // No copying allowed
   MemTable(const MemTable&);
   void operator=(const MemTable&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

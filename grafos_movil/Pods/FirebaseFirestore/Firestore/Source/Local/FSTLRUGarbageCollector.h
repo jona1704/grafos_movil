@@ -20,6 +20,7 @@
 #include <unordered_map>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/api/settings.h"
 #include "Firestore/core/src/firebase/firestore/local/query_cache.h"
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
@@ -27,6 +28,8 @@
 #include "Firestore/core/src/firebase/firestore/model/types.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Local/FSTQueryData.h"
 
 #include "Firestore/core/src/firebase/firestore/api/settings.h"
@@ -40,14 +43,20 @@ namespace model = firebase::firestore::model;
 
 extern const model::ListenSequenceNumber kFSTListenSequenceNumberInvalid;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
 namespace local {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class LruGarbageCollector;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 struct LruParams {
   static LruParams Default() {
     return LruParams{100 * 1024 * 1024, 10, 1000};
@@ -78,6 +87,9 @@ struct LruResults {
   int targetsRemoved;
   int documentsRemoved;
 };
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 }  // namespace local
@@ -86,7 +98,10 @@ struct LruResults {
 
 namespace local = firebase::firestore::local;
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace model = firebase::firestore::model;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -120,15 +135,21 @@ namespace model = firebase::firestore::model;
 - (int)removeTargetsThroughSequenceNumber:(model::ListenSequenceNumber)sequenceNumber
                               liveQueries:
 <<<<<<< HEAD
+<<<<<<< HEAD
                                   (const std::unordered_map<model::TargetId, local::QueryData> &)
                                       liveQueries;
 
 - (int64_t)byteSize;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                                   (const std::unordered_map<model::TargetId, FSTQueryData *> &)
                                       liveQueries;
 
 - (size_t)byteSize;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 /** Returns the number of targets and orphaned documents cached. */
@@ -136,8 +157,11 @@ namespace model = firebase::firestore::model;
 
 /** Access to the underlying LRU Garbage collector instance. */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (local::LruGarbageCollector *)gc;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @property(strong, nonatomic, readonly) FSTLRUGarbageCollector *gc;
 
 @end
@@ -184,6 +208,9 @@ namespace model = firebase::firestore::model;
 
 - (local::LruResults)collectWithLiveTargets:
     (const std::unordered_map<model::TargetId, FSTQueryData *> &)liveTargets;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 @end

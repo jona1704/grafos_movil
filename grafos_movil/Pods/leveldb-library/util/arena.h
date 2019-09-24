@@ -6,17 +6,23 @@
 #define STORAGE_LEVELDB_UTIL_ARENA_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <atomic>
 #include <cassert>
 #include <cstddef>
 #include <cstdint>
 #include <vector>
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <vector>
 #include <assert.h>
 #include <stddef.h>
 #include <stdint.h>
 #include "port/port.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace leveldb {
@@ -25,10 +31,13 @@ class Arena {
  public:
   Arena();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   Arena(const Arena&) = delete;
   Arena& operator=(const Arena&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   ~Arena();
@@ -37,7 +46,11 @@ class Arena {
   char* Allocate(size_t bytes);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Allocate memory with the normal alignment guarantees provided by malloc.
+=======
+  // Allocate memory with the normal alignment guarantees provided by malloc
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // Allocate memory with the normal alignment guarantees provided by malloc
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -47,7 +60,11 @@ class Arena {
   // by the arena.
   size_t MemoryUsage() const {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return memory_usage_.load(std::memory_order_relaxed);
+=======
+    return reinterpret_cast<uintptr_t>(memory_usage_.NoBarrier_Load());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return reinterpret_cast<uintptr_t>(memory_usage_.NoBarrier_Load());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -66,16 +83,22 @@ class Arena {
 
   // Total memory usage of the arena.
 <<<<<<< HEAD
+<<<<<<< HEAD
   //
   // TODO(costan): This member is accessed via atomics, but the others are
   //               accessed without any locking. Is this OK?
   std::atomic<size_t> memory_usage_;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   port::AtomicPointer memory_usage_;
 
   // No copying allowed
   Arena(const Arena&);
   void operator=(const Arena&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

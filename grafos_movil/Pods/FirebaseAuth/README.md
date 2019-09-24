@@ -2,8 +2,13 @@
 
 This repository contains a subset of the Firebase iOS SDK source. It currently
 <<<<<<< HEAD
+<<<<<<< HEAD
 includes FirebaseCore, FirebaseABTesting, FirebaseAuth, FirebaseDatabase,
 FirebaseFirestore, FirebaseFunctions, FirebaseInstanceID, FirebaseInAppMessaging,
+=======
+includes FirebaseCore, FirebaseAuth, FirebaseDatabase, FirebaseFirestore,
+FirebaseFunctions, FirebaseInstanceID, FirebaseInAppMessaging,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 includes FirebaseCore, FirebaseAuth, FirebaseDatabase, FirebaseFirestore,
 FirebaseFunctions, FirebaseInstanceID, FirebaseInAppMessaging,
@@ -86,8 +91,14 @@ For the pod that you want to develop:
 `pod gen Firebase{name here}.podspec --local-sources=./ --auto-open`
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Firestore has a self contained Xcode project. See
 [Firestore/README.md](Firestore/README.md).
+=======
+Firestore and Functions have self contained Xcode projects. See
+[Firestore/README.md](Firestore/README.md) and
+[Functions/README.md](Functions/README.md).
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Firestore and Functions have self contained Xcode projects. See
 [Firestore/README.md](Firestore/README.md) and
@@ -190,8 +201,12 @@ participate in the Firebase community.
 
 ### macOS and tvOS
 <<<<<<< HEAD
+<<<<<<< HEAD
 Thanks to contributions from the community, FirebaseABTesting, FirebaseAuth, FirebaseCore,
 FirebaseDatabase, FirebaseMessaging,
+=======
+Thanks to contributions from the community, FirebaseAuth, FirebaseCore, FirebaseDatabase, FirebaseMessaging,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Thanks to contributions from the community, FirebaseAuth, FirebaseCore, FirebaseDatabase, FirebaseMessaging,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -211,7 +226,10 @@ To install, add a subset of the following to the Podfile:
 
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 pod 'FirebaseABTesting'
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 pod 'FirebaseAuth'

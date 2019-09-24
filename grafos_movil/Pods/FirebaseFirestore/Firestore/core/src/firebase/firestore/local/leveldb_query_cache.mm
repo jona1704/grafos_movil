@@ -21,17 +21,23 @@
 
 #import "Firestore/Protos/objc/firestore/local/Target.pbobjc.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "Firestore/Source/Local/FSTLevelDB.h"
 #import "Firestore/Source/Local/FSTLocalSerializer.h"
 
 #include "Firestore/core/src/firebase/firestore/local/leveldb_key.h"
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Local/FSTLevelDB.h"
 #import "Firestore/Source/Local/FSTLocalSerializer.h"
 #import "Firestore/Source/Local/FSTQueryData.h"
 #include "Firestore/core/src/firebase/firestore/local/leveldb_key.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
@@ -43,7 +49,10 @@ namespace firestore {
 namespace local {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 using core::Query;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using model::DocumentKey;
@@ -97,6 +106,7 @@ void LevelDbQueryCache::Start() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void LevelDbQueryCache::AddTarget(const QueryData& query_data) {
   Save(query_data);
 
@@ -104,12 +114,17 @@ void LevelDbQueryCache::AddTarget(const QueryData& query_data) {
   std::string index_key =
       LevelDbQueryTargetKey::Key(canonical_id, query_data.target_id());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void LevelDbQueryCache::AddTarget(FSTQueryData* query_data) {
   Save(query_data);
 
   NSString* canonical_id = query_data.query.canonicalID;
   std::string index_key =
       LevelDbQueryTargetKey::Key(MakeString(canonical_id), query_data.targetID);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::string empty_buffer;
   db_.currentTransaction->Put(index_key, empty_buffer);
@@ -120,7 +135,11 @@ void LevelDbQueryCache::AddTarget(FSTQueryData* query_data) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void LevelDbQueryCache::UpdateTarget(const QueryData& query_data) {
+=======
+void LevelDbQueryCache::UpdateTarget(FSTQueryData* query_data) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void LevelDbQueryCache::UpdateTarget(FSTQueryData* query_data) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -132,8 +151,13 @@ void LevelDbQueryCache::UpdateTarget(FSTQueryData* query_data) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void LevelDbQueryCache::RemoveTarget(const QueryData& query_data) {
   TargetId target_id = query_data.target_id();
+=======
+void LevelDbQueryCache::RemoveTarget(FSTQueryData* query_data) {
+  TargetId target_id = query_data.targetID;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void LevelDbQueryCache::RemoveTarget(FSTQueryData* query_data) {
   TargetId target_id = query_data.targetID;
@@ -145,8 +169,13 @@ void LevelDbQueryCache::RemoveTarget(FSTQueryData* query_data) {
   db_.currentTransaction->Delete(key);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::string index_key =
       LevelDbQueryTargetKey::Key(query_data.query().CanonicalId(), target_id);
+=======
+  std::string index_key = LevelDbQueryTargetKey::Key(
+      MakeString(query_data.query.canonicalID), target_id);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::string index_key = LevelDbQueryTargetKey::Key(
       MakeString(query_data.query.canonicalID), target_id);
@@ -158,17 +187,23 @@ void LevelDbQueryCache::RemoveTarget(FSTQueryData* query_data) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 absl::optional<QueryData> LevelDbQueryCache::GetTarget(const Query& query) {
   // Scan the query-target index starting with a prefix starting with the given
   // query's canonicalID. Note that this is a scan rather than a get because
   // canonicalIDs are not required to be unique per target.
   const std::string& canonical_id = query.CanonicalId();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 FSTQueryData* _Nullable LevelDbQueryCache::GetTarget(FSTQuery* query) {
   // Scan the query-target index starting with a prefix starting with the given
   // query's canonicalID. Note that this is a scan rather than a get because
   // canonicalIDs are not required to be unique per target.
   std::string canonical_id = MakeString(query.canonicalID);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   auto index_iterator = db_.currentTransaction->NewIterator();
   std::string index_prefix = LevelDbQueryTargetKey::KeyPrefix(canonical_id);
@@ -205,8 +240,13 @@ FSTQueryData* _Nullable LevelDbQueryCache::GetTarget(FSTQuery* query) {
     // Finally after finding a potential match, check that the query is actually
     // equal to the requested query.
 <<<<<<< HEAD
+<<<<<<< HEAD
     QueryData target = DecodeTarget(target_iterator->value());
     if (target.query() == query) {
+=======
+    FSTQueryData* target = DecodeTarget(target_iterator->value());
+    if ([target.query isEqual:query]) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     FSTQueryData* target = DecodeTarget(target_iterator->value());
     if ([target.query isEqual:query]) {
@@ -216,7 +256,11 @@ FSTQueryData* _Nullable LevelDbQueryCache::GetTarget(FSTQuery* query) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return absl::nullopt;
+=======
+  return nil;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return nil;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -230,7 +274,11 @@ void LevelDbQueryCache::EnumerateTargets(const TargetCallback& callback) {
   for (; it->Valid() && absl::StartsWith(it->key(), target_prefix);
        it->Next()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     QueryData target = DecodeTarget(it->value());
+=======
+    FSTQueryData* target = DecodeTarget(it->value());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     FSTQueryData* target = DecodeTarget(it->value());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -241,7 +289,11 @@ void LevelDbQueryCache::EnumerateTargets(const TargetCallback& callback) {
 int LevelDbQueryCache::RemoveTargets(
     ListenSequenceNumber upper_bound,
 <<<<<<< HEAD
+<<<<<<< HEAD
     const std::unordered_map<model::TargetId, QueryData>& live_targets) {
+=======
+    const std::unordered_map<model::TargetId, FSTQueryData*>& live_targets) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     const std::unordered_map<model::TargetId, FSTQueryData*>& live_targets) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -252,9 +304,15 @@ int LevelDbQueryCache::RemoveTargets(
   for (; it->Valid() && absl::StartsWith(it->key(), target_prefix);
        it->Next()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     QueryData query_data = DecodeTarget(it->value());
     if (query_data.sequence_number() <= upper_bound &&
         live_targets.find(query_data.target_id()) == live_targets.end()) {
+=======
+    FSTQueryData* query_data = DecodeTarget(it->value());
+    if (query_data.sequenceNumber <= upper_bound &&
+        live_targets.find(query_data.targetID) == live_targets.end()) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     FSTQueryData* query_data = DecodeTarget(it->value());
     if (query_data.sequenceNumber <= upper_bound &&
@@ -407,8 +465,13 @@ void LevelDbQueryCache::EnumerateOrphanedDocuments(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void LevelDbQueryCache::Save(const QueryData& query_data) {
   TargetId target_id = query_data.target_id();
+=======
+void LevelDbQueryCache::Save(FSTQueryData* query_data) {
+  TargetId target_id = query_data.targetID;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void LevelDbQueryCache::Save(FSTQueryData* query_data) {
   TargetId target_id = query_data.targetID;
@@ -417,6 +480,7 @@ void LevelDbQueryCache::Save(FSTQueryData* query_data) {
   db_.currentTransaction->Put(key, [serializer_ encodedQueryData:query_data]);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 bool LevelDbQueryCache::UpdateMetadata(const QueryData& query_data) {
   bool updated = false;
@@ -428,6 +492,8 @@ bool LevelDbQueryCache::UpdateMetadata(const QueryData& query_data) {
   if (query_data.sequence_number() > metadata_.highestListenSequenceNumber) {
     metadata_.highestListenSequenceNumber = query_data.sequence_number();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 bool LevelDbQueryCache::UpdateMetadata(FSTQueryData* query_data) {
   bool updated = false;
   if (query_data.targetID > metadata_.highestTargetId) {
@@ -437,6 +503,9 @@ bool LevelDbQueryCache::UpdateMetadata(FSTQueryData* query_data) {
 
   if (query_data.sequenceNumber > metadata_.highestListenSequenceNumber) {
     metadata_.highestListenSequenceNumber = query_data.sequenceNumber;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     updated = true;
   }
@@ -449,7 +518,11 @@ void LevelDbQueryCache::SaveMetadata() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 QueryData LevelDbQueryCache::DecodeTarget(absl::string_view encoded) {
+=======
+FSTQueryData* LevelDbQueryCache::DecodeTarget(absl::string_view encoded) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 FSTQueryData* LevelDbQueryCache::DecodeTarget(absl::string_view encoded) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

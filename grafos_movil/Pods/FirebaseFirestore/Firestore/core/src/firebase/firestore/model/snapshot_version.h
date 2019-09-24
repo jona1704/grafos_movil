@@ -18,9 +18,12 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_MODEL_SNAPSHOT_VERSION_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <iosfwd>
 #include <string>
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/include/firebase/firestore/timestamp.h"
@@ -37,16 +40,22 @@ namespace model {
 class SnapshotVersion : public util::Comparable<SnapshotVersion> {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Creates a default SnapshotVersion equivalent to SnapshotVersion::None().
    * Prefer SnapshotVersion::None() for readability.
    */
   SnapshotVersion() = default;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #if __OBJC__
   SnapshotVersion() {
   }
 #endif  // __OBJC__
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   explicit SnapshotVersion(const Timestamp& timestamp);
@@ -63,11 +72,14 @@ class SnapshotVersion : public util::Comparable<SnapshotVersion> {
   size_t Hash() const;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::string ToString() const;
 
   friend std::ostream& operator<<(std::ostream& os,
                                   const SnapshotVersion& version);
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  private:

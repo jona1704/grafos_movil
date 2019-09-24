@@ -32,7 +32,10 @@
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
 #include "Firestore/core/src/firebase/firestore/util/async_queue.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/util/nullability.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/util/status.h"
@@ -44,6 +47,10 @@ NS_ASSUME_NONNULL_BEGIN
 OBJC_CLASS(FIRQuery);
 OBJC_CLASS(FIRTransaction);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+OBJC_CLASS(FSTFirestoreClient);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 OBJC_CLASS(FSTFirestoreClient);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -52,9 +59,12 @@ OBJC_CLASS(NSString);
 namespace firebase {
 namespace firestore {
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace core {
 class FirestoreClient;
 }
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace api {
@@ -70,7 +80,11 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
   Firestore(model::DatabaseId database_id,
             std::string persistence_key,
 <<<<<<< HEAD
+<<<<<<< HEAD
             std::shared_ptr<auth::CredentialsProvider> credentials_provider,
+=======
+            std::unique_ptr<auth::CredentialsProvider> credentials_provider,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             std::unique_ptr<auth::CredentialsProvider> credentials_provider,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -86,7 +100,11 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const std::shared_ptr<core::FirestoreClient>& client();
+=======
+  FSTFirestoreClient* client();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTFirestoreClient* client();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -111,9 +129,14 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
                       core::TransactionResultCallback result_callback);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   void Terminate(util::StatusCallback callback);
   void ClearPersistence(util::StatusCallback callback);
   void WaitForPendingWrites(util::StatusCallback callback);
+=======
+  void Shutdown(util::StatusCallback callback);
+  void ClearPersistence(util::StatusCallback callback);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void Shutdown(util::StatusCallback callback);
   void ClearPersistence(util::StatusCallback callback);
@@ -128,9 +151,15 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
 
   model::DatabaseId database_id_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::shared_ptr<auth::CredentialsProvider> credentials_provider_;
   std::string persistence_key_;
   std::shared_ptr<core::FirestoreClient> client_;
+=======
+  std::unique_ptr<auth::CredentialsProvider> credentials_provider_;
+  std::string persistence_key_;
+  objc::Handle<FSTFirestoreClient> client_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::unique_ptr<auth::CredentialsProvider> credentials_provider_;
   std::string persistence_key_;

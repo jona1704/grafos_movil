@@ -78,10 +78,13 @@ class SortedSet : public SortedContainer {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const C& comparator() const {
     return map_.comparator();
   }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   ABSL_MUST_USE_RESULT SortedSet insert(const K& key) const {

@@ -21,7 +21,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @interface FIRAuthWebViewController () <WKNavigationDelegate>
+=======
+@interface FIRAuthWebViewController () <UIWebViewDelegate>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @interface FIRAuthWebViewController () <UIWebViewDelegate>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -59,7 +63,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)loadView {
   FIRAuthWebView *webView = [[FIRAuthWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
 <<<<<<< HEAD
+<<<<<<< HEAD
   webView.webView.navigationDelegate = self;
+=======
+  webView.webView.delegate = self;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   webView.webView.delegate = self;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -85,6 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView
@@ -97,6 +106,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)webView:(WKWebView *)webView
 didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #pragma mark - UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView
@@ -107,14 +118,22 @@ didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
   // Show & animate the activity indicator.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   _webView.spinner.hidden = NO;
   [_webView.spinner startAnimating];
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)webView:(WKWebView *)webView
 didFinishNavigation:(null_unspecified WKNavigation *)navigation {
+=======
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+  // Hide & stop the activity indicator.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
   // Hide & stop the activity indicator.
@@ -124,9 +143,13 @@ didFinishNavigation:(null_unspecified WKNavigation *)navigation {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)webView:(WKWebView *)webView
 didFailNavigation:(null_unspecified WKNavigation *)navigation
       withError:(NSError *)error {
+=======
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -136,7 +159,11 @@ didFailNavigation:(null_unspecified WKNavigation *)navigation
   }
   // Forward notification to our delegate.
 <<<<<<< HEAD
+<<<<<<< HEAD
   [self webView:webView didFinishNavigation:navigation];
+=======
+  [self webViewDidFinishLoad:webView];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   [self webViewDidFinishLoad:webView];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

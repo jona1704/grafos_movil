@@ -6,6 +6,7 @@
 #define STORAGE_LEVELDB_PORT_THREAD_ANNOTATIONS_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Use Clang's thread safety analysis annotations when available. In other
 // environments, the macros receive empty definitions.
 // Usage documentation: https://clang.llvm.org/docs/ThreadSafetyAnalysis.html
@@ -105,6 +106,8 @@
 #define ASSERT_SHARED_LOCK(...) \
   THREAD_ANNOTATION_ATTRIBUTE__(assert_shared_lock(__VA_ARGS__))
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // Some environments provide custom macros to aid in static thread-safety
 // analysis.  Provide empty definitions of such macros unless they are already
 // defined.
@@ -155,6 +158,9 @@
 
 #ifndef NO_THREAD_SAFETY_ANALYSIS
 #define NO_THREAD_SAFETY_ANALYSIS
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #endif
 

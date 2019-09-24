@@ -9,6 +9,7 @@
 #define STORAGE_LEVELDB_UTIL_POSIX_LOGGER_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <sys/time.h>
 
 #include <cassert>
@@ -19,15 +20,21 @@
 #include <thread>
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <algorithm>
 #include <stdio.h>
 #include <sys/time.h>
 #include <time.h>
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/env.h"
 
 namespace leveldb {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 class PosixLogger final : public Logger {
  public:
@@ -125,6 +132,8 @@ class PosixLogger final : public Logger {
       if (iteration != 0) {
         delete[] buffer;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 class PosixLogger : public Logger {
  private:
   FILE* file_;
@@ -196,15 +205,21 @@ class PosixLogger : public Logger {
       fflush(file_);
       if (base != buffer) {
         delete[] base;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       }
       break;
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
  private:
   std::FILE* const fp_;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };

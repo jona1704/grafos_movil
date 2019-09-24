@@ -17,7 +17,10 @@
 #import "Firestore/Source/Remote/FSTSerializerBeta.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <algorithm>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <cinttypes>
@@ -38,6 +41,7 @@
 #import "FIRGeoPoint.h"
 #import "FIRTimestamp.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include "Firestore/core/include/firebase/firestore/firestore_errors.h"
 #include "Firestore/core/include/firebase/firestore/geo_point.h"
@@ -50,6 +54,8 @@
 #include "Firestore/core/src/firebase/firestore/model/delete_mutation.h"
 #include "Firestore/core/src/firebase/firestore/model/document.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Local/FSTQueryData.h"
 #import "Firestore/Source/Model/FSTDocument.h"
@@ -64,12 +70,16 @@
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/core/relation_filter.h"
 #include "Firestore/core/src/firebase/firestore/model/database_id.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/field_mask.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
 #include "Firestore/core/src/firebase/firestore/model/field_transform.h"
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
+<<<<<<< HEAD
 <<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/maybe_document.h"
 #include "Firestore/core/src/firebase/firestore/model/no_document.h"
@@ -80,6 +90,11 @@
 #include "Firestore/core/src/firebase/firestore/model/transform_mutation.h"
 #include "Firestore/core/src/firebase/firestore/model/transform_operation.h"
 #include "Firestore/core/src/firebase/firestore/model/unknown_document.h"
+=======
+#include "Firestore/core/src/firebase/firestore/model/precondition.h"
+#include "Firestore/core/src/firebase/firestore/model/resource_path.h"
+#include "Firestore/core/src/firebase/firestore/model/transform_operations.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include "Firestore/core/src/firebase/firestore/model/precondition.h"
 #include "Firestore/core/src/firebase/firestore/model/resource_path.h"
@@ -97,6 +112,7 @@
 
 namespace util = firebase::firestore::util;
 using firebase::Timestamp;
+<<<<<<< HEAD
 <<<<<<< HEAD
 using firebase::firestore::Error;
 using firebase::firestore::GeoPoint;
@@ -116,6 +132,8 @@ using firebase::firestore::model::DatabaseId;
 using firebase::firestore::model::DeleteMutation;
 using firebase::firestore::model::Document;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::FirestoreErrorCode;
 using firebase::firestore::GeoPoint;
 using firebase::firestore::core::Filter;
@@ -123,6 +141,9 @@ using firebase::firestore::core::Query;
 using firebase::firestore::core::RelationFilter;
 using firebase::firestore::model::ArrayTransform;
 using firebase::firestore::model::DatabaseId;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::model::DocumentKey;
 using firebase::firestore::model::DocumentState;
@@ -130,6 +151,7 @@ using firebase::firestore::model::FieldMask;
 using firebase::firestore::model::FieldPath;
 using firebase::firestore::model::FieldTransform;
 using firebase::firestore::model::FieldValue;
+<<<<<<< HEAD
 <<<<<<< HEAD
 using firebase::firestore::model::MaybeDocument;
 using firebase::firestore::model::Mutation;
@@ -157,6 +179,16 @@ using firebase::firestore::model::SnapshotVersion;
 using firebase::firestore::model::TargetId;
 using firebase::firestore::model::TransformOperation;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+using firebase::firestore::model::NumericIncrementTransform;
+using firebase::firestore::model::ObjectValue;
+using firebase::firestore::model::Precondition;
+using firebase::firestore::model::ResourcePath;
+using firebase::firestore::model::ServerTimestampTransform;
+using firebase::firestore::model::SnapshotVersion;
+using firebase::firestore::model::TargetId;
+using firebase::firestore::model::TransformOperation;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::nanopb::ByteString;
 using firebase::firestore::nanopb::MakeByteString;
 using firebase::firestore::nanopb::MakeNSData;
@@ -167,6 +199,7 @@ using firebase::firestore::remote::WatchChange;
 using firebase::firestore::remote::WatchTargetChange;
 using firebase::firestore::remote::WatchTargetChangeState;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 using Operator = Filter::Operator;
 
@@ -180,6 +213,10 @@ absl::any Wrap(GCFSDocument *doc) {
 
 }  // namespace
 
+=======
+NS_ASSUME_NONNULL_BEGIN
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_BEGIN
 
@@ -482,7 +519,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Encodes an ObjectValue into a dictionary.
+=======
+ * Encodes an FSTObjectValue into a dictionary.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  * Encodes an FSTObjectValue into a dictionary.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -507,7 +548,11 @@ NS_ASSUME_NONNULL_BEGIN
   __block ObjectValue result = ObjectValue::Empty();
   [fields enumerateKeysAndObjectsUsingBlock:^(NSString *_Nonnull key, GCFSValue *_Nonnull obj,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                               BOOL *_Nonnull) {
+=======
+                                              BOOL *_Nonnull stop) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                                               BOOL *_Nonnull stop) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -519,7 +564,11 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma mark - ObjectValue <=> Document proto
+=======
+#pragma mark - FSTObjectValue <=> Document proto
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #pragma mark - FSTObjectValue <=> Document proto
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -533,9 +582,15 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma mark - MaybeDocument <= BatchGetDocumentsResponse proto
 
 - (MaybeDocument)decodedMaybeDocumentFromBatch:(GCFSBatchGetDocumentsResponse *)response {
+=======
+#pragma mark - FSTMaybeDocument <= BatchGetDocumentsResponse proto
+
+- (FSTMaybeDocument *)decodedMaybeDocumentFromBatch:(GCFSBatchGetDocumentsResponse *)response {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #pragma mark - FSTMaybeDocument <= BatchGetDocumentsResponse proto
 
@@ -552,9 +607,15 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (Document)decodedFoundDocument:(GCFSBatchGetDocumentsResponse *)response {
   HARD_ASSERT(!!response.found, "Tried to deserialize a found document from a deleted document.");
   DocumentKey key = [self decodedDocumentKey:response.found.name];
+=======
+- (FSTDocument *)decodedFoundDocument:(GCFSBatchGetDocumentsResponse *)response {
+  HARD_ASSERT(!!response.found, "Tried to deserialize a found document from a deleted document.");
+  const DocumentKey key = [self decodedDocumentKey:response.found.name];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTDocument *)decodedFoundDocument:(GCFSBatchGetDocumentsResponse *)response {
   HARD_ASSERT(!!response.found, "Tried to deserialize a found document from a deleted document.");
@@ -565,6 +626,7 @@ NS_ASSUME_NONNULL_BEGIN
   HARD_ASSERT(version != SnapshotVersion::None(),
               "Got a document response with no snapshot version");
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   return Document(std::move(value), std::move(key), version, DocumentState::kSynced,
                   Wrap(response.found));
@@ -629,6 +691,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (Mutation)decodedMutation:(GCFSWrite *)mutation {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return [FSTDocument documentWithData:value
                                    key:key
                                version:version
@@ -687,6 +751,9 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (FSTMutation *)decodedMutation:(GCFSWrite *)mutation {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Precondition precondition = [mutation hasCurrentDocument]
                                   ? [self decodedPrecondition:mutation.currentDocument]
@@ -695,6 +762,7 @@ NS_ASSUME_NONNULL_BEGIN
   switch (mutation.operationOneOfCase) {
     case GCFSWrite_Operation_OneOfCase_Update:
       if (mutation.hasUpdateMask) {
+<<<<<<< HEAD
 <<<<<<< HEAD
         return PatchMutation([self decodedDocumentKey:mutation.update.name],
                              [self decodedFields:mutation.update.fields],
@@ -707,6 +775,8 @@ NS_ASSUME_NONNULL_BEGIN
     case GCFSWrite_Operation_OneOfCase_Delete_p:
       return DeleteMutation([self decodedDocumentKey:mutation.delete_p], precondition);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         return [[FSTPatchMutation alloc] initWithKey:[self decodedDocumentKey:mutation.update.name]
                                            fieldMask:[self decodedFieldMask:mutation.updateMask]
                                                value:[self decodedFields:mutation.update.fields]
@@ -720,6 +790,9 @@ NS_ASSUME_NONNULL_BEGIN
     case GCFSWrite_Operation_OneOfCase_Delete_p:
       return [[FSTDeleteMutation alloc] initWithKey:[self decodedDocumentKey:mutation.delete_p]
                                        precondition:precondition];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
     case GCFSWrite_Operation_OneOfCase_Transform: {
@@ -727,9 +800,15 @@ NS_ASSUME_NONNULL_BEGIN
                   "Transforms must have precondition \"exists == true\"");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       return TransformMutation(
           [self decodedDocumentKey:mutation.transform.document],
           [self decodedFieldTransforms:mutation.transform.fieldTransformsArray]);
+=======
+      return [[FSTTransformMutation alloc]
+              initWithKey:[self decodedDocumentKey:mutation.transform.document]
+          fieldTransforms:[self decodedFieldTransforms:mutation.transform.fieldTransformsArray]];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return [[FSTTransformMutation alloc]
               initWithKey:[self decodedDocumentKey:mutation.transform.document]
@@ -745,7 +824,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (GCFSPrecondition *)encodedPrecondition:(const Precondition &)precondition {
 <<<<<<< HEAD
+<<<<<<< HEAD
   HARD_ASSERT(!precondition.is_none(), "Can't serialize an empty precondition");
+=======
+  HARD_ASSERT(!precondition.IsNone(), "Can't serialize an empty precondition");
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   HARD_ASSERT(!precondition.IsNone(), "Can't serialize an empty precondition");
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -756,7 +839,11 @@ NS_ASSUME_NONNULL_BEGIN
     message.exists = precondition == Precondition::Exists(true);
   } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
     HARD_FAIL("Unknown precondition: %s", precondition.ToString());
+=======
+    HARD_FAIL("Unknown precondition: %s", precondition.description());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     HARD_FAIL("Unknown precondition: %s", precondition.description());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -816,17 +903,23 @@ NS_ASSUME_NONNULL_BEGIN
   } else if (fieldTransform.transformation().type() == TransformOperation::Type::ArrayUnion) {
     proto.appendMissingElements = [self
 <<<<<<< HEAD
+<<<<<<< HEAD
         encodedArrayTransformElements:ArrayTransform(fieldTransform.transformation()).elements()];
 
   } else if (fieldTransform.transformation().type() == TransformOperation::Type::ArrayRemove) {
     proto.removeAllFromArray_p = [self
         encodedArrayTransformElements:ArrayTransform(fieldTransform.transformation()).elements()];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         encodedArrayTransformElements:ArrayTransform::Elements(fieldTransform.transformation())];
 
   } else if (fieldTransform.transformation().type() == TransformOperation::Type::ArrayRemove) {
     proto.removeAllFromArray_p = [self
         encodedArrayTransformElements:ArrayTransform::Elements(fieldTransform.transformation())];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   } else if (fieldTransform.transformation().type() == TransformOperation::Type::Increment) {
     const NumericIncrementTransform &incrementTransform =
@@ -861,8 +954,14 @@ NS_ASSUME_NONNULL_BEGIN
             proto.setToServerValue == GCFSDocumentTransform_FieldTransform_ServerValue_RequestTime,
             "Unknown transform setToServerValue: %s", proto.setToServerValue);
 <<<<<<< HEAD
+<<<<<<< HEAD
         fieldTransforms.emplace_back(FieldPath::FromServerFormat(util::MakeString(proto.fieldPath)),
                                      ServerTimestampTransform());
+=======
+        fieldTransforms.emplace_back(
+            FieldPath::FromServerFormat(util::MakeString(proto.fieldPath)),
+            absl::make_unique<ServerTimestampTransform>(ServerTimestampTransform::Get()));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         fieldTransforms.emplace_back(
             FieldPath::FromServerFormat(util::MakeString(proto.fieldPath)),
@@ -877,7 +976,12 @@ NS_ASSUME_NONNULL_BEGIN
         fieldTransforms.emplace_back(
             FieldPath::FromServerFormat(util::MakeString(proto.fieldPath)),
 <<<<<<< HEAD
+<<<<<<< HEAD
             ArrayTransform(TransformOperation::Type::ArrayUnion, std::move(elements)));
+=======
+            absl::make_unique<ArrayTransform>(TransformOperation::Type::ArrayUnion,
+                                              std::move(elements)));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             absl::make_unique<ArrayTransform>(TransformOperation::Type::ArrayUnion,
                                               std::move(elements)));
@@ -891,7 +995,12 @@ NS_ASSUME_NONNULL_BEGIN
         fieldTransforms.emplace_back(
             FieldPath::FromServerFormat(util::MakeString(proto.fieldPath)),
 <<<<<<< HEAD
+<<<<<<< HEAD
             ArrayTransform(TransformOperation::Type::ArrayRemove, std::move(elements)));
+=======
+            absl::make_unique<ArrayTransform>(TransformOperation::Type::ArrayRemove,
+                                              std::move(elements)));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             absl::make_unique<ArrayTransform>(TransformOperation::Type::ArrayRemove,
                                               std::move(elements)));
@@ -903,7 +1012,11 @@ NS_ASSUME_NONNULL_BEGIN
         FieldValue operand = [self decodedFieldValue:proto.increment];
         fieldTransforms.emplace_back(FieldPath::FromServerFormat(util::MakeString(proto.fieldPath)),
 <<<<<<< HEAD
+<<<<<<< HEAD
                                      NumericIncrementTransform(std::move(operand)));
+=======
+                                     absl::make_unique<NumericIncrementTransform>(operand));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                                      absl::make_unique<NumericIncrementTransform>(operand));
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -921,7 +1034,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (std::vector<FieldValue>)decodedArrayTransformElements:(GCFSArrayValue *)proto {
   __block std::vector<FieldValue> elements;
 <<<<<<< HEAD
+<<<<<<< HEAD
   [proto.valuesArray enumerateObjectsUsingBlock:^(GCFSValue *value, NSUInteger, BOOL *) {
+=======
+  [proto.valuesArray enumerateObjectsUsingBlock:^(GCFSValue *value, NSUInteger idx, BOOL *stop) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   [proto.valuesArray enumerateObjectsUsingBlock:^(GCFSValue *value, NSUInteger idx, BOOL *stop) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -931,15 +1048,21 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #pragma mark - MutationResult <= GCFSWriteResult proto
 
 - (MutationResult)decodedMutationResult:(GCFSWriteResult *)mutation
                           commitVersion:(const SnapshotVersion &)commitVersion {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #pragma mark - FSTMutationResult <= GCFSWriteResult proto
 
 - (FSTMutationResult *)decodedMutationResult:(GCFSWriteResult *)mutation
                                commitVersion:(const SnapshotVersion &)commitVersion {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // NOTE: Deletes don't have an updateTime. Use commitVersion instead.
   SnapshotVersion version =
@@ -952,6 +1075,7 @@ NS_ASSUME_NONNULL_BEGIN
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   return MutationResult(std::move(version), std::move(transformResults));
 }
 
@@ -961,6 +1085,8 @@ NS_ASSUME_NONNULL_BEGIN
     (const QueryData &)queryData {
   NSString *value = [self encodedLabelForPurpose:queryData.purpose()];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return [[FSTMutationResult alloc] initWithVersion:std::move(version)
                                    transformResults:std::move(transformResults)];
 }
@@ -970,6 +1096,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSMutableDictionary<NSString *, NSString *> *)encodedListenRequestLabelsForQueryData:
     (FSTQueryData *)queryData {
   NSString *value = [self encodedLabelForPurpose:queryData.purpose];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (!value) {
     return nil;
@@ -982,6 +1111,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (nullable NSString *)encodedLabelForPurpose:(QueryPurpose)purpose {
   switch (purpose) {
     case QueryPurpose::Listen:
@@ -990,6 +1120,8 @@ NS_ASSUME_NONNULL_BEGIN
       return @"existence-filter-mismatch";
     case QueryPurpose::LimboResolution:
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (nullable NSString *)encodedLabelForPurpose:(FSTQueryPurpose)purpose {
   switch (purpose) {
     case FSTQueryPurposeListen:
@@ -997,6 +1129,9 @@ NS_ASSUME_NONNULL_BEGIN
     case FSTQueryPurposeExistenceFilterMismatch:
       return @"existence-filter-mismatch";
     case FSTQueryPurposeLimboResolution:
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       return @"limbo-document";
     default:
@@ -1005,17 +1140,23 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (GCFSTarget *)encodedTarget:(const QueryData &)queryData {
   GCFSTarget *result = [GCFSTarget message];
   const Query &query = queryData.query();
 
   if (query.IsDocumentQuery()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (GCFSTarget *)encodedTarget:(FSTQueryData *)queryData {
   GCFSTarget *result = [GCFSTarget message];
   FSTQuery *query = queryData.query;
 
   if ([query isDocumentQuery]) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     result.documents = [self encodedDocumentsTarget:query];
   } else {
@@ -1023,18 +1164,25 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   result.targetId = queryData.target_id();
   result.resumeToken = MakeNullableNSData(queryData.resume_token());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   result.targetId = queryData.targetID;
   if (queryData.resumeToken.length > 0) {
     result.resumeToken = queryData.resumeToken;
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   return result;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (GCFSTarget_DocumentsTarget *)encodedDocumentsTarget:(const Query &)query {
   GCFSTarget_DocumentsTarget *result = [GCFSTarget_DocumentsTarget message];
@@ -1045,6 +1193,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (Query)decodedQueryFromDocumentsTarget:(GCFSTarget_DocumentsTarget *)target {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (GCFSTarget_DocumentsTarget *)encodedDocumentsTarget:(FSTQuery *)query {
   GCFSTarget_DocumentsTarget *result = [GCFSTarget_DocumentsTarget message];
   NSMutableArray<NSString *> *docs = result.documentsArray;
@@ -1053,12 +1203,16 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (FSTQuery *)decodedQueryFromDocumentsTarget:(GCFSTarget_DocumentsTarget *)target {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   NSArray<NSString *> *documents = target.documentsArray;
   HARD_ASSERT(documents.count == 1, "DocumentsTarget contained other than 1 document %s",
               (unsigned long)documents.count);
 
   NSString *name = documents[0];
+<<<<<<< HEAD
 <<<<<<< HEAD
   return Query([self decodedQueryPath:name]);
 }
@@ -1069,6 +1223,8 @@ NS_ASSUME_NONNULL_BEGIN
   const ResourcePath &path = query.path();
   if (query.collection_group()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return [FSTQuery queryWithPath:[self decodedQueryPath:name]];
 }
 
@@ -1077,13 +1233,20 @@ NS_ASSUME_NONNULL_BEGIN
   GCFSTarget_QueryTarget *queryTarget = [GCFSTarget_QueryTarget message];
   const ResourcePath &path = query.path;
   if (query.collectionGroup) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     HARD_ASSERT(path.size() % 2 == 0,
                 "Collection group queries should be within a document path or root.");
     queryTarget.parent = [self encodedQueryPath:path];
     GCFSStructuredQuery_CollectionSelector *from = [GCFSStructuredQuery_CollectionSelector message];
 <<<<<<< HEAD
+<<<<<<< HEAD
     from.collectionId = util::MakeNSString(query.collection_group());
+=======
+    from.collectionId = util::MakeNSString(query.collectionGroup);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     from.collectionId = util::MakeNSString(query.collectionGroup);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1099,7 +1262,11 @@ NS_ASSUME_NONNULL_BEGIN
 
   // Encode the filters.
 <<<<<<< HEAD
+<<<<<<< HEAD
   GCFSStructuredQuery_Filter *_Nullable where = [self encodedFilters:query.filters()];
+=======
+  GCFSStructuredQuery_Filter *_Nullable where = [self encodedFilters:query.filters];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   GCFSStructuredQuery_Filter *_Nullable where = [self encodedFilters:query.filters];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1108,7 +1275,11 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   NSArray<GCFSStructuredQuery_Order *> *orders = [self encodedSortOrders:query.order_bys()];
+=======
+  NSArray<GCFSStructuredQuery_Order *> *orders = [self encodedSortOrders:query.sortOrders];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSArray<GCFSStructuredQuery_Order *> *orders = [self encodedSortOrders:query.sortOrders];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1116,6 +1287,7 @@ NS_ASSUME_NONNULL_BEGIN
     [queryTarget.structuredQuery.orderByArray addObjectsFromArray:orders];
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   if (query.limit() != Query::kNoLimit) {
     queryTarget.structuredQuery.limit.value = (int32_t)query.limit();
@@ -1128,6 +1300,8 @@ NS_ASSUME_NONNULL_BEGIN
   if (query.end_at()) {
     queryTarget.structuredQuery.endAt = [self encodedBound:*query.end_at()];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (query.limit != Query::kNoLimit) {
     queryTarget.structuredQuery.limit.value = (int32_t)query.limit;
   }
@@ -1138,6 +1312,9 @@ NS_ASSUME_NONNULL_BEGIN
 
   if (query.endAt) {
     queryTarget.structuredQuery.endAt = [self encodedBound:query.endAt];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -1145,17 +1322,23 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (Query)decodedQueryFromQueryTarget:(GCFSTarget_QueryTarget *)target {
   ResourcePath path = [self decodedQueryPath:target.parent];
 
   GCFSStructuredQuery *query = target.structuredQuery;
   CollectionGroupId collectionGroup;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (FSTQuery *)decodedQueryFromQueryTarget:(GCFSTarget_QueryTarget *)target {
   ResourcePath path = [self decodedQueryPath:target.parent];
 
   GCFSStructuredQuery *query = target.structuredQuery;
   std::shared_ptr<const std::string> collectionGroup;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   NSUInteger fromCount = query.fromArray_Count;
   if (fromCount > 0) {
@@ -1171,7 +1354,11 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   FilterList filterBy;
+=======
+  Query::FilterList filterBy;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Query::FilterList filterBy;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1180,15 +1367,21 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   OrderByList orderBy;
   if (query.orderByArray_Count > 0) {
     orderBy = [self decodedSortOrders:query.orderByArray];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   NSArray<FSTSortOrder *> *orderBy;
   if (query.orderByArray_Count > 0) {
     orderBy = [self decodedSortOrders:query.orderByArray];
   } else {
     orderBy = @[];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -1198,7 +1391,11 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::shared_ptr<Bound> startAt;
+=======
+  FSTBound *_Nullable startAt;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTBound *_Nullable startAt;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1207,7 +1404,11 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::shared_ptr<Bound> endAt;
+=======
+  FSTBound *_Nullable endAt;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTBound *_Nullable endAt;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1216,22 +1417,32 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return Query(std::move(path), std::move(collectionGroup), std::move(filterBy), std::move(orderBy),
                limit, std::move(startAt), std::move(endAt));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Query inner(std::move(path), std::move(collectionGroup), std::move(filterBy));
   return [[FSTQuery alloc] initWithQuery:std::move(inner)
                                  orderBy:orderBy
                                    limit:limit
                                  startAt:startAt
                                    endAt:endAt];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
 #pragma mark Filters
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (GCFSStructuredQuery_Filter *_Nullable)encodedFilters:(const FilterList &)filters {
+=======
+- (GCFSStructuredQuery_Filter *_Nullable)encodedFilters:(const Query::FilterList &)filters {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (GCFSStructuredQuery_Filter *_Nullable)encodedFilters:(const Query::FilterList &)filters {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1241,13 +1452,19 @@ NS_ASSUME_NONNULL_BEGIN
   NSMutableArray<GCFSStructuredQuery_Filter *> *protos = [NSMutableArray array];
   for (const auto &filter : filters) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (filter.IsAFieldFilter()) {
       [protos addObject:[self encodedUnaryOrFieldFilter:FieldFilter(filter)]];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if (filter->type() == Filter::Type::kRelationFilter) {
       [protos addObject:[self encodedRelationFilter:static_cast<const RelationFilter &>(*filter)]];
     } else {
       [protos addObject:[self encodedUnaryFilter:*filter]];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
   }
@@ -1263,8 +1480,13 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (FilterList)decodedFilters:(GCFSStructuredQuery_Filter *)proto {
   FilterList result;
+=======
+- (Query::FilterList)decodedFilters:(GCFSStructuredQuery_Filter *)proto {
+  Query::FilterList result;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (Query::FilterList)decodedFilters:(GCFSStructuredQuery_Filter *)proto {
   Query::FilterList result;
@@ -1281,7 +1503,10 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   result = result.reserve(filters.count);
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   for (GCFSStructuredQuery_Filter *filter in filters) {
@@ -1291,17 +1516,23 @@ NS_ASSUME_NONNULL_BEGIN
 
       case GCFSStructuredQuery_Filter_FilterType_OneOfCase_FieldFilter:
 <<<<<<< HEAD
+<<<<<<< HEAD
         result = result.push_back([self decodedFieldFilter:filter.fieldFilter]);
         break;
 
       case GCFSStructuredQuery_Filter_FilterType_OneOfCase_UnaryFilter:
         result = result.push_back([self decodedUnaryFilter:filter.unaryFilter]);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         result.push_back([self decodedRelationFilter:filter.fieldFilter]);
         break;
 
       case GCFSStructuredQuery_Filter_FilterType_OneOfCase_UnaryFilter:
         result.push_back([self decodedUnaryFilter:filter.unaryFilter]);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         break;
 
@@ -1312,6 +1543,7 @@ NS_ASSUME_NONNULL_BEGIN
   return result;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (GCFSStructuredQuery_Filter *)encodedUnaryOrFieldFilter:(const FieldFilter &)filter {
   GCFSStructuredQuery_Filter *proto = [GCFSStructuredQuery_Filter message];
@@ -1334,16 +1566,22 @@ NS_ASSUME_NONNULL_BEGIN
   fieldFilter.field = [self encodedFieldPath:filter.field()];
   fieldFilter.op = [self encodedFieldFilterOperator:filter.op()];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (GCFSStructuredQuery_Filter *)encodedRelationFilter:(const RelationFilter &)filter {
   GCFSStructuredQuery_Filter *proto = [GCFSStructuredQuery_Filter message];
   GCFSStructuredQuery_FieldFilter *fieldFilter = proto.fieldFilter;
   fieldFilter.field = [self encodedFieldPath:filter.field()];
   fieldFilter.op = [self encodedRelationFilterOperator:filter.op()];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   fieldFilter.value = [self encodedFieldValue:filter.value()];
   return proto;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (const FieldFilter)decodedFieldFilter:(GCFSStructuredQuery_FieldFilter *)proto {
   FieldPath fieldPath = FieldPath::FromServerFormat(util::MakeString(proto.field.fieldPath));
@@ -1361,6 +1599,8 @@ NS_ASSUME_NONNULL_BEGIN
     case GCFSStructuredQuery_UnaryFilter_Operator_IsNan:
       return FieldFilter::Create(std::move(field), Operator::Equal, FieldValue::Nan());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (std::shared_ptr<RelationFilter>)decodedRelationFilter:(GCFSStructuredQuery_FieldFilter *)proto {
   FieldPath fieldPath = FieldPath::FromServerFormat(util::MakeString(proto.field.fieldPath));
   Filter::Operator op = [self decodedRelationFilterOperator:proto.op];
@@ -1389,6 +1629,9 @@ NS_ASSUME_NONNULL_BEGIN
 
     case GCFSStructuredQuery_UnaryFilter_Operator_IsNull:
       return std::make_shared<core::NullFilter>(std::move(field));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
     default:
@@ -1403,7 +1646,11 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (GCFSStructuredQuery_FieldFilter_Operator)encodedFieldFilterOperator:
+=======
+- (GCFSStructuredQuery_FieldFilter_Operator)encodedRelationFilterOperator:
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (GCFSStructuredQuery_FieldFilter_Operator)encodedRelationFilterOperator:
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1422,10 +1669,13 @@ NS_ASSUME_NONNULL_BEGIN
     case Filter::Operator::ArrayContains:
       return GCFSStructuredQuery_FieldFilter_Operator_ArrayContains;
 <<<<<<< HEAD
+<<<<<<< HEAD
     case Filter::Operator::In:
       return GCFSStructuredQuery_FieldFilter_Operator_In;
     case Filter::Operator::ArrayContainsAny:
       return GCFSStructuredQuery_FieldFilter_Operator_ArrayContainsAny;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     default:
@@ -1434,7 +1684,11 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (Filter::Operator)decodedFieldFilterOperator:
+=======
+- (Filter::Operator)decodedRelationFilterOperator:
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (Filter::Operator)decodedRelationFilterOperator:
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1453,10 +1707,13 @@ NS_ASSUME_NONNULL_BEGIN
     case GCFSStructuredQuery_FieldFilter_Operator_ArrayContains:
       return Filter::Operator::ArrayContains;
 <<<<<<< HEAD
+<<<<<<< HEAD
     case GCFSStructuredQuery_FieldFilter_Operator_In:
       return Filter::Operator::In;
     case GCFSStructuredQuery_FieldFilter_Operator_ArrayContainsAny:
       return Filter::Operator::ArrayContainsAny;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     default:
@@ -1467,9 +1724,15 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Property Orders
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (NSArray<GCFSStructuredQuery_Order *> *)encodedSortOrders:(const OrderByList &)orders {
   NSMutableArray<GCFSStructuredQuery_Order *> *protos = [NSMutableArray array];
   for (const OrderBy &order : orders) {
+=======
+- (NSArray<GCFSStructuredQuery_Order *> *)encodedSortOrders:(NSArray<FSTSortOrder *> *)orders {
+  NSMutableArray<GCFSStructuredQuery_Order *> *protos = [NSMutableArray array];
+  for (FSTSortOrder *order in orders) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (NSArray<GCFSStructuredQuery_Order *> *)encodedSortOrders:(NSArray<FSTSortOrder *> *)orders {
   NSMutableArray<GCFSStructuredQuery_Order *> *protos = [NSMutableArray array];
@@ -1481,31 +1744,43 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (OrderByList)decodedSortOrders:(NSArray<GCFSStructuredQuery_Order *> *)protos {
   OrderByList result;
   result = result.reserve(protos.count);
   for (GCFSStructuredQuery_Order *orderProto in protos) {
     result = result.push_back([self decodedSortOrder:orderProto]);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (NSArray<FSTSortOrder *> *)decodedSortOrders:(NSArray<GCFSStructuredQuery_Order *> *)protos {
   NSMutableArray<FSTSortOrder *> *result = [NSMutableArray arrayWithCapacity:protos.count];
   for (GCFSStructuredQuery_Order *orderProto in protos) {
     [result addObject:[self decodedSortOrder:orderProto]];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
   return result;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (GCFSStructuredQuery_Order *)encodedSortOrder:(const OrderBy &)sortOrder {
   GCFSStructuredQuery_Order *proto = [GCFSStructuredQuery_Order message];
   proto.field = [self encodedFieldPath:sortOrder.field()];
   if (sortOrder.ascending()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (GCFSStructuredQuery_Order *)encodedSortOrder:(FSTSortOrder *)sortOrder {
   GCFSStructuredQuery_Order *proto = [GCFSStructuredQuery_Order message];
   proto.field = [self encodedFieldPath:sortOrder.field];
   if (sortOrder.ascending) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     proto.direction = GCFSStructuredQuery_Direction_Ascending;
   } else {
@@ -1514,6 +1789,7 @@ NS_ASSUME_NONNULL_BEGIN
   return proto;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (OrderBy)decodedSortOrder:(GCFSStructuredQuery_Order *)proto {
   FieldPath fieldPath = FieldPath::FromServerFormat(util::MakeString(proto.field.fieldPath));
@@ -1525,6 +1801,8 @@ NS_ASSUME_NONNULL_BEGIN
     case GCFSStructuredQuery_Direction_Descending:
       direction = Direction::Descending;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (FSTSortOrder *)decodedSortOrder:(GCFSStructuredQuery_Order *)proto {
   FieldPath fieldPath = FieldPath::FromServerFormat(util::MakeString(proto.field.fieldPath));
   BOOL ascending;
@@ -1534,13 +1812,20 @@ NS_ASSUME_NONNULL_BEGIN
       break;
     case GCFSStructuredQuery_Direction_Descending:
       ascending = NO;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       break;
     default:
       HARD_FAIL("Unrecognized GCFSStructuredQuery_Direction %s", proto.direction);
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   return OrderBy(std::move(fieldPath), direction);
+=======
+  return [FSTSortOrder sortOrderWithFieldPath:fieldPath ascending:ascending];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return [FSTSortOrder sortOrderWithFieldPath:fieldPath ascending:ascending];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1549,15 +1834,21 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Bounds/Cursors
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (GCFSCursor *)encodedBound:(const Bound &)bound {
   GCFSCursor *proto = [GCFSCursor message];
   proto.before = bound.before();
   for (const FieldValue &fieldValue : bound.position()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (GCFSCursor *)encodedBound:(FSTBound *)bound {
   GCFSCursor *proto = [GCFSCursor message];
   proto.before = bound.isBefore;
   for (const FieldValue &fieldValue : bound.position) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     GCFSValue *value = [self encodedFieldValue:fieldValue];
     [proto.valuesArray addObject:value];
@@ -1566,7 +1857,11 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (std::shared_ptr<Bound>)decodedBound:(GCFSCursor *)proto {
+=======
+- (FSTBound *)decodedBound:(GCFSCursor *)proto {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTBound *)decodedBound:(GCFSCursor *)proto {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1578,7 +1873,11 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return std::make_shared<Bound>(std::move(indexComponents), proto.before);
+=======
+  return [FSTBound boundWithPosition:std::move(indexComponents) isBefore:proto.before];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return [FSTBound boundWithPosition:std::move(indexComponents) isBefore:proto.before];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1626,6 +1925,7 @@ NS_ASSUME_NONNULL_BEGIN
   __block std::vector<TargetId> targetIDs;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   [change.targetIdsArray enumerateValuesWithBlock:^(int32_t value, NSUInteger, BOOL *) {
     targetIDs.push_back(value);
   }];
@@ -1640,6 +1940,8 @@ NS_ASSUME_NONNULL_BEGIN
 
   return absl::make_unique<WatchTargetChange>(state, std::move(targetIDs), std::move(resumeToken),
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   [change.targetIdsArray enumerateValuesWithBlock:^(int32_t value, NSUInteger idx, BOOL *stop) {
     targetIDs.push_back(value);
   }];
@@ -1653,6 +1955,9 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
   return absl::make_unique<WatchTargetChange>(state, std::move(targetIDs), resumeToken,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                                               std::move(cause));
 }
@@ -1678,7 +1983,11 @@ NS_ASSUME_NONNULL_BEGIN
   __block std::vector<TargetId> result;
   result.reserve(values.count);
 <<<<<<< HEAD
+<<<<<<< HEAD
   [values enumerateValuesWithBlock:^(int32_t value, NSUInteger, BOOL *) {
+=======
+  [values enumerateValuesWithBlock:^(int32_t value, NSUInteger idx, BOOL *stop) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   [values enumerateValuesWithBlock:^(int32_t value, NSUInteger idx, BOOL *stop) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1695,22 +2004,33 @@ NS_ASSUME_NONNULL_BEGIN
   // The document may soon be re-serialized back to protos in order to store it in local
   // persistence. Memoize the encoded form to avoid encoding it again.
 <<<<<<< HEAD
+<<<<<<< HEAD
   Document document(std::move(value), key, version, DocumentState::kSynced, Wrap(change.document));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   FSTMaybeDocument *document = [FSTDocument documentWithData:value
                                                          key:key
                                                      version:version
                                                        state:DocumentState::kSynced
                                                        proto:change.document];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   std::vector<TargetId> updatedTargetIDs = [self decodedIntegerArray:change.targetIdsArray];
   std::vector<TargetId> removedTargetIDs = [self decodedIntegerArray:change.removedTargetIdsArray];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return absl::make_unique<DocumentWatchChange>(std::move(updatedTargetIDs),
                                                 std::move(removedTargetIDs), std::move(key),
                                                 std::move(document));
+=======
+  return absl::make_unique<DocumentWatchChange>(
+      std::move(updatedTargetIDs), std::move(removedTargetIDs), std::move(key), document);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return absl::make_unique<DocumentWatchChange>(
       std::move(updatedTargetIDs), std::move(removedTargetIDs), std::move(key), document);
@@ -1722,7 +2042,13 @@ NS_ASSUME_NONNULL_BEGIN
   // Note that version might be unset in which case we use SnapshotVersion::None()
   SnapshotVersion version = [self decodedVersion:change.readTime];
 <<<<<<< HEAD
+<<<<<<< HEAD
   NoDocument document(key, version, /* has_committed_mutations= */ false);
+=======
+  FSTMaybeDocument *document = [FSTDeletedDocument documentWithKey:key
+                                                           version:version
+                                             hasCommittedMutations:NO];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTMaybeDocument *document = [FSTDeletedDocument documentWithKey:key
                                                            version:version
@@ -1733,7 +2059,11 @@ NS_ASSUME_NONNULL_BEGIN
 
   return absl::make_unique<DocumentWatchChange>(
 <<<<<<< HEAD
+<<<<<<< HEAD
       std::vector<TargetId>{}, std::move(removedTargetIDs), std::move(key), std::move(document));
+=======
+      std::vector<TargetId>{}, std::move(removedTargetIDs), std::move(key), document);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       std::vector<TargetId>{}, std::move(removedTargetIDs), std::move(key), document);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1744,8 +2074,13 @@ NS_ASSUME_NONNULL_BEGIN
   std::vector<TargetId> removedTargetIDs = [self decodedIntegerArray:change.removedTargetIdsArray];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return absl::make_unique<DocumentWatchChange>(
       std::vector<TargetId>{}, std::move(removedTargetIDs), std::move(key), absl::nullopt);
+=======
+  return absl::make_unique<DocumentWatchChange>(std::vector<TargetId>{},
+                                                std::move(removedTargetIDs), std::move(key), nil);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return absl::make_unique<DocumentWatchChange>(std::vector<TargetId>{},
                                                 std::move(removedTargetIDs), std::move(key), nil);

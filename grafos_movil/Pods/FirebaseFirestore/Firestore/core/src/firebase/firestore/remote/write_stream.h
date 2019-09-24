@@ -37,14 +37,20 @@
 
 #import "Firestore/Source/Core/FSTTypes.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "Firestore/Source/Remote/FSTSerializerBeta.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Model/FSTMutation.h"
 #import "Firestore/Source/Remote/FSTSerializerBeta.h"
 
 @class FSTMutationResult;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -71,7 +77,11 @@ class WriteStreamCallback {
   virtual void OnWriteStreamMutationResult(
       model::SnapshotVersion commit_version,
 <<<<<<< HEAD
+<<<<<<< HEAD
       std::vector<model::MutationResult> results) = 0;
+=======
+      std::vector<FSTMutationResult*> results) = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       std::vector<FSTMutationResult*> results) = 0;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -110,7 +120,11 @@ class WriteStream : public Stream {
  public:
   WriteStream(const std::shared_ptr<util::AsyncQueue>& async_queue,
 <<<<<<< HEAD
+<<<<<<< HEAD
               std::shared_ptr<auth::CredentialsProvider> credentials_provider,
+=======
+              auth::CredentialsProvider* credentials_provider,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
               auth::CredentialsProvider* credentials_provider,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -119,7 +133,11 @@ class WriteStream : public Stream {
               WriteStreamCallback* callback);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   void SetLastStreamToken(const nanopb::ByteString& token);
+=======
+  void SetLastStreamToken(NSData* token);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void SetLastStreamToken(NSData* token);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -132,7 +150,11 @@ class WriteStream : public Stream {
    * next request.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   nanopb::ByteString GetLastStreamToken() const;
+=======
+  NSData* GetLastStreamToken() const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData* GetLastStreamToken() const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -153,7 +175,11 @@ class WriteStream : public Stream {
 
   /** Sends a group of mutations to the Firestore backend to apply. */
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual void WriteMutations(const std::vector<model::Mutation>& mutations);
+=======
+  virtual void WriteMutations(const std::vector<FSTMutation*>& mutations);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual void WriteMutations(const std::vector<FSTMutation*>& mutations);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

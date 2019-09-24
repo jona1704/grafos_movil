@@ -27,7 +27,11 @@
  /** @property URL
      @brief This URL represents the state/Continue URL in the form of a universal link.
 <<<<<<< HEAD
+<<<<<<< HEAD
      @remarks This URL can should be constructed as a universal link that would either directly open
+=======
+     @remarks This URL can should be contructed as a universal link that would either directly open
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
      @remarks This URL can should be contructed as a universal link that would either directly open
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

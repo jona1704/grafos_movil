@@ -19,6 +19,7 @@
 #include <algorithm>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/api/document_reference.h"
 #include "Firestore/core/src/firebase/firestore/api/firestore.h"
 #include "Firestore/core/src/firebase/firestore/api/input_validation.h"
@@ -26,6 +27,8 @@
 #include "Firestore/core/src/firebase/firestore/core/user_data.h"
 #include "Firestore/core/src/firebase/firestore/model/delete_mutation.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Core/FSTFirestoreClient.h"
 #import "Firestore/Source/Model/FSTMutation.h"
 
@@ -33,6 +36,9 @@
 #include "Firestore/core/src/firebase/firestore/api/firestore.h"
 #include "Firestore/core/src/firebase/firestore/api/input_validation.h"
 #include "Firestore/core/src/firebase/firestore/core/user_data.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 NS_ASSUME_NONNULL_BEGIN
@@ -42,10 +48,13 @@ namespace firestore {
 namespace api {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 using model::DeleteMutation;
 using model::Mutation;
 using model::Precondition;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void WriteBatch::SetData(const DocumentReference& reference,
@@ -54,7 +63,11 @@ void WriteBatch::SetData(const DocumentReference& reference,
   ValidateReference(reference);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<Mutation> append_mutations = std::move(setData).ToMutations(
+=======
+  std::vector<FSTMutation*> append_mutations = std::move(setData).ToMutations(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutation*> append_mutations = std::move(setData).ToMutations(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -69,7 +82,11 @@ void WriteBatch::UpdateData(const DocumentReference& reference,
   ValidateReference(reference);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<Mutation> append_mutations =
+=======
+  std::vector<FSTMutation*> append_mutations =
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutation*> append_mutations =
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -84,7 +101,13 @@ void WriteBatch::DeleteData(const DocumentReference& reference) {
   ValidateReference(reference);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   mutations_.push_back(DeleteMutation(reference.key(), Precondition::None()));
+=======
+  mutations_.push_back([[FSTDeleteMutation alloc]
+       initWithKey:reference.key()
+      precondition:model::Precondition::None()]);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   mutations_.push_back([[FSTDeleteMutation alloc]
        initWithKey:reference.key()
@@ -97,8 +120,13 @@ void WriteBatch::Commit(util::StatusCallback callback) {
 
   committed_ = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
   firestore_->client()->WriteMutations(std::move(mutations_),
                                        std::move(callback));
+=======
+  [firestore_->client() writeMutations:std::move(mutations_)
+                              callback:std::move(callback)];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   [firestore_->client() writeMutations:std::move(mutations_)
                               callback:std::move(callback)];

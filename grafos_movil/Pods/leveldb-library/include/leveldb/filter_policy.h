@@ -19,8 +19,11 @@
 #include <string>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "leveldb/export.h"
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace leveldb {
@@ -28,7 +31,11 @@ namespace leveldb {
 class Slice;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class LEVELDB_EXPORT FilterPolicy {
+=======
+class FilterPolicy {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class FilterPolicy {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -48,8 +55,13 @@ class FilterPolicy {
   // Warning: do not change the initial contents of *dst.  Instead,
   // append the newly constructed filter to *dst.
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual void CreateFilter(const Slice* keys, int n,
                             std::string* dst) const = 0;
+=======
+  virtual void CreateFilter(const Slice* keys, int n, std::string* dst)
+      const = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual void CreateFilter(const Slice* keys, int n, std::string* dst)
       const = 0;
@@ -78,9 +90,15 @@ class FilterPolicy {
 // FilterPolicy (like NewBloomFilterPolicy) that does not ignore
 // trailing spaces in keys.
 <<<<<<< HEAD
+<<<<<<< HEAD
 LEVELDB_EXPORT const FilterPolicy* NewBloomFilterPolicy(int bits_per_key);
 
 }  // namespace leveldb
+=======
+extern const FilterPolicy* NewBloomFilterPolicy(int bits_per_key);
+
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern const FilterPolicy* NewBloomFilterPolicy(int bits_per_key);
 

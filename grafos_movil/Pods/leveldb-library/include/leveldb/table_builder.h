@@ -15,8 +15,11 @@
 
 #include <stdint.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include "leveldb/export.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/options.h"
@@ -29,7 +32,11 @@ class BlockHandle;
 class WritableFile;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class LEVELDB_EXPORT TableBuilder {
+=======
+class TableBuilder {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class TableBuilder {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -40,9 +47,12 @@ class TableBuilder {
   TableBuilder(const Options& options, WritableFile* file);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   TableBuilder(const TableBuilder&) = delete;
   TableBuilder& operator=(const TableBuilder&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // REQUIRES: Either Finish() or Abandon() has been called.
@@ -97,11 +107,17 @@ class TableBuilder {
   struct Rep;
   Rep* rep_;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // No copying allowed
   TableBuilder(const TableBuilder&);
   void operator=(const TableBuilder&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

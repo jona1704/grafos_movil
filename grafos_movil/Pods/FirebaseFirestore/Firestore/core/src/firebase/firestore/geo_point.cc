@@ -26,6 +26,12 @@ namespace firebase {
 namespace firestore {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+GeoPoint::GeoPoint() : GeoPoint(0, 0) {
+}
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 GeoPoint::GeoPoint() : GeoPoint(0, 0) {
 }

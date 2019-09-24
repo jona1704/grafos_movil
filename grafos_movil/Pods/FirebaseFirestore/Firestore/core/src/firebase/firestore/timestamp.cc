@@ -61,7 +61,11 @@ Timestamp MakeNormalizedTimestamp(int64_t seconds, int64_t nanos) {
 }  // namespace
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Timestamp::Timestamp(int64_t seconds, int32_t nanoseconds)
+=======
+Timestamp::Timestamp(const int64_t seconds, const int32_t nanoseconds)
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Timestamp::Timestamp(const int64_t seconds, const int32_t nanoseconds)
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -143,7 +147,10 @@ void Timestamp::ValidateBounds() const {
 
 }  // namespace firebase
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace std {
 size_t hash<firebase::Timestamp>::operator()(
@@ -154,4 +161,7 @@ size_t hash<firebase::Timestamp>::operator()(
 }
 
 }  // namespace std
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

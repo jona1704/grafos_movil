@@ -26,6 +26,7 @@ namespace local {
 namespace {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Error ConvertStatusCode(const leveldb::Status& status) {
   if (status.ok()) return Error::Ok;
   if (status.IsNotFound()) return Error::NotFound;
@@ -35,6 +36,8 @@ Error ConvertStatusCode(const leveldb::Status& status) {
   if (status.IsInvalidArgument()) return Error::InvalidArgument;
   return Error::Unknown;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 FirestoreErrorCode ConvertStatusCode(const leveldb::Status& status) {
   if (status.ok()) return FirestoreErrorCode::Ok;
   if (status.IsNotFound()) return FirestoreErrorCode::NotFound;
@@ -43,6 +46,9 @@ FirestoreErrorCode ConvertStatusCode(const leveldb::Status& status) {
   if (status.IsNotSupportedError()) return FirestoreErrorCode::Unimplemented;
   if (status.IsInvalidArgument()) return FirestoreErrorCode::InvalidArgument;
   return FirestoreErrorCode::Unknown;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -52,7 +58,11 @@ util::Status ConvertStatus(const leveldb::Status& status) {
   if (status.ok()) return util::Status::OK();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Error code = ConvertStatusCode(status);
+=======
+  FirestoreErrorCode code = ConvertStatusCode(status);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FirestoreErrorCode code = ConvertStatusCode(status);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

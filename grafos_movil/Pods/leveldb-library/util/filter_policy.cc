@@ -7,7 +7,11 @@
 namespace leveldb {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 FilterPolicy::~FilterPolicy() {}
+=======
+FilterPolicy::~FilterPolicy() { }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 FilterPolicy::~FilterPolicy() { }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

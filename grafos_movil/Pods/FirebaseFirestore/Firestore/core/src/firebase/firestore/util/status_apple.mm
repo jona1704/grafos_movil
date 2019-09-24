@@ -49,7 +49,11 @@ class UnderlyingNSError : public PlatformError {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::unique_ptr<PlatformError> WrapWith(Error code,
+=======
+  std::unique_ptr<PlatformError> WrapWith(FirestoreErrorCode code,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::unique_ptr<PlatformError> WrapWith(FirestoreErrorCode code,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -74,6 +78,7 @@ namespace {
 Status FromFirestoreNSError(NSError* error) {
   auto error_code = static_cast<int>(error.code);
 <<<<<<< HEAD
+<<<<<<< HEAD
   HARD_ASSERT(
       error_code >= Error::Cancelled && error_code <= Error::Unauthenticated,
       "Unknown error code");
@@ -82,6 +87,8 @@ Status FromFirestoreNSError(NSError* error) {
 
   return Status(static_cast<Error>(error_code),
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   HARD_ASSERT(error_code >= FirestoreErrorCode::Cancelled &&
                   error_code <= FirestoreErrorCode::Unauthenticated,
               "Unknown error code");
@@ -89,6 +96,9 @@ Status FromFirestoreNSError(NSError* error) {
   auto original = UnderlyingNSError::Create(error);
 
   return Status(static_cast<FirestoreErrorCode>(error_code),
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                 MakeString(error.localizedDescription))
       .WithPlatformError(std::move(original));
@@ -118,7 +128,11 @@ Status Status::FromNSError(NSError* error) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return Status{Error::Unknown,
+=======
+  return Status{FirestoreErrorCode::Unknown,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return Status{FirestoreErrorCode::Unknown,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -8,6 +8,7 @@ namespace leveldb {
 
 Iterator::Iterator() {
 <<<<<<< HEAD
+<<<<<<< HEAD
   cleanup_head_.function = nullptr;
   cleanup_head_.next = nullptr;
 }
@@ -21,6 +22,8 @@ Iterator::~Iterator() {
       delete node;
       node = next_node;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   cleanup_.function = NULL;
   cleanup_.next = NULL;
 }
@@ -33,12 +36,16 @@ Iterator::~Iterator() {
       Cleanup* next = c->next;
       delete c;
       c = next;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
   }
 }
 
 void Iterator::RegisterCleanup(CleanupFunction func, void* arg1, void* arg2) {
+<<<<<<< HEAD
 <<<<<<< HEAD
   assert(func != nullptr);
   CleanupNode* node;
@@ -85,6 +92,8 @@ class EmptyIterator : public Iterator {
 
 Iterator* NewEmptyIterator() { return new EmptyIterator(Status::OK()); }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   assert(func != NULL);
   Cleanup* c;
   if (cleanup_.function == NULL) {
@@ -120,6 +129,9 @@ class EmptyIterator : public Iterator {
 Iterator* NewEmptyIterator() {
   return new EmptyIterator(Status::OK());
 }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 Iterator* NewErrorIterator(const Status& status) {

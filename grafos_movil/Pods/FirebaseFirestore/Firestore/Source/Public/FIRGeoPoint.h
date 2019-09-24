@@ -40,6 +40,7 @@ NS_SWIFT_NAME(GeoPoint)
                        longitude:(double)longitude NS_DESIGNATED_INITIALIZER;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * The point's latitude. Must be a value between -90 and 90 (inclusive).
  */
@@ -48,6 +49,9 @@ NS_SWIFT_NAME(GeoPoint)
 /**
  * The point's longitude. Must be a value between -180 and 180 (inclusive).
  */
+=======
+@property(nonatomic, readonly) double latitude;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @property(nonatomic, readonly) double latitude;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

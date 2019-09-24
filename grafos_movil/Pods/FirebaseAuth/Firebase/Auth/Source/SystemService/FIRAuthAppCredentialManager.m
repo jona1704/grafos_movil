@@ -19,7 +19,11 @@
 #import "FIRAuthAppCredential.h"
 #import "FIRAuthGlobalWorkQueue.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "FIRAuthKeychainServices.h"
+=======
+#import "FIRAuthKeychain.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "FIRAuthKeychain.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -48,15 +52,21 @@ static const NSUInteger kMaximumNumberOfPendingReceipts = 32;
 
 @implementation FIRAuthAppCredentialManager {
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** @var _keychainServices
       @brief The keychain for app credentials to load from and to save to.
    */
   FIRAuthKeychainServices *_keychainServices;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   /** @var _keychain
       @brief The keychain for app credentials to load from and to save to.
    */
   FIRAuthKeychain *_keychain;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   /** @var _pendingReceipts
@@ -71,6 +81,7 @@ static const NSUInteger kMaximumNumberOfPendingReceipts = 32;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (instancetype)initWithKeychain:(FIRAuthKeychainServices *)keychain {
   self = [super init];
   if (self) {
@@ -79,6 +90,8 @@ static const NSUInteger kMaximumNumberOfPendingReceipts = 32;
     NSError *error;
     NSData *encodedData = [_keychainServices dataForKey:kKeychainDataKey error:&error];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (instancetype)initWithKeychain:(FIRAuthKeychain *)keychain {
   self = [super init];
   if (self) {
@@ -86,6 +99,9 @@ static const NSUInteger kMaximumNumberOfPendingReceipts = 32;
     // Load the credentials from keychain if possible.
     NSError *error;
     NSData *encodedData = [_keychain dataForKey:kKeychainDataKey error:&error];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if (!error && encodedData) {
       NSKeyedUnarchiver *unarchiver =
@@ -161,7 +177,11 @@ static const NSUInteger kMaximumNumberOfPendingReceipts = 32;
   [archiver encodeObject:_pendingReceipts forKey:kPendingReceiptsKey];
   [archiver finishEncoding];
 <<<<<<< HEAD
+<<<<<<< HEAD
   [_keychainServices setData:archiveData forKey:kKeychainDataKey error:NULL];
+=======
+  [_keychain setData:archiveData forKey:kKeychainDataKey error:NULL];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   [_keychain setData:archiveData forKey:kKeychainDataKey error:NULL];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

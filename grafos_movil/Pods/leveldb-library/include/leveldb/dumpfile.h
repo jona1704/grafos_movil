@@ -7,9 +7,13 @@
 
 #include <string>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include "leveldb/env.h"
 #include "leveldb/export.h"
+=======
+#include "leveldb/env.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include "leveldb/env.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -25,8 +29,12 @@ namespace leveldb {
 // Returns a non-OK result if fname does not name a leveldb storage
 // file, or if the file cannot be read.
 <<<<<<< HEAD
+<<<<<<< HEAD
 LEVELDB_EXPORT Status DumpFile(Env* env, const std::string& fname,
                                WritableFile* dst);
+=======
+Status DumpFile(Env* env, const std::string& fname, WritableFile* dst);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Status DumpFile(Env* env, const std::string& fname, WritableFile* dst);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

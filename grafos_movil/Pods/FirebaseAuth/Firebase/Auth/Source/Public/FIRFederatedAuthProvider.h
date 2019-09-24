@@ -25,9 +25,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
     Utility type for constructing federated auth provider credentials.
  */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 NS_SWIFT_NAME(FederatedAuthProvider)

@@ -17,7 +17,11 @@
 #include "Firestore/core/src/firebase/firestore/api/listener_registration.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/firestore_client.h"
+=======
+#import "Firestore/Source/Core/FSTFirestoreClient.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "Firestore/Source/Core/FSTFirestoreClient.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -28,17 +32,23 @@ namespace api {
 
 ListenerRegistration::ListenerRegistration(
 <<<<<<< HEAD
+<<<<<<< HEAD
     std::shared_ptr<core::FirestoreClient> client,
     std::shared_ptr<core::AsyncEventListener<core::ViewSnapshot>>
         async_listener,
     std::shared_ptr<core::QueryListener> query_listener)
     : client_(std::move(client)),
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     FSTFirestoreClient* client,
     std::shared_ptr<core::AsyncEventListener<core::ViewSnapshot>>
         async_listener,
     std::shared_ptr<core::QueryListener> query_listener)
     : client_(client),
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       async_listener_(std::move(async_listener)),
       query_listener_(std::move(query_listener)) {
@@ -54,17 +64,23 @@ void ListenerRegistration::Remove() {
   auto query_listener = query_listener_.lock();
   if (query_listener) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     client_->RemoveListener(query_listener);
     query_listener_.reset();
   }
 
   client_.reset();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     [client_ removeListener:query_listener];
     query_listener_.reset();
   }
 
   client_.Release();
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

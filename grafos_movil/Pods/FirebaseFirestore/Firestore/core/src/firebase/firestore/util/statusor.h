@@ -60,7 +60,11 @@
 //  StatusOr<Foo*> FooFactory::MakeNewFoo(int arg) {
 //    if (arg <= 0) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 //      return Status(Error::InvalidArgument,
+=======
+//      return Status(FirestoreErrorCode::InvalidArgument,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 //      return Status(FirestoreErrorCode::InvalidArgument,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -155,7 +159,11 @@ class ABSL_MUST_USE_RESULT StatusOr
   // REQUIRES: !status.ok(). This requirement is DCHECKed.
   // In optimized builds, passing Status::OK() here will have the effect
 <<<<<<< HEAD
+<<<<<<< HEAD
   // of passing Error::Internal as a fallback.
+=======
+  // of passing FirestoreErrorCode::Internal as a fallback.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // of passing FirestoreErrorCode::Internal as a fallback.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -223,7 +231,11 @@ class ABSL_MUST_USE_RESULT StatusOr
 
 template <typename T>
 <<<<<<< HEAD
+<<<<<<< HEAD
 StatusOr<T>::StatusOr() : Base(Status(Error::Unknown, "")) {
+=======
+StatusOr<T>::StatusOr() : Base(Status(FirestoreErrorCode::Unknown, "")) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 StatusOr<T>::StatusOr() : Base(Status(FirestoreErrorCode::Unknown, "")) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

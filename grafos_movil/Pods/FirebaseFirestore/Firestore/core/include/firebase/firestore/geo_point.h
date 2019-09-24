@@ -33,6 +33,7 @@ namespace firestore {
 class GeoPoint {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** Creates a `GeoPoint` with both latitude and longitude set to 0. */
   GeoPoint() = default;
 
@@ -58,6 +59,8 @@ class GeoPoint {
 
   /** Returns the latitude value of this `GeoPoint`. */
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   /**
    * Creates a `GeoPoint` with both latitude and longitude being 0.
    */
@@ -76,13 +79,19 @@ class GeoPoint {
   GeoPoint& operator=(const GeoPoint& other) = default;
   GeoPoint& operator=(GeoPoint&& other) = default;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   double latitude() const {
     return latitude_;
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** Returns the latitude value of this `GeoPoint`. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   double longitude() const {
@@ -93,6 +102,7 @@ class GeoPoint {
    * Returns a string representation of this `GeoPoint` for logging/debugging
    * purposes.
    *
+<<<<<<< HEAD
 <<<<<<< HEAD
    * @note: the exact string representation is unspecified and subject to
    * change; don't rely on the format of the string.
@@ -116,6 +126,8 @@ bool operator<(const GeoPoint& lhs, const GeoPoint& rhs);
 
 /** Checks whether `lhs` and `rhs` are in descending order. */
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
    * Note: the exact string representation is unspecified and subject to change;
    * don't rely on the format of the string.
    */
@@ -130,13 +142,19 @@ bool operator<(const GeoPoint& lhs, const GeoPoint& rhs);
 /** Compares against another GeoPoint. */
 bool operator<(const GeoPoint& lhs, const GeoPoint& rhs);
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator>(const GeoPoint& lhs, const GeoPoint& rhs) {
   return rhs < lhs;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Checks whether `lhs` and `rhs` are in non-ascending order. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator>=(const GeoPoint& lhs, const GeoPoint& rhs) {
@@ -144,7 +162,10 @@ inline bool operator>=(const GeoPoint& lhs, const GeoPoint& rhs) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Checks whether `lhs` and `rhs` are in non-descending order. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator<=(const GeoPoint& lhs, const GeoPoint& rhs) {
@@ -152,7 +173,10 @@ inline bool operator<=(const GeoPoint& lhs, const GeoPoint& rhs) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Checks `lhs` and `rhs` for inequality. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator!=(const GeoPoint& lhs, const GeoPoint& rhs) {
@@ -160,7 +184,10 @@ inline bool operator!=(const GeoPoint& lhs, const GeoPoint& rhs) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Checks `lhs` and `rhs` for equality. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator==(const GeoPoint& lhs, const GeoPoint& rhs) {

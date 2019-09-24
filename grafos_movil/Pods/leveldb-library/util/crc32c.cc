@@ -3,17 +3,23 @@
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 //
 <<<<<<< HEAD
+<<<<<<< HEAD
 // A portable implementation of crc32c.
 
 #include "util/crc32c.h"
 
 #include <stddef.h>
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // A portable implementation of crc32c, optimized to handle
 // four bytes at a time.
 
 #include "util/crc32c.h"
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <stdint.h>
 
@@ -23,6 +29,7 @@
 namespace leveldb {
 namespace crc32c {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 namespace {
 
@@ -272,6 +279,8 @@ constexpr inline const uint8_t* RoundUp(const uint8_t* pointer) {
 }  // namespace
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 static const uint32_t table0_[256] = {
   0x00000000, 0xf26b8303, 0xe13b70f7, 0x1350f3f4,
   0xc79a971f, 0x35f1141c, 0x26a1e7e8, 0xd4ca64eb,
@@ -542,6 +551,9 @@ static inline uint32_t LE_LOAD32(const uint8_t *p) {
   return DecodeFixed32(reinterpret_cast<const char*>(p));
 }
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // Determine if the CPU running this program can accelerate the CRC32C
 // calculation.
@@ -554,6 +566,7 @@ static bool CanAccelerateCRC32C() {
   return port::AcceleratedCRC32C(0, kTestCRCBuffer, kBufSize) == kTestCRCValue;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 uint32_t Extend(uint32_t crc, const char* data, size_t n) {
   static bool accelerate = CanAccelerateCRC32C();
@@ -607,6 +620,8 @@ uint32_t Extend(uint32_t crc, const char* data, size_t n) {
   if (x <= e) {
     // Process bytes p is 4-byte aligned.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 uint32_t Extend(uint32_t crc, const char* buf, size_t size) {
   static bool accelerate = CanAccelerateCRC32C();
   if (accelerate) {
@@ -636,11 +651,15 @@ uint32_t Extend(uint32_t crc, const char* buf, size_t size) {
   const uint8_t* x = reinterpret_cast<const uint8_t*>(((pval + 3) >> 2) << 2);
   if (x <= e) {
     // Process bytes until finished or p is 4-byte aligned
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     while (p != x) {
       STEP1;
     }
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
   if ((e - p) >= 16) {
@@ -689,6 +708,8 @@ uint32_t Extend(uint32_t crc, const char* buf, size_t size) {
 #undef STEP1
   return l ^ kCRC32Xor;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Process bytes 16 at a time
   while ((e-p) >= 16) {
     STEP4; STEP4; STEP4; STEP4;
@@ -704,6 +725,9 @@ uint32_t Extend(uint32_t crc, const char* buf, size_t size) {
 #undef STEP4
 #undef STEP1
   return l ^ 0xffffffffu;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

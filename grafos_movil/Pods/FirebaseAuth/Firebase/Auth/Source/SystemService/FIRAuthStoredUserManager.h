@@ -18,8 +18,13 @@
 
 #import "FIRUser.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "FIRAuthKeychainServices.h"
 #import "FIRAuthUserDefaults.h"
+=======
+#import "FIRAuthKeychain.h"
+#import "FIRAuthUserDefaultsStorage.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "FIRAuthKeychain.h"
 #import "FIRAuthUserDefaultsStorage.h"
@@ -33,7 +38,11 @@ NS_ASSUME_NONNULL_BEGIN
     @brief The mediator object to access to the system Keychain services.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @property (readonly, nonatomic, strong) FIRAuthKeychainServices *keychainServices;
+=======
+@property (readonly, nonatomic, strong) FIRAuthKeychain *keychain;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @property (readonly, nonatomic, strong) FIRAuthKeychain *keychain;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -42,7 +51,11 @@ NS_ASSUME_NONNULL_BEGIN
     @brief The mediator object to access to the system User Defaults services.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @property (readonly, nonatomic, strong) FIRAuthUserDefaults *userDefaults;
+=======
+@property (readonly, nonatomic, strong) FIRAuthUserDefaultsStorage *userDefaults;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @property (readonly, nonatomic, strong) FIRAuthUserDefaultsStorage *userDefaults;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

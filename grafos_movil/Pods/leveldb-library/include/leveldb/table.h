@@ -7,8 +7,11 @@
 
 #include <stdint.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include "leveldb/export.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/iterator.h"
@@ -27,7 +30,11 @@ class TableCache;
 // immutable and persistent.  A Table may be safely accessed from
 // multiple threads without external synchronization.
 <<<<<<< HEAD
+<<<<<<< HEAD
 class LEVELDB_EXPORT Table {
+=======
+class Table {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class Table {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -40,7 +47,11 @@ class Table {
   // table.  The client should delete "*table" when no longer needed.
   // If there was an error while initializing the table, sets "*table"
 <<<<<<< HEAD
+<<<<<<< HEAD
   // to nullptr and returns a non-ok status.  Does not take ownership of
+=======
+  // to NULL and returns a non-ok status.  Does not take ownership of
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // to NULL and returns a non-ok status.  Does not take ownership of
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -49,16 +60,22 @@ class Table {
   //
   // *file must remain live while this Table is in use.
 <<<<<<< HEAD
+<<<<<<< HEAD
   static Status Open(const Options& options, RandomAccessFile* file,
                      uint64_t file_size, Table** table);
 
   Table(const Table&) = delete;
   Table& operator=(const Table&) = delete;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   static Status Open(const Options& options,
                      RandomAccessFile* file,
                      uint64_t file_size,
                      Table** table);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   ~Table();
@@ -78,6 +95,7 @@ class Table {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   friend class TableCache;
   struct Rep;
 
@@ -92,6 +110,8 @@ class Table {
                      void (*handle_result)(void* arg, const Slice& k,
                                            const Slice& v));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   struct Rep;
   Rep* rep_;
 
@@ -107,13 +127,22 @@ class Table {
       void* arg,
       void (*handle_result)(void* arg, const Slice& k, const Slice& v));
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   void ReadMeta(const Footer& footer);
   void ReadFilter(const Slice& filter_handle_value);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Rep* const rep_;
+=======
+  // No copying allowed
+  Table(const Table&);
+  void operator=(const Table&);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // No copying allowed
   Table(const Table&);

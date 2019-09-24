@@ -17,8 +17,11 @@
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <ostream>
 #include <sstream>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <utility>
@@ -31,6 +34,7 @@ using core::Query;
 using model::SnapshotVersion;
 using nanopb::ByteString;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // MARK: - QueryPurpose
 
@@ -64,12 +68,17 @@ QueryData::QueryData(Query query,
                      SnapshotVersion snapshot_version,
                      ByteString resume_token)
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 QueryData::QueryData(Query&& query,
                      model::TargetId target_id,
                      model::ListenSequenceNumber sequence_number,
                      QueryPurpose purpose,
                      SnapshotVersion&& snapshot_version,
                      ByteString&& resume_token)
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     : query_(std::move(query)),
       target_id_(target_id),
@@ -79,6 +88,7 @@ QueryData::QueryData(Query&& query,
       resume_token_(std::move(resume_token)) {
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 QueryData::QueryData(Query query,
                      int target_id,
@@ -132,6 +142,8 @@ std::ostream& operator<<(std::ostream& os, const QueryData& value) {
 }
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // TODO(rsgowman): Implement once WatchStream::EmptyResumeToken exists.
 /*
 QueryData::QueryData(const Query& query, int target_id, QueryPurpose purpose)
@@ -155,6 +167,9 @@ QueryData QueryData::Copy(SnapshotVersion&& snapshot_version,
                    std::move(snapshot_version), std::move(resume_token));
 }
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }  // namespace local
 }  // namespace firestore

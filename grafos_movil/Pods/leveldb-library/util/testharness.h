@@ -8,15 +8,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include <sstream>
 
 #include "leveldb/status.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <sstream>
 #include "leveldb/env.h"
 #include "leveldb/slice.h"
 #include "util/random.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace leveldb {
@@ -35,22 +41,32 @@ namespace test {
 // Returns 0 if all tests pass.
 // Dies or returns a non-zero value if some test fails.
 <<<<<<< HEAD
+<<<<<<< HEAD
 int RunAllTests();
 
 // Return the directory to use for temporary storage.
 std::string TmpDir();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern int RunAllTests();
 
 // Return the directory to use for temporary storage.
 extern std::string TmpDir();
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 // Return a randomization seed for this run.  Typically returns the
 // same number on repeated invocations of this binary, but automated
 // runs may be able to vary the seed.
 <<<<<<< HEAD
+<<<<<<< HEAD
 int RandomSeed();
+=======
+extern int RandomSeed();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern int RandomSeed();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -66,7 +82,13 @@ class Tester {
 
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   Tester(const char* f, int l) : ok_(true), fname_(f), line_(l) {}
+=======
+  Tester(const char* f, int l)
+      : ok_(true), fname_(f), line_(l) {
+  }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Tester(const char* f, int l)
       : ok_(true), fname_(f), line_(l) {
@@ -97,6 +119,7 @@ class Tester {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define BINARY_OP(name, op)                          \
   template <class X, class Y>                        \
   Tester& name(const X& x, const Y& y) {             \
@@ -106,6 +129,8 @@ class Tester {
     }                                                \
     return *this;                                    \
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #define BINARY_OP(name,op)                              \
   template <class X, class Y>                           \
   Tester& name(const X& x, const Y& y) {                \
@@ -114,6 +139,9 @@ class Tester {
       ok_ = false;                                      \
     }                                                   \
     return *this;                                       \
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -137,6 +165,7 @@ class Tester {
 
 #define ASSERT_TRUE(c) ::leveldb::test::Tester(__FILE__, __LINE__).Is((c), #c)
 #define ASSERT_OK(s) ::leveldb::test::Tester(__FILE__, __LINE__).IsOk((s))
+<<<<<<< HEAD
 <<<<<<< HEAD
 #define ASSERT_EQ(a, b) \
   ::leveldb::test::Tester(__FILE__, __LINE__).IsEq((a), (b))
@@ -171,6 +200,8 @@ class Tester {
 // invoked via the macro expansion of TEST.
 bool RegisterTest(const char* base, const char* name, void (*func)());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #define ASSERT_EQ(a,b) ::leveldb::test::Tester(__FILE__, __LINE__).IsEq((a),(b))
 #define ASSERT_NE(a,b) ::leveldb::test::Tester(__FILE__, __LINE__).IsNe((a),(b))
 #define ASSERT_GE(a,b) ::leveldb::test::Tester(__FILE__, __LINE__).IsGe((a),(b))
@@ -198,6 +229,9 @@ void TCONCAT(_Test_,name)::_Run()
 // invoked via the macro expansion of TEST.
 extern bool RegisterTest(const char* base, const char* name, void (*func)());
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 }  // namespace test

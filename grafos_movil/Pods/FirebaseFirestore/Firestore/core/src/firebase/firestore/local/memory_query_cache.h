@@ -37,6 +37,11 @@
 @class FSTLocalSerializer;
 @class FSTMemoryPersistence;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+@class FSTQuery;
+@class FSTQueryData;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @class FSTQuery;
 @class FSTQueryData;
@@ -49,8 +54,11 @@ namespace firestore {
 namespace local {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class Sizer;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 class MemoryQueryCache : public QueryCache {
@@ -58,6 +66,7 @@ class MemoryQueryCache : public QueryCache {
   explicit MemoryQueryCache(FSTMemoryPersistence* persistence);
 
   // Target-related methods
+<<<<<<< HEAD
 <<<<<<< HEAD
   void AddTarget(const QueryData& query_data) override;
 
@@ -67,6 +76,8 @@ class MemoryQueryCache : public QueryCache {
 
   absl::optional<QueryData> GetTarget(const core::Query& query) override;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void AddTarget(FSTQueryData* query_data) override;
 
   void UpdateTarget(FSTQueryData* query_data) override;
@@ -74,13 +85,20 @@ class MemoryQueryCache : public QueryCache {
   void RemoveTarget(FSTQueryData* query_data) override;
 
   FSTQueryData* _Nullable GetTarget(FSTQuery* query) override;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   void EnumerateTargets(const TargetCallback& callback) override;
 
   int RemoveTargets(model::ListenSequenceNumber upper_bound,
 <<<<<<< HEAD
+<<<<<<< HEAD
                     const std::unordered_map<model::TargetId, QueryData>&
+=======
+                    const std::unordered_map<model::TargetId, FSTQueryData*>&
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                     const std::unordered_map<model::TargetId, FSTQueryData*>&
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -99,7 +117,11 @@ class MemoryQueryCache : public QueryCache {
 
   // Other methods and accessors
 <<<<<<< HEAD
+<<<<<<< HEAD
   int64_t CalculateByteSize(const Sizer& sizer);
+=======
+  size_t CalculateByteSize(FSTLocalSerializer* serializer);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   size_t CalculateByteSize(FSTLocalSerializer* serializer);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -133,7 +155,11 @@ class MemoryQueryCache : public QueryCache {
 
   /** Maps a query to the data about that query. */
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::unordered_map<core::Query, QueryData> queries_;
+=======
+  objc::unordered_map<FSTQuery*, FSTQueryData*> queries_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   objc::unordered_map<FSTQuery*, FSTQueryData*> queries_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

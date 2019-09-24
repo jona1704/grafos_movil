@@ -72,6 +72,7 @@ GPB_INLINE void GPBDebugCheckRuntimeVersion() {
 
 GPB_INLINE int64_t GPBConvertDoubleToInt64(double v) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   GPBInternalCompileAssert(sizeof(double) == sizeof(int64_t), double_not_64_bits);
   int64_t result;
   memcpy(&result, &v, sizeof(result));
@@ -98,6 +99,8 @@ GPB_INLINE float GPBConvertInt32ToFloat(int32_t v) {
   memcpy(&result, &v, sizeof(result));
   return result;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   union { double f; int64_t i; } u;
   u.f = v;
   return u.i;
@@ -119,6 +122,9 @@ GPB_INLINE float GPBConvertInt32ToFloat(int32_t v) {
   union { float f; int32_t i; } u;
   u.i = v;
   return u.f;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

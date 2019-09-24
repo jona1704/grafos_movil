@@ -17,7 +17,10 @@
 #include "Firestore/core/src/firebase/firestore/model/maybe_document.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <ostream>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <utility>
@@ -26,6 +29,7 @@ namespace firebase {
 namespace firestore {
 namespace model {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 bool MaybeDocument::Rep::Equals(const MaybeDocument::Rep& other) const {
   return type() == other.type() && version() == other.version() &&
@@ -45,6 +49,8 @@ bool operator==(const MaybeDocument& lhs, const MaybeDocument& rhs) {
              ? rhs.rep_ == nullptr
              : (rhs.rep_ != nullptr && lhs.rep_->Equals(*rhs.rep_));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 MaybeDocument::MaybeDocument(DocumentKey key, SnapshotVersion version)
     : key_(std::move(key)), version_(std::move(version)) {
 }
@@ -52,6 +58,9 @@ MaybeDocument::MaybeDocument(DocumentKey key, SnapshotVersion version)
 bool MaybeDocument::Equals(const MaybeDocument& other) const {
   return type_ == other.type_ && version_ == other.version_ &&
          key_ == other.key_;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

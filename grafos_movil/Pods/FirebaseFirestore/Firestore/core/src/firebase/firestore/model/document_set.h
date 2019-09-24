@@ -25,12 +25,15 @@
 #include "Firestore/core/src/firebase/firestore/immutable/sorted_container.h"
 #include "Firestore/core/src/firebase/firestore/immutable/sorted_set.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/document.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_map.h"
 #include "Firestore/core/src/firebase/firestore/util/comparison.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_map.h"
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
@@ -40,11 +43,15 @@ OBJC_CLASS(FSTDocument);
 
 NS_ASSUME_NONNULL_BEGIN
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
 namespace model {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 class DocumentComparator : public util::FunctionComparator<Document> {
  public:
@@ -57,11 +64,16 @@ class DocumentComparator : public util::FunctionComparator<Document> {
   // below is gone, this using statement can be removed as well.
   using FunctionComparator<Document>::Compare;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 class DocumentComparator : public util::FunctionComparator<FSTDocument*> {
  public:
   using FunctionComparator<FSTDocument*>::FunctionComparator;
 
   static DocumentComparator ByKey();
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
@@ -78,15 +90,21 @@ class DocumentSet : public immutable::SortedContainer {
    * @see sorted_set_.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   using SetType = immutable::SortedSet<Document, DocumentComparator>;
 
   // STL container types
   using value_type = Document;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   using SetType = immutable::SortedSet<FSTDocument*, DocumentComparator>;
 
   // STL container types
   using value_type = FSTDocument*;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   using const_iterator = SetType::const_iterator;
 
@@ -109,10 +127,13 @@ class DocumentSet : public immutable::SortedContainer {
   bool ContainsKey(const DocumentKey& key) const;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const DocumentComparator& comparator() const {
     return sorted_set_.comparator();
   }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   SetType::const_iterator begin() const {
@@ -127,7 +148,11 @@ class DocumentSet : public immutable::SortedContainer {
    * if it doesn't.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   absl::optional<Document> GetDocument(const DocumentKey& key) const;
+=======
+  FSTDocument* _Nullable GetDocument(const DocumentKey& key) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTDocument* _Nullable GetDocument(const DocumentKey& key) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -137,7 +162,11 @@ class DocumentSet : public immutable::SortedContainer {
    * or nil if the set is empty.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   absl::optional<Document> GetFirstDocument() const;
+=======
+  FSTDocument* _Nullable GetFirstDocument() const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTDocument* _Nullable GetFirstDocument() const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -147,7 +176,11 @@ class DocumentSet : public immutable::SortedContainer {
    * nil if the set is empty.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   absl::optional<Document> GetLastDocument() const;
+=======
+  FSTDocument* _Nullable GetLastDocument() const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTDocument* _Nullable GetLastDocument() const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -160,7 +193,11 @@ class DocumentSet : public immutable::SortedContainer {
 
   /** Returns a new DocumentSet that contains the given document. */
 <<<<<<< HEAD
+<<<<<<< HEAD
   DocumentSet insert(const absl::optional<Document>& document) const;
+=======
+  DocumentSet insert(FSTDocument* _Nullable document) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   DocumentSet insert(FSTDocument* _Nullable document) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -208,6 +245,11 @@ inline bool operator!=(const DocumentSet& lhs, const DocumentSet& rhs) {
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

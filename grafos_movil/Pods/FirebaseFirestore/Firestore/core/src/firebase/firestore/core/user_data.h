@@ -24,6 +24,7 @@
 #include <vector>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/field_mask.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
 #include "Firestore/core/src/firebase/firestore/model/field_transform.h"
@@ -45,6 +46,8 @@ class ParsedSetData;
 class ParsedUpdateData;
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/field_mask.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
@@ -58,6 +61,9 @@ namespace firebase {
 namespace firestore {
 namespace core {
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /**
  * Represents what type of API method provided the data being parsed; useful for
@@ -80,11 +86,17 @@ enum class UserDataSource {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 class ParseContext;
 class ParsedSetData;
 class ParsedUpdateData;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /**
  * Accumulates the side-effect results of parsing user input. These include:
@@ -139,8 +151,14 @@ class ParseAccumulator {
    * Adds a transformation for the given field path.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   void AddToFieldTransforms(model::FieldPath field_path,
                             model::TransformOperation transform_operation);
+=======
+  void AddToFieldTransforms(
+      model::FieldPath field_path,
+      std::unique_ptr<model::TransformOperation> transform_operation);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void AddToFieldTransforms(
       model::FieldPath field_path,
@@ -264,8 +282,14 @@ class ParseContext {
   void AddToFieldMask(model::FieldPath field_path);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   void AddToFieldTransforms(model::FieldPath field_path,
                             model::TransformOperation transform_operation);
+=======
+  void AddToFieldTransforms(
+      model::FieldPath field_path,
+      std::unique_ptr<model::TransformOperation> transform_operation);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void AddToFieldTransforms(
       model::FieldPath field_path,
@@ -303,7 +327,11 @@ class ParsedSetData {
    * This method consumes the values stored in the ParsedSetData
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<model::Mutation> ToMutations(
+=======
+  std::vector<FSTMutation*> ToMutations(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutation*> ToMutations(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -340,7 +368,11 @@ class ParsedUpdateData {
    * This method consumes the values stored in the ParsedUpdateData
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<model::Mutation> ToMutations(
+=======
+  std::vector<FSTMutation*> ToMutations(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutation*> ToMutations(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -17,17 +17,23 @@
 #import <Foundation/Foundation.h>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
 #include "Firestore/core/src/firebase/firestore/model/maybe_document.h"
 #include "Firestore/core/src/firebase/firestore/model/mutation_batch.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 
 @class FSTMaybeDocument;
 @class FSTMutationBatch;
 @class FSTQueryData;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class FSTSerializerBeta;
 
@@ -38,7 +44,10 @@
 @class GPBTimestamp;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace local = firebase::firestore::local;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace model = firebase::firestore::model;
@@ -59,6 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Encodes a MaybeDocument model to the equivalent protocol buffer for local storage. */
 - (FSTPBMaybeDocument *)encodedMaybeDocument:(const model::MaybeDocument &)document;
 
@@ -77,6 +87,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** Decodes an FSTPBTarget proto from local storage into a QueryData model. */
 - (local::QueryData)decodedQueryData:(FSTPBTarget *)target;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /** Encodes an FSTMaybeDocument model to the equivalent protocol buffer for local storage. */
 - (FSTPBMaybeDocument *)encodedMaybeDocument:(FSTMaybeDocument *)document;
 
@@ -94,6 +106,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Decodes an FSTPBTarget proto from local storage into an FSTQueryData model. */
 - (FSTQueryData *)decodedQueryData:(FSTPBTarget *)target;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 /** Encodes a SnapshotVersion model into a GPBTimestamp proto. */

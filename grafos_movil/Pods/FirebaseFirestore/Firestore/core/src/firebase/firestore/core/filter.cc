@@ -18,13 +18,19 @@
 
 #include <ostream>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <utility>
 
 #include "Firestore/core/src/firebase/firestore/api/input_validation.h"
 #include "Firestore/core/src/firebase/firestore/core/nan_filter.h"
 #include "Firestore/core/src/firebase/firestore/core/null_filter.h"
 #include "Firestore/core/src/firebase/firestore/core/relation_filter.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
@@ -32,11 +38,14 @@ namespace firestore {
 namespace core {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool operator==(const Filter& lhs, const Filter& rhs) {
   return lhs.rep_ == nullptr
              ? rhs.rep_ == nullptr
              : (rhs.rep_ != nullptr && lhs.rep_->Equals(*rhs.rep_));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using api::ThrowInvalidArgument;
 using model::FieldPath;
 using model::FieldValue;
@@ -62,6 +71,9 @@ std::shared_ptr<Filter> Filter::Create(FieldPath path,
     return std::make_shared<RelationFilter>(std::move(path), op,
                                             std::move(value_rhs));
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

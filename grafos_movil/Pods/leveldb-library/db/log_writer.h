@@ -7,7 +7,10 @@
 
 #include <stdint.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "db/log_format.h"
@@ -33,9 +36,12 @@ class Writer {
   Writer(WritableFile* dest, uint64_t dest_length);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Writer(const Writer&) = delete;
   Writer& operator=(const Writer&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   ~Writer();
@@ -44,10 +50,15 @@ class Writer {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   Status EmitPhysicalRecord(RecordType type, const char* ptr, size_t length);
 
   WritableFile* dest_;
   int block_offset_;  // Current offset in block
+=======
+  WritableFile* dest_;
+  int block_offset_;       // Current offset in block
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   WritableFile* dest_;
   int block_offset_;       // Current offset in block
@@ -58,13 +69,19 @@ class Writer {
   // record type stored in the header.
   uint32_t type_crc_[kMaxRecordType + 1];
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   Status EmitPhysicalRecord(RecordType type, const char* ptr, size_t length);
 
   // No copying allowed
   Writer(const Writer&);
   void operator=(const Writer&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

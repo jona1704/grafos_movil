@@ -23,6 +23,7 @@
  * the local cache, or attempt to fetch results from the server and fall back to
  * the cache (which is the default).
 <<<<<<< HEAD
+<<<<<<< HEAD
  */
 typedef NS_ENUM(NSUInteger, FIRFirestoreSource) {
 
@@ -51,6 +52,8 @@ typedef NS_ENUM(NSUInteger, FIRFirestoreSource) {
    * `QuerySnapshot` with no documents.
    */
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  *
  * Setting the source to `Source.default` causes Firestore to try to retrieve an
  * up-to-date (server-retrieved) snapshot, but fall back to returning cached
@@ -73,6 +76,9 @@ typedef NS_ENUM(NSUInteger, FIRFirestoreSource) {
 typedef NS_ENUM(NSUInteger, FIRFirestoreSource) {
   FIRFirestoreSourceDefault,
   FIRFirestoreSourceServer,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   FIRFirestoreSourceCache
 } NS_SWIFT_NAME(FirestoreSource);

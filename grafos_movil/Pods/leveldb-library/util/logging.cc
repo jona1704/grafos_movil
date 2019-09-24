@@ -9,9 +9,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include <limits>
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/env.h"
@@ -22,7 +25,11 @@ namespace leveldb {
 void AppendNumberTo(std::string* str, uint64_t num) {
   char buf[30];
 <<<<<<< HEAD
+<<<<<<< HEAD
   snprintf(buf, sizeof(buf), "%llu", (unsigned long long)num);
+=======
+  snprintf(buf, sizeof(buf), "%llu", (unsigned long long) num);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   snprintf(buf, sizeof(buf), "%llu", (unsigned long long) num);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -57,6 +64,7 @@ std::string EscapeString(const Slice& value) {
 
 bool ConsumeDecimalNumber(Slice* in, uint64_t* val) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Constants that will be optimized away.
   constexpr const uint64_t kMaxUint64 = std::numeric_limits<uint64_t>::max();
   constexpr const char kLastDigitOfMaxUint64 =
@@ -89,6 +97,8 @@ bool ConsumeDecimalNumber(Slice* in, uint64_t* val) {
   in->remove_prefix(digits_consumed);
   return digits_consumed != 0;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   uint64_t v = 0;
   int digits = 0;
   while (!in->empty()) {
@@ -110,6 +120,9 @@ bool ConsumeDecimalNumber(Slice* in, uint64_t* val) {
   }
   *val = v;
   return (digits > 0);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

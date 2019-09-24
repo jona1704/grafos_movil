@@ -20,6 +20,7 @@
 #include <memory>
 #include <utility>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <vector>
 
 #include "Firestore/core/src/firebase/firestore/api/firestore.h"
@@ -30,6 +31,8 @@
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
 #include "absl/algorithm/container.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 #import "Firestore/Source/Core/FSTFirestoreClient.h"
 #import "Firestore/Source/Core/FSTQuery.h"
@@ -59,6 +62,9 @@ using firebase::firestore::model::FieldValue;
 using firebase::firestore::model::ResourcePath;
 using firebase::firestore::util::Status;
 using firebase::firestore::util::StatusOr;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 NS_ASSUME_NONNULL_BEGIN
@@ -67,6 +73,7 @@ namespace firebase {
 namespace firestore {
 namespace api {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 namespace util = firebase::firestore::util;
 using core::AsyncEventListener;
@@ -94,6 +101,8 @@ Query::Query(core::Query query, std::shared_ptr<Firestore> firestore)
 bool operator==(const Query& lhs, const Query& rhs) {
   return lhs.firestore() == rhs.firestore() && lhs.query() == rhs.query();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Query::Query(FSTQuery* query, std::shared_ptr<Firestore> firestore)
     : firestore_{std::move(firestore)}, query_{query} {
 }
@@ -101,6 +110,9 @@ Query::Query(FSTQuery* query, std::shared_ptr<Firestore> firestore)
 bool operator==(const Query& lhs, const Query& rhs) {
   return lhs.firestore() == rhs.firestore() &&
          objc::Equals(lhs.query(), rhs.query());
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -109,11 +121,14 @@ size_t Query::Hash() const {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void Query::GetDocuments(Source source, QuerySnapshot::Listener&& callback) {
   if (source == Source::Cache) {
     firestore_->client()->GetDocumentsFromLocalCache(*this,
                                                      std::move(callback));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 FSTQuery* Query::query() const {
   return query_;
 }
@@ -122,6 +137,9 @@ void Query::GetDocuments(Source source, QuerySnapshot::Listener&& callback) {
   if (source == Source::Cache) {
     [firestore_->client() getDocumentsFromLocalCache:*this
                                             callback:std::move(callback)];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     return;
   }
@@ -154,7 +172,11 @@ void Query::GetDocuments(Source source, QuerySnapshot::Listener&& callback) {
       if (snapshot.metadata().from_cache() && source_ == Source::Server) {
         listener_->OnEvent(Status{
 <<<<<<< HEAD
+<<<<<<< HEAD
             Error::Unavailable,
+=======
+            FirestoreErrorCode::Unavailable,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             FirestoreErrorCode::Unavailable,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -216,7 +238,11 @@ ListenerRegistration Query::AddSnapshotListener(
    private:
     std::shared_ptr<Firestore> firestore_;
 <<<<<<< HEAD
+<<<<<<< HEAD
     core::Query query_;
+=======
+    FSTQuery* query_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     FSTQuery* query_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -228,18 +254,24 @@ ListenerRegistration Query::AddSnapshotListener(
   // Call the view_listener on the user Executor.
   auto async_listener = AsyncEventListener<ViewSnapshot>::Create(
 <<<<<<< HEAD
+<<<<<<< HEAD
       firestore_->client()->user_executor(), std::move(view_listener));
 
   std::shared_ptr<QueryListener> query_listener =
       firestore_->client()->ListenToQuery(this->query(), options,
                                           async_listener);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       firestore_->client().userExecutor, std::move(view_listener));
 
   std::shared_ptr<QueryListener> query_listener =
       [firestore_->client() listenToQuery:this->query()
                                   options:options
                                  listener:async_listener];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   return ListenerRegistration(firestore_->client(), std::move(async_listener),
@@ -251,6 +283,7 @@ Query Query::Filter(FieldPath field_path,
                     FieldValue field_value,
                     const std::function<std::string()>& type_describer) const {
   if (field_path.IsKeyFieldPath()) {
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (IsArrayOperator(op)) {
       ThrowInvalidArgument(
@@ -279,6 +312,8 @@ Query Query::Filter(FieldPath field_path,
 
   return Wrap(query_.AddingFilter(std::move(filter)));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if (op == Filter::Operator::ArrayContains) {
       ThrowInvalidArgument(
           "Invalid query. You can't perform arrayContains queries on document "
@@ -325,6 +360,9 @@ Query Query::Filter(FieldPath field_path,
   }
 
   return Wrap([query_ queryByAddingFilter:filter]);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -334,6 +372,7 @@ Query Query::OrderBy(FieldPath fieldPath, bool descending) const {
 
 Query Query::OrderBy(FieldPath fieldPath, Direction direction) const {
   ValidateNewOrderByPath(fieldPath);
+<<<<<<< HEAD
 <<<<<<< HEAD
   if (query_.start_at()) {
     ThrowInvalidArgument("Invalid query. You must not specify a starting point "
@@ -346,6 +385,8 @@ Query Query::OrderBy(FieldPath fieldPath, Direction direction) const {
   return Wrap(
       query_.AddingOrderBy(core::OrderBy(std::move(fieldPath), direction)));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (query().startAt) {
     ThrowInvalidArgument("Invalid query. You must not specify a starting point "
                          "before specifying the order by.");
@@ -358,6 +399,9 @@ Query Query::OrderBy(FieldPath fieldPath, Direction direction) const {
   FSTSortOrder* sortOrder = [FSTSortOrder sortOrderWithFieldPath:fieldPath
                                                        ascending:ascending];
   return Wrap([query() queryByAddingSortOrder:sortOrder]);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -367,6 +411,7 @@ Query Query::Limit(int32_t limit) const {
         "Invalid Query. Query limit (%s) is invalid. Limit must be positive.",
         limit);
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
   return Wrap(query_.WithLimit(limit));
 }
@@ -428,6 +473,8 @@ void Query::ValidateNewFilter(const class Filter& filter) const {
         }
       }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return Wrap([query() queryBySettingLimit:limit]);
 }
 
@@ -458,6 +505,9 @@ void Query::ValidateNewRelationFilter(const RelationFilter& filter) const {
     if ([query_ hasArrayContainsFilter]) {
       ThrowInvalidArgument(
           "Invalid Query. Queries only support a single arrayContains filter.");
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
   }
@@ -465,9 +515,15 @@ void Query::ValidateNewRelationFilter(const RelationFilter& filter) const {
 
 void Query::ValidateNewOrderByPath(const FieldPath& fieldPath) const {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (!query_.FirstOrderByField()) {
     // This is the first order by. It must match any inequality.
     const FieldPath* inequalityField = query_.InequalityFilterField();
+=======
+  if (![query() firstSortOrderField]) {
+    // This is the first order by. It must match any inequality.
+    const FieldPath* inequalityField = [query() inequalityFilterField];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (![query() firstSortOrderField]) {
     // This is the first order by. It must match any inequality.
@@ -493,6 +549,7 @@ void Query::ValidateOrderByField(const FieldPath& orderByField,
   }
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 void Query::ValidateDisjunctiveFilterElements(
     const model::FieldValue& field_value, core::Filter::Operator op) const {
@@ -583,6 +640,10 @@ std::string Query::Describe(Filter::Operator op) const {
   }
 
   UNREACHABLE();
+=======
+Query Query::Wrap(FSTQuery* query) const {
+  return Query(query, firestore_);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Query Query::Wrap(FSTQuery* query) const {
   return Query(query, firestore_);

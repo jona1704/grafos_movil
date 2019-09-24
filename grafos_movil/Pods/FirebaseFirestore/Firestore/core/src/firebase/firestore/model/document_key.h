@@ -20,7 +20,10 @@
 #include <functional>
 #include <initializer_list>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <iosfwd>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <memory>
@@ -78,9 +81,15 @@ class DocumentKey : public util::Comparable<DocumentKey> {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::string ToString() const;
 
   friend std::ostream& operator<<(std::ostream& os, const DocumentKey& key);
+=======
+  std::string ToString() const {
+    return path().CanonicalString();
+  }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::string ToString() const {
     return path().CanonicalString();

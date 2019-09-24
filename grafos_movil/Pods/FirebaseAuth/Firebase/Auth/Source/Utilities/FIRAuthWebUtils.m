@@ -97,9 +97,12 @@ NS_ASSUME_NONNULL_BEGIN
       return;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Look up an authorized domain ends with one of the supportedAuthDomains.
     // The sequence of supportedAuthDomains matters. ("firebaseapp.com", "web.app")
     // The searching ends once the first valid suportedAuthDomain is found.
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     NSString *authDomain;
@@ -114,9 +117,12 @@ NS_ASSUME_NONNULL_BEGIN
         }
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (authDomain != nil) {
         break;
       }
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }

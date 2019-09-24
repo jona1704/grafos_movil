@@ -19,6 +19,7 @@ static Slice GetLengthPrefixedSlice(const char* data) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 MemTable::MemTable(const InternalKeyComparator& comparator)
     : comparator_(comparator), refs_(0), table_(comparator_, &arena_) {}
 
@@ -29,6 +30,8 @@ size_t MemTable::ApproximateMemoryUsage() { return arena_.MemoryUsage(); }
 int MemTable::KeyComparator::operator()(const char* aptr,
                                         const char* bptr) const {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 MemTable::MemTable(const InternalKeyComparator& cmp)
     : comparator_(cmp),
       refs_(0),
@@ -43,6 +46,9 @@ size_t MemTable::ApproximateMemoryUsage() { return arena_.MemoryUsage(); }
 
 int MemTable::KeyComparator::operator()(const char* aptr, const char* bptr)
     const {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Internal keys are encoded as length-prefixed strings.
   Slice a = GetLengthPrefixedSlice(aptr);
@@ -61,9 +67,15 @@ static const char* EncodeKey(std::string* scratch, const Slice& target) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class MemTableIterator : public Iterator {
  public:
   explicit MemTableIterator(MemTable::Table* table) : iter_(table) {}
+=======
+class MemTableIterator: public Iterator {
+ public:
+  explicit MemTableIterator(MemTable::Table* table) : iter_(table) { }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class MemTableIterator: public Iterator {
  public:
@@ -87,7 +99,11 @@ class MemTableIterator: public Iterator {
  private:
   MemTable::Table::Iterator iter_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::string tmp_;  // For passing to EncodeKey
+=======
+  std::string tmp_;       // For passing to EncodeKey
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::string tmp_;       // For passing to EncodeKey
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -98,16 +114,22 @@ class MemTableIterator: public Iterator {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Iterator* MemTable::NewIterator() { return new MemTableIterator(&table_); }
 
 void MemTable::Add(SequenceNumber s, ValueType type, const Slice& key,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Iterator* MemTable::NewIterator() {
   return new MemTableIterator(&table_);
 }
 
 void MemTable::Add(SequenceNumber s, ValueType type,
                    const Slice& key,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                    const Slice& value) {
   // Format of an entry is concatenation of:
@@ -119,9 +141,15 @@ void MemTable::Add(SequenceNumber s, ValueType type,
   size_t val_size = value.size();
   size_t internal_key_size = key_size + 8;
 <<<<<<< HEAD
+<<<<<<< HEAD
   const size_t encoded_len = VarintLength(internal_key_size) +
                              internal_key_size + VarintLength(val_size) +
                              val_size;
+=======
+  const size_t encoded_len =
+      VarintLength(internal_key_size) + internal_key_size +
+      VarintLength(val_size) + val_size;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   const size_t encoded_len =
       VarintLength(internal_key_size) + internal_key_size +
@@ -136,7 +164,11 @@ void MemTable::Add(SequenceNumber s, ValueType type,
   p = EncodeVarint32(p, val_size);
   memcpy(p, value.data(), val_size);
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert(p + val_size == buf + encoded_len);
+=======
+  assert((p + val_size) - buf == encoded_len);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   assert((p + val_size) - buf == encoded_len);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -160,14 +192,20 @@ bool MemTable::Get(const LookupKey& key, std::string* value, Status* s) {
     const char* entry = iter.key();
     uint32_t key_length;
 <<<<<<< HEAD
+<<<<<<< HEAD
     const char* key_ptr = GetVarint32Ptr(entry, entry + 5, &key_length);
     if (comparator_.comparator.user_comparator()->Compare(
             Slice(key_ptr, key_length - 8), key.user_key()) == 0) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     const char* key_ptr = GetVarint32Ptr(entry, entry+5, &key_length);
     if (comparator_.comparator.user_comparator()->Compare(
             Slice(key_ptr, key_length - 8),
             key.user_key()) == 0) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       // Correct user key
       const uint64_t tag = DecodeFixed64(key_ptr + key_length - 8);

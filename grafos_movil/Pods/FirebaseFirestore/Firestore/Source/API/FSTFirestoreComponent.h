@@ -17,8 +17,11 @@
 #import <Foundation/Foundation.h>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "Firestore/Source/API/FIRFirestore+Internal.h"
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class FIRApp;
@@ -41,8 +44,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// A concrete implementation for FSTInstanceProvider to create Firestore instances and register
 /// with Core's component system.
 <<<<<<< HEAD
+<<<<<<< HEAD
 @interface FSTFirestoreComponent
     : NSObject <FSTFirestoreInstanceRegistry, FSTFirestoreMultiDBProvider>
+=======
+@interface FSTFirestoreComponent : NSObject <FSTFirestoreMultiDBProvider>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @interface FSTFirestoreComponent : NSObject <FSTFirestoreMultiDBProvider>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -57,8 +64,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (FIRFirestore *)firestoreForDatabase:(NSString *)database;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)removeInstanceWithDatabase:(NSString *)database;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /// Default initializer.

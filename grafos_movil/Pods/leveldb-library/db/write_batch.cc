@@ -16,15 +16,21 @@
 #include "leveldb/write_batch.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "db/dbformat.h"
 #include "db/memtable.h"
 #include "db/write_batch_internal.h"
 #include "leveldb/db.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/db.h"
 #include "db/dbformat.h"
 #include "db/memtable.h"
 #include "db/write_batch_internal.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "util/coding.h"
 
@@ -34,12 +40,15 @@ namespace leveldb {
 static const size_t kHeader = 12;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 WriteBatch::WriteBatch() { Clear(); }
 
 WriteBatch::~WriteBatch() {}
 
 WriteBatch::Handler::~Handler() {}
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 WriteBatch::WriteBatch() {
   Clear();
 }
@@ -47,6 +56,9 @@ WriteBatch::WriteBatch() {
 WriteBatch::~WriteBatch() { }
 
 WriteBatch::Handler::~Handler() { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 void WriteBatch::Clear() {
@@ -55,8 +67,11 @@ void WriteBatch::Clear() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 size_t WriteBatch::ApproximateSize() const { return rep_.size(); }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Status WriteBatch::Iterate(Handler* handler) const {
@@ -129,10 +144,13 @@ void WriteBatch::Delete(const Slice& key) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void WriteBatch::Append(const WriteBatch& source) {
   WriteBatchInternal::Append(this, &source);
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace {
@@ -153,7 +171,12 @@ class MemTableInserter : public WriteBatch::Handler {
 }  // namespace
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status WriteBatchInternal::InsertInto(const WriteBatch* b, MemTable* memtable) {
+=======
+Status WriteBatchInternal::InsertInto(const WriteBatch* b,
+                                      MemTable* memtable) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Status WriteBatchInternal::InsertInto(const WriteBatch* b,
                                       MemTable* memtable) {

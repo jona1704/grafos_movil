@@ -26,6 +26,7 @@
 
 #include "Firestore/core/src/firebase/firestore/core/event_listener.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/immutable/sorted_map.h"
 #include "Firestore/core/src/firebase/firestore/model/document.h"
@@ -35,6 +36,8 @@
 #include "Firestore/core/src/firebase/firestore/util/statusor.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/immutable/sorted_map.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
@@ -47,6 +50,9 @@ OBJC_CLASS(FSTQuery);
 
 NS_ASSUME_NONNULL_BEGIN
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -61,6 +67,7 @@ class DocumentViewChange {
    * is significant.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   enum class Type { Removed = 0, Added, Modified, Metadata };
 
   DocumentViewChange() = default;
@@ -69,6 +76,8 @@ class DocumentViewChange {
 
   const model::Document& document() const;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   enum class Type { kRemoved = 0, kAdded, kModified, kMetadata };
 
   DocumentViewChange() = default;
@@ -76,6 +85,9 @@ class DocumentViewChange {
   DocumentViewChange(FSTDocument* document, Type type);
 
   FSTDocument* document() const;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   DocumentViewChange::Type type() const {
     return type_;
@@ -86,7 +98,11 @@ class DocumentViewChange {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::Document document_;
+=======
+  objc::Handle<FSTDocument> document_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   objc::Handle<FSTDocument> document_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -130,7 +146,11 @@ class ViewSnapshot {
   using SharedListener = std::shared_ptr<EventListener<ViewSnapshot>>;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   ViewSnapshot(Query query,
+=======
+  ViewSnapshot(FSTQuery* query,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   ViewSnapshot(FSTQuery* query,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -147,7 +167,11 @@ class ViewSnapshot {
    * added.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   static ViewSnapshot FromInitialDocuments(Query query,
+=======
+  static ViewSnapshot FromInitialDocuments(FSTQuery* query,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   static ViewSnapshot FromInitialDocuments(FSTQuery* query,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -158,7 +182,11 @@ class ViewSnapshot {
 
   /** The query this view is tracking the results for. */
 <<<<<<< HEAD
+<<<<<<< HEAD
   const Query& query() const;
+=======
+  FSTQuery* query() const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTQuery* query() const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -209,7 +237,11 @@ class ViewSnapshot {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   Query query_;
+=======
+  objc::Handle<FSTQuery> query_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   objc::Handle<FSTQuery> query_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -231,6 +263,11 @@ bool operator==(const ViewSnapshot& lhs, const ViewSnapshot& rhs);
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

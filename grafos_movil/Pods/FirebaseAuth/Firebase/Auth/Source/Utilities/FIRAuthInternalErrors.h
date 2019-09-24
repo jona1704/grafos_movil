@@ -352,7 +352,11 @@ typedef NS_ENUM(NSInteger, FIRAuthInternalErrorCode) {
       FIRAuthPublicErrorCodeFlag | FIRAuthErrorCodeInvalidClientID,
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** Indicates that a network request within a SFSafariViewController or WKWebView failed.
+=======
+  /** Indicates that a network request within a SFSafariViewController or UIWebview failed.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   /** Indicates that a network request within a SFSafariViewController or UIWebview failed.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -361,7 +365,11 @@ typedef NS_ENUM(NSInteger, FIRAuthInternalErrorCode) {
       FIRAuthPublicErrorCodeFlag | FIRAuthErrorCodeWebNetworkRequestFailed,
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** Indicates that an internal error occurred within a SFSafariViewController or WKWebView.
+=======
+  /** Indicates that an internal error occurred within a SFSafariViewController or UIWebview.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   /** Indicates that an internal error occurred within a SFSafariViewController or UIWebview.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -370,7 +378,11 @@ typedef NS_ENUM(NSInteger, FIRAuthInternalErrorCode) {
       FIRAuthPublicErrorCodeFlag | FIRAuthErrorCodeWebInternalError,
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** Indicates that an internal error occurred within a SFSafariViewController or WKWebView.
+=======
+  /** Indicates that an internal error occurred within a SFSafariViewController or UIWebview.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   /** Indicates that an internal error occurred within a SFSafariViewController or UIWebview.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

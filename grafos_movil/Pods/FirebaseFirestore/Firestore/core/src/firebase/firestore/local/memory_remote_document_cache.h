@@ -31,13 +31,19 @@
 
 @class FSTLocalSerializer;
 <<<<<<< HEAD
+<<<<<<< HEAD
 @class FSTMemoryLRUReferenceDelegate;
 @class FSTMemoryPersistence;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class FSTMaybeDocument;
 @class FSTMemoryLRUReferenceDelegate;
 @class FSTMemoryPersistence;
 @class FSTQuery;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 NS_ASSUME_NONNULL_BEGIN
@@ -47,14 +53,18 @@ namespace firestore {
 namespace local {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class Sizer;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 class MemoryRemoteDocumentCache : public RemoteDocumentCache {
  public:
   explicit MemoryRemoteDocumentCache(FSTMemoryPersistence* persistence);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   void Add(const model::MaybeDocument& document) override;
   void Remove(const model::DocumentKey& key) override;
@@ -65,12 +75,17 @@ class MemoryRemoteDocumentCache : public RemoteDocumentCache {
       const model::DocumentKeySet& keys) override;
   model::DocumentMap GetMatching(const core::Query& query) override;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void Add(FSTMaybeDocument* document) override;
   void Remove(const model::DocumentKey& key) override;
 
   FSTMaybeDocument* _Nullable Get(const model::DocumentKey& key) override;
   model::MaybeDocumentMap GetAll(const model::DocumentKeySet& keys) override;
   model::DocumentMap GetMatching(FSTQuery* query) override;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   std::vector<model::DocumentKey> RemoveOrphanedDocuments(
@@ -78,7 +93,11 @@ class MemoryRemoteDocumentCache : public RemoteDocumentCache {
       model::ListenSequenceNumber upper_bound);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   int64_t CalculateByteSize(const Sizer& sizer);
+=======
+  size_t CalculateByteSize(FSTLocalSerializer* serializer);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   size_t CalculateByteSize(FSTLocalSerializer* serializer);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

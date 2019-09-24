@@ -15,17 +15,23 @@ namespace crc32c {
 // crc32c of some string A.  Extend() is often used to maintain the
 // crc32c of a stream of data.
 <<<<<<< HEAD
+<<<<<<< HEAD
 uint32_t Extend(uint32_t init_crc, const char* data, size_t n);
 
 // Return the crc32c of data[0,n-1]
 inline uint32_t Value(const char* data, size_t n) { return Extend(0, data, n); }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern uint32_t Extend(uint32_t init_crc, const char* data, size_t n);
 
 // Return the crc32c of data[0,n-1]
 inline uint32_t Value(const char* data, size_t n) {
   return Extend(0, data, n);
 }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 static const uint32_t kMaskDelta = 0xa282ead8ul;

@@ -18,10 +18,15 @@
 
 #include <algorithm>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <ostream>
 
 #include "Firestore/core/src/firebase/firestore/core/field_filter.h"
 #include "Firestore/core/src/firebase/firestore/core/operator.h"
+=======
+
+#include "Firestore/core/src/firebase/firestore/core/relation_filter.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
 #include "Firestore/core/src/firebase/firestore/core/relation_filter.h"
@@ -32,9 +37,12 @@
 #include "Firestore/core/src/firebase/firestore/util/equality.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/util/hashing.h"
 #include "absl/algorithm/container.h"
 #include "absl/strings/str_cat.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -42,6 +50,10 @@ namespace firebase {
 namespace firestore {
 namespace core {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+namespace {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 namespace {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -51,12 +63,15 @@ using Type = Filter::Type;
 
 using model::Document;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using model::DocumentComparator;
 using model::DocumentKey;
 using model::FieldPath;
 using model::ResourcePath;
 using util::ComparisonResult;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using model::DocumentKey;
 using model::FieldPath;
 using model::ResourcePath;
@@ -70,6 +85,9 @@ util::vector_of_ptr<T> AppendingTo(const util::vector_of_ptr<T>& vector,
 }
 
 }  // namespace
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 Query::Query(ResourcePath path, std::string collection_group)
@@ -88,8 +106,13 @@ bool Query::IsDocumentQuery() const {
 const FieldPath* Query::InequalityFilterField() const {
   for (const auto& filter : filters_) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (filter.IsInequality()) {
       return &filter.field();
+=======
+    if (filter->IsInequality()) {
+      return &filter->field();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (filter->IsInequality()) {
       return &filter->field();
@@ -99,6 +122,7 @@ const FieldPath* Query::InequalityFilterField() const {
   return nullptr;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 absl::optional<Operator> Query::FirstArrayOperator() const {
   for (const auto& filter : filters_) {
@@ -181,6 +205,8 @@ const FieldPath* Query::FirstOrderByField() const {
 
   return &explicit_order_bys_.front().field();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 bool Query::HasArrayContainsFilter() const {
   for (const auto& filter : filters_) {
     if (filter->type() == Type::kRelationFilter) {
@@ -191,11 +217,15 @@ bool Query::HasArrayContainsFilter() const {
     }
   }
   return false;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
 // MARK: - Builder methods
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 Query Query::AddingFilter(Filter filter) const {
   HARD_ASSERT(!IsDocumentQuery(), "No filter is allowed for document query");
@@ -204,12 +234,17 @@ Query Query::AddingFilter(Filter filter) const {
   if (filter.IsInequality()) {
     new_inequality_field = &filter.field();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Query Query::Filter(std::shared_ptr<core::Filter> filter) const {
   HARD_ASSERT(!IsDocumentQuery(), "No filter is allowed for document query");
 
   const FieldPath* new_inequality_field = nullptr;
   if (filter->IsInequality()) {
     new_inequality_field = &filter->field();
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
   const FieldPath* query_inequality_field = InequalityFilterField();
@@ -219,6 +254,7 @@ Query Query::Filter(std::shared_ptr<core::Filter> filter) const {
 
   // TODO(rsgowman): ensure first orderby must match inequality field
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   return Query(path_, collection_group_, filters_.push_back(std::move(filter)),
                explicit_order_bys_, limit_, start_at_, end_at_);
@@ -257,18 +293,24 @@ Query Query::AsCollectionQueryAtPath(ResourcePath path) const {
   return Query(path, /*collection_group=*/nullptr, filters_,
                explicit_order_bys_, limit_, start_at_, end_at_);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return Query(path_, collection_group_,
                AppendingTo(filters_, std::move(filter)));
 }
 
 Query Query::AsCollectionQueryAtPath(ResourcePath path) const {
   return Query(path, /*collection_group=*/nullptr, filters_);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
 // MARK: - Matching
 
 bool Query::Matches(const Document& doc) const {
+<<<<<<< HEAD
 <<<<<<< HEAD
   return MatchesPathAndCollectionGroup(doc) && MatchesOrderBy(doc) &&
          MatchesFilters(doc) && MatchesBounds(doc);
@@ -288,6 +330,8 @@ bool Query::MatchesPathAndCollectionGroup(const Document& doc) const {
     // Shallow ancestor queries by default.
     return path_.IsImmediateParentOf(doc_path);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return MatchesPath(doc) && MatchesOrderBy(doc) && MatchesFilters(doc) &&
          MatchesBounds(doc);
 }
@@ -298,11 +342,15 @@ bool Query::MatchesPath(const Document& doc) const {
     return path_ == doc_path;
   } else {
     return path_.IsPrefixOf(doc_path) && path_.size() == doc_path.size() - 1;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 }
 
 bool Query::MatchesFilters(const Document& doc) const {
+<<<<<<< HEAD
 <<<<<<< HEAD
   for (const auto& filter : filters_) {
     if (!filter.Matches(doc)) return false;
@@ -415,6 +463,8 @@ bool operator==(const Query& lhs, const Query& rhs) {
          util::Equals(lhs.start_at(), rhs.start_at()) &&
          util::Equals(lhs.end_at(), rhs.end_at());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return std::all_of(filters_.begin(), filters_.end(),
                      [&](const std::shared_ptr<core::Filter>& filter) {
                        return filter->Matches(doc);
@@ -435,6 +485,9 @@ bool operator==(const Query& lhs, const Query& rhs) {
   return lhs.path() == rhs.path() &&
          util::Equals(lhs.collection_group(), rhs.collection_group()) &&
          lhs.filters() == rhs.filters();
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

@@ -22,8 +22,11 @@
 #include <functional>
 #include <memory>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <mutex>  // NOLINT(build/c++11)
 #include <vector>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -60,6 +63,7 @@ enum class TimerId {
    */
   OnlineStateTimeout,
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   /**
    * A timer used to periodically attempt LRU Garbage collection
@@ -72,10 +76,15 @@ enum class TimerId {
    */
   RetryTransaction
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   /**
    * A timer used to periodically attempt LRU Garbage collection
    */
   GarbageCollectionDelay
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
@@ -115,6 +124,7 @@ class AsyncQueue {
   // case, destructors invoked when an enqueued operation has run and is being
   // destroyed may invoke `Enqueue`).
 <<<<<<< HEAD
+<<<<<<< HEAD
   //
   // After the shutdown process has initiated (`is_shutting_down()` is true),
   // calling `Enqueue` is a no-op.
@@ -138,11 +148,16 @@ class AsyncQueue {
   bool is_shutting_down() const;
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void Enqueue(const Operation& operation);
 
   // Like `Enqueue`, but without applying any prerequisite checks.
   void EnqueueRelaxed(const Operation& operation);
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Puts the `operation` on the queue to be executed `delay` milliseconds from
   // now, and returns a handle that allows to cancel the operation (provided it
@@ -200,10 +215,13 @@ class AsyncQueue {
   void RunScheduledOperationsUntil(TimerId last_timer_id);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   // For tests: Skip all subsequent delays for a specific TimerId.
   // NOTE: This does not work with TimerId::All.
   void SkipDelaysForTimerId(TimerId timer_id);
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  private:
@@ -216,11 +234,14 @@ class AsyncQueue {
   std::atomic<bool> is_operation_in_progress_;
   std::unique_ptr<Executor> executor_;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   bool is_shutting_down_ = false;
   mutable std::mutex shut_down_mutex_;
 
   std::vector<TimerId> timer_ids_to_skip_;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };

@@ -66,7 +66,11 @@ extern NSString *const kServiceInfoFileType;
  * runtime.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @property(nonatomic, readonly) BOOL isAnalyticsCollectionExplicitlySet;
+=======
+@property(nonatomic, readonly) BOOL isAnalyticsCollectionExpicitlySet;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @property(nonatomic, readonly) BOOL isAnalyticsCollectionExpicitlySet;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

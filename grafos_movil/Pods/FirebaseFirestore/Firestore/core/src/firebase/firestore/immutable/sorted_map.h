@@ -27,7 +27,10 @@
 #include "Firestore/core/src/firebase/firestore/util/comparison.h"
 #include "absl/base/attributes.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "absl/types/optional.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -166,6 +169,7 @@ class SortedMap : public SortedMapBase {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const C& comparator() const {
     switch (tag_) {
       case Tag::Array:
@@ -176,6 +180,8 @@ class SortedMap : public SortedMapBase {
     UNREACHABLE();
   }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   /**
@@ -272,6 +278,7 @@ class SortedMap : public SortedMapBase {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   absl::optional<V> get(const K& key) const {
     auto found = find(key);
     if (found != end()) {
@@ -281,6 +288,8 @@ class SortedMap : public SortedMapBase {
     }
   }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   /**
@@ -385,7 +394,10 @@ class SortedMap : public SortedMapBase {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   const C& comparator() const {
     switch (tag_) {
       case Tag::Array:
@@ -396,6 +408,9 @@ class SortedMap : public SortedMapBase {
     UNREACHABLE();
   }
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   enum class Tag {
     Array,

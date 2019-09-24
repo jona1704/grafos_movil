@@ -17,7 +17,10 @@
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <ostream>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <utility>
@@ -57,6 +60,7 @@ util::ComparisonResult DocumentKey::CompareTo(const DocumentKey& other) const {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::string DocumentKey::ToString() const {
   return path().CanonicalString();
 }
@@ -65,6 +69,8 @@ std::ostream& operator<<(std::ostream& os, const DocumentKey& key) {
   return os << key.ToString();
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }  // namespace model

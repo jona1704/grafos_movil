@@ -47,8 +47,11 @@
 #include "Firestore/core/src/firebase/firestore/util/error_apple.h"
 #include "Firestore/core/src/firebase/firestore/util/executor_libdispatch.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert_apple.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/util/log.h"
@@ -63,9 +66,13 @@ using firebase::firestore::api::ThrowInvalidArgument;
 using firebase::firestore::auth::CredentialsProvider;
 using firebase::firestore::model::DatabaseId;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using firebase::firestore::util::ObjcFailureHandler;
 using firebase::firestore::util::AsyncQueue;
 using firebase::firestore::util::SetFailureHandler;
+=======
+using firebase::firestore::util::AsyncQueue;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 using firebase::firestore::util::AsyncQueue;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -84,6 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
   std::shared_ptr<Firestore> _firestore;
   FIRFirestoreSettings *_settings;
 <<<<<<< HEAD
+<<<<<<< HEAD
   __weak id<FSTFirestoreInstanceRegistry> _registry;
 }
 
@@ -91,6 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
   if (self == [FIRFirestore class]) {
     SetFailureHandler(ObjcFailureHandler);
   }
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
@@ -128,10 +138,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithDatabaseID:(model::DatabaseId)databaseID
                     persistenceKey:(std::string)persistenceKey
 <<<<<<< HEAD
+<<<<<<< HEAD
                credentialsProvider:(std::shared_ptr<CredentialsProvider>)credentialsProvider
                        workerQueue:(std::shared_ptr<AsyncQueue>)workerQueue
                        firebaseApp:(FIRApp *)app
                   instanceRegistry:(nullable id<FSTFirestoreInstanceRegistry>)registry {
+=======
+               credentialsProvider:(std::unique_ptr<CredentialsProvider>)credentialsProvider
+                       workerQueue:(std::shared_ptr<AsyncQueue>)workerQueue
+                       firebaseApp:(FIRApp *)app {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                credentialsProvider:(std::unique_ptr<CredentialsProvider>)credentialsProvider
                        workerQueue:(std::shared_ptr<AsyncQueue>)workerQueue
@@ -144,7 +160,10 @@ NS_ASSUME_NONNULL_BEGIN
 
     _app = app;
 <<<<<<< HEAD
+<<<<<<< HEAD
     _registry = registry;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -241,7 +260,12 @@ NS_ASSUME_NONNULL_BEGIN
                                  core::TransactionResultCallback internalCallback) {
     FIRTransaction *transaction =
 <<<<<<< HEAD
+<<<<<<< HEAD
         [FIRTransaction transactionWithInternalTransaction:internalTransaction firestore:self];
+=======
+        [FIRTransaction transactionWithInternalTransaction:std::move(internalTransaction)
+                                                 firestore:self];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         [FIRTransaction transactionWithInternalTransaction:std::move(internalTransaction)
                                                  firestore:self];
@@ -254,10 +278,13 @@ NS_ASSUME_NONNULL_BEGIN
       // If the user set an error, disregard the result.
       if (error) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // If the error is a user error, set flag to not retry the transaction.
         if (error.domain != FIRFirestoreErrorDomain) {
           internalTransaction->MarkPermanentlyFailed();
         }
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         internalCallback(util::Status::FromNSError(error));
@@ -315,6 +342,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)waitForPendingWritesWithCompletion:(void (^)(NSError *_Nullable error))completion {
   _firestore->WaitForPendingWrites(util::MakeCallback(completion));
 }
@@ -328,6 +356,8 @@ NS_ASSUME_NONNULL_BEGIN
   [self terminateInternalWithCompletion:completion];
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @end
@@ -355,8 +385,13 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)terminateInternalWithCompletion:(nullable void (^)(NSError *_Nullable error))completion {
   _firestore->Terminate(util::MakeCallback(completion));
+=======
+- (void)shutdownWithCompletion:(nullable void (^)(NSError *_Nullable error))completion {
+  _firestore->Shutdown(util::MakeCallback(completion));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (void)shutdownWithCompletion:(nullable void (^)(NSError *_Nullable error))completion {
   _firestore->Shutdown(util::MakeCallback(completion));

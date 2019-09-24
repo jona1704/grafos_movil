@@ -63,6 +63,7 @@ NS_SWIFT_NAME(Timestamp)
 - (NSDate *)dateValue;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Returns the result of comparing the receiver with another timestamp.
  * @param other the other timestamp to compare.
@@ -70,6 +71,8 @@ NS_SWIFT_NAME(Timestamp)
  *     NSOrderedDescending if `other` is chronologically preceding self,
  *     NSOrderedSame otherwise.
  */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (NSComparisonResult)compare:(FIRTimestamp *)other;

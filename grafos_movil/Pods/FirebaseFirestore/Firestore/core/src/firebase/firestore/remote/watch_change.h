@@ -18,7 +18,10 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_REMOTE_WATCH_CHANGE_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #if !defined(__OBJC__)
 // TODO(varconst): the only dependencies are `FSTMaybeDocument` and `NSData`
 // (the latter is used to represent the resume token).
@@ -27,11 +30,15 @@
 
 #import <Foundation/Foundation.h>
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <utility>
 #include <vector>
 
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
+<<<<<<< HEAD
 <<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/maybe_document.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
@@ -40,12 +47,17 @@
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/types.h"
 #include "Firestore/core/src/firebase/firestore/remote/existence_filter.h"
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 
 @class FSTMaybeDocument;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -84,17 +96,23 @@ class DocumentWatchChange : public WatchChange {
                       std::vector<model::TargetId> removed_target_ids,
                       model::DocumentKey document_key,
 <<<<<<< HEAD
+<<<<<<< HEAD
                       absl::optional<model::MaybeDocument> new_document)
       : updated_target_ids_{std::move(updated_target_ids)},
         removed_target_ids_{std::move(removed_target_ids)},
         document_key_{std::move(document_key)},
         new_document_{std::move(new_document)} {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                       FSTMaybeDocument* new_document)
       : updated_target_ids_{std::move(updated_target_ids)},
         removed_target_ids_{std::move(removed_target_ids)},
         document_key_{std::move(document_key)},
         new_document_{new_document} {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -117,7 +135,11 @@ class DocumentWatchChange : public WatchChange {
    * document went out of view without the server sending a new document.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   const absl::optional<model::MaybeDocument>& new_document() const {
+=======
+  FSTMaybeDocument* new_document() const {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTMaybeDocument* new_document() const {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -134,7 +156,11 @@ class DocumentWatchChange : public WatchChange {
   std::vector<model::TargetId> removed_target_ids_;
   model::DocumentKey document_key_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   absl::optional<model::MaybeDocument> new_document_;
+=======
+  FSTMaybeDocument* new_document_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTMaybeDocument* new_document_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -178,7 +204,11 @@ class WatchTargetChange : public WatchChange {
   WatchTargetChange(WatchTargetChangeState state,
                     std::vector<model::TargetId> target_ids)
 <<<<<<< HEAD
+<<<<<<< HEAD
       : WatchTargetChange{state, std::move(target_ids), nanopb::ByteString(),
+=======
+      : WatchTargetChange{state, std::move(target_ids), [NSData data],
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       : WatchTargetChange{state, std::move(target_ids), [NSData data],
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -188,8 +218,13 @@ class WatchTargetChange : public WatchChange {
   WatchTargetChange(WatchTargetChangeState state,
                     std::vector<model::TargetId> target_ids,
 <<<<<<< HEAD
+<<<<<<< HEAD
                     nanopb::ByteString resume_token)
       : WatchTargetChange{state, std::move(target_ids), std::move(resume_token),
+=======
+                    NSData* resume_token)
+      : WatchTargetChange{state, std::move(target_ids), resume_token,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                     NSData* resume_token)
       : WatchTargetChange{state, std::move(target_ids), resume_token,
@@ -201,8 +236,12 @@ class WatchTargetChange : public WatchChange {
                     std::vector<model::TargetId> target_ids,
                     util::Status cause)
 <<<<<<< HEAD
+<<<<<<< HEAD
       : WatchTargetChange{state, std::move(target_ids), nanopb::ByteString(),
                           cause} {
+=======
+      : WatchTargetChange{state, std::move(target_ids), [NSData data], cause} {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       : WatchTargetChange{state, std::move(target_ids), [NSData data], cause} {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -211,17 +250,23 @@ class WatchTargetChange : public WatchChange {
   WatchTargetChange(WatchTargetChangeState state,
                     std::vector<model::TargetId> target_ids,
 <<<<<<< HEAD
+<<<<<<< HEAD
                     nanopb::ByteString resume_token,
                     util::Status cause)
       : state_{state},
         target_ids_{std::move(target_ids)},
         resume_token_{std::move(resume_token)},
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                     NSData* resume_token,
                     util::Status cause)
       : state_{state},
         target_ids_{std::move(target_ids)},
         resume_token_{resume_token},
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         cause_{std::move(cause)} {
   }
@@ -247,7 +292,11 @@ class WatchTargetChange : public WatchChange {
    * time from which the server should resume sending results.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   const nanopb::ByteString& resume_token() const {
+=======
+  NSData* resume_token() const {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData* resume_token() const {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -266,7 +315,11 @@ class WatchTargetChange : public WatchChange {
   WatchTargetChangeState state_;
   std::vector<model::TargetId> target_ids_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   nanopb::ByteString resume_token_;
+=======
+  NSData* resume_token_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData* resume_token_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

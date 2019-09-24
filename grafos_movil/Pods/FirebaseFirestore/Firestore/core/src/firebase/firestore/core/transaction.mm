@@ -21,6 +21,7 @@
 #include <utility>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/include/firebase/firestore/firestore_errors.h"
 #include "Firestore/core/src/firebase/firestore/core/user_data.h"
 #include "Firestore/core/src/firebase/firestore/model/delete_mutation.h"
@@ -36,6 +37,8 @@ using firebase::firestore::model::DocumentKeyHash;
 using firebase::firestore::model::MaybeDocument;
 using firebase::firestore::model::Mutation;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Model/FSTDocument.h"
 #import "Firestore/Source/Model/FSTMutation.h"
 
@@ -49,6 +52,9 @@ using firebase::firestore::core::ParsedSetData;
 using firebase::firestore::core::ParsedUpdateData;
 using firebase::firestore::model::DocumentKey;
 using firebase::firestore::model::DocumentKeyHash;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::model::Precondition;
 using firebase::firestore::model::SnapshotVersion;
@@ -65,6 +71,7 @@ Transaction::Transaction(Datastore* datastore)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status Transaction::RecordVersion(const MaybeDocument& doc) {
   SnapshotVersion doc_version;
 
@@ -72,17 +79,23 @@ Status Transaction::RecordVersion(const MaybeDocument& doc) {
     doc_version = doc.version();
   } else if (doc.is_no_document()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Status Transaction::RecordVersion(FSTMaybeDocument* doc) {
   SnapshotVersion doc_version;
 
   if ([doc isKindOfClass:[FSTDocument class]]) {
     doc_version = doc.version;
   } else if ([doc isKindOfClass:[FSTDeletedDocument class]]) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     // For deleted docs, we must record an explicit no version to build the
     // right precondition when writing.
     doc_version = SnapshotVersion::None();
   } else {
+<<<<<<< HEAD
 <<<<<<< HEAD
     HARD_FAIL("Unexpected document type in transaction: %s", doc.type());
   }
@@ -93,6 +106,8 @@ Status Transaction::RecordVersion(FSTMaybeDocument* doc) {
       // This transaction will fail no matter what.
       return Status{Error::Aborted,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     HARD_FAIL("Unexpected document type in transaction: %s",
               NSStringFromClass([doc class]));
   }
@@ -102,13 +117,20 @@ Status Transaction::RecordVersion(FSTMaybeDocument* doc) {
     if (doc_version != existing_version.value()) {
       // This transaction will fail no matter what.
       return Status{FirestoreErrorCode::Aborted,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                     "Document version changed between two reads."};
     }
     return Status::OK();
   } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
     read_versions_[doc.key()] = doc_version;
+=======
+    read_versions_[doc.key] = doc_version;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     read_versions_[doc.key] = doc_version;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -122,7 +144,11 @@ void Transaction::Lookup(const std::vector<DocumentKey>& keys,
 
   if (!mutations_.empty()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     Status lookup_error = Status{Error::InvalidArgument,
+=======
+    Status lookup_error = Status{FirestoreErrorCode::InvalidArgument,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     Status lookup_error = Status{FirestoreErrorCode::InvalidArgument,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -134,7 +160,11 @@ void Transaction::Lookup(const std::vector<DocumentKey>& keys,
 
   datastore_->LookupDocuments(
 <<<<<<< HEAD
+<<<<<<< HEAD
       keys, [this, callback](const std::vector<MaybeDocument>& documents,
+=======
+      keys, [this, callback](const std::vector<FSTMaybeDocument*>& documents,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       keys, [this, callback](const std::vector<FSTMaybeDocument*>& documents,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -145,7 +175,11 @@ void Transaction::Lookup(const std::vector<DocumentKey>& keys,
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         for (const MaybeDocument& doc : documents) {
+=======
+        for (FSTMaybeDocument* doc : documents) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         for (FSTMaybeDocument* doc : documents) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -161,9 +195,15 @@ void Transaction::Lookup(const std::vector<DocumentKey>& keys,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void Transaction::WriteMutations(std::vector<Mutation>&& mutations) {
   EnsureCommitNotCalled();
   // `move` will become appropriate once `Mutation` is replaced by the C++
+=======
+void Transaction::WriteMutations(std::vector<FSTMutation*>&& mutations) {
+  EnsureCommitNotCalled();
+  // `move` will become appropriate once `FSTMutation` is replaced by the C++
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void Transaction::WriteMutations(std::vector<FSTMutation*>&& mutations) {
   EnsureCommitNotCalled();
@@ -176,7 +216,11 @@ void Transaction::WriteMutations(std::vector<FSTMutation*>&& mutations) {
 Precondition Transaction::CreatePrecondition(const DocumentKey& key) {
   absl::optional<SnapshotVersion> version = GetVersion(key);
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (written_docs_.count(key) == 0 && version.has_value()) {
+=======
+  if (version.has_value()) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (version.has_value()) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -189,6 +233,7 @@ Precondition Transaction::CreatePrecondition(const DocumentKey& key) {
 StatusOr<Precondition> Transaction::CreateUpdatePrecondition(
     const DocumentKey& key) {
   absl::optional<SnapshotVersion> version = GetVersion(key);
+<<<<<<< HEAD
 <<<<<<< HEAD
   // The first time a document is written, we want to take into account the
   // read time and existence.
@@ -209,12 +254,17 @@ StatusOr<Precondition> Transaction::CreateUpdatePrecondition(
                     "Can't update a document that doesn't exist."};
     }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   if (version.has_value() && version.value() == SnapshotVersion::None()) {
     // The document to update doesn't exist, so fail the transaction.
     return Status{FirestoreErrorCode::InvalidArgument,
                   "Can't update a document that doesn't exist."};
   } else if (version.has_value()) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     // Document exists, just base precondition on document update time.
     return Precondition::UpdateTime(version.value());
@@ -228,7 +278,10 @@ StatusOr<Precondition> Transaction::CreateUpdatePrecondition(
 void Transaction::Set(const DocumentKey& key, ParsedSetData&& data) {
   WriteMutations(std::move(data).ToMutations(key, CreatePrecondition(key)));
 <<<<<<< HEAD
+<<<<<<< HEAD
   written_docs_.insert(key);
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
@@ -242,6 +295,7 @@ void Transaction::Update(const DocumentKey& key, ParsedUpdateData&& data) {
         std::move(data).ToMutations(key, maybe_precondition.ValueOrDie()));
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   written_docs_.insert(key);
 }
 
@@ -250,6 +304,8 @@ void Transaction::Delete(const DocumentKey& key) {
   WriteMutations({mutation});
   written_docs_.insert(key);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
 void Transaction::Delete(const DocumentKey& key) {
@@ -261,6 +317,9 @@ void Transaction::Delete(const DocumentKey& key) {
   // Since the delete will be applied before all following writes, we need to
   // ensure that the precondition for the next write will be exists: false.
   read_versions_[key] = SnapshotVersion::None();
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -280,8 +339,13 @@ void Transaction::Commit(util::StatusCallback&& callback) {
   };
   // For each mutation, note that the doc was written.
 <<<<<<< HEAD
+<<<<<<< HEAD
   for (const Mutation& mutation : mutations_) {
     unwritten.erase(mutation.key());
+=======
+  for (FSTMutation* mutation : mutations_) {
+    unwritten.erase(mutation.key);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   for (FSTMutation* mutation : mutations_) {
     unwritten.erase(mutation.key);
@@ -293,7 +357,11 @@ void Transaction::Commit(util::StatusCallback&& callback) {
     // on the backend.
     callback(
 <<<<<<< HEAD
+<<<<<<< HEAD
         Status{Error::InvalidArgument,
+=======
+        Status{FirestoreErrorCode::InvalidArgument,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         Status{FirestoreErrorCode::InvalidArgument,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -306,6 +374,7 @@ void Transaction::Commit(util::StatusCallback&& callback) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void Transaction::MarkPermanentlyFailed() {
   permanentError_ = true;
 }
@@ -314,6 +383,8 @@ bool Transaction::IsPermanentlyFailed() const {
   return permanentError_;
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void Transaction::EnsureCommitNotCalled() {

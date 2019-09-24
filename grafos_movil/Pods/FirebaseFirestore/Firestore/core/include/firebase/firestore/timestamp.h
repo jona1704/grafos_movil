@@ -64,6 +64,7 @@ class Timestamp {
   Timestamp(int64_t seconds, int32_t nanoseconds);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** Copy constructor, `Timestamp` is trivially copyable. */
   Timestamp(const Timestamp& other) = default;
 
@@ -76,6 +77,8 @@ class Timestamp {
   /** Move assignment operator, equivalent to copying. */
   Timestamp& operator=(Timestamp&& other) = default;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   /**
@@ -161,6 +164,7 @@ class Timestamp {
    * purposes.
    *
 <<<<<<< HEAD
+<<<<<<< HEAD
    * @note: the exact string representation is unspecified and subject to
    * change; don't rely on the format of the string.
    */
@@ -172,10 +176,15 @@ class Timestamp {
    * @see `ToString()` for comments on the representation format.
    */
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
    * Note: the exact string representation is unspecified and subject to change;
    * don't rely on the format of the string.
    */
   std::string ToString() const;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   friend std::ostream& operator<<(std::ostream& out,
                                   const Timestamp& timestamp);
@@ -190,7 +199,10 @@ class Timestamp {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Checks whether `lhs` and `rhs` are in ascending order. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator<(const Timestamp& lhs, const Timestamp& rhs) {
@@ -200,7 +212,10 @@ inline bool operator<(const Timestamp& lhs, const Timestamp& rhs) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Checks whether `lhs` and `rhs` are in descending order. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator>(const Timestamp& lhs, const Timestamp& rhs) {
@@ -208,7 +223,10 @@ inline bool operator>(const Timestamp& lhs, const Timestamp& rhs) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Checks whether `lhs` and `rhs` are in non-ascending order. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator>=(const Timestamp& lhs, const Timestamp& rhs) {
@@ -216,7 +234,10 @@ inline bool operator>=(const Timestamp& lhs, const Timestamp& rhs) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Checks whether `lhs` and `rhs` are in non-descending order. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator<=(const Timestamp& lhs, const Timestamp& rhs) {
@@ -224,7 +245,10 @@ inline bool operator<=(const Timestamp& lhs, const Timestamp& rhs) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Checks `lhs` and `rhs` for inequality. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator!=(const Timestamp& lhs, const Timestamp& rhs) {
@@ -232,7 +256,10 @@ inline bool operator!=(const Timestamp& lhs, const Timestamp& rhs) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Checks `lhs` and `rhs` for equality. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator==(const Timestamp& lhs, const Timestamp& rhs) {
@@ -265,7 +292,10 @@ std::chrono::time_point<Clock, Duration> Timestamp::ToTimePoint() const {
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace std {
 template <>
 struct hash<firebase::Timestamp> {
@@ -275,5 +305,8 @@ struct hash<firebase::Timestamp> {
 };
 }  // namespace std
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #endif  // FIRESTORE_CORE_INCLUDE_FIREBASE_FIRESTORE_TIMESTAMP_H_

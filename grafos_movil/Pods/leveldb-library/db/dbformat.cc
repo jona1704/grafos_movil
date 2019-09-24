@@ -3,10 +3,15 @@
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "db/dbformat.h"
 
 #include <stdio.h>
 
+=======
+#include <stdio.h>
+#include "db/dbformat.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <stdio.h>
 #include "db/dbformat.h"
@@ -30,7 +35,12 @@ void AppendInternalKey(std::string* result, const ParsedInternalKey& key) {
 std::string ParsedInternalKey::DebugString() const {
   char buf[50];
 <<<<<<< HEAD
+<<<<<<< HEAD
   snprintf(buf, sizeof(buf), "' @ %llu : %d", (unsigned long long)sequence,
+=======
+  snprintf(buf, sizeof(buf), "' @ %llu : %d",
+           (unsigned long long) sequence,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   snprintf(buf, sizeof(buf), "' @ %llu : %d",
            (unsigned long long) sequence,
@@ -77,8 +87,14 @@ int InternalKeyComparator::Compare(const Slice& akey, const Slice& bkey) const {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void InternalKeyComparator::FindShortestSeparator(std::string* start,
                                                   const Slice& limit) const {
+=======
+void InternalKeyComparator::FindShortestSeparator(
+      std::string* start,
+      const Slice& limit) const {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void InternalKeyComparator::FindShortestSeparator(
       std::string* start,
@@ -94,8 +110,12 @@ void InternalKeyComparator::FindShortestSeparator(
     // User key has become shorter physically, but larger logically.
     // Tack on the earliest possible number to the shortened user key.
 <<<<<<< HEAD
+<<<<<<< HEAD
     PutFixed64(&tmp,
                PackSequenceAndType(kMaxSequenceNumber, kValueTypeForSeek));
+=======
+    PutFixed64(&tmp, PackSequenceAndType(kMaxSequenceNumber,kValueTypeForSeek));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     PutFixed64(&tmp, PackSequenceAndType(kMaxSequenceNumber,kValueTypeForSeek));
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -114,8 +134,12 @@ void InternalKeyComparator::FindShortSuccessor(std::string* key) const {
     // User key has become shorter physically, but larger logically.
     // Tack on the earliest possible number to the shortened user key.
 <<<<<<< HEAD
+<<<<<<< HEAD
     PutFixed64(&tmp,
                PackSequenceAndType(kMaxSequenceNumber, kValueTypeForSeek));
+=======
+    PutFixed64(&tmp, PackSequenceAndType(kMaxSequenceNumber,kValueTypeForSeek));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     PutFixed64(&tmp, PackSequenceAndType(kMaxSequenceNumber,kValueTypeForSeek));
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -125,7 +149,13 @@ void InternalKeyComparator::FindShortSuccessor(std::string* key) const {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const char* InternalFilterPolicy::Name() const { return user_policy_->Name(); }
+=======
+const char* InternalFilterPolicy::Name() const {
+  return user_policy_->Name();
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 const char* InternalFilterPolicy::Name() const {
   return user_policy_->Name();

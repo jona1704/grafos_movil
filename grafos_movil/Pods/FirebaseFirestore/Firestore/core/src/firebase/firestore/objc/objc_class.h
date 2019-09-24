@@ -18,12 +18,16 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_OBJC_OBJC_CLASS_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if __OBJC__
 #include <objc/objc.h>
 #else
 struct objc_object;
 using id = struct objc_object*;
 #endif
+=======
+#include <objc/objc.h>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <objc/objc.h>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -159,7 +163,10 @@ bool Equals(const Handle<T>& lhs, const Handle<T>& rhs) {
 #endif
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // Define NS_ASSUME_NONNULL_BEGIN for straight C++ so that everything gets the
 // correct nullability specifier.
 #if !defined(NS_ASSUME_NONNULL_BEGIN)
@@ -173,6 +180,9 @@ bool Equals(const Handle<T>& lhs, const Handle<T>& rhs) {
 #endif  // __clang__
 #endif  // !defined(NS_ASSUME_NONNULL_BEGIN)
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }  // namespace objc
 }  // namespace firestore

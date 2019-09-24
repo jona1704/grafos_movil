@@ -15,8 +15,11 @@
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <utility>
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/remote/write_stream.h"
@@ -34,14 +37,18 @@ namespace remote {
 using auth::CredentialsProvider;
 using auth::Token;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using model::Mutation;
 using nanopb::ByteString;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using util::AsyncQueue;
 using util::TimerId;
 using util::Status;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 WriteStream::WriteStream(
     const std::shared_ptr<AsyncQueue>& async_queue,
@@ -51,12 +58,17 @@ WriteStream::WriteStream(
     WriteStreamCallback* callback)
     : Stream{async_queue, std::move(credentials_provider), grpc_connection,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 WriteStream::WriteStream(const std::shared_ptr<AsyncQueue>& async_queue,
                          CredentialsProvider* credentials_provider,
                          FSTSerializerBeta* serializer,
                          GrpcConnection* grpc_connection,
                          WriteStreamCallback* callback)
     : Stream{async_queue, credentials_provider, grpc_connection,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
              TimerId::WriteStreamConnectionBackoff, TimerId::WriteStreamIdle},
       serializer_bridge_{serializer},
@@ -64,17 +76,23 @@ WriteStream::WriteStream(const std::shared_ptr<AsyncQueue>& async_queue,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void WriteStream::SetLastStreamToken(const ByteString& token) {
   serializer_bridge_.SetLastStreamToken(token);
 }
 
 ByteString WriteStream::GetLastStreamToken() const {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void WriteStream::SetLastStreamToken(NSData* token) {
   serializer_bridge_.SetLastStreamToken(token);
 }
 
 NSData* WriteStream::GetLastStreamToken() const {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return serializer_bridge_.GetLastStreamToken();
 }
@@ -94,7 +112,11 @@ void WriteStream::WriteHandshake() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void WriteStream::WriteMutations(const std::vector<Mutation>& mutations) {
+=======
+void WriteStream::WriteMutations(const std::vector<FSTMutation*>& mutations) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void WriteStream::WriteMutations(const std::vector<FSTMutation*>& mutations) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

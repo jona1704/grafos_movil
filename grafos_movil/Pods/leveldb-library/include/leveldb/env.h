@@ -14,6 +14,7 @@
 #define STORAGE_LEVELDB_INCLUDE_ENV_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <stdarg.h>
 #include <stdint.h>
 
@@ -45,12 +46,17 @@
 #endif  // defined(_WIN32)
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <string>
 #include <vector>
 #include <stdarg.h>
 #include <stdint.h>
 #include "leveldb/status.h"
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace leveldb {
 
@@ -62,6 +68,7 @@ class Slice;
 class WritableFile;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class LEVELDB_EXPORT Env {
  public:
   Env() = default;
@@ -69,6 +76,11 @@ class LEVELDB_EXPORT Env {
   Env(const Env&) = delete;
   Env& operator=(const Env&) = delete;
 
+=======
+class Env {
+ public:
+  Env() { }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class Env {
  public:
@@ -84,22 +96,29 @@ class Env {
   static Env* Default();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Create an object that sequentially reads the file with the specified name.
   // On success, stores a pointer to the new file in *result and returns OK.
   // On failure stores nullptr in *result and returns non-OK.  If the file does
   // not exist, returns a non-OK status.  Implementations should return a
   // NotFound status when the file does not exist.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Create a brand new sequentially-readable file with the specified name.
   // On success, stores a pointer to the new file in *result and returns OK.
   // On failure stores NULL in *result and returns non-OK.  If the file does
   // not exist, returns a non-OK status.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   //
   // The returned file will only be accessed by one thread at a time.
   virtual Status NewSequentialFile(const std::string& fname,
                                    SequentialFile** result) = 0;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   // Create an object supporting random-access reads from the file with the
   // specified name.  On success, stores a pointer to the new file in
@@ -108,11 +127,16 @@ class Env {
   // status.  Implementations should return a NotFound status when the file does
   // not exist.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Create a brand new random access read-only file with the
   // specified name.  On success, stores a pointer to the new file in
   // *result and returns OK.  On failure stores NULL in *result and
   // returns non-OK.  If the file does not exist, returns a non-OK
   // status.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   //
   // The returned file may be concurrently accessed by multiple threads.
@@ -123,7 +147,11 @@ class Env {
   // name.  Deletes any existing file with the same name and creates a
   // new file.  On success, stores a pointer to the new file in
 <<<<<<< HEAD
+<<<<<<< HEAD
   // *result and returns OK.  On failure stores nullptr in *result and
+=======
+  // *result and returns OK.  On failure stores NULL in *result and
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // *result and returns OK.  On failure stores NULL in *result and
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -137,7 +165,11 @@ class Env {
   // writes to a new file (if the file does not exist to begin with).
   // On success, stores a pointer to the new file in *result and
 <<<<<<< HEAD
+<<<<<<< HEAD
   // returns OK.  On failure stores nullptr in *result and returns
+=======
+  // returns OK.  On failure stores NULL in *result and returns
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // returns OK.  On failure stores NULL in *result and returns
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -179,7 +211,11 @@ class Env {
 
   // Lock the specified file.  Used to prevent concurrent access to
 <<<<<<< HEAD
+<<<<<<< HEAD
   // the same db by multiple processes.  On failure, stores nullptr in
+=======
+  // the same db by multiple processes.  On failure, stores NULL in
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // the same db by multiple processes.  On failure, stores NULL in
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -209,7 +245,13 @@ class Env {
   // I.e., the caller may not assume that background work items are
   // serialized.
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual void Schedule(void (*function)(void* arg), void* arg) = 0;
+=======
+  virtual void Schedule(
+      void (*function)(void* arg),
+      void* arg) = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual void Schedule(
       void (*function)(void* arg),
@@ -222,7 +264,11 @@ class Env {
 
   // *path is set to a temporary directory that can be used for testing. It may
 <<<<<<< HEAD
+<<<<<<< HEAD
   // or may not have just been created. The directory may or may not differ
+=======
+  // or many not have just been created. The directory may or may not differ
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // or many not have just been created. The directory may or may not differ
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -240,6 +286,7 @@ class Env {
   // Sleep/delay the thread for the prescribed number of micro-seconds.
   virtual void SleepForMicroseconds(int micros) = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 };
 
 // A file abstraction for reading sequentially through a file
@@ -251,6 +298,8 @@ class LEVELDB_EXPORT SequentialFile {
   SequentialFile& operator=(const SequentialFile&) = delete;
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:
   // No copying allowed
@@ -262,6 +311,9 @@ class LEVELDB_EXPORT SequentialFile {
 class SequentialFile {
  public:
   SequentialFile() { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual ~SequentialFile();
 
@@ -284,6 +336,7 @@ class SequentialFile {
   // REQUIRES: External synchronization
   virtual Status Skip(uint64_t n) = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 };
 
 // A file abstraction for randomly reading the contents of a file.
@@ -295,6 +348,8 @@ class LEVELDB_EXPORT RandomAccessFile {
   RandomAccessFile& operator=(const RandomAccessFile&) = delete;
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:
   // No copying allowed
@@ -306,6 +361,9 @@ class LEVELDB_EXPORT RandomAccessFile {
 class RandomAccessFile {
  public:
   RandomAccessFile() { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual ~RandomAccessFile();
 
@@ -321,18 +379,25 @@ class RandomAccessFile {
   virtual Status Read(uint64_t offset, size_t n, Slice* result,
                       char* scratch) const = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:
   // No copying allowed
   RandomAccessFile(const RandomAccessFile&);
   void operator=(const RandomAccessFile&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 // A file abstraction for sequential writing.  The implementation
 // must provide buffering since callers may append small fragments
 // at a time to the file.
+<<<<<<< HEAD
 <<<<<<< HEAD
 class LEVELDB_EXPORT WritableFile {
  public:
@@ -346,12 +411,18 @@ class WritableFile {
  public:
   WritableFile() { }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+class WritableFile {
+ public:
+  WritableFile() { }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual ~WritableFile();
 
   virtual Status Append(const Slice& data) = 0;
   virtual Status Close() = 0;
   virtual Status Flush() = 0;
   virtual Status Sync() = 0;
+<<<<<<< HEAD
 <<<<<<< HEAD
 };
 
@@ -364,6 +435,8 @@ class LEVELDB_EXPORT Logger {
   Logger& operator=(const Logger&) = delete;
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:
   // No copying allowed
@@ -375,11 +448,15 @@ class LEVELDB_EXPORT Logger {
 class Logger {
  public:
   Logger() { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual ~Logger();
 
   // Write an entry to the log file with the specified format.
   virtual void Logv(const char* format, va_list ap) = 0;
+<<<<<<< HEAD
 <<<<<<< HEAD
 };
 
@@ -409,6 +486,8 @@ LEVELDB_EXPORT Status WriteStringToFile(Env* env, const Slice& data,
 LEVELDB_EXPORT Status ReadFileToString(Env* env, const std::string& fname,
                                        std::string* data);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:
   // No copying allowed
@@ -442,11 +521,15 @@ extern Status WriteStringToFile(Env* env, const Slice& data,
 // A utility routine: read contents of named file into *data
 extern Status ReadFileToString(Env* env, const std::string& fname,
                                std::string* data);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 // An implementation of Env that forwards all calls to another Env.
 // May be useful to clients who wish to override just part of the
 // functionality of another Env.
+<<<<<<< HEAD
 <<<<<<< HEAD
 class LEVELDB_EXPORT EnvWrapper : public Env {
  public:
@@ -515,6 +598,8 @@ class LEVELDB_EXPORT EnvWrapper : public Env {
   }
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 class EnvWrapper : public Env {
  public:
   // Initialize an EnvWrapper that delegates all calls to *t
@@ -572,6 +657,9 @@ class EnvWrapper : public Env {
   void SleepForMicroseconds(int micros) {
     target_->SleepForMicroseconds(micros);
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  private:
   Env* target_;
@@ -579,6 +667,7 @@ class EnvWrapper : public Env {
 
 }  // namespace leveldb
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Redefine DeleteFile if necessary.
 #if defined(_WIN32) && defined(LEVELDB_DELETEFILE_UNDEFINED)
@@ -589,6 +678,8 @@ class EnvWrapper : public Env {
 #endif  // defined(UNICODE)
 #endif  // defined(_WIN32) && defined(LEVELDB_DELETEFILE_UNDEFINED)
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #endif  // STORAGE_LEVELDB_INCLUDE_ENV_H_

@@ -39,7 +39,11 @@ Status RecursivelyDeleteDir(const Path& parent) {
   }
   if (!iter->status().ok()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (iter->status().code() == Error::NotFound) {
+=======
+    if (iter->status().code() == FirestoreErrorCode::NotFound) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (iter->status().code() == FirestoreErrorCode::NotFound) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -55,7 +59,11 @@ Status RecursivelyDeleteDir(const Path& parent) {
 Status RecursivelyCreateDir(const Path& path) {
   Status result = detail::CreateDir(path);
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (result.ok() || result.code() != Error::NotFound) {
+=======
+  if (result.ok() || result.code() != FirestoreErrorCode::NotFound) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (result.ok() || result.code() != FirestoreErrorCode::NotFound) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -79,22 +87,32 @@ Status RecursivelyDelete(const Path& path) {
   Status status = IsDirectory(path);
   switch (status.code()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     case Error::Ok:
       return detail::RecursivelyDeleteDir(path);
 
     case Error::FailedPrecondition:
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     case FirestoreErrorCode::Ok:
       return detail::RecursivelyDeleteDir(path);
 
     case FirestoreErrorCode::FailedPrecondition:
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       // Could be a file or something else. Attempt to delete it as a file
       // but otherwise allow that to fail if it's not a file.
       return detail::DeleteFile(path);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     case Error::NotFound:
+=======
+    case FirestoreErrorCode::NotFound:
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     case FirestoreErrorCode::NotFound:
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -111,7 +129,11 @@ StatusOr<std::string> ReadFile(const Path& path) {
     // TODO(varconst): more error details. This will require platform-specific
     // code, because `<iostream>` may not update `errno`.
 <<<<<<< HEAD
+<<<<<<< HEAD
     return Status{Error::Unknown,
+=======
+    return Status{FirestoreErrorCode::Unknown,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return Status{FirestoreErrorCode::Unknown,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

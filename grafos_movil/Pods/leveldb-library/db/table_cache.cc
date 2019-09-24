@@ -30,6 +30,7 @@ static void UnrefEntry(void* arg1, void* arg2) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 TableCache::TableCache(const std::string& dbname, const Options& options,
                        int entries)
     : env_(options.env),
@@ -39,6 +40,8 @@ TableCache::TableCache(const std::string& dbname, const Options& options,
 
 TableCache::~TableCache() { delete cache_; }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 TableCache::TableCache(const std::string& dbname,
                        const Options* options,
                        int entries)
@@ -51,6 +54,9 @@ TableCache::TableCache(const std::string& dbname,
 TableCache::~TableCache() {
   delete cache_;
 }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 Status TableCache::FindTable(uint64_t file_number, uint64_t file_size,
@@ -61,15 +67,21 @@ Status TableCache::FindTable(uint64_t file_number, uint64_t file_size,
   Slice key(buf, sizeof(buf));
   *handle = cache_->Lookup(key);
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (*handle == nullptr) {
     std::string fname = TableFileName(dbname_, file_number);
     RandomAccessFile* file = nullptr;
     Table* table = nullptr;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (*handle == NULL) {
     std::string fname = TableFileName(dbname_, file_number);
     RandomAccessFile* file = NULL;
     Table* table = NULL;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     s = env_->NewRandomAccessFile(fname, &file);
     if (!s.ok()) {
@@ -80,17 +92,23 @@ Status TableCache::FindTable(uint64_t file_number, uint64_t file_size,
     }
     if (s.ok()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
       s = Table::Open(options_, file, file_size, &table);
     }
 
     if (!s.ok()) {
       assert(table == nullptr);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       s = Table::Open(*options_, file, file_size, &table);
     }
 
     if (!s.ok()) {
       assert(table == NULL);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       delete file;
       // We do not cache error results so that if the error is transient,
@@ -107,6 +125,7 @@ Status TableCache::FindTable(uint64_t file_number, uint64_t file_size,
 
 Iterator* TableCache::NewIterator(const ReadOptions& options,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                   uint64_t file_number, uint64_t file_size,
                                   Table** tableptr) {
   if (tableptr != nullptr) {
@@ -115,6 +134,8 @@ Iterator* TableCache::NewIterator(const ReadOptions& options,
 
   Cache::Handle* handle = nullptr;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                                   uint64_t file_number,
                                   uint64_t file_size,
                                   Table** tableptr) {
@@ -123,6 +144,9 @@ Iterator* TableCache::NewIterator(const ReadOptions& options,
   }
 
   Cache::Handle* handle = NULL;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Status s = FindTable(file_number, file_size, &handle);
   if (!s.ok()) {
@@ -133,7 +157,11 @@ Iterator* TableCache::NewIterator(const ReadOptions& options,
   Iterator* result = table->NewIterator(options);
   result->RegisterCleanup(&UnrefEntry, cache_, handle);
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (tableptr != nullptr) {
+=======
+  if (tableptr != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (tableptr != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -142,6 +170,7 @@ Iterator* TableCache::NewIterator(const ReadOptions& options,
   return result;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 Status TableCache::Get(const ReadOptions& options, uint64_t file_number,
                        uint64_t file_size, const Slice& k, void* arg,
@@ -153,6 +182,8 @@ Status TableCache::Get(const ReadOptions& options, uint64_t file_number,
     Table* t = reinterpret_cast<TableAndFile*>(cache_->Value(handle))->table;
     s = t->InternalGet(options, k, arg, handle_result);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Status TableCache::Get(const ReadOptions& options,
                        uint64_t file_number,
                        uint64_t file_size,
@@ -164,6 +195,9 @@ Status TableCache::Get(const ReadOptions& options,
   if (s.ok()) {
     Table* t = reinterpret_cast<TableAndFile*>(cache_->Value(handle))->table;
     s = t->InternalGet(options, k, arg, saver);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     cache_->Release(handle);
   }

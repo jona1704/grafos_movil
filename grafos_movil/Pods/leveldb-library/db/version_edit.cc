@@ -13,6 +13,7 @@ namespace leveldb {
 // disk and should not be changed.
 enum Tag {
 <<<<<<< HEAD
+<<<<<<< HEAD
   kComparator = 1,
   kLogNumber = 2,
   kNextFileNumber = 3,
@@ -23,6 +24,8 @@ enum Tag {
   // 8 was used for large value refs
   kPrevLogNumber = 9
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   kComparator           = 1,
   kLogNumber            = 2,
   kNextFileNumber       = 3,
@@ -32,6 +35,9 @@ enum Tag {
   kNewFile              = 7,
   // 8 was used for large value refs
   kPrevLogNumber        = 9
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
@@ -80,7 +86,12 @@ void VersionEdit::EncodeTo(std::string* dst) const {
 
   for (DeletedFileSet::const_iterator iter = deleted_files_.begin();
 <<<<<<< HEAD
+<<<<<<< HEAD
        iter != deleted_files_.end(); ++iter) {
+=======
+       iter != deleted_files_.end();
+       ++iter) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
        iter != deleted_files_.end();
        ++iter) {
@@ -114,7 +125,12 @@ static bool GetInternalKey(Slice* input, InternalKey* dst) {
 static bool GetLevel(Slice* input, int* level) {
   uint32_t v;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (GetVarint32(input, &v) && v < config::kNumLevels) {
+=======
+  if (GetVarint32(input, &v) &&
+      v < config::kNumLevels) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (GetVarint32(input, &v) &&
       v < config::kNumLevels) {
@@ -130,7 +146,11 @@ Status VersionEdit::DecodeFrom(const Slice& src) {
   Clear();
   Slice input = src;
 <<<<<<< HEAD
+<<<<<<< HEAD
   const char* msg = nullptr;
+=======
+  const char* msg = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   const char* msg = NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -144,7 +164,11 @@ Status VersionEdit::DecodeFrom(const Slice& src) {
   InternalKey key;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   while (msg == nullptr && GetVarint32(&input, &tag)) {
+=======
+  while (msg == NULL && GetVarint32(&input, &tag)) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   while (msg == NULL && GetVarint32(&input, &tag)) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -192,7 +216,12 @@ Status VersionEdit::DecodeFrom(const Slice& src) {
 
       case kCompactPointer:
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (GetLevel(&input, &level) && GetInternalKey(&input, &key)) {
+=======
+        if (GetLevel(&input, &level) &&
+            GetInternalKey(&input, &key)) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         if (GetLevel(&input, &level) &&
             GetInternalKey(&input, &key)) {
@@ -205,7 +234,12 @@ Status VersionEdit::DecodeFrom(const Slice& src) {
 
       case kDeletedFile:
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (GetLevel(&input, &level) && GetVarint64(&input, &number)) {
+=======
+        if (GetLevel(&input, &level) &&
+            GetVarint64(&input, &number)) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         if (GetLevel(&input, &level) &&
             GetVarint64(&input, &number)) {
@@ -218,7 +252,12 @@ Status VersionEdit::DecodeFrom(const Slice& src) {
 
       case kNewFile:
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (GetLevel(&input, &level) && GetVarint64(&input, &f.number) &&
+=======
+        if (GetLevel(&input, &level) &&
+            GetVarint64(&input, &f.number) &&
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         if (GetLevel(&input, &level) &&
             GetVarint64(&input, &f.number) &&
@@ -239,7 +278,11 @@ Status VersionEdit::DecodeFrom(const Slice& src) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (msg == nullptr && !input.empty()) {
+=======
+  if (msg == NULL && !input.empty()) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (msg == NULL && !input.empty()) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -248,7 +291,11 @@ Status VersionEdit::DecodeFrom(const Slice& src) {
 
   Status result;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (msg != nullptr) {
+=======
+  if (msg != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (msg != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -288,7 +335,12 @@ std::string VersionEdit::DebugString() const {
   }
   for (DeletedFileSet::const_iterator iter = deleted_files_.begin();
 <<<<<<< HEAD
+<<<<<<< HEAD
        iter != deleted_files_.end(); ++iter) {
+=======
+       iter != deleted_files_.end();
+       ++iter) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
        iter != deleted_files_.end();
        ++iter) {

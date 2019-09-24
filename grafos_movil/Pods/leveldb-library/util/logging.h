@@ -9,11 +9,17 @@
 #define STORAGE_LEVELDB_UTIL_LOGGING_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <stdint.h>
 #include <stdio.h>
 
 #include <string>
 
+=======
+#include <stdio.h>
+#include <stdint.h>
+#include <string>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <stdio.h>
 #include <stdint.h>
@@ -28,6 +34,7 @@ class WritableFile;
 
 // Append a human-readable printout of "num" to *str
 <<<<<<< HEAD
+<<<<<<< HEAD
 void AppendNumberTo(std::string* str, uint64_t num);
 
 // Append a human-readable printout of "value" to *str.
@@ -41,6 +48,8 @@ std::string NumberToString(uint64_t num);
 // Escapes any non-printable characters found in "value".
 std::string EscapeString(const Slice& value);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern void AppendNumberTo(std::string* str, uint64_t num);
 
 // Append a human-readable printout of "value" to *str.
@@ -53,6 +62,9 @@ extern std::string NumberToString(uint64_t num);
 // Return a human-readable version of "value".
 // Escapes any non-printable characters found in "value".
 extern std::string EscapeString(const Slice& value);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 // Parse a human-readable number from "*in" into *value.  On success,
@@ -60,7 +72,11 @@ extern std::string EscapeString(const Slice& value);
 // numeric value.  Otherwise, returns false and leaves *in in an
 // unspecified state.
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool ConsumeDecimalNumber(Slice* in, uint64_t* val);
+=======
+extern bool ConsumeDecimalNumber(Slice* in, uint64_t* val);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern bool ConsumeDecimalNumber(Slice* in, uint64_t* val);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

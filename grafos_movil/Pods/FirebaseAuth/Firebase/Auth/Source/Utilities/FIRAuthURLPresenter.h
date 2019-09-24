@@ -37,7 +37,11 @@ typedef BOOL (^FIRAuthURLCallbackMatcher)(NSURL * _Nullable callbackURL);
 
 /** @class FIRAuthURLPresenter
 <<<<<<< HEAD
+<<<<<<< HEAD
     @brief A Class responsible for presenting URL via SFSafariViewController or WKWebView.
+=======
+    @brief A Class responsible for presenting URL via SFSafariViewController or UIWebView.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     @brief A Class responsible for presenting URL via SFSafariViewController or UIWebView.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

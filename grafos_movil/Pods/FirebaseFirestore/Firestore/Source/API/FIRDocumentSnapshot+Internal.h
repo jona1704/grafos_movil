@@ -21,15 +21,21 @@
 #include "Firestore/core/src/firebase/firestore/api/document_snapshot.h"
 #include "Firestore/core/src/firebase/firestore/api/snapshot_metadata.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/document.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 
 @class FIRFirestore;
 @class FSTDocument;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace api = firebase::firestore::api;
 namespace model = firebase::firestore::model;
@@ -43,7 +49,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithFirestore:(std::shared_ptr<api::Firestore>)firestore
                       documentKey:(model::DocumentKey)documentKey
 <<<<<<< HEAD
+<<<<<<< HEAD
                          document:(const absl::optional<model::Document> &)document
+=======
+                         document:(nullable FSTDocument *)document
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                          document:(nullable FSTDocument *)document
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -52,7 +62,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithFirestore:(std::shared_ptr<api::Firestore>)firestore
                       documentKey:(model::DocumentKey)documentKey
 <<<<<<< HEAD
+<<<<<<< HEAD
                          document:(const absl::optional<model::Document> &)document
+=======
+                         document:(nullable FSTDocument *)document
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                          document:(nullable FSTDocument *)document
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -65,7 +79,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FIRDocumentSnapshot (Internal)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (const absl::optional<model::Document> &)internalDocument;
+=======
+@property(nonatomic, strong, readonly, nullable) FSTDocument *internalDocument;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @property(nonatomic, strong, readonly, nullable) FSTDocument *internalDocument;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

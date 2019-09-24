@@ -15,17 +15,23 @@
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/util/hard_assert_apple.h"
 
 #import <Foundation/Foundation.h>
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 
 #import <Foundation/Foundation.h>
 
 #include <string>
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/util/string_apple.h"
 
@@ -33,18 +39,24 @@ namespace firebase {
 namespace firestore {
 namespace util {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ABSL_ATTRIBUTE_NORETURN void ObjcFailureHandler(const char* file,
                                                 const char* func,
                                                 const int line,
                                                 const std::string& message) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace internal {
 
 void Fail(const char* file,
           const char* func,
           const int line,
           const std::string& message) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   [[NSAssertionHandler currentHandler]
       handleFailureInFunction:MakeNSString(func)
@@ -56,7 +68,10 @@ void Fail(const char* file,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void Fail(const char* file,
           const char* func,
           const int line,
@@ -72,6 +87,9 @@ void Fail(const char* file,
 }
 
 }  // namespace internal
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }  // namespace util
 }  // namespace firestore

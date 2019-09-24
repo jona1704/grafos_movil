@@ -18,9 +18,15 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_MODEL_DOCUMENT_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <iosfwd>
 #include <memory>
 #include <string>
+=======
+#if __OBJC__
+#import "Firestore/Source/Model/FSTDocument.h"
+#endif
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #if __OBJC__
 #import "Firestore/Source/Model/FSTDocument.h"
@@ -31,7 +37,10 @@
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
 #include "Firestore/core/src/firebase/firestore/model/maybe_document.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "absl/types/any.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "absl/types/optional.h"
@@ -41,7 +50,11 @@ namespace firestore {
 namespace model {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Describes the `has_pending_writes` state of a document. */
+=======
+/** Describes the `hasPendingWrites` state of a document. */
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 /** Describes the `hasPendingWrites` state of a document. */
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -63,8 +76,11 @@ enum class DocumentState {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::ostream& operator<<(std::ostream& os, DocumentState state);
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /**
@@ -74,17 +90,24 @@ std::ostream& operator<<(std::ostream& os, DocumentState state);
 class Document : public MaybeDocument {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   Document(ObjectValue data,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   /**
    * Construct a document. ObjectValue must be passed by rvalue.
    */
   Document(ObjectValue&& data,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
            DocumentKey key,
            SnapshotVersion version,
            DocumentState document_state);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   Document(ObjectValue data,
            DocumentKey key,
@@ -125,6 +148,8 @@ class Document : public MaybeDocument {
 };
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #if __OBJC__
   explicit Document(FSTDocument* doc)
       : MaybeDocument(doc.key, doc.version),
@@ -175,6 +200,9 @@ inline bool operator==(const Document& lhs, const Document& rhs) {
          lhs.data() == rhs.data();
 }
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator!=(const Document& lhs, const Document& rhs) {
   return !(lhs == rhs);

@@ -15,8 +15,11 @@
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <utility>
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/remote/watch_stream.h"
@@ -34,7 +37,10 @@ namespace remote {
 using auth::CredentialsProvider;
 using auth::Token;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using local::QueryData;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using model::TargetId;
@@ -42,6 +48,7 @@ using util::AsyncQueue;
 using util::TimerId;
 using util::Status;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 WatchStream::WatchStream(
     const std::shared_ptr<AsyncQueue>& async_queue,
@@ -51,12 +58,17 @@ WatchStream::WatchStream(
     WatchStreamCallback* callback)
     : Stream{async_queue, std::move(credentials_provider), grpc_connection,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 WatchStream::WatchStream(const std::shared_ptr<AsyncQueue>& async_queue,
                          CredentialsProvider* credentials_provider,
                          FSTSerializerBeta* serializer,
                          GrpcConnection* grpc_connection,
                          WatchStreamCallback* callback)
     : Stream{async_queue, credentials_provider, grpc_connection,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
              TimerId::ListenStreamConnectionBackoff, TimerId::ListenStreamIdle},
       serializer_bridge_{serializer},
@@ -64,7 +76,11 @@ WatchStream::WatchStream(const std::shared_ptr<AsyncQueue>& async_queue,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void WatchStream::WatchQuery(const QueryData& query) {
+=======
+void WatchStream::WatchQuery(FSTQueryData* query) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void WatchStream::WatchQuery(FSTQueryData* query) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

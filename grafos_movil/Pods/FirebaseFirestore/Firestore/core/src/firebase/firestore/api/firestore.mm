@@ -22,6 +22,11 @@
 #import "Firestore/Source/API/FIRQuery+Internal.h"
 #import "Firestore/Source/API/FIRTransaction+Internal.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#import "Firestore/Source/Core/FSTFirestoreClient.h"
+#import "Firestore/Source/Core/FSTQuery.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "Firestore/Source/Core/FSTFirestoreClient.h"
 #import "Firestore/Source/Core/FSTQuery.h"
@@ -34,7 +39,10 @@
 #include "Firestore/core/src/firebase/firestore/api/write_batch.h"
 #include "Firestore/core/src/firebase/firestore/auth/firebase_credentials_provider_apple.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/firestore_client.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/core/transaction.h"
@@ -53,7 +61,10 @@ namespace api {
 using auth::CredentialsProvider;
 using core::DatabaseInfo;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using core::FirestoreClient;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using core::Transaction;
@@ -67,7 +78,11 @@ using util::Status;
 Firestore::Firestore(model::DatabaseId database_id,
                      std::string persistence_key,
 <<<<<<< HEAD
+<<<<<<< HEAD
                      std::shared_ptr<CredentialsProvider> credentials_provider,
+=======
+                     std::unique_ptr<CredentialsProvider> credentials_provider,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                      std::unique_ptr<CredentialsProvider> credentials_provider,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -81,7 +96,11 @@ Firestore::Firestore(model::DatabaseId database_id,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const std::shared_ptr<FirestoreClient>& Firestore::client() {
+=======
+FSTFirestoreClient* Firestore::client() {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 FSTFirestoreClient* Firestore::client() {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -140,15 +159,21 @@ FIRQuery* Firestore::GetCollectionGroup(std::string collection_id) {
   EnsureClientConfigured();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   core::Query query(ResourcePath::Empty(), std::make_shared<const std::string>(
                                                std::move(collection_id)));
   return [[FIRQuery alloc] initWithQuery:std::move(query)
                                firestore:shared_from_this()];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   FSTQuery* query = [FSTQuery queryWithPath:ResourcePath::Empty()
                             collectionGroup:std::make_shared<const std::string>(
                                                 std::move(collection_id))];
   return [[FIRQuery alloc] initWithQuery:query firestore:shared_from_this()];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -157,6 +182,7 @@ void Firestore::RunTransaction(
     core::TransactionResultCallback result_callback) {
   EnsureClientConfigured();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   client_->Transaction(5, std::move(update_callback),
                        std::move(result_callback));
@@ -177,6 +203,8 @@ void Firestore::WaitForPendingWrites(util::StatusCallback callback) {
 void Firestore::ClearPersistence(util::StatusCallback callback) {
   worker_queue()->EnqueueEvenAfterShutdown([this, callback] {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   [client_ transactionWithRetries:5
                    updateCallback:std::move(update_callback)
                    resultCallback:std::move(result_callback)];
@@ -191,6 +219,9 @@ void Firestore::Shutdown(util::StatusCallback callback) {
 
 void Firestore::ClearPersistence(util::StatusCallback callback) {
   worker_queue()->Enqueue([this, callback] {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     auto Yield = [=](Status status) {
       if (callback) {
@@ -201,9 +232,15 @@ void Firestore::ClearPersistence(util::StatusCallback callback) {
     {
       std::lock_guard<std::mutex> lock{mutex_};
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (client_ && !client()->is_terminated()) {
         Yield(util::Status(
             Error::FailedPrecondition,
+=======
+      if (client_ && !client().isShutdown) {
+        Yield(util::Status(
+            FirestoreErrorCode::FailedPrecondition,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       if (client_ && !client().isShutdown) {
         Yield(util::Status(
@@ -221,7 +258,11 @@ void Firestore::ClearPersistence(util::StatusCallback callback) {
 void Firestore::EnableNetwork(util::StatusCallback callback) {
   EnsureClientConfigured();
 <<<<<<< HEAD
+<<<<<<< HEAD
   client_->EnableNetwork(std::move(callback));
+=======
+  [client_ enableNetworkWithCallback:std::move(callback)];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   [client_ enableNetworkWithCallback:std::move(callback)];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -230,7 +271,11 @@ void Firestore::EnableNetwork(util::StatusCallback callback) {
 void Firestore::DisableNetwork(util::StatusCallback callback) {
   EnsureClientConfigured();
 <<<<<<< HEAD
+<<<<<<< HEAD
   client_->DisableNetwork(std::move(callback));
+=======
+  [client_ disableNetworkWithCallback:std::move(callback)];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   [client_ disableNetworkWithCallback:std::move(callback)];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -242,16 +287,22 @@ void Firestore::EnsureClientConfigured() {
   if (!client_) {
     HARD_ASSERT(worker_queue_, "Expected non-null worker queue");
 <<<<<<< HEAD
+<<<<<<< HEAD
     client_ = FirestoreClient::Create(MakeDatabaseInfo(), settings_,
                                       std::move(credentials_provider_),
                                       user_executor_, worker_queue_);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     client_ =
         [FSTFirestoreClient clientWithDatabaseInfo:MakeDatabaseInfo()
                                           settings:settings_
                                credentialsProvider:credentials_provider_.get()
                                       userExecutor:user_executor_
                                        workerQueue:worker_queue_];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 }

@@ -17,10 +17,13 @@
 #import <Foundation/Foundation.h>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 NS_ASSUME_NONNULL_BEGIN
 
 /**
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class FSTMaybeDocument;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -32,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^FSTVoidBlock)(void);
 
 /**
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  * FSTVoidErrorBlock is a block that gets an error, if one occurred.
  *
@@ -40,7 +46,10 @@ typedef void (^FSTVoidBlock)(void);
 typedef void (^FSTVoidErrorBlock)(NSError *_Nullable error);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /**
  * FSTVoidMaybeDocumentErrorBlock is a block that gets either a list of documents or an error.
  *
@@ -50,5 +59,8 @@ typedef void (^FSTVoidErrorBlock)(NSError *_Nullable error);
 typedef void (^FSTVoidMaybeDocumentArrayErrorBlock)(
     NSArray<FSTMaybeDocument *> *_Nullable documents, NSError *_Nullable error);
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 NS_ASSUME_NONNULL_END

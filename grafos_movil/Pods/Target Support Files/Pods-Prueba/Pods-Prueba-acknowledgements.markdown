@@ -261,10 +261,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Copyright 2019 Google
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## FirebaseAnalytics
 
 Copyright 2019 Google
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 ## FirebaseAuth
@@ -885,6 +888,7 @@ Copyright 2019 Google
    limitations under the License.
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## FirebaseCoreDiagnostics
 
@@ -2131,6 +2135,9 @@ Copyright 2019 Google
 Copyright 2019 Google
 
 ## GoogleDataTransport
+=======
+## FirebaseFirestore
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 
                                  Apache License
@@ -2336,7 +2343,11 @@ Copyright 2019 Google
    limitations under the License.
 
 
+<<<<<<< HEAD
 ## GoogleDataTransportCCTSupport
+=======
+## GTMSessionFetcher
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 ## GTMSessionFetcher
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

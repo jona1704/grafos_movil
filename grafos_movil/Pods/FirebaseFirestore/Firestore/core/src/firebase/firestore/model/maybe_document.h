@@ -19,10 +19,14 @@
 
 #include <functional>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <iosfwd>
 #include <memory>
 #include <string>
 #include <utility>
+=======
+#include <memory>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <memory>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -38,6 +42,7 @@ namespace model {
  * The result of a lookup for a given path may be an existing document or a
  * tombstone that marks the path deleted.
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
  * Note: MaybeDocument and its subclasses are specially designed to avoid
  * slicing. You can assign a subclass of MaybeDocument to an instance of
@@ -51,6 +56,8 @@ namespace model {
  *
  * The final line results in an explicit check that will fail if the type of
  * the underlying data is not actually Type::Document.
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  */
@@ -68,7 +75,11 @@ class MaybeDocument {
     // MaybeDocument's, we can likely remove this value entirely. But
     // investigate impact on the serializers first.
 <<<<<<< HEAD
+<<<<<<< HEAD
     Invalid,
+=======
+    Unknown,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     Unknown,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -79,6 +90,7 @@ class MaybeDocument {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   MaybeDocument() = default;
 
   bool is_valid() const {
@@ -88,10 +100,16 @@ class MaybeDocument {
 
   virtual ~MaybeDocument() {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+  MaybeDocument(DocumentKey key, SnapshotVersion version);
+
+  virtual ~MaybeDocument() {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
   /** The runtime type of this document. */
   Type type() const {
+<<<<<<< HEAD
 <<<<<<< HEAD
     return rep_ ? rep_->type() : Type::Invalid;
   }
@@ -109,12 +127,19 @@ class MaybeDocument {
 =======
     return type_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+    return type_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
   /** The key for this document. */
   const DocumentKey& key() const {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return rep_->key();
+=======
+    return key_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return key_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -126,7 +151,11 @@ class MaybeDocument {
    */
   const SnapshotVersion& version() const {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return rep_->version();
+=======
+    return version_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return version_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -136,6 +165,7 @@ class MaybeDocument {
    * Whether this document has a local mutation applied that has not yet been
    * acknowledged by Watch.
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   bool has_pending_writes() const {
     return rep_->has_pending_writes();
@@ -193,6 +223,8 @@ class MaybeDocument {
     return *rep_;
   }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual bool HasPendingWrites() const = 0;
 
  protected:
@@ -202,16 +234,22 @@ class MaybeDocument {
   }
 
   virtual bool Equals(const MaybeDocument& other) const;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   friend bool operator==(const MaybeDocument& lhs, const MaybeDocument& rhs);
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::shared_ptr<const Rep> rep_;
 };
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Type type_ = Type::Unknown;
   DocumentKey key_;
   SnapshotVersion version_;
@@ -221,6 +259,9 @@ inline bool operator==(const MaybeDocument& lhs, const MaybeDocument& rhs) {
   return lhs.Equals(rhs);
 }
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator!=(const MaybeDocument& lhs, const MaybeDocument& rhs) {
   return !(lhs == rhs);
@@ -228,7 +269,11 @@ inline bool operator!=(const MaybeDocument& lhs, const MaybeDocument& rhs) {
 
 /** Compares against another MaybeDocument by keys only. */
 <<<<<<< HEAD
+<<<<<<< HEAD
 struct DocumentKeyComparator {
+=======
+struct DocumentKeyComparator : public std::less<MaybeDocument> {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 struct DocumentKeyComparator : public std::less<MaybeDocument> {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

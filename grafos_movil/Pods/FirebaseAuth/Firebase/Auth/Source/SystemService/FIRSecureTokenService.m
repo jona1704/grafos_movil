@@ -18,6 +18,10 @@
 
 #import "FIRAuth.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#import "FIRAuthKeychain.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "FIRAuthKeychain.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

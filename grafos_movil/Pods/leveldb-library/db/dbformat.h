@@ -7,7 +7,10 @@
 
 #include <stdio.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/comparator.h"
@@ -53,12 +56,18 @@ class InternalKey;
 // DO NOT CHANGE THESE ENUM VALUES: they are embedded in the on-disk
 // data structures.
 <<<<<<< HEAD
+<<<<<<< HEAD
 enum ValueType { kTypeDeletion = 0x0, kTypeValue = 0x1 };
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 enum ValueType {
   kTypeDeletion = 0x0,
   kTypeValue = 0x1
 };
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // kValueTypeForSeek defines the ValueType that should be passed when
 // constructing a ParsedInternalKey object for seeking to a particular
@@ -73,7 +82,12 @@ typedef uint64_t SequenceNumber;
 // We leave eight bits empty at the bottom so a type and sequence#
 // can be packed together into 64-bits.
 <<<<<<< HEAD
+<<<<<<< HEAD
 static const SequenceNumber kMaxSequenceNumber = ((0x1ull << 56) - 1);
+=======
+static const SequenceNumber kMaxSequenceNumber =
+    ((0x1ull << 56) - 1);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 static const SequenceNumber kMaxSequenceNumber =
     ((0x1ull << 56) - 1);
@@ -85,9 +99,15 @@ struct ParsedInternalKey {
   ValueType type;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   ParsedInternalKey() {}  // Intentionally left uninitialized (for speed)
   ParsedInternalKey(const Slice& u, const SequenceNumber& seq, ValueType t)
       : user_key(u), sequence(seq), type(t) {}
+=======
+  ParsedInternalKey() { }  // Intentionally left uninitialized (for speed)
+  ParsedInternalKey(const Slice& u, const SequenceNumber& seq, ValueType t)
+      : user_key(u), sequence(seq), type(t) { }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   ParsedInternalKey() { }  // Intentionally left uninitialized (for speed)
   ParsedInternalKey(const Slice& u, const SequenceNumber& seq, ValueType t)
@@ -103,7 +123,12 @@ inline size_t InternalKeyEncodingLength(const ParsedInternalKey& key) {
 
 // Append the serialization of "key" to *result.
 <<<<<<< HEAD
+<<<<<<< HEAD
 void AppendInternalKey(std::string* result, const ParsedInternalKey& key);
+=======
+extern void AppendInternalKey(std::string* result,
+                              const ParsedInternalKey& key);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern void AppendInternalKey(std::string* result,
                               const ParsedInternalKey& key);
@@ -114,7 +139,12 @@ extern void AppendInternalKey(std::string* result,
 //
 // On error, returns false, leaves "*result" in an undefined state.
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool ParseInternalKey(const Slice& internal_key, ParsedInternalKey* result);
+=======
+extern bool ParseInternalKey(const Slice& internal_key,
+                             ParsedInternalKey* result);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern bool ParseInternalKey(const Slice& internal_key,
                              ParsedInternalKey* result);
@@ -127,7 +157,10 @@ inline Slice ExtractUserKey(const Slice& internal_key) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline ValueType ExtractValueType(const Slice& internal_key) {
   assert(internal_key.size() >= 8);
   const size_t n = internal_key.size();
@@ -136,12 +169,16 @@ inline ValueType ExtractValueType(const Slice& internal_key) {
   return static_cast<ValueType>(c);
 }
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // A comparator for internal keys that uses a specified comparator for
 // the user key portion and breaks ties by decreasing sequence number.
 class InternalKeyComparator : public Comparator {
  private:
   const Comparator* user_comparator_;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
  public:
@@ -151,6 +188,8 @@ class InternalKeyComparator : public Comparator {
   virtual void FindShortestSeparator(std::string* start,
                                      const Slice& limit) const;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  public:
   explicit InternalKeyComparator(const Comparator* c) : user_comparator_(c) { }
   virtual const char* Name() const;
@@ -158,6 +197,9 @@ class InternalKeyComparator : public Comparator {
   virtual void FindShortestSeparator(
       std::string* start,
       const Slice& limit) const;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual void FindShortSuccessor(std::string* key) const;
 
@@ -171,9 +213,14 @@ class InternalFilterPolicy : public FilterPolicy {
  private:
   const FilterPolicy* const user_policy_;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
  public:
   explicit InternalFilterPolicy(const FilterPolicy* p) : user_policy_(p) {}
+=======
+ public:
+  explicit InternalFilterPolicy(const FilterPolicy* p) : user_policy_(p) { }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  public:
   explicit InternalFilterPolicy(const FilterPolicy* p) : user_policy_(p) { }
@@ -190,9 +237,14 @@ class InternalKey {
  private:
   std::string rep_;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
  public:
   InternalKey() {}  // Leave rep_ as empty to indicate it is invalid
+=======
+ public:
+  InternalKey() { }   // Leave rep_ as empty to indicate it is invalid
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  public:
   InternalKey() { }   // Leave rep_ as empty to indicate it is invalid
@@ -220,8 +272,13 @@ class InternalKey {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 inline int InternalKeyComparator::Compare(const InternalKey& a,
                                           const InternalKey& b) const {
+=======
+inline int InternalKeyComparator::Compare(
+    const InternalKey& a, const InternalKey& b) const {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 inline int InternalKeyComparator::Compare(
     const InternalKey& a, const InternalKey& b) const {
@@ -249,9 +306,12 @@ class LookupKey {
   LookupKey(const Slice& user_key, SequenceNumber sequence);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   LookupKey(const LookupKey&) = delete;
   LookupKey& operator=(const LookupKey&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   ~LookupKey();
@@ -277,13 +337,19 @@ class LookupKey {
   const char* kstart_;
   const char* end_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   char space_[200];  // Avoid allocation for short keys
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   char space_[200];      // Avoid allocation for short keys
 
   // No copying allowed
   LookupKey(const LookupKey&);
   void operator=(const LookupKey&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

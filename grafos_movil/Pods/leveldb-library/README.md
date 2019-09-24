@@ -2,7 +2,10 @@
 
 [![Build Status](https://travis-ci.org/google/leveldb.svg?branch=master)](https://travis-ci.org/google/leveldb)
 <<<<<<< HEAD
+<<<<<<< HEAD
 [![Build status](https://ci.appveyor.com/api/projects/status/g2j5j4rfkda6eyw5/branch/master?svg=true)](https://ci.appveyor.com/project/pwnall/leveldb)
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -10,7 +13,10 @@ Authors: Sanjay Ghemawat (sanjay@google.com) and Jeff Dean (jeff@google.com)
 
 # Features
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   * Keys and values are arbitrary byte arrays.
@@ -25,21 +31,28 @@ Authors: Sanjay Ghemawat (sanjay@google.com) and Jeff Dean (jeff@google.com)
 
 # Documentation
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   [LevelDB library documentation](https://github.com/google/leveldb/blob/master/doc/index.md) is online and bundled with the source code.
 
 # Limitations
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   [LevelDB library documentation](https://github.com/google/leveldb/blob/master/doc/index.md) is online and bundled with the source code.
 
 
 # Limitations
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   * This is not a SQL database.  It does not have a relational data model, it does not support SQL queries, and it has no support for indexes.
   * Only a single process (possibly multi-threaded) can access a particular database at a time.
   * There is no client-server support builtin to the library.  An application that needs such support will have to wrap their own server around the library.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 # Building
 
@@ -84,6 +97,9 @@ Please see the CMake documentation and `CMakeLists.txt` for more advanced usage.
 =======
 # Contributing to the leveldb Project
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+# Contributing to the leveldb Project
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 The leveldb project welcomes contributions. leveldb's primary goal is to be
 a reliable and fast key/value store. Changes that are in line with the
 features/limitations outlined above, and meet the requirements below,
@@ -92,15 +108,21 @@ will be considered.
 Contribution requirements:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. **Tested platforms only**. We _generally_ will only accept changes for
    platforms that are compiled and tested. This means POSIX (for Linux and
    macOS) or Windows. Very small changes will sometimes be accepted, but
    consider that more of an exception than the rule.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 1. **POSIX only**. We _generally_ will only accept changes that are both
    compiled, and tested on a POSIX platform - usually Linux. Very small
    changes will sometimes be accepted, but consider that more of an
    exception than the rule.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 2. **Stable API**. We strive very hard to maintain a stable API. Changes that
@@ -110,6 +132,7 @@ Contribution requirements:
 3. **Tests**: All changes must be accompanied by a new (or changed) test, or
    a sufficient explanation as to why a new (or changed) test is not required.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 4. **Consistent Style**: This project conforms to the
    [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
@@ -121,6 +144,9 @@ Contribution requirements:
 
 ## Submitting a Pull Request
 
+=======
+## Submitting a Pull Request
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 ## Submitting a Pull Request
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

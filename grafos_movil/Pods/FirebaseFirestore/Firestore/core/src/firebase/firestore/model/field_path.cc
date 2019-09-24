@@ -82,8 +82,11 @@ struct JoinEscaped {
 }  // namespace
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 constexpr const char* FieldPath::kDocumentKeyPath;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 FieldPath FieldPath::FromDotSeparatedString(absl::string_view path) {
@@ -109,7 +112,11 @@ FieldPath FieldPath::FromDotSeparatedString(absl::string_view path) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 FieldPath FieldPath::FromServerFormat(absl::string_view path) {
+=======
+FieldPath FieldPath::FromServerFormat(const absl::string_view path) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 FieldPath FieldPath::FromServerFormat(const absl::string_view path) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

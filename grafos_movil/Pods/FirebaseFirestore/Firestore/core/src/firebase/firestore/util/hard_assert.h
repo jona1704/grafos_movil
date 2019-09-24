@@ -22,7 +22,10 @@
 
 #include "Firestore/core/src/firebase/firestore/util/string_format.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "absl/base/optimization.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -33,6 +36,7 @@
 #endif
 
 /**
+<<<<<<< HEAD
 <<<<<<< HEAD
  * Invokes the internal Fail function below with all the required contextual
  * information and passes additional arguments.
@@ -47,6 +51,8 @@
 /**
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  * Fails the current function if the given condition is false.
  *
  * Unlike assert(3) or NSAssert, this macro is never compiled out.
@@ -56,6 +62,7 @@
  * @param ... format arguments to pass to util::StringFormat.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define HARD_ASSERT(condition, ...)                             \
   do {                                                          \
     if (!ABSL_PREDICT_TRUE(condition)) {                        \
@@ -64,6 +71,8 @@
       INVOKE_INTERNAL_FAIL(_message, #condition);               \
     }                                                           \
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #define HARD_ASSERT(condition, ...)                                           \
   do {                                                                        \
     if (!(condition)) {                                                       \
@@ -72,6 +81,9 @@
       firebase::firestore::util::internal::Fail(                              \
           __FILE__, FIRESTORE_FUNCTION_NAME, __LINE__, _message, #condition); \
     }                                                                         \
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   } while (0)
 
@@ -84,18 +96,24 @@
  * @param ... format arguments to pass to util::StringFormat.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define HARD_FAIL(...)                                        \
   do {                                                        \
     std::string _failure =                                    \
         firebase::firestore::util::StringFormat(__VA_ARGS__); \
     INVOKE_INTERNAL_FAIL(_failure);                           \
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #define HARD_FAIL(...)                                          \
   do {                                                          \
     std::string _failure =                                      \
         firebase::firestore::util::StringFormat(__VA_ARGS__);   \
     firebase::firestore::util::internal::Fail(                  \
         __FILE__, FIRESTORE_FUNCTION_NAME, __LINE__, _failure); \
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   } while (0)
 
@@ -119,21 +137,28 @@
  * @param ptr The pointer to check and return. Can be a smart pointer.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define NOT_NULL(ptr)                                                      \
   (static_cast<void>(ABSL_PREDICT_FALSE((ptr) == nullptr)                  \
                          ? INVOKE_INTERNAL_FAIL("Expected non-null " #ptr) \
                          : static_cast<void>(0)),                          \
    (ptr))  // NOLINT(whitespace/indent)
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #define NOT_NULL(ptr)                                                         \
   firebase::firestore::util::internal::NotNull(                               \
       __FILE__, FIRESTORE_FUNCTION_NAME, __LINE__, "Expected non-null " #ptr, \
       ptr)
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
 namespace firestore {
 namespace util {
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 using FailureHandler = void (*)(const char* file,
@@ -166,6 +191,8 @@ ABSL_ATTRIBUTE_NORETURN void DefaultFailureHandler(const char* file,
 
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace internal {
 
 // A no-return helper function. To raise an assertion, use Macro instead.
@@ -181,7 +208,10 @@ ABSL_ATTRIBUTE_NORETURN void Fail(const char* file,
                                   const char* condition);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 template <typename T>
 T NotNull(const char* file,
           const char* func,
@@ -194,6 +224,9 @@ T NotNull(const char* file,
   return std::forward<T>(ptr);
 }
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }  // namespace internal
 }  // namespace util

@@ -40,8 +40,13 @@ static NSString *kStoredUserCoderKey = @"firebase_auth_stored_user_coder_key";
   self = [super init];
   if (self) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     _keychainServices = [[FIRAuthKeychainServices alloc] initWithService:serviceName];
     _userDefaults = [[FIRAuthUserDefaults alloc] initWithService:serviceName];
+=======
+    _keychain = [[FIRAuthKeychain alloc] initWithService:serviceName];
+    _userDefaults = [[FIRAuthUserDefaultsStorage alloc] initWithService:serviceName];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     _keychain = [[FIRAuthKeychain alloc] initWithService:serviceName];
     _userDefaults = [[FIRAuthUserDefaultsStorage alloc] initWithService:serviceName];
@@ -87,7 +92,11 @@ static NSString *kStoredUserCoderKey = @"firebase_auth_stored_user_coder_key";
   query[(__bridge id)kSecAttrAccount] = kSharedKeychainAccountValue;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   NSData *data = [self.keychainServices getItemWithQuery:query error:outError];
+=======
+  NSData *data = [self.keychain getItemWithQuery:query error:outError];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData *data = [self.keychain getItemWithQuery:query error:outError];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -115,7 +124,11 @@ static NSString *kStoredUserCoderKey = @"firebase_auth_stored_user_coder_key";
   [archiver finishEncoding];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return [self.keychainServices setItem:data withQuery:query error:outError];
+=======
+  return [self.keychain setItem:data withQuery:query error:outError];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return [self.keychain setItem:data withQuery:query error:outError];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -133,7 +146,11 @@ static NSString *kStoredUserCoderKey = @"firebase_auth_stored_user_coder_key";
   query[(__bridge id)kSecAttrAccount] = kSharedKeychainAccountValue;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return [self.keychainServices removeItemWithQuery:query error:outError];
+=======
+  return [self.keychain removeItemWithQuery:query error:outError];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return [self.keychain removeItemWithQuery:query error:outError];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

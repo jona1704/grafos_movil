@@ -7,7 +7,12 @@
 namespace leveldb {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Env::~Env() {}
+=======
+Env::~Env() {
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Env::~Env() {
 }
@@ -17,6 +22,7 @@ Status Env::NewAppendableFile(const std::string& fname, WritableFile** result) {
   return Status::NotSupported("NewAppendableFile", fname);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 SequentialFile::~SequentialFile() {}
 
@@ -31,6 +37,8 @@ FileLock::~FileLock() {}
 void Log(Logger* info_log, const char* format, ...) {
   if (info_log != nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 SequentialFile::~SequentialFile() {
 }
 
@@ -48,6 +56,9 @@ FileLock::~FileLock() {
 
 void Log(Logger* info_log, const char* format, ...) {
   if (info_log != NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     va_list ap;
     va_start(ap, format);
@@ -58,7 +69,12 @@ void Log(Logger* info_log, const char* format, ...) {
 
 static Status DoWriteStringToFile(Env* env, const Slice& data,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                   const std::string& fname, bool should_sync) {
+=======
+                                  const std::string& fname,
+                                  bool should_sync) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                                   const std::string& fname,
                                   bool should_sync) {
@@ -118,7 +134,12 @@ Status ReadFileToString(Env* env, const std::string& fname, std::string* data) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 EnvWrapper::~EnvWrapper() {}
+=======
+EnvWrapper::~EnvWrapper() {
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 EnvWrapper::~EnvWrapper() {
 }

@@ -5,6 +5,10 @@
 #include "util/testharness.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#include <string>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <string>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -13,11 +17,14 @@
 #include <sys/types.h>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <string>
 #include <vector>
 
 #include "leveldb/env.h"
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace leveldb {
@@ -31,15 +38,21 @@ struct Test {
 };
 std::vector<Test>* tests;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }  // namespace
 
 bool RegisterTest(const char* base, const char* name, void (*func)()) {
   if (tests == nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
 bool RegisterTest(const char* base, const char* name, void (*func)()) {
   if (tests == NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     tests = new std::vector<Test>;
   }
@@ -56,6 +69,7 @@ int RunAllTests() {
 
   int num = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (tests != nullptr) {
     for (size_t i = 0; i < tests->size(); i++) {
       const Test& t = (*tests)[i];
@@ -65,6 +79,8 @@ int RunAllTests() {
         name.append(t.name);
         if (strstr(name.c_str(), matcher) == nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (tests != NULL) {
     for (size_t i = 0; i < tests->size(); i++) {
       const Test& t = (*tests)[i];
@@ -73,6 +89,9 @@ int RunAllTests() {
         name.push_back('.');
         name.append(t.name);
         if (strstr(name.c_str(), matcher) == NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
           continue;
         }
@@ -96,7 +115,11 @@ std::string TmpDir() {
 int RandomSeed() {
   const char* env = getenv("TEST_RANDOM_SEED");
 <<<<<<< HEAD
+<<<<<<< HEAD
   int result = (env != nullptr ? atoi(env) : 301);
+=======
+  int result = (env != NULL ? atoi(env) : 301);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   int result = (env != NULL ? atoi(env) : 301);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

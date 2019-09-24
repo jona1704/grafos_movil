@@ -17,11 +17,17 @@
 #include "Firestore/core/src/firebase/firestore/remote/watch_change.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Model/FSTDocument.h"
 
 #include "Firestore/core/src/firebase/firestore/objc/objc_compatibility.h"
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -33,7 +39,11 @@ bool operator==(const DocumentWatchChange& lhs,
          lhs.removed_target_ids() == rhs.removed_target_ids() &&
          lhs.document_key() == rhs.document_key() &&
 <<<<<<< HEAD
+<<<<<<< HEAD
          lhs.new_document() == rhs.new_document();
+=======
+         objc::Equals(lhs.new_document(), rhs.new_document());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
          objc::Equals(lhs.new_document(), rhs.new_document());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -47,7 +57,12 @@ bool operator==(const ExistenceFilterWatchChange& lhs,
 bool operator==(const WatchTargetChange& lhs, const WatchTargetChange& rhs) {
   return lhs.state() == rhs.state() && lhs.target_ids() == rhs.target_ids() &&
 <<<<<<< HEAD
+<<<<<<< HEAD
          lhs.resume_token() == rhs.resume_token() && lhs.cause() == rhs.cause();
+=======
+         objc::Equals(lhs.resume_token(), rhs.resume_token()) &&
+         lhs.cause() == rhs.cause();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
          objc::Equals(lhs.resume_token(), rhs.resume_token()) &&
          lhs.cause() == rhs.cause();

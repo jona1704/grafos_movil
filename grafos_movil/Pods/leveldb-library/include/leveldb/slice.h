@@ -19,6 +19,7 @@
 #include <stddef.h>
 #include <string.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include <string>
 
@@ -44,6 +45,8 @@ class LEVELDB_EXPORT Slice {
   Slice(const Slice&) = default;
   Slice& operator=(const Slice&) = default;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <string>
 
 namespace leveldb {
@@ -61,6 +64,9 @@ class Slice {
 
   // Create a slice that refers to s[0,strlen(s)-1]
   Slice(const char* s) : data_(s), size_(strlen(s)) { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // Return a pointer to the beginning of the referenced data
@@ -81,10 +87,14 @@ class Slice {
 
   // Change this slice to refer to an empty array
 <<<<<<< HEAD
+<<<<<<< HEAD
   void clear() {
     data_ = "";
     size_ = 0;
   }
+=======
+  void clear() { data_ = ""; size_ = 0; }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void clear() { data_ = ""; size_ = 0; }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -108,7 +118,12 @@ class Slice {
   // Return true iff "x" is a prefix of "*this"
   bool starts_with(const Slice& x) const {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return ((size_ >= x.size_) && (memcmp(data_, x.data_, x.size_) == 0));
+=======
+    return ((size_ >= x.size_) &&
+            (memcmp(data_, x.data_, x.size_) == 0));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return ((size_ >= x.size_) &&
             (memcmp(data_, x.data_, x.size_) == 0));
@@ -119,6 +134,11 @@ class Slice {
   const char* data_;
   size_t size_;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+  // Intentionally copyable
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
   // Intentionally copyable
@@ -131,7 +151,13 @@ inline bool operator==(const Slice& x, const Slice& y) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 inline bool operator!=(const Slice& x, const Slice& y) { return !(x == y); }
+=======
+inline bool operator!=(const Slice& x, const Slice& y) {
+  return !(x == y);
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 inline bool operator!=(const Slice& x, const Slice& y) {
   return !(x == y);
@@ -143,10 +169,15 @@ inline int Slice::compare(const Slice& b) const {
   int r = memcmp(data_, b.data_, min_len);
   if (r == 0) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (size_ < b.size_)
       r = -1;
     else if (size_ > b.size_)
       r = +1;
+=======
+    if (size_ < b.size_) r = -1;
+    else if (size_ > b.size_) r = +1;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (size_ < b.size_) r = -1;
     else if (size_ > b.size_) r = +1;
@@ -158,6 +189,10 @@ inline int Slice::compare(const Slice& b) const {
 }  // namespace leveldb
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

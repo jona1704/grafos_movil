@@ -17,10 +17,13 @@
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <ostream>
 
 #include "Firestore/core/src/firebase/firestore/util/hashing.h"
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
@@ -43,6 +46,7 @@ util::ComparisonResult SnapshotVersion::CompareTo(
 
 size_t SnapshotVersion::Hash() const {
 <<<<<<< HEAD
+<<<<<<< HEAD
   return util::Hash(timestamp_.seconds(), timestamp_.nanoseconds());
 }
 
@@ -52,6 +56,9 @@ std::string SnapshotVersion::ToString() const {
 
 std::ostream& operator<<(std::ostream& os, const SnapshotVersion& version) {
   return os << version.timestamp_;
+=======
+  return std::hash<Timestamp>{}(timestamp_);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return std::hash<Timestamp>{}(timestamp_);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

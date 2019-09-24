@@ -18,11 +18,17 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_REMOTE_REMOTE_STORE_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #if !defined(__OBJC__)
 #error "This header only supports Objective-C++"
 #endif  // !defined(__OBJC__)
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import <Foundation/Foundation.h>
 
@@ -33,8 +39,11 @@
 #include "Firestore/core/src/firebase/firestore/core/transaction.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/mutation_batch.h"
 #include "Firestore/core/src/firebase/firestore/model/mutation_batch_result.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
@@ -49,6 +58,7 @@
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 
 @class FSTLocalStore;
+<<<<<<< HEAD
 <<<<<<< HEAD
 @class FSTTransaction;
 
@@ -112,6 +122,8 @@ class RemoteStoreCallback {
       model::TargetId target_id) const = 0;
 };
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class FSTMutationBatch;
 @class FSTMutationBatchResult;
 @class FSTQueryData;
@@ -179,6 +191,9 @@ NS_ASSUME_NONNULL_BEGIN
 namespace firebase {
 namespace firestore {
 namespace remote {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 class RemoteStore : public TargetMetadataProvider,
@@ -191,7 +206,11 @@ class RemoteStore : public TargetMetadataProvider,
               std::function<void(model::OnlineState)> online_state_handler);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   void set_sync_engine(RemoteStoreCallback* sync_engine) {
+=======
+  void set_sync_engine(id<FSTRemoteSyncer> sync_engine) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void set_sync_engine(id<FSTRemoteSyncer> sync_engine) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -223,8 +242,11 @@ class RemoteStore : public TargetMetadataProvider,
   void EnableNetwork();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   bool CanUseNetwork() const;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   /**
@@ -237,8 +259,13 @@ class RemoteStore : public TargetMetadataProvider,
   void HandleCredentialChange();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** Listens to the target identified by the given `QueryData`. */
   void Listen(const local::QueryData& query_data);
+=======
+  /** Listens to the target identified by the given `FSTQueryData`. */
+  void Listen(FSTQueryData* query_data);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   /** Listens to the target identified by the given `FSTQueryData`. */
   void Listen(FSTQueryData* query_data);
@@ -262,7 +289,11 @@ class RemoteStore : public TargetMetadataProvider,
    * immediately if the write stream is established.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   void AddToWritePipeline(const model::MutationBatch& batch);
+=======
+  void AddToWritePipeline(FSTMutationBatch* batch);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void AddToWritePipeline(FSTMutationBatch* batch);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -275,8 +306,12 @@ class RemoteStore : public TargetMetadataProvider,
   model::DocumentKeySet GetRemoteKeysForTarget(
       model::TargetId target_id) const override;
 <<<<<<< HEAD
+<<<<<<< HEAD
   absl::optional<local::QueryData> GetQueryDataForTarget(
       model::TargetId target_id) const override;
+=======
+  FSTQueryData* GetQueryDataForTarget(model::TargetId target_id) const override;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTQueryData* GetQueryDataForTarget(model::TargetId target_id) const override;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -293,7 +328,11 @@ class RemoteStore : public TargetMetadataProvider,
   void OnWriteStreamMutationResult(
       model::SnapshotVersion commit_version,
 <<<<<<< HEAD
+<<<<<<< HEAD
       std::vector<model::MutationResult> mutation_results) override;
+=======
+      std::vector<FSTMutationResult*> mutation_results) override;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       std::vector<FSTMutationResult*> mutation_results) override;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -302,7 +341,11 @@ class RemoteStore : public TargetMetadataProvider,
   void DisableNetworkInternal();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   void SendWatchRequest(const local::QueryData& query_data);
+=======
+  void SendWatchRequest(FSTQueryData* query_data);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void SendWatchRequest(FSTQueryData* query_data);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -335,6 +378,11 @@ class RemoteStore : public TargetMetadataProvider,
   void HandleWriteError(const util::Status& status);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  bool CanUseNetwork() const;
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   bool CanUseNetwork() const;
 
@@ -350,7 +398,11 @@ class RemoteStore : public TargetMetadataProvider,
   void CleanUpWatchStreamState();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   RemoteStoreCallback* sync_engine_ = nullptr;
+=======
+  id<FSTRemoteSyncer> sync_engine_ = nil;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   id<FSTRemoteSyncer> sync_engine_ = nil;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -374,7 +426,11 @@ class RemoteStore : public TargetMetadataProvider,
    * without waiting for confirmation from the listen stream.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::unordered_map<model::TargetId, local::QueryData> listen_targets_;
+=======
+  std::unordered_map<model::TargetId, FSTQueryData*> listen_targets_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::unordered_map<model::TargetId, FSTQueryData*> listen_targets_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -409,7 +465,11 @@ class RemoteStore : public TargetMetadataProvider,
    * the `write_pipeline_` as we receive responses.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<model::MutationBatch> write_pipeline_;
+=======
+  std::vector<FSTMutationBatch*> write_pipeline_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutationBatch*> write_pipeline_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -420,6 +480,11 @@ class RemoteStore : public TargetMetadataProvider,
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

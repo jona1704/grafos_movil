@@ -25,7 +25,10 @@
 #include "Firestore/core/src/firebase/firestore/api/query_snapshot.h"
 #include "Firestore/core/src/firebase/firestore/api/source.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/bound.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/core/direction.h"
@@ -33,8 +36,11 @@
 #include "Firestore/core/src/firebase/firestore/core/filter.h"
 #include "Firestore/core/src/firebase/firestore/core/listen_options.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/core/relation_filter.h"
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
@@ -43,6 +49,9 @@ OBJC_CLASS(FSTBound);
 OBJC_CLASS(FSTQuery);
 
 NS_ASSUME_NONNULL_BEGIN
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
@@ -60,7 +69,11 @@ class Query {
   Query() = default;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Query(core::Query query, std::shared_ptr<Firestore> firestore);
+=======
+  Query(FSTQuery* query, std::shared_ptr<Firestore> firestore);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Query(FSTQuery* query, std::shared_ptr<Firestore> firestore);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -72,9 +85,13 @@ class Query {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const core::Query& query() const {
     return query_;
   }
+=======
+  FSTQuery* query() const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTQuery* query() const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -162,7 +179,11 @@ class Query {
    * @return The created `Query`.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   Query StartAt(core::Bound bound) const;
+=======
+  Query StartAt(FSTBound* bound) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Query StartAt(FSTBound* bound) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -177,7 +198,11 @@ class Query {
    * @return The created `Query`.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   Query EndAt(core::Bound bound) const;
+=======
+  Query EndAt(FSTBound* bound) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Query EndAt(FSTBound* bound) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -185,6 +210,7 @@ class Query {
   /**
    * Creates a new `Query` with the given internal query.
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   Query Wrap(core::Query chained_query) const {
     return Query(std::move(chained_query), firestore_);
@@ -216,6 +242,8 @@ class Query {
   std::shared_ptr<Firestore> firestore_;
   core::Query query_;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Query Wrap(FSTQuery* chained_query) {
     return Query(chained_query, firestore_);
   }
@@ -230,6 +258,9 @@ class Query {
 
   std::shared_ptr<Firestore> firestore_;
   objc::Handle<FSTQuery> query_;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
@@ -244,6 +275,11 @@ inline bool operator!=(const Query& lhs, const Query& rhs) {
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

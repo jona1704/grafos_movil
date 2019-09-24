@@ -9,9 +9,13 @@
 
 #include <stdint.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include <string>
 
+=======
+#include <string>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <string>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -37,7 +41,11 @@ enum FileType {
 // in the db named by "dbname".  The result will be prefixed with
 // "dbname".
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::string LogFileName(const std::string& dbname, uint64_t number);
+=======
+extern std::string LogFileName(const std::string& dbname, uint64_t number);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern std::string LogFileName(const std::string& dbname, uint64_t number);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -46,7 +54,11 @@ extern std::string LogFileName(const std::string& dbname, uint64_t number);
 // in the db named by "dbname".  The result will be prefixed with
 // "dbname".
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::string TableFileName(const std::string& dbname, uint64_t number);
+=======
+extern std::string TableFileName(const std::string& dbname, uint64_t number);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern std::string TableFileName(const std::string& dbname, uint64_t number);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -55,7 +67,11 @@ extern std::string TableFileName(const std::string& dbname, uint64_t number);
 // in the db named by "dbname". The result will be prefixed with
 // "dbname".
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::string SSTTableFileName(const std::string& dbname, uint64_t number);
+=======
+extern std::string SSTTableFileName(const std::string& dbname, uint64_t number);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern std::string SSTTableFileName(const std::string& dbname, uint64_t number);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -64,7 +80,12 @@ extern std::string SSTTableFileName(const std::string& dbname, uint64_t number);
 // "dbname" and the specified incarnation number.  The result will be
 // prefixed with "dbname".
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::string DescriptorFileName(const std::string& dbname, uint64_t number);
+=======
+extern std::string DescriptorFileName(const std::string& dbname,
+                                      uint64_t number);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern std::string DescriptorFileName(const std::string& dbname,
                                       uint64_t number);
@@ -73,6 +94,7 @@ extern std::string DescriptorFileName(const std::string& dbname,
 // Return the name of the current file.  This file contains the name
 // of the current manifest file.  The result will be prefixed with
 // "dbname".
+<<<<<<< HEAD
 <<<<<<< HEAD
 std::string CurrentFileName(const std::string& dbname);
 
@@ -90,6 +112,8 @@ std::string InfoLogFileName(const std::string& dbname);
 // Return the name of the old info log file for "dbname".
 std::string OldInfoLogFileName(const std::string& dbname);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern std::string CurrentFileName(const std::string& dbname);
 
 // Return the name of the lock file for the db named by
@@ -105,11 +129,15 @@ extern std::string InfoLogFileName(const std::string& dbname);
 
 // Return the name of the old info log file for "dbname".
 extern std::string OldInfoLogFileName(const std::string& dbname);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 // If filename is a leveldb file, store the type of the file in *type.
 // The number encoded in the filename is stored in *number.  If the
 // filename was successfully parsed, returns true.  Else return false.
+<<<<<<< HEAD
 <<<<<<< HEAD
 bool ParseFileName(const std::string& filename, uint64_t* number,
                    FileType* type);
@@ -119,6 +147,8 @@ bool ParseFileName(const std::string& filename, uint64_t* number,
 Status SetCurrentFile(Env* env, const std::string& dbname,
                       uint64_t descriptor_number);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern bool ParseFileName(const std::string& filename,
                           uint64_t* number,
                           FileType* type);
@@ -128,6 +158,9 @@ extern bool ParseFileName(const std::string& filename,
 extern Status SetCurrentFile(Env* env, const std::string& dbname,
                              uint64_t descriptor_number);
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 }  // namespace leveldb

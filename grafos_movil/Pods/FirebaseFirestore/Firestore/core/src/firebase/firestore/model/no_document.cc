@@ -17,6 +17,7 @@
 #include "Firestore/core/src/firebase/firestore/model/no_document.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <string>
 #include <utility>
 
@@ -27,10 +28,15 @@
 #include <utility>
 
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+#include <utility>
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
 namespace model {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 static_assert(
     sizeof(MaybeDocument) == sizeof(NoDocument),
@@ -89,12 +95,17 @@ bool NoDocument::has_committed_mutations() const {
 const NoDocument::Rep& NoDocument::doc_rep() const {
   return static_cast<const Rep&>(MaybeDocument::rep());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 NoDocument::NoDocument(DocumentKey key,
                        SnapshotVersion version,
                        bool has_committed_mutations)
     : MaybeDocument(std::move(key), std::move(version)),
       has_committed_mutations_(has_committed_mutations) {
   set_type(Type::NoDocument);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

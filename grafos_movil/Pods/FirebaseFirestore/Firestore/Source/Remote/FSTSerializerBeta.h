@@ -21,9 +21,13 @@
 
 #include "Firestore/core/include/firebase/firestore/timestamp.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/field_filter.h"
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
+=======
+#include "Firestore/core/src/firebase/firestore/core/relation_filter.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include "Firestore/core/src/firebase/firestore/core/relation_filter.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -33,6 +37,7 @@
 #include "Firestore/core/src/firebase/firestore/model/field_transform.h"
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/maybe_document.h"
 #include "Firestore/core/src/firebase/firestore/model/mutation.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
@@ -40,6 +45,8 @@
 #include "Firestore/core/src/firebase/firestore/remote/watch_change.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/model/transform_operations.h"
 #include "Firestore/core/src/firebase/firestore/remote/watch_change.h"
@@ -52,6 +59,9 @@
 @class FSTQuery;
 @class FSTQueryData;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class GCFSBatchGetDocumentsResponse;
 @class GCFSDocument;
@@ -60,8 +70,11 @@
 @class GCFSListenResponse;
 @class GCFSStructuredQuery_Filter;
 <<<<<<< HEAD
+<<<<<<< HEAD
 @class GCFSStructuredQuery_FieldFilter;
 @class GCFSStructuredQuery_UnaryFilter;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class GCFSTarget;
@@ -75,7 +88,10 @@
 
 namespace core = firebase::firestore::core;
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace local = firebase::firestore::local;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace model = firebase::firestore::model;
@@ -123,8 +139,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (model::FieldValue)decodedFieldValue:(GCFSValue *)valueProto;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (GCFSWrite *)encodedMutation:(const model::Mutation &)mutation;
 - (model::Mutation)decodedMutation:(GCFSWrite *)mutation;
+=======
+- (GCFSWrite *)encodedMutation:(FSTMutation *)mutation;
+- (FSTMutation *)decodedMutation:(GCFSWrite *)mutation;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (GCFSWrite *)encodedMutation:(FSTMutation *)mutation;
 - (FSTMutation *)decodedMutation:(GCFSWrite *)mutation;
@@ -135,6 +156,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSMutableArray<GCFSDocumentTransform_FieldTransform *> *)encodedFieldTransforms:
     (const std::vector<model::FieldTransform> &)fieldTransforms;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (model::MutationResult)decodedMutationResult:(GCFSWriteResult *)mutation
                                  commitVersion:(const model::SnapshotVersion &)commitVersion;
@@ -154,6 +176,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (core::FieldFilter)decodedFieldFilter:(GCFSStructuredQuery_FieldFilter *)proto;
 - (core::FieldFilter)decodedUnaryFilter:(GCFSStructuredQuery_UnaryFilter *)proto;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (FSTMutationResult *)decodedMutationResult:(GCFSWriteResult *)mutation
                                commitVersion:(const model::SnapshotVersion &)commitVersion;
 
@@ -169,6 +193,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (FSTQuery *)decodedQueryFromQueryTarget:(GCFSTarget_QueryTarget *)target;
 
 - (GCFSStructuredQuery_Filter *)encodedRelationFilter:(const core::RelationFilter &)filter;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 - (std::unique_ptr<remote::WatchChange>)decodedWatchChange:(GCFSListenResponse *)watchChange;
@@ -179,7 +206,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Encodes an ObjectValue into a dictionary.
+=======
+ * Encodes an FSTObjectValue into a dictionary.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  * Encodes an FSTObjectValue into a dictionary.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -190,7 +221,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (model::ObjectValue)decodedFields:(NSDictionary<NSString *, GCFSValue *> *)fields;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (model::MaybeDocument)decodedMaybeDocumentFromBatch:(GCFSBatchGetDocumentsResponse *)response;
+=======
+- (FSTMaybeDocument *)decodedMaybeDocumentFromBatch:(GCFSBatchGetDocumentsResponse *)response;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTMaybeDocument *)decodedMaybeDocumentFromBatch:(GCFSBatchGetDocumentsResponse *)response;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

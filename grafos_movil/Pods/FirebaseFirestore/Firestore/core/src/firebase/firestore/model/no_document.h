@@ -18,8 +18,11 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_MODEL_NO_DOCUMENT_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <memory>
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/maybe_document.h"
@@ -35,6 +38,7 @@ class NoDocument : public MaybeDocument {
              SnapshotVersion version,
              bool has_committed_mutations);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   /**
    * Casts a MaybeDocument to a NoDocument. This is a checked operation that
@@ -53,12 +57,17 @@ class NoDocument : public MaybeDocument {
 
   const Rep& doc_rep() const;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   bool HasPendingWrites() const override {
     return has_committed_mutations_;
   }
 
  private:
   bool has_committed_mutations_;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

@@ -59,7 +59,11 @@ inline NSString* MakeNSStringNoCopy(const char* c_str, size_t size) {
 
 // Translates a string_view to the equivalent NSString without making a copy.
 <<<<<<< HEAD
+<<<<<<< HEAD
 inline NSString* MakeNSStringNoCopy(absl::string_view str) {
+=======
+inline NSString* MakeNSStringNoCopy(const absl::string_view str) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 inline NSString* MakeNSStringNoCopy(const absl::string_view str) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -68,7 +72,11 @@ inline NSString* MakeNSStringNoCopy(const absl::string_view str) {
 
 // Translates a string_view string to the equivalent NSString by making a copy.
 <<<<<<< HEAD
+<<<<<<< HEAD
 inline NSString* MakeNSString(absl::string_view str) {
+=======
+inline NSString* MakeNSString(const absl::string_view str) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 inline NSString* MakeNSString(const absl::string_view str) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

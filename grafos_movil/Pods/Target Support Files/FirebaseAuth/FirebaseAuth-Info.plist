@@ -16,7 +16,11 @@
   <string>FMWK</string>
   <key>CFBundleShortVersionString</key>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <string>6.2.3</string>
+=======
+  <string>6.2.1</string>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   <string>6.2.1</string>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

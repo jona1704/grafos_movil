@@ -26,7 +26,10 @@
 #include "Firestore/core/src/firebase/firestore/util/type_traits.h"
 #include "absl/meta/type_traits.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "absl/types/optional.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -98,7 +101,11 @@ using std_hash_type =
  * Combines a hash_value with whatever accumulated state there is so far.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 constexpr size_t Combine(size_t state, size_t hash_value) {
+=======
+inline size_t Combine(size_t state, size_t hash_value) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 inline size_t Combine(size_t state, size_t hash_value) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -131,7 +138,11 @@ struct HashChoice : HashChoice<I + 1> {};
 
 template <>
 <<<<<<< HEAD
+<<<<<<< HEAD
 struct HashChoice<5> {};
+=======
+struct HashChoice<3> {};
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 struct HashChoice<3> {};
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -182,7 +193,11 @@ std_hash_type<K> RankedInvokeHash(const K& value, HashChoice<2>) {
 template <typename Range>
 auto RankedInvokeHash(const Range& range, HashChoice<3>)
 <<<<<<< HEAD
+<<<<<<< HEAD
     -> decltype(InvokeHash(*std::begin(range))) {
+=======
+    -> decltype(impl::InvokeHash(*std::begin(range))) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     -> decltype(impl::InvokeHash(*std::begin(range))) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -198,6 +213,7 @@ auto RankedInvokeHash(const Range& range, HashChoice<3>)
   return result;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /**
  * Hashes the contents of the given optional value, only if the underlying
@@ -215,6 +231,8 @@ size_t RankedInvokeHash(K value, HashChoice<5>) {
   return InvokeHash(underlying);
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 template <typename K>

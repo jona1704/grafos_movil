@@ -46,7 +46,10 @@ namespace firebase {
 namespace firestore {
 namespace remote {
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace {
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -55,8 +58,11 @@ using auth::Token;
 using core::DatabaseInfo;
 using model::DocumentKey;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using model::MaybeDocument;
 using model::Mutation;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using util::AsyncQueue;
@@ -66,6 +72,11 @@ using util::Executor;
 using util::ExecutorLibdispatch;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+namespace {
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 namespace {
 
@@ -104,7 +115,11 @@ void LogGrpcCallFinished(absl::string_view rpc_name,
 Datastore::Datastore(const DatabaseInfo& database_info,
                      const std::shared_ptr<AsyncQueue>& worker_queue,
 <<<<<<< HEAD
+<<<<<<< HEAD
                      std::shared_ptr<CredentialsProvider> credentials)
+=======
+                     CredentialsProvider* credentials)
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                      CredentialsProvider* credentials)
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -115,15 +130,21 @@ Datastore::Datastore(const DatabaseInfo& database_info,
 Datastore::Datastore(const DatabaseInfo& database_info,
                      const std::shared_ptr<AsyncQueue>& worker_queue,
 <<<<<<< HEAD
+<<<<<<< HEAD
                      std::shared_ptr<CredentialsProvider> credentials,
                      std::unique_ptr<ConnectivityMonitor> connectivity_monitor)
     : worker_queue_{NOT_NULL(worker_queue)},
       credentials_{std::move(credentials)},
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                      CredentialsProvider* credentials,
                      std::unique_ptr<ConnectivityMonitor> connectivity_monitor)
     : worker_queue_{NOT_NULL(worker_queue)},
       credentials_{credentials},
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       rpc_executor_{CreateExecutor()},
       connectivity_monitor_{std::move(connectivity_monitor)},
@@ -188,7 +209,11 @@ std::shared_ptr<WriteStream> Datastore::CreateWriteStream(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void Datastore::CommitMutations(const std::vector<Mutation>& mutations,
+=======
+void Datastore::CommitMutations(const std::vector<FSTMutation*>& mutations,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void Datastore::CommitMutations(const std::vector<FSTMutation*>& mutations,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -209,7 +234,11 @@ void Datastore::CommitMutations(const std::vector<FSTMutation*>& mutations,
 void Datastore::CommitMutationsWithCredentials(
     const Token& token,
 <<<<<<< HEAD
+<<<<<<< HEAD
     const std::vector<Mutation>& mutations,
+=======
+    const std::vector<FSTMutation*>& mutations,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     const std::vector<FSTMutation*>& mutations,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -285,7 +314,11 @@ void Datastore::OnLookupDocumentsResponse(
   Status parse_status;
   std::vector<grpc::ByteBuffer> responses = std::move(result).ValueOrDie();
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<MaybeDocument> docs =
+=======
+  std::vector<FSTMaybeDocument*> docs =
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMaybeDocument*> docs =
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -323,7 +356,11 @@ void Datastore::ResumeRpcWithCredentials(const OnCredentials& on_credentials) {
 
 void Datastore::HandleCallStatus(const Status& status) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (status.code() == Error::Unauthenticated) {
+=======
+  if (status.code() == FirestoreErrorCode::Unauthenticated) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (status.code() == FirestoreErrorCode::Unauthenticated) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -342,7 +379,11 @@ void Datastore::RemoveGrpcCall(GrpcCall* to_remove) {
 
 bool Datastore::IsAbortedError(const Status& error) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   return error.code() == Error::Aborted;
+=======
+  return error.code() == FirestoreErrorCode::Aborted;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return error.code() == FirestoreErrorCode::Aborted;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -350,6 +391,7 @@ bool Datastore::IsAbortedError(const Status& error) {
 
 bool Datastore::IsPermanentError(const Status& error) {
   switch (error.code()) {
+<<<<<<< HEAD
 <<<<<<< HEAD
     case Error::Ok:
       HARD_FAIL("Treated status OK as error");
@@ -376,6 +418,8 @@ bool Datastore::IsPermanentError(const Status& error) {
     case Error::Unimplemented:
     case Error::DataLoss:
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     case FirestoreErrorCode::Ok:
       HARD_FAIL("Treated status OK as error");
     case FirestoreErrorCode::Cancelled:
@@ -400,6 +444,9 @@ bool Datastore::IsPermanentError(const Status& error) {
     case FirestoreErrorCode::OutOfRange:
     case FirestoreErrorCode::Unimplemented:
     case FirestoreErrorCode::DataLoss:
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       return true;
   }

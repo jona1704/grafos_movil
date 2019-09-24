@@ -17,13 +17,19 @@ namespace leveldb {
 class IteratorWrapper {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   IteratorWrapper() : iter_(nullptr), valid_(false) {}
   explicit IteratorWrapper(Iterator* iter) : iter_(nullptr) { Set(iter); }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   IteratorWrapper(): iter_(NULL), valid_(false) { }
   explicit IteratorWrapper(Iterator* iter): iter_(NULL) {
     Set(iter);
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   ~IteratorWrapper() { delete iter_; }
   Iterator* iter() const { return iter_; }
@@ -34,7 +40,11 @@ class IteratorWrapper {
     delete iter_;
     iter_ = iter;
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (iter_ == nullptr) {
+=======
+    if (iter_ == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (iter_ == NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -44,6 +54,7 @@ class IteratorWrapper {
     }
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   // Iterator interface methods
   bool Valid() const { return valid_; }
@@ -86,6 +97,8 @@ class IteratorWrapper {
     Update();
   }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // Iterator interface methods
   bool Valid() const        { return valid_; }
@@ -98,6 +111,9 @@ class IteratorWrapper {
   void Seek(const Slice& k) { assert(iter_); iter_->Seek(k);       Update(); }
   void SeekToFirst()        { assert(iter_); iter_->SeekToFirst(); Update(); }
   void SeekToLast()         { assert(iter_); iter_->SeekToLast();  Update(); }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:

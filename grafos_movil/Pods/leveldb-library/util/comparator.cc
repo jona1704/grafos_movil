@@ -4,6 +4,7 @@
 
 #include <algorithm>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <cstdint>
 #include <string>
 
@@ -16,6 +17,8 @@ namespace leveldb {
 
 Comparator::~Comparator() {}
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <stdint.h>
 #include "leveldb/comparator.h"
 #include "leveldb/slice.h"
@@ -25,21 +28,30 @@ Comparator::~Comparator() {}
 namespace leveldb {
 
 Comparator::~Comparator() { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace {
 class BytewiseComparatorImpl : public Comparator {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   BytewiseComparatorImpl() {}
 
   virtual const char* Name() const { return "leveldb.BytewiseComparator"; }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   BytewiseComparatorImpl() { }
 
   virtual const char* Name() const {
     return "leveldb.BytewiseComparator";
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   virtual int Compare(const Slice& a, const Slice& b) const {
@@ -47,8 +59,14 @@ class BytewiseComparatorImpl : public Comparator {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual void FindShortestSeparator(std::string* start,
                                      const Slice& limit) const {
+=======
+  virtual void FindShortestSeparator(
+      std::string* start,
+      const Slice& limit) const {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual void FindShortestSeparator(
       std::string* start,
@@ -83,7 +101,11 @@ class BytewiseComparatorImpl : public Comparator {
       if (byte != static_cast<uint8_t>(0xff)) {
         (*key)[i] = byte + 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
         key->resize(i + 1);
+=======
+        key->resize(i+1);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         key->resize(i+1);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -96,10 +118,13 @@ class BytewiseComparatorImpl : public Comparator {
 }  // namespace
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const Comparator* BytewiseComparator() {
   static NoDestructor<BytewiseComparatorImpl> singleton;
   return singleton.get();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 static port::OnceType once = LEVELDB_ONCE_INIT;
 static const Comparator* bytewise;
 
@@ -110,6 +135,9 @@ static void InitModule() {
 const Comparator* BytewiseComparator() {
   port::InitOnce(&once, InitModule);
   return bytewise;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

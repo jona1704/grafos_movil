@@ -11,15 +11,21 @@
 // porting to a new platform, see "port_example.h" for documentation
 // of what the new port_<platform>.h file must provide.
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if defined(LEVELDB_PLATFORM_POSIX) || defined(LEVELDB_PLATFORM_WINDOWS)
 #include "port/port_stdcxx.h"
 #elif defined(LEVELDB_PLATFORM_CHROMIUM)
 #include "port/port_chromium.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #if defined(LEVELDB_PLATFORM_POSIX)
 #  include "port/port_posix.h"
 #elif defined(LEVELDB_PLATFORM_CHROMIUM)
 #  include "port/port_chromium.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #endif
 

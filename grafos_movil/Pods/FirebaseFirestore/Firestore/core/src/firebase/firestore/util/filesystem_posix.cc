@@ -40,7 +40,11 @@ Status IsDirectory(const Path& path) {
     if (errno == ENOENT) {
       // Expected common error case.
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Status{Error::NotFound, path.ToUtf8String()};
+=======
+      return Status{FirestoreErrorCode::NotFound, path.ToUtf8String()};
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return Status{FirestoreErrorCode::NotFound, path.ToUtf8String()};
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -60,7 +64,11 @@ Status IsDirectory(const Path& path) {
       // Since we really don't care about this distinction it's easier to
       // resolve this by returning NotFound here.
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Status{Error::NotFound, path.ToUtf8String()};
+=======
+      return Status{FirestoreErrorCode::NotFound, path.ToUtf8String()};
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return Status{FirestoreErrorCode::NotFound, path.ToUtf8String()};
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -71,7 +79,11 @@ Status IsDirectory(const Path& path) {
 
   if (!S_ISDIR(buffer.st_mode)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return Status{Error::FailedPrecondition,
+=======
+    return Status{FirestoreErrorCode::FailedPrecondition,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return Status{FirestoreErrorCode::FailedPrecondition,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

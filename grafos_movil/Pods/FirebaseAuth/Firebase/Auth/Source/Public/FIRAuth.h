@@ -421,15 +421,21 @@ DEPRECATED_MSG_ATTRIBUTE("Please use fetchSignInMethodsForEmail:completion: for 
         </li>
         <li>@c FIRAuthErrorCodeWebNetworkRequestFailed - Indicates that a network request within a
 <<<<<<< HEAD
+<<<<<<< HEAD
             SFSafariViewController or WKWebView failed.
         </li>
         <li>@c FIRAuthErrorCodeWebInternalError - Indicates that an internal error occurred within a
             SFSafariViewController or WKWebView.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
             SFSafariViewController or UIWebview failed.
         </li>
         <li>@c FIRAuthErrorCodeWebInternalError - Indicates that an internal error occurred within a
             SFSafariViewController or UIWebview.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         </li>
         <li>@c FIRAuthErrorCodeWebSignInUserInteractionFailure - Indicates a general failure during

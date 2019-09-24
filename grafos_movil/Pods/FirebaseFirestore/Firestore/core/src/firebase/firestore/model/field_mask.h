@@ -45,8 +45,11 @@ class FieldMask {
   using const_iterator = std::set<FieldPath>::const_iterator;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   FieldMask() = default;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   FieldMask(std::initializer_list<FieldPath> list) : fields_{list} {
@@ -82,12 +85,18 @@ class FieldMask {
   std::string ToString() const;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #if defined(__OBJC__)
   FieldMask() {
   }
 #endif
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   size_t Hash() const;
 

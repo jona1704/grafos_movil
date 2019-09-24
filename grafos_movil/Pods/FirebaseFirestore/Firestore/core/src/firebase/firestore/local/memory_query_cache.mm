@@ -17,6 +17,7 @@
 #include "Firestore/core/src/firebase/firestore/local/memory_query_cache.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <vector>
 
 #import "Firestore/Source/Local/FSTMemoryPersistence.h"
@@ -27,6 +28,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import <Protobuf/GPBMessage.h>
 
 #include <vector>
@@ -43,6 +46,9 @@ using firebase::firestore::model::DocumentKeySet;
 using firebase::firestore::model::ListenSequenceNumber;
 using firebase::firestore::model::SnapshotVersion;
 using firebase::firestore::model::TargetId;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
@@ -50,12 +56,16 @@ namespace firestore {
 namespace local {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 using core::Query;
 using model::DocumentKey;
 using model::DocumentKeySet;
 using model::ListenSequenceNumber;
 using model::SnapshotVersion;
 using model::TargetId;
+=======
+NS_ASSUME_NONNULL_BEGIN
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_BEGIN
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -69,6 +79,7 @@ MemoryQueryCache::MemoryQueryCache(FSTMemoryPersistence* persistence)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void MemoryQueryCache::AddTarget(const QueryData& query_data) {
   queries_[query_data.query()] = query_data;
   if (query_data.target_id() > highest_target_id_) {
@@ -81,6 +92,8 @@ void MemoryQueryCache::AddTarget(const QueryData& query_data) {
 
 void MemoryQueryCache::UpdateTarget(const QueryData& query_data) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void MemoryQueryCache::AddTarget(FSTQueryData* query_data) {
   queries_[query_data.query] = query_data;
   if (query_data.targetID > highest_target_id_) {
@@ -92,11 +105,15 @@ void MemoryQueryCache::AddTarget(FSTQueryData* query_data) {
 }
 
 void MemoryQueryCache::UpdateTarget(FSTQueryData* query_data) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // For the memory query cache, adds and updates are treated the same.
   AddTarget(query_data);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 void MemoryQueryCache::RemoveTarget(const QueryData& query_data) {
   queries_.erase(query_data.query());
@@ -107,6 +124,8 @@ absl::optional<QueryData> MemoryQueryCache::GetTarget(const Query& query) {
   auto iter = queries_.find(query);
   return iter == queries_.end() ? absl::optional<QueryData>{} : iter->second;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void MemoryQueryCache::RemoveTarget(FSTQueryData* query_data) {
   queries_.erase(query_data.query);
   references_.RemoveReferences(query_data.targetID);
@@ -115,6 +134,9 @@ void MemoryQueryCache::RemoveTarget(FSTQueryData* query_data) {
 FSTQueryData* _Nullable MemoryQueryCache::GetTarget(FSTQuery* query) {
   auto iter = queries_.find(query);
   return iter == queries_.end() ? nil : iter->second;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -127,6 +149,7 @@ void MemoryQueryCache::EnumerateTargets(const TargetCallback& callback) {
 int MemoryQueryCache::RemoveTargets(
     model::ListenSequenceNumber upper_bound,
 <<<<<<< HEAD
+<<<<<<< HEAD
     const std::unordered_map<TargetId, QueryData>& live_targets) {
   std::vector<const Query*> to_remove;
   for (const auto& kv : queries_) {
@@ -138,6 +161,8 @@ int MemoryQueryCache::RemoveTargets(
         to_remove.push_back(&query);
         references_.RemoveReferences(query_data.target_id());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     const std::unordered_map<TargetId, FSTQueryData*>& live_targets) {
   std::vector<FSTQuery*> to_remove;
   for (const auto& kv : queries_) {
@@ -148,14 +173,22 @@ int MemoryQueryCache::RemoveTargets(
       if (live_targets.find(query_data.targetID) == live_targets.end()) {
         to_remove.push_back(query);
         references_.RemoveReferences(query_data.targetID);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       }
     }
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   for (const Query* element : to_remove) {
     queries_.erase(*element);
+=======
+  for (FSTQuery* element : to_remove) {
+    queries_.erase(element);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   for (FSTQuery* element : to_remove) {
     queries_.erase(element);
@@ -189,16 +222,22 @@ bool MemoryQueryCache::Contains(const DocumentKey& key) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 int64_t MemoryQueryCache::CalculateByteSize(const Sizer& sizer) {
   int64_t count = 0;
   for (const auto& kv : queries_) {
     count += sizer.CalculateByteSize(kv.second);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 size_t MemoryQueryCache::CalculateByteSize(FSTLocalSerializer* serializer) {
   size_t count = 0;
   for (const auto& kv : queries_) {
     FSTQueryData* query_data = kv.second;
     count += [[serializer encodedQueryData:query_data] serializedSize];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
   return count;

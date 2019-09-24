@@ -144,6 +144,7 @@ typedef GPB_ENUM(GCFSStructuredQuery_FieldFilter_Operator) {
   /** Contains. Requires that the field is an array. */
   GCFSStructuredQuery_FieldFilter_Operator_ArrayContains = 7,
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   /**
    * In. Requires that `value` is a non-empty ArrayValue with at most 10
@@ -156,6 +157,8 @@ typedef GPB_ENUM(GCFSStructuredQuery_FieldFilter_Operator) {
    * `value` is a non-empty ArrayValue with at most 10 values.
    **/
   GCFSStructuredQuery_FieldFilter_Operator_ArrayContainsAny = 9,
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };

@@ -23,8 +23,12 @@ namespace firestore {
 namespace nanopb {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 pb_bytes_array_t* _Nullable CopyBytesArray(
     const pb_bytes_array_t* _Nullable buffer) {
+=======
+pb_bytes_array_t* CopyBytesArray(const pb_bytes_array_t* buffer) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 pb_bytes_array_t* CopyBytesArray(const pb_bytes_array_t* buffer) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -33,8 +37,12 @@ pb_bytes_array_t* CopyBytesArray(const pb_bytes_array_t* buffer) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 pb_bytes_array_t* _Nullable MakeBytesArray(const void* _Nullable data,
                                            size_t size) {
+=======
+pb_bytes_array_t* MakeBytesArray(const void* data, size_t size) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 pb_bytes_array_t* MakeBytesArray(const void* data, size_t size) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -58,7 +66,11 @@ pb_bytes_array_t* MakeBytesArray(const void* data, size_t size) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::string MakeString(const pb_bytes_array_t* _Nullable str) {
+=======
+std::string MakeString(const pb_bytes_array_t* str) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 std::string MakeString(const pb_bytes_array_t* str) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -70,6 +82,7 @@ std::string MakeString(const pb_bytes_array_t* str) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 absl::string_view MakeStringView(const pb_bytes_array_t* _Nullable str) {
   if (str == nullptr) return absl::string_view(nullptr, 0);
 
@@ -78,6 +91,8 @@ absl::string_view MakeStringView(const pb_bytes_array_t* _Nullable str) {
   return absl::string_view{bytes, size};
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 absl::string_view MakeStringView(const ByteString& bytes) {

@@ -26,10 +26,13 @@
 #include "Firestore/core/src/firebase/firestore/api/snapshot_metadata.h"
 #include "Firestore/core/src/firebase/firestore/core/event_listener.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
 #include "Firestore/core/src/firebase/firestore/model/document_set.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
 #include "Firestore/core/src/firebase/firestore/model/document_set.h"
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
@@ -37,6 +40,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 OBJC_CLASS(FSTQuery);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
@@ -54,7 +60,11 @@ class QuerySnapshot {
 
   QuerySnapshot(std::shared_ptr<Firestore> firestore,
 <<<<<<< HEAD
+<<<<<<< HEAD
                 core::Query query,
+=======
+                FSTQuery* query,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                 FSTQuery* query,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -82,7 +92,11 @@ class QuerySnapshot {
   Query query() const;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const core::Query& internal_query() const;
+=======
+  FSTQuery* internal_query() const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTQuery* internal_query() const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -111,7 +125,11 @@ class QuerySnapshot {
  private:
   std::shared_ptr<Firestore> firestore_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   core::Query internal_query_;
+=======
+  objc::Handle<FSTQuery> internal_query_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   objc::Handle<FSTQuery> internal_query_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -124,6 +142,11 @@ class QuerySnapshot {
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

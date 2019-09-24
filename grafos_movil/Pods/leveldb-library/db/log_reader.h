@@ -33,7 +33,11 @@ class Reader {
   // "*file" must remain live while this Reader is in use.
   //
 <<<<<<< HEAD
+<<<<<<< HEAD
   // If "reporter" is non-null, it is notified whenever some data is
+=======
+  // If "reporter" is non-NULL, it is notified whenever some data is
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // If "reporter" is non-NULL, it is notified whenever some data is
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -48,9 +52,12 @@ class Reader {
          uint64_t initial_offset);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Reader(const Reader&) = delete;
   Reader& operator=(const Reader&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   ~Reader();
@@ -69,7 +76,10 @@ class Reader {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   SequentialFile* const file_;
   Reporter* const reporter_;
   bool const checksum_;
@@ -90,6 +100,9 @@ class Reader {
   // skipped in this mode
   bool resyncing_;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Extend record types with the following special values
   enum {
@@ -116,6 +129,7 @@ class Reader {
   void ReportDrop(uint64_t bytes, const Status& reason);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   SequentialFile* const file_;
   Reporter* const reporter_;
   bool const checksum_;
@@ -135,6 +149,11 @@ class Reader {
   // particular, a run of kMiddleType and kLastType records can be silently
   // skipped in this mode
   bool resyncing_;
+=======
+  // No copying allowed
+  Reader(const Reader&);
+  void operator=(const Reader&);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // No copying allowed
   Reader(const Reader&);

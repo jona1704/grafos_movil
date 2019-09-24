@@ -3,6 +3,7 @@
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "util/histogram.h"
 
 #include <math.h>
@@ -10,15 +11,21 @@
 
 #include "port/port.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <math.h>
 #include <stdio.h>
 #include "port/port.h"
 #include "util/histogram.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace leveldb {
 
 const double Histogram::kBucketLimit[kNumBuckets] = {
+<<<<<<< HEAD
 <<<<<<< HEAD
     1,
     2,
@@ -179,6 +186,8 @@ const double Histogram::kBucketLimit[kNumBuckets] = {
 void Histogram::Clear() {
   min_ = kBucketLimit[kNumBuckets - 1];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 25, 30, 35, 40, 45,
   50, 60, 70, 80, 90, 100, 120, 140, 160, 180, 200, 250, 300, 350, 400, 450,
   500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000,
@@ -201,6 +210,9 @@ void Histogram::Clear() {
 
 void Histogram::Clear() {
   min_ = kBucketLimit[kNumBuckets-1];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   max_ = 0;
   num_ = 0;
@@ -237,7 +249,13 @@ void Histogram::Merge(const Histogram& other) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 double Histogram::Median() const { return Percentile(50.0); }
+=======
+double Histogram::Median() const {
+  return Percentile(50.0);
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 double Histogram::Median() const {
   return Percentile(50.0);
@@ -252,7 +270,11 @@ double Histogram::Percentile(double p) const {
     if (sum >= threshold) {
       // Scale linearly within this bucket
 <<<<<<< HEAD
+<<<<<<< HEAD
       double left_point = (b == 0) ? 0 : kBucketLimit[b - 1];
+=======
+      double left_point = (b == 0) ? 0 : kBucketLimit[b-1];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       double left_point = (b == 0) ? 0 : kBucketLimit[b-1];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -284,17 +306,23 @@ std::string Histogram::ToString() const {
   std::string r;
   char buf[200];
 <<<<<<< HEAD
+<<<<<<< HEAD
   snprintf(buf, sizeof(buf), "Count: %.0f  Average: %.4f  StdDev: %.2f\n", num_,
            Average(), StandardDeviation());
   r.append(buf);
   snprintf(buf, sizeof(buf), "Min: %.4f  Median: %.4f  Max: %.4f\n",
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   snprintf(buf, sizeof(buf),
            "Count: %.0f  Average: %.4f  StdDev: %.2f\n",
            num_, Average(), StandardDeviation());
   r.append(buf);
   snprintf(buf, sizeof(buf),
            "Min: %.4f  Median: %.4f  Max: %.4f\n",
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
            (num_ == 0.0 ? 0.0 : min_), Median(), max_);
   r.append(buf);
@@ -304,6 +332,7 @@ std::string Histogram::ToString() const {
   for (int b = 0; b < kNumBuckets; b++) {
     if (buckets_[b] <= 0.0) continue;
     sum += buckets_[b];
+<<<<<<< HEAD
 <<<<<<< HEAD
     snprintf(buf, sizeof(buf), "[ %7.0f, %7.0f ) %7.0f %7.3f%% %7.3f%% ",
              ((b == 0) ? 0.0 : kBucketLimit[b - 1]),  // left
@@ -316,6 +345,8 @@ std::string Histogram::ToString() const {
     // Add hash marks based on percentage; 20 marks for 100%.
     int marks = static_cast<int>(20 * (buckets_[b] / num_) + 0.5);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     snprintf(buf, sizeof(buf),
              "[ %7.0f, %7.0f ) %7.0f %7.3f%% %7.3f%% ",
              ((b == 0) ? 0.0 : kBucketLimit[b-1]),      // left
@@ -327,6 +358,9 @@ std::string Histogram::ToString() const {
 
     // Add hash marks based on percentage; 20 marks for 100%.
     int marks = static_cast<int>(20*(buckets_[b] / num_) + 0.5);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     r.append(marks, '#');
     r.push_back('\n');

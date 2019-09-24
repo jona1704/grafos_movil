@@ -18,10 +18,13 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_CORE_DIRECTION_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <iosfwd>
 #include <string>
 
 #include "Firestore/core/src/firebase/firestore/util/comparison.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "absl/base/attributes.h"
@@ -45,6 +48,7 @@ class Direction {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Direction() = default;
 
   /**
@@ -55,13 +59,18 @@ class Direction {
 
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   int comparison_modifier() const {
     return comparison_modifier_;
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::string CanonicalId() const;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  private:
@@ -74,11 +83,17 @@ class Direction {
       : comparison_modifier_(comparison_modifier) {
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   int comparison_modifier_ = AscendingModifier;
 };
 
 std::ostream& operator<<(std::ostream& os, const Direction& direction);
 
+=======
+  int comparison_modifier_;
+};
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   int comparison_modifier_;
 };

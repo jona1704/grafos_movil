@@ -6,7 +6,10 @@
 
 #include <stdint.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/env.h"
@@ -24,7 +27,13 @@ static void InitTypeCrc(uint32_t* type_crc) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Writer::Writer(WritableFile* dest) : dest_(dest), block_offset_(0) {
+=======
+Writer::Writer(WritableFile* dest)
+    : dest_(dest),
+      block_offset_(0) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Writer::Writer(WritableFile* dest)
     : dest_(dest),
@@ -39,7 +48,12 @@ Writer::Writer(WritableFile* dest, uint64_t dest_length)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Writer::~Writer() {}
+=======
+Writer::~Writer() {
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Writer::~Writer() {
 }
@@ -62,7 +76,11 @@ Status Writer::AddRecord(const Slice& slice) {
       if (leftover > 0) {
         // Fill the trailer (literal below relies on kHeaderSize being 7)
 <<<<<<< HEAD
+<<<<<<< HEAD
         static_assert(kHeaderSize == 7, "");
+=======
+        assert(kHeaderSize == 7);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         assert(kHeaderSize == 7);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -98,6 +116,7 @@ Status Writer::AddRecord(const Slice& slice) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status Writer::EmitPhysicalRecord(RecordType t, const char* ptr,
                                   size_t length) {
   assert(length <= 0xffff);  // Must fit in two bytes
@@ -113,6 +132,8 @@ Status Writer::EmitPhysicalRecord(RecordType t, const char* ptr,
   uint32_t crc = crc32c::Extend(type_crc_[t], ptr, length);
   crc = crc32c::Mask(crc);  // Adjust for storage
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Status Writer::EmitPhysicalRecord(RecordType t, const char* ptr, size_t n) {
   assert(n <= 0xffff);  // Must fit in two bytes
   assert(block_offset_ + kHeaderSize + n <= kBlockSize);
@@ -126,6 +147,9 @@ Status Writer::EmitPhysicalRecord(RecordType t, const char* ptr, size_t n) {
   // Compute the crc of the record type and the payload.
   uint32_t crc = crc32c::Extend(type_crc_[t], ptr, n);
   crc = crc32c::Mask(crc);                 // Adjust for storage
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   EncodeFixed32(buf, crc);
 
@@ -133,7 +157,11 @@ Status Writer::EmitPhysicalRecord(RecordType t, const char* ptr, size_t n) {
   Status s = dest_->Append(Slice(buf, kHeaderSize));
   if (s.ok()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     s = dest_->Append(Slice(ptr, length));
+=======
+    s = dest_->Append(Slice(ptr, n));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     s = dest_->Append(Slice(ptr, n));
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -142,7 +170,11 @@ Status Writer::EmitPhysicalRecord(RecordType t, const char* ptr, size_t n) {
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   block_offset_ += kHeaderSize + length;
+=======
+  block_offset_ += kHeaderSize + n;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   block_offset_ += kHeaderSize + n;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

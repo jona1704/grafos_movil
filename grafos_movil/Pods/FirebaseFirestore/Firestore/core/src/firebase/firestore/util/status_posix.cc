@@ -27,15 +27,21 @@ namespace util {
 
 /// Returns the Canonical error code for the given errno value.
 <<<<<<< HEAD
+<<<<<<< HEAD
 static Error CodeForErrno(int errno_code) {
   switch (errno_code) {
     case 0:
       return Error::Ok;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 static FirestoreErrorCode CodeForErrno(int errno_code) {
   switch (errno_code) {
     case 0:
       return FirestoreErrorCode::Ok;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
       // Internal canonical mappings call these failed preconditions, but for
@@ -45,7 +51,11 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
     case EBADFD:  // File descriptor in bad state
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::Internal;
+=======
+      return FirestoreErrorCode::Internal;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::Internal;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -64,17 +74,23 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
     case EPROTOTYPE:    // Protocol wrong type for socket
     case ESPIPE:        // Invalid seek
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::InvalidArgument;
 
     case ETIMEDOUT:  // Connection timed out
     case ETIME:      // Timer expired
       return Error::DeadlineExceeded;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       return FirestoreErrorCode::InvalidArgument;
 
     case ETIMEDOUT:  // Connection timed out
     case ETIME:      // Timer expired
       return FirestoreErrorCode::DeadlineExceeded;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
     case ENODEV:  // No such device
@@ -85,7 +101,11 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
     case ENXIO:  // No such device or address
     case ESRCH:  // No such process
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::NotFound;
+=======
+      return FirestoreErrorCode::NotFound;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::NotFound;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -97,7 +117,11 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
     case ENOTUNIQ:  // Name not unique on network
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::AlreadyExists;
+=======
+      return FirestoreErrorCode::AlreadyExists;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::AlreadyExists;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -109,7 +133,11 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
 #endif
     case EROFS:  // Read only file system
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::PermissionDenied;
+=======
+      return FirestoreErrorCode::PermissionDenied;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::PermissionDenied;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -137,7 +165,11 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
     case EUNATCH:  // Protocol driver not attached
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::FailedPrecondition;
+=======
+      return FirestoreErrorCode::FailedPrecondition;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::FailedPrecondition;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -157,7 +189,11 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
     case EUSERS:  // Too many users
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::ResourceExhausted;
+=======
+      return FirestoreErrorCode::ResourceExhausted;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::ResourceExhausted;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -169,7 +205,11 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
     case EOVERFLOW:  // Value too large to be stored in data type
     case ERANGE:     // Result too large
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::OutOfRange;
+=======
+      return FirestoreErrorCode::OutOfRange;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::OutOfRange;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -189,7 +229,11 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
 #endif
     case EXDEV:  // Improper link
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::Unimplemented;
+=======
+      return FirestoreErrorCode::Unimplemented;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::Unimplemented;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -215,7 +259,11 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
     case ENONET:  // Machine is not on the network
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::Unavailable;
+=======
+      return FirestoreErrorCode::Unavailable;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return FirestoreErrorCode::Unavailable;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -225,6 +273,7 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
     case ESTALE:  // Stale file handle
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Error::Aborted;
 
     case ECANCELED:  // Operation cancelled
@@ -233,6 +282,8 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
     default:
       return Error::Unknown;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       return FirestoreErrorCode::Aborted;
 
     case ECANCELED:  // Operation cancelled
@@ -240,6 +291,9 @@ static FirestoreErrorCode CodeForErrno(int errno_code) {
 
     default:
       return FirestoreErrorCode::Unknown;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 }
@@ -250,7 +304,11 @@ Status Status::FromErrno(int errno_code, absl::string_view msg) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Error canonical_code = CodeForErrno(errno_code);
+=======
+  FirestoreErrorCode canonical_code = CodeForErrno(errno_code);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FirestoreErrorCode canonical_code = CodeForErrno(errno_code);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

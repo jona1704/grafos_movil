@@ -5,8 +5,13 @@
 #include "db/builder.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "db/dbformat.h"
 #include "db/filename.h"
+=======
+#include "db/filename.h"
+#include "db/dbformat.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include "db/filename.h"
 #include "db/dbformat.h"
@@ -20,15 +25,21 @@
 namespace leveldb {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status BuildTable(const std::string& dbname, Env* env, const Options& options,
                   TableCache* table_cache, Iterator* iter, FileMetaData* meta) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Status BuildTable(const std::string& dbname,
                   Env* env,
                   const Options& options,
                   TableCache* table_cache,
                   Iterator* iter,
                   FileMetaData* meta) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Status s;
   meta->file_size = 0;
@@ -52,11 +63,14 @@ Status BuildTable(const std::string& dbname,
 
     // Finish and check for builder errors
 <<<<<<< HEAD
+<<<<<<< HEAD
     s = builder->Finish();
     if (s.ok()) {
       meta->file_size = builder->FileSize();
       assert(meta->file_size > 0);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if (s.ok()) {
       s = builder->Finish();
       if (s.ok()) {
@@ -65,6 +79,9 @@ Status BuildTable(const std::string& dbname,
       }
     } else {
       builder->Abandon();
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
     delete builder;
@@ -78,18 +95,24 @@ Status BuildTable(const std::string& dbname,
     }
     delete file;
 <<<<<<< HEAD
+<<<<<<< HEAD
     file = nullptr;
 
     if (s.ok()) {
       // Verify that the table is usable
       Iterator* it = table_cache->NewIterator(ReadOptions(), meta->number,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     file = NULL;
 
     if (s.ok()) {
       // Verify that the table is usable
       Iterator* it = table_cache->NewIterator(ReadOptions(),
                                               meta->number,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                                               meta->file_size);
       s = it->status();

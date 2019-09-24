@@ -21,21 +21,30 @@
 
 #import "Firestore/Protos/objc/firestore/local/Mutation.pbobjc.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "Firestore/Source/Local/FSTLevelDB.h"
 #import "Firestore/Source/Local/FSTLocalSerializer.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Local/FSTLevelDB.h"
 #import "Firestore/Source/Local/FSTLocalSerializer.h"
 #import "Firestore/Source/Model/FSTMutation.h"
 #import "Firestore/Source/Model/FSTMutationBatch.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 #include "Firestore/core/src/firebase/firestore/local/leveldb_util.h"
 #include "Firestore/core/src/firebase/firestore/model/mutation_batch.h"
 #include "Firestore/core/src/firebase/firestore/model/resource_path.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/nanopb/nanopb_util.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/util/string_util.h"
@@ -50,7 +59,10 @@ namespace local {
 
 using auth::User;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using core::Query;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using leveldb::DB;
@@ -61,12 +73,16 @@ using model::DocumentKey;
 using model::DocumentKeySet;
 using model::kBatchIdUnknown;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using model::Mutation;
 using model::MutationBatch;
 using model::ResourcePath;
 using nanopb::ByteString;
 using nanopb::MakeByteString;
 using nanopb::MakeNSData;
+=======
+using model::ResourcePath;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 using model::ResourcePath;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -81,7 +97,11 @@ BatchId LoadNextBatchIdFromDb(DB* db) {
 
   LevelDbMutationKey row_key;
 <<<<<<< HEAD
+<<<<<<< HEAD
   BatchId max_batch_id = 0;
+=======
+  BatchId max_batch_id = kBatchIdUnknown;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   BatchId max_batch_id = kBatchIdUnknown;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -177,6 +197,7 @@ bool LevelDbMutationQueue::IsEmpty() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void LevelDbMutationQueue::AcknowledgeBatch(const MutationBatch&,
                                             const ByteString& stream_token) {
   SetLastStreamToken(stream_token);
@@ -192,6 +213,8 @@ MutationBatch LevelDbMutationQueue::AddMutationBatch(
   MutationBatch batch(batch_id, local_write_time, std::move(base_mutations),
                       std::move(mutations));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void LevelDbMutationQueue::AcknowledgeBatch(FSTMutationBatch* batch,
                                             NSData* _Nullable stream_token) {
   SetLastStreamToken(stream_token);
@@ -209,6 +232,9 @@ FSTMutationBatch* LevelDbMutationQueue::AddMutationBatch(
                                  localWriteTime:local_write_time
                                   baseMutations:std::move(base_mutations)
                                       mutations:std::move(mutations)];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::string key = mutation_batch_key(batch_id);
   db_.currentTransaction->Put(key, [serializer_ encodedMutationBatch:batch]);
@@ -220,6 +246,7 @@ FSTMutationBatch* LevelDbMutationQueue::AddMutationBatch(
   std::string empty_buffer;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   for (const Mutation& mutation : batch.mutations()) {
     key = LevelDbDocumentMutationKey::Key(user_id_, mutation.key(), batch_id);
     db_.currentTransaction->Put(key, empty_buffer);
@@ -227,11 +254,16 @@ FSTMutationBatch* LevelDbMutationQueue::AddMutationBatch(
     db_.indexManager->AddToCollectionParentIndex(
         mutation.key().path().PopLast());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   for (FSTMutation* mutation : [batch mutations]) {
     key = LevelDbDocumentMutationKey::Key(user_id_, mutation.key, batch_id);
     db_.currentTransaction->Put(key, empty_buffer);
 
     db_.indexManager->AddToCollectionParentIndex(mutation.key.path().PopLast());
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -239,15 +271,21 @@ FSTMutationBatch* LevelDbMutationQueue::AddMutationBatch(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void LevelDbMutationQueue::RemoveMutationBatch(const MutationBatch& batch) {
   auto check_iterator = db_.currentTransaction->NewIterator();
 
   BatchId batch_id = batch.batch_id();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void LevelDbMutationQueue::RemoveMutationBatch(FSTMutationBatch* batch) {
   auto check_iterator = db_.currentTransaction->NewIterator();
 
   BatchId batch_id = batch.batchID;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::string key = mutation_batch_key(batch_id);
 
@@ -264,6 +302,7 @@ void LevelDbMutationQueue::RemoveMutationBatch(FSTMutationBatch* batch) {
   db_.currentTransaction->Delete(key);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   for (const Mutation& mutation : batch.mutations()) {
     key = LevelDbDocumentMutationKey::Key(user_id_, mutation.key(), batch_id);
     db_.currentTransaction->Delete(key);
@@ -273,6 +312,8 @@ void LevelDbMutationQueue::RemoveMutationBatch(FSTMutationBatch* batch) {
 
 std::vector<MutationBatch> LevelDbMutationQueue::AllMutationBatches() {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   for (FSTMutation* mutation : [batch mutations]) {
     key = LevelDbDocumentMutationKey::Key(user_id_, mutation.key, batch_id);
     db_.currentTransaction->Delete(key);
@@ -281,13 +322,20 @@ std::vector<MutationBatch> LevelDbMutationQueue::AllMutationBatches() {
 }
 
 std::vector<FSTMutationBatch*> LevelDbMutationQueue::AllMutationBatches() {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::string user_key = LevelDbMutationKey::KeyPrefix(user_id_);
 
   auto it = db_.currentTransaction->NewIterator();
   it->Seek(user_key);
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<MutationBatch> result;
+=======
+  std::vector<FSTMutationBatch*> result;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutationBatch*> result;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -298,7 +346,11 @@ std::vector<FSTMutationBatch*> LevelDbMutationQueue::AllMutationBatches() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::vector<MutationBatch>
+=======
+std::vector<FSTMutationBatch*>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 std::vector<FSTMutationBatch*>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -341,7 +393,11 @@ LevelDbMutationQueue::AllMutationBatchesAffectingDocumentKeys(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::vector<MutationBatch>
+=======
+std::vector<FSTMutationBatch*>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 std::vector<FSTMutationBatch*>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -350,6 +406,7 @@ LevelDbMutationQueue::AllMutationBatchesAffectingDocumentKey(
   return AllMutationBatchesAffectingDocumentKeys(DocumentKeySet{key});
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 std::vector<MutationBatch>
 LevelDbMutationQueue::AllMutationBatchesAffectingQuery(const Query& query) {
@@ -361,6 +418,8 @@ LevelDbMutationQueue::AllMutationBatchesAffectingQuery(const Query& query) {
 
   const ResourcePath& query_path = query.path();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 std::vector<FSTMutationBatch*>
 LevelDbMutationQueue::AllMutationBatchesAffectingQuery(FSTQuery* query) {
   HARD_ASSERT(![query isDocumentQuery],
@@ -370,6 +429,9 @@ LevelDbMutationQueue::AllMutationBatchesAffectingQuery(FSTQuery* query) {
       "CollectionGroup queries should be handled in LocalDocumentsView");
 
   const ResourcePath& query_path = query.path;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   size_t immediate_children_path_length = query_path.size() + 1;
 
@@ -428,7 +490,11 @@ LevelDbMutationQueue::AllMutationBatchesAffectingQuery(FSTQuery* query) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 absl::optional<MutationBatch> LevelDbMutationQueue::LookupMutationBatch(
+=======
+FSTMutationBatch* _Nullable LevelDbMutationQueue::LookupMutationBatch(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 FSTMutationBatch* _Nullable LevelDbMutationQueue::LookupMutationBatch(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -440,7 +506,11 @@ FSTMutationBatch* _Nullable LevelDbMutationQueue::LookupMutationBatch(
   if (!status.ok()) {
     if (status.IsNotFound()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
       return absl::nullopt;
+=======
+      return nil;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return nil;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -453,8 +523,13 @@ FSTMutationBatch* _Nullable LevelDbMutationQueue::LookupMutationBatch(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 absl::optional<MutationBatch>
 LevelDbMutationQueue::NextMutationBatchAfterBatchId(model::BatchId batch_id) {
+=======
+FSTMutationBatch* _Nullable LevelDbMutationQueue::NextMutationBatchAfterBatchId(
+    model::BatchId batch_id) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 FSTMutationBatch* _Nullable LevelDbMutationQueue::NextMutationBatchAfterBatchId(
     model::BatchId batch_id) {
@@ -469,7 +544,11 @@ FSTMutationBatch* _Nullable LevelDbMutationQueue::NextMutationBatchAfterBatchId(
   if (!it->Valid() || !row_key.Decode(it->key())) {
     // Past the last row in the DB or out of the mutations table
 <<<<<<< HEAD
+<<<<<<< HEAD
     return absl::nullopt;
+=======
+    return nil;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return nil;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -478,7 +557,11 @@ FSTMutationBatch* _Nullable LevelDbMutationQueue::NextMutationBatchAfterBatchId(
   if (row_key.user_id() != user_id_) {
     // Jumped past the last mutation for this user
 <<<<<<< HEAD
+<<<<<<< HEAD
     return absl::nullopt;
+=======
+    return nil;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return nil;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -489,6 +572,7 @@ FSTMutationBatch* _Nullable LevelDbMutationQueue::NextMutationBatchAfterBatchId(
   return ParseMutationBatch(it->value());
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 BatchId LevelDbMutationQueue::GetHighestUnacknowledgedBatchId() {
   std::unique_ptr<Iterator> it(
@@ -509,6 +593,8 @@ BatchId LevelDbMutationQueue::GetHighestUnacknowledgedBatchId() {
   return kBatchIdUnknown;
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void LevelDbMutationQueue::PerformConsistencyCheck() {
@@ -541,6 +627,7 @@ void LevelDbMutationQueue::PerformConsistencyCheck() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ByteString LevelDbMutationQueue::GetLastStreamToken() {
   return MakeByteString(metadata_.lastStreamToken);
 }
@@ -548,21 +635,32 @@ ByteString LevelDbMutationQueue::GetLastStreamToken() {
 void LevelDbMutationQueue::SetLastStreamToken(const ByteString& stream_token) {
   metadata_.lastStreamToken = MakeNullableNSData(stream_token);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 NSData* _Nullable LevelDbMutationQueue::GetLastStreamToken() {
   return metadata_.lastStreamToken;
 }
 
 void LevelDbMutationQueue::SetLastStreamToken(NSData* _Nullable stream_token) {
   metadata_.lastStreamToken = stream_token;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   db_.currentTransaction->Put(mutation_queue_key(), metadata_);
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::vector<MutationBatch> LevelDbMutationQueue::AllMutationBatchesWithIds(
     const std::set<BatchId>& batch_ids) {
   std::vector<MutationBatch> result;
+=======
+std::vector<FSTMutationBatch*> LevelDbMutationQueue::AllMutationBatchesWithIds(
+    const std::set<BatchId>& batch_ids) {
+  std::vector<FSTMutationBatch*> result;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 std::vector<FSTMutationBatch*> LevelDbMutationQueue::AllMutationBatchesWithIds(
     const std::set<BatchId>& batch_ids) {
@@ -612,7 +710,11 @@ FSTPBMutationQueue* _Nullable LevelDbMutationQueue::MetadataForKey(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 MutationBatch LevelDbMutationQueue::ParseMutationBatch(
+=======
+FSTMutationBatch* LevelDbMutationQueue::ParseMutationBatch(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 FSTMutationBatch* LevelDbMutationQueue::ParseMutationBatch(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

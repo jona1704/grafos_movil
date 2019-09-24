@@ -22,9 +22,15 @@
 
 #include "Firestore/core/src/firebase/firestore/core/listen_options.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
+=======
+#include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
+#include "Firestore/core/src/firebase/firestore/model/types.h"
+#include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
@@ -35,11 +41,17 @@
 #include "absl/types/optional.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 OBJC_CLASS(FSTQuery);
 
 NS_ASSUME_NONNULL_BEGIN
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -53,20 +65,27 @@ class QueryListener {
  public:
   static std::shared_ptr<QueryListener> Create(
 <<<<<<< HEAD
+<<<<<<< HEAD
       Query query,
       ListenOptions options,
       ViewSnapshot::SharedListener&& listener) {
     return std::make_shared<QueryListener>(std::move(query), std::move(options),
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       FSTQuery* query,
       ListenOptions options,
       ViewSnapshot::SharedListener&& listener) {
     return std::make_shared<QueryListener>(query, std::move(options),
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                                            std::move(listener));
   }
 
   static std::shared_ptr<QueryListener> Create(
+<<<<<<< HEAD
 <<<<<<< HEAD
       Query query, ViewSnapshot::SharedListener&& listener) {
     return Create(std::move(query), ListenOptions::DefaultOptions(),
@@ -76,17 +95,23 @@ class QueryListener {
   static std::shared_ptr<QueryListener> Create(
       Query query,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       FSTQuery* query, ViewSnapshot::SharedListener&& listener) {
     return Create(query, ListenOptions::DefaultOptions(), std::move(listener));
   }
 
   static std::shared_ptr<QueryListener> Create(
       FSTQuery* query,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       ListenOptions options,
       util::StatusOrCallback<ViewSnapshot>&& listener) {
     auto event_listener =
         EventListener<ViewSnapshot>::Create(std::move(listener));
+<<<<<<< HEAD
 <<<<<<< HEAD
     return Create(std::move(query), std::move(options),
                   std::move(event_listener));
@@ -100,6 +125,8 @@ class QueryListener {
 
   QueryListener(Query query,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     return Create(query, std::move(options), std::move(event_listener));
   }
 
@@ -109,6 +136,9 @@ class QueryListener {
   }
 
   QueryListener(FSTQuery* query,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                 ListenOptions options,
                 ViewSnapshot::SharedListener&& listener);
@@ -117,9 +147,13 @@ class QueryListener {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const Query& query() const {
     return query_;
   }
+=======
+  FSTQuery* query() const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTQuery* query() const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -140,7 +174,11 @@ class QueryListener {
   void RaiseInitialEvent(const ViewSnapshot& snapshot);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Query query_;
+=======
+  objc::Handle<FSTQuery> query_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   objc::Handle<FSTQuery> query_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -170,6 +208,11 @@ class QueryListener {
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

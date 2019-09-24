@@ -100,6 +100,7 @@ class ConnectivityMonitorApple : public ConnectivityMonitor {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // It's okay to use the main queue for reachability events because they are
     // fairly infrequent, and there's no good way to get the underlying dispatch
     // queue out of the worker queue. The callback itself is still executed on
@@ -107,6 +108,8 @@ class ConnectivityMonitorApple : public ConnectivityMonitor {
     success = SCNetworkReachabilitySetDispatchQueue(reachability_,
                                                     dispatch_get_main_queue());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     // TODO(varconst): 1. Make this at least more robust by adding an enum to
     // `Executor` that allows asserting on the actual type before casting.
     // 2. This is an unfortunate, brittle mechanism, see if better alternatives
@@ -116,6 +119,9 @@ class ConnectivityMonitorApple : public ConnectivityMonitor {
     auto executor = static_cast<ExecutorLibdispatch*>(queue()->executor());
     success = SCNetworkReachabilitySetDispatchQueue(reachability_,
                                                     executor->dispatch_queue());
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if (!success) {
       LOG_DEBUG("Couldn't set reachability queue");
@@ -137,7 +143,11 @@ class ConnectivityMonitorApple : public ConnectivityMonitor {
 
   void OnReachabilityChanged(SCNetworkReachabilityFlags flags) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     queue()->Enqueue(
+=======
+    queue()->ExecuteBlocking(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     queue()->ExecuteBlocking(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

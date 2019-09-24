@@ -17,14 +17,20 @@
 #include "Firestore/core/src/firebase/firestore/core/direction.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <ostream>
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <memory>
 #include <string>
 
 #include "Firestore/core/src/firebase/firestore/model/document.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
@@ -34,6 +40,7 @@ namespace core {
 const Direction Direction::Ascending(Direction::AscendingModifier);
 const Direction Direction::Descending(Direction::DescendingModifier);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 std::string Direction::CanonicalId() const {
   return comparison_modifier_ == AscendingModifier ? "asc" : "desc";
@@ -51,6 +58,8 @@ std::ostream& operator<<(std::ostream& os, const Direction& direction) {
   return os << direction.CanonicalId();
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }  // namespace core

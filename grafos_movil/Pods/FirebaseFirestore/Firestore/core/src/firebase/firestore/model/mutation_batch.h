@@ -18,6 +18,7 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_MODEL_MUTATION_BATCH_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <iosfwd>
 #include <memory>
 #include <string>
@@ -32,6 +33,12 @@
 
 #include "Firestore/core/include/firebase/firestore/timestamp.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+#include <memory>
+#include <vector>
+
+#include "Firestore/core/include/firebase/firestore/timestamp.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/mutation.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
 
@@ -40,11 +47,17 @@ namespace firestore {
 namespace model {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class MutationBatchResult;
 
 /**
  * A BatchID that was searched for and not found or a batch ID value known to
  * be before all known batches.
+=======
+/**
+ * A BatchID that was searched for and not found or a batch ID value known to be
+ * before all known batches.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 /**
  * A BatchID that was searched for and not found or a batch ID value known to be
@@ -67,8 +80,13 @@ class MutationBatch {
  public:
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
    * A batch ID that was searched for and not found or a batch ID value known
    * to be before all known batches.
+=======
+   * A batch ID that was searched for and not found or a batch ID value known to
+   * be before all known batches.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
    * A batch ID that was searched for and not found or a batch ID value known to
    * be before all known batches.
@@ -82,17 +100,23 @@ class MutationBatch {
   MutationBatch(int batch_id,
                 Timestamp local_write_time,
 <<<<<<< HEAD
+<<<<<<< HEAD
                 std::vector<Mutation> base_mutations,
                 std::vector<Mutation> mutations);
 
   /** The unique ID of this mutation batch. */
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                 std::vector<std::unique_ptr<Mutation>>&& mutations);
 
   // TODO(rsgowman): Port ApplyToRemoteDocument()
   // TODO(rsgowman): Port ApplyToLocalView()
   // TODO(rsgowman): Port GetKeys()
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   int batch_id() const {
     return batch_id_;
@@ -106,6 +130,7 @@ class MutationBatch {
     return local_write_time_;
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   /**
    * Mutations that are used to populate the base values when this mutation is
@@ -182,6 +207,8 @@ class MutationBatch {
 };
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   const std::vector<std::unique_ptr<Mutation>>& mutations() const {
     return mutations_;
   }
@@ -194,6 +221,9 @@ class MutationBatch {
 
 bool operator==(const MutationBatch& lhs, const MutationBatch& rhs);
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator!=(const MutationBatch& lhs, const MutationBatch& rhs) {
   return !(lhs == rhs);

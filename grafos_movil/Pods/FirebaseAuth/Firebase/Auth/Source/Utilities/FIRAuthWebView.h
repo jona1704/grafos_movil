@@ -16,7 +16,10 @@
 
 #import <UIKit/UIKit.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import <WebKit/WebKit.h>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -24,7 +27,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** @class FIRAuthWebView
 <<<<<<< HEAD
+<<<<<<< HEAD
     @brief A class reponsible for creating a WKWebView for use within Firebase Auth.
+=======
+    @brief A class reponsible for creating a UIWebview for use within Firebase Auth.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     @brief A class reponsible for creating a UIWebview for use within Firebase Auth.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -35,7 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  @brief The web view.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @property(nonatomic, weak) WKWebView *webView;
+=======
+@property(nonatomic, weak) UIWebView *webView;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @property(nonatomic, weak) UIWebView *webView;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -2,10 +2,16 @@
 
 This repository contains a subset of the Firebase iOS SDK source. It currently
 <<<<<<< HEAD
+<<<<<<< HEAD
 includes FirebaseCore, FirebaseABTesting, FirebaseAuth, FirebaseDatabase,
 FirebaseFirestore, FirebaseFunctions, FirebaseInstanceID, FirebaseInAppMessaging,
 FirebaseInAppMessagingDisplay, FirebaseMessaging, FirebaseRemoteConfig, and
 FirebaseStorage.
+=======
+includes FirebaseCore, FirebaseAuth, FirebaseDatabase, FirebaseFirestore,
+FirebaseFunctions, FirebaseInstanceID, FirebaseInAppMessaging,
+FirebaseInAppMessagingDisplay, FirebaseMessaging and FirebaseStorage.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 includes FirebaseCore, FirebaseAuth, FirebaseDatabase, FirebaseFirestore,
 FirebaseFunctions, FirebaseInstanceID, FirebaseInAppMessaging,
@@ -78,6 +84,7 @@ Instructions for installing binary frameworks via
 ## Development
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 To develop Firebase software in this repository, ensure that you have at least
 the following software:
 
@@ -95,6 +102,8 @@ Firestore has a self contained Xcode project. See
 
 See [AddNewPod.md](AddNewPod.md).
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Follow the subsequent instructions to develop, debug, unit test, run integration
 tests, and try out reference samples:
 
@@ -108,6 +117,9 @@ $ open Firebase.xcworkspace
 Firestore and Functions have self contained Xcode projects. See
 [Firestore/README.md](Firestore/README.md) and
 [Functions/README.md](Functions/README.md).
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 ### Code Formatting
@@ -122,8 +134,13 @@ These commands will get the right versions:
 
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 brew upgrade https://raw.githubusercontent.com/Homebrew/homebrew-core/e3496d9/Formula/clang-format.rb
 brew upgrade https://raw.githubusercontent.com/Homebrew/homebrew-core/7963c3d/Formula/swiftformat.rb
+=======
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/773cb75d360b58f32048f5964038d09825a507c8/Formula/clang-format.rb
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/3dfea1004e0736754bbf49673cca8aaed8a94089/Formula/swiftformat.rb
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/773cb75d360b58f32048f5964038d09825a507c8/Formula/clang-format.rb
 brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/3dfea1004e0736754bbf49673cca8aaed8a94089/Formula/swiftformat.rb
@@ -134,10 +151,13 @@ Note: if you already have a newer version of these installed you may need to
 `brew switch` to this version.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 To update this section, find the versions of clang-format and swiftformat.rb to
 match the versions in the CI failure logs
 [here](https://github.com/Homebrew/homebrew-core/tree/master/Formula).
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 ### Running Unit Tests
@@ -214,9 +234,14 @@ participate in the Firebase community.
 
 ### macOS and tvOS
 <<<<<<< HEAD
+<<<<<<< HEAD
 Thanks to contributions from the community, FirebaseABTesting, FirebaseAuth, FirebaseCore,
 FirebaseDatabase, FirebaseMessaging, FirebaseFirestore,
 FirebaseFunctions, FirebaseRemoteConfig, and FirebaseStorage now compile, run unit tests, and work on
+=======
+Thanks to contributions from the community, FirebaseAuth, FirebaseCore, FirebaseDatabase, FirebaseMessaging,
+FirebaseFirestore, FirebaseFunctions and FirebaseStorage now compile, run unit tests, and work on
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Thanks to contributions from the community, FirebaseAuth, FirebaseCore, FirebaseDatabase, FirebaseMessaging,
 FirebaseFirestore, FirebaseFunctions and FirebaseStorage now compile, run unit tests, and work on
@@ -236,6 +261,7 @@ To install, add a subset of the following to the Podfile:
 
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 pod 'FirebaseABTesting'
 pod 'FirebaseAuth'
 pod 'FirebaseCore'
@@ -245,12 +271,17 @@ pod 'FirebaseFunctions'
 pod 'FirebaseMessaging'
 pod 'FirebaseRemoteConfig'
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 pod 'FirebaseAuth'
 pod 'FirebaseCore'
 pod 'FirebaseDatabase'
 pod 'FirebaseFirestore'  # Only iOS and macOS
 pod 'FirebaseFunctions'
 pod 'FirebaseMessaging'  # Only iOS and tvOS
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 pod 'FirebaseStorage'
 ```

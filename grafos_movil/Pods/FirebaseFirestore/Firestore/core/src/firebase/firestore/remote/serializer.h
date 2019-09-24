@@ -32,7 +32,10 @@
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/field_mask.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/field_transform.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
@@ -164,7 +167,11 @@ class Serializer {
    * @brief Converts from nanopb proto to the model Document format.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::MaybeDocument DecodeMaybeDocument(
+=======
+  std::unique_ptr<model::MaybeDocument> DecodeMaybeDocument(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::unique_ptr<model::MaybeDocument> DecodeMaybeDocument(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -174,7 +181,11 @@ class Serializer {
   google_firestore_v1_Write EncodeMutation(
       const model::Mutation& mutation) const;
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::Mutation DecodeMutation(
+=======
+  std::unique_ptr<model::Mutation> DecodeMutation(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::unique_ptr<model::Mutation> DecodeMutation(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -186,6 +197,7 @@ class Serializer {
       nanopb::Reader* reader,
       const google_firestore_v1_Precondition& precondition);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   static google_firestore_v1_DocumentMask EncodeFieldMask(
       const model::FieldMask& mask);
@@ -202,11 +214,16 @@ class Serializer {
   static model::FieldPath DecodeFieldPath(const pb_bytes_array_t* field_path);
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   static google_firestore_v1_DocumentMask EncodeDocumentMask(
       const model::FieldMask& mask);
   static model::FieldMask DecodeDocumentMask(
       const google_firestore_v1_DocumentMask& mask);
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   /**
    * @brief Converts the Query into bytes, representing a
@@ -216,7 +233,11 @@ class Serializer {
       const core::Query& query) const;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::Document DecodeDocument(
+=======
+  std::unique_ptr<model::Document> DecodeDocument(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::unique_ptr<model::Document> DecodeDocument(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -250,15 +271,21 @@ class Serializer {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::Document DecodeFoundDocument(
       nanopb::Reader* reader,
       const google_firestore_v1_BatchGetDocumentsResponse& response) const;
   model::NoDocument DecodeMissingDocument(
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::unique_ptr<model::Document> DecodeFoundDocument(
       nanopb::Reader* reader,
       const google_firestore_v1_BatchGetDocumentsResponse& response) const;
   std::unique_ptr<model::NoDocument> DecodeMissingDocument(
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       nanopb::Reader* reader,
       const google_firestore_v1_BatchGetDocumentsResponse& response) const;

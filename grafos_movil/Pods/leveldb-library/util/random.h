@@ -16,7 +16,10 @@ class Random {
  private:
   uint32_t seed_;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  public:
@@ -28,8 +31,13 @@ class Random {
   }
   uint32_t Next() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     static const uint32_t M = 2147483647L;  // 2^31-1
     static const uint64_t A = 16807;        // bits 14, 8, 7, 5, 2, 1, 0
+=======
+    static const uint32_t M = 2147483647L;   // 2^31-1
+    static const uint64_t A = 16807;  // bits 14, 8, 7, 5, 2, 1, 0
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     static const uint32_t M = 2147483647L;   // 2^31-1
     static const uint64_t A = 16807;  // bits 14, 8, 7, 5, 2, 1, 0
@@ -64,7 +72,13 @@ class Random {
   // return "base" random bits.  The effect is to pick a number in the
   // range [0,2^max_log-1] with exponential bias towards smaller numbers.
 <<<<<<< HEAD
+<<<<<<< HEAD
   uint32_t Skewed(int max_log) { return Uniform(1 << Uniform(max_log + 1)); }
+=======
+  uint32_t Skewed(int max_log) {
+    return Uniform(1 << Uniform(max_log + 1));
+  }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   uint32_t Skewed(int max_log) {
     return Uniform(1 << Uniform(max_log + 1));

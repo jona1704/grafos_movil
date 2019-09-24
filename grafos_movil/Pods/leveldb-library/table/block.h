@@ -8,7 +8,10 @@
 #include <stddef.h>
 #include <stdint.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/iterator.h"
@@ -24,9 +27,12 @@ class Block {
   explicit Block(const BlockContents& contents);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Block(const Block&) = delete;
   Block& operator=(const Block&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   ~Block();
@@ -36,8 +42,11 @@ class Block {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   class Iter;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   uint32_t NumRestarts() const;
@@ -45,9 +54,12 @@ class Block {
   const char* data_;
   size_t size_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   uint32_t restart_offset_;  // Offset in data_ of restart array
   bool owned_;               // Block owns data_[]
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   uint32_t restart_offset_;     // Offset in data_ of restart array
   bool owned_;                  // Block owns data_[]
 
@@ -56,6 +68,9 @@ class Block {
   void operator=(const Block&);
 
   class Iter;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

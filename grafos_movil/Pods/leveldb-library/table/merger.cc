@@ -18,7 +18,11 @@ class MergingIterator : public Iterator {
         children_(new IteratorWrapper[n]),
         n_(n),
 <<<<<<< HEAD
+<<<<<<< HEAD
         current_(nullptr),
+=======
+        current_(NULL),
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         current_(NULL),
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -29,10 +33,13 @@ class MergingIterator : public Iterator {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual ~MergingIterator() { delete[] children_; }
 
   virtual bool Valid() const { return (current_ != nullptr); }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual ~MergingIterator() {
     delete[] children_;
   }
@@ -40,6 +47,9 @@ class MergingIterator : public Iterator {
   virtual bool Valid() const {
     return (current_ != NULL);
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   virtual void SeekToFirst() {
@@ -144,9 +154,12 @@ class MergingIterator : public Iterator {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Which direction is the iterator moving?
   enum Direction { kForward, kReverse };
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void FindSmallest();
@@ -160,18 +173,25 @@ class MergingIterator : public Iterator {
   int n_;
   IteratorWrapper* current_;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // Which direction is the iterator moving?
   enum Direction {
     kForward,
     kReverse
   };
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Direction direction_;
 };
 
 void MergingIterator::FindSmallest() {
+<<<<<<< HEAD
 <<<<<<< HEAD
   IteratorWrapper* smallest = nullptr;
   for (int i = 0; i < n_; i++) {
@@ -179,11 +199,16 @@ void MergingIterator::FindSmallest() {
     if (child->Valid()) {
       if (smallest == nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   IteratorWrapper* smallest = NULL;
   for (int i = 0; i < n_; i++) {
     IteratorWrapper* child = &children_[i];
     if (child->Valid()) {
       if (smallest == NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         smallest = child;
       } else if (comparator_->Compare(child->key(), smallest->key()) < 0) {
@@ -196,17 +221,23 @@ void MergingIterator::FindSmallest() {
 
 void MergingIterator::FindLargest() {
 <<<<<<< HEAD
+<<<<<<< HEAD
   IteratorWrapper* largest = nullptr;
   for (int i = n_ - 1; i >= 0; i--) {
     IteratorWrapper* child = &children_[i];
     if (child->Valid()) {
       if (largest == nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   IteratorWrapper* largest = NULL;
   for (int i = n_-1; i >= 0; i--) {
     IteratorWrapper* child = &children_[i];
     if (child->Valid()) {
       if (largest == NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         largest = child;
       } else if (comparator_->Compare(child->key(), largest->key()) > 0) {
@@ -219,8 +250,12 @@ void MergingIterator::FindLargest() {
 }  // namespace
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Iterator* NewMergingIterator(const Comparator* comparator, Iterator** children,
                              int n) {
+=======
+Iterator* NewMergingIterator(const Comparator* cmp, Iterator** list, int n) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Iterator* NewMergingIterator(const Comparator* cmp, Iterator** list, int n) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -229,9 +264,15 @@ Iterator* NewMergingIterator(const Comparator* cmp, Iterator** list, int n) {
     return NewEmptyIterator();
   } else if (n == 1) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return children[0];
   } else {
     return new MergingIterator(comparator, children, n);
+=======
+    return list[0];
+  } else {
+    return new MergingIterator(cmp, list, n);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return list[0];
   } else {

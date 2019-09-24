@@ -29,7 +29,11 @@ namespace firestore {
 namespace model {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ResourcePath ResourcePath::FromString(absl::string_view path) {
+=======
+ResourcePath ResourcePath::FromString(const absl::string_view path) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 ResourcePath ResourcePath::FromString(const absl::string_view path) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

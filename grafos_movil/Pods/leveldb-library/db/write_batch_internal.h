@@ -30,10 +30,13 @@ class WriteBatchInternal {
   static void SetSequence(WriteBatch* batch, SequenceNumber seq);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   static Slice Contents(const WriteBatch* batch) { return Slice(batch->rep_); }
 
   static size_t ByteSize(const WriteBatch* batch) { return batch->rep_.size(); }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   static Slice Contents(const WriteBatch* batch) {
     return Slice(batch->rep_);
   }
@@ -41,6 +44,9 @@ class WriteBatchInternal {
   static size_t ByteSize(const WriteBatch* batch) {
     return batch->rep_.size();
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   static void SetContents(WriteBatch* batch, const Slice& contents);
@@ -53,6 +59,10 @@ class WriteBatchInternal {
 }  // namespace leveldb
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

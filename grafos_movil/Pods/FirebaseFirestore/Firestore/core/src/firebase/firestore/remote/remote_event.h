@@ -18,7 +18,10 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_REMOTE_REMOTE_EVENT_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #if !defined(__OBJC__)
 // TODO(varconst): the only dependencies are `FSTMaybeDocument` and `NSData`
 // (the latter is used to represent the resume token).
@@ -27,6 +30,9 @@
 
 #import <Foundation/Foundation.h>
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <set>
 #include <unordered_map>
@@ -35,6 +41,7 @@
 #include <vector>
 
 #include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
+<<<<<<< HEAD
 <<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
@@ -46,6 +53,8 @@
 #include "Firestore/core/src/firebase/firestore/remote/watch_change.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
@@ -57,6 +66,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -80,15 +92,21 @@ class TargetMetadataProvider {
 
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
    * Returns the QueryData for an active target ID or `nullopt` if this query
    * has become inactive.
    */
   virtual absl::optional<local::QueryData> GetQueryDataForTarget(
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
    * Returns the FSTQueryData for an active target ID or 'null' if this query
    * has become inactive
    */
   virtual FSTQueryData* GetQueryDataForTarget(
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       model::TargetId target_id) const = 0;
 };
@@ -107,7 +125,11 @@ class TargetChange {
   TargetChange() = default;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   TargetChange(nanopb::ByteString resume_token,
+=======
+  TargetChange(NSData* resume_token,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   TargetChange(NSData* resume_token,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -129,7 +151,11 @@ class TargetChange {
    * the server should resume sending results.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   const nanopb::ByteString& resume_token() const {
+=======
+  NSData* resume_token() const {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData* resume_token() const {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -171,7 +197,11 @@ class TargetChange {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   nanopb::ByteString resume_token_;
+=======
+  NSData* resume_token_ = nil;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData* resume_token_ = nil;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -187,6 +217,11 @@ bool operator==(const TargetChange& lhs, const TargetChange& rhs);
 class TargetState {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  TargetState();
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   TargetState();
 
@@ -205,7 +240,11 @@ class TargetState {
 
   /** The last resume token sent to us for this target. */
 <<<<<<< HEAD
+<<<<<<< HEAD
   const nanopb::ByteString& resume_token() const {
+=======
+  NSData* resume_token() const {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData* resume_token() const {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -227,7 +266,11 @@ class TargetState {
    * value. Empty resume tokens are discarded.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   void UpdateResumeToken(nanopb::ByteString resume_token);
+=======
+  void UpdateResumeToken(NSData* resume_token);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void UpdateResumeToken(NSData* resume_token);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -269,7 +312,11 @@ class TargetState {
       document_changes_;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   nanopb::ByteString resume_token_;
+=======
+  NSData* resume_token_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData* resume_token_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -296,7 +343,11 @@ class RemoteEvent {
               std::unordered_set<model::TargetId> target_mismatches,
               std::unordered_map<model::DocumentKey,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                  model::MaybeDocument,
+=======
+                                 FSTMaybeDocument*,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                                  FSTMaybeDocument*,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -334,7 +385,11 @@ class RemoteEvent {
    */
   const std::unordered_map<model::DocumentKey,
 <<<<<<< HEAD
+<<<<<<< HEAD
                            model::MaybeDocument,
+=======
+                           FSTMaybeDocument*,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                            FSTMaybeDocument*,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -356,7 +411,11 @@ class RemoteEvent {
   std::unordered_set<model::TargetId> target_mismatches_;
   std::unordered_map<model::DocumentKey,
 <<<<<<< HEAD
+<<<<<<< HEAD
                      model::MaybeDocument,
+=======
+                     FSTMaybeDocument*,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                      FSTMaybeDocument*,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -423,7 +482,11 @@ class WatchChangeAggregator {
    */
   void AddDocumentToTarget(model::TargetId target_id,
 <<<<<<< HEAD
+<<<<<<< HEAD
                            const model::MaybeDocument& document);
+=======
+                           FSTMaybeDocument* document);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                            FSTMaybeDocument* document);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -436,10 +499,16 @@ class WatchChangeAggregator {
    * document cache.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   void RemoveDocumentFromTarget(
       model::TargetId target_id,
       const model::DocumentKey& key,
       const absl::optional<model::MaybeDocument>& updated_document);
+=======
+  void RemoveDocumentFromTarget(model::TargetId target_id,
+                                const model::DocumentKey& key,
+                                FSTMaybeDocument* _Nullable updated_document);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void RemoveDocumentFromTarget(model::TargetId target_id,
                                 const model::DocumentKey& key,
@@ -470,17 +539,23 @@ class WatchChangeAggregator {
 
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
    * Returns the `QueryData` for an active target (i.e., a target that the user
    * is still interested in that has no outstanding target change requests).
    */
   absl::optional<local::QueryData> QueryDataForActiveTarget(
       model::TargetId target_id) const;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
    * Returns the `FSTQueryData` for an active target (i.e., a target that the
    * user is still interested in that has no outstanding target change
    * requests).
    */
   FSTQueryData* QueryDataForActiveTarget(model::TargetId target_id) const;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   /**
@@ -501,7 +576,11 @@ class WatchChangeAggregator {
   /** Keeps track of the documents to update since the last raised snapshot. */
   std::unordered_map<model::DocumentKey,
 <<<<<<< HEAD
+<<<<<<< HEAD
                      model::MaybeDocument,
+=======
+                     FSTMaybeDocument*,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                      FSTMaybeDocument*,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -529,6 +608,11 @@ class WatchChangeAggregator {
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

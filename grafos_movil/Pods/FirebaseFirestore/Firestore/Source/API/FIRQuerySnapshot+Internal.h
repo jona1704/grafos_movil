@@ -26,6 +26,10 @@
 @class FIRFirestore;
 @class FIRSnapshotMetadata;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+@class FSTQuery;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @class FSTQuery;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -42,7 +46,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFirestore:(std::shared_ptr<api::Firestore>)firestore
 <<<<<<< HEAD
+<<<<<<< HEAD
                     originalQuery:(core::Query)query
+=======
+                    originalQuery:(FSTQuery *)query
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                     originalQuery:(FSTQuery *)query
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

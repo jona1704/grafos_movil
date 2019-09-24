@@ -21,7 +21,10 @@
 #include "Firestore/core/src/firebase/firestore/local/mutation_queue.h"
 #include "Firestore/core/src/firebase/firestore/local/query_cache.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/local/reference_set.h"
@@ -32,6 +35,10 @@
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+@class FSTQueryData;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @class FSTQueryData;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -142,7 +149,11 @@ NS_ASSUME_NONNULL_BEGIN
  * Notify the delegate that a target was removed.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)removeTarget:(const local::QueryData &)queryData;
+=======
+- (void)removeTarget:(FSTQueryData *)queryData;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (void)removeTarget:(FSTQueryData *)queryData;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

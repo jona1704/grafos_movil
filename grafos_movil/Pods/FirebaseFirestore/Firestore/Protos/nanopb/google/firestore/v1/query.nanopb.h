@@ -62,6 +62,7 @@ typedef enum _google_firestore_v1_StructuredQuery_FieldFilter_Operator {
     google_firestore_v1_StructuredQuery_FieldFilter_Operator_GREATER_THAN_OR_EQUAL = 4,
     google_firestore_v1_StructuredQuery_FieldFilter_Operator_EQUAL = 5,
 <<<<<<< HEAD
+<<<<<<< HEAD
     google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS = 7,
     google_firestore_v1_StructuredQuery_FieldFilter_Operator_IN = 8,
     google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS_ANY = 9
@@ -70,11 +71,16 @@ typedef enum _google_firestore_v1_StructuredQuery_FieldFilter_Operator {
 #define _google_firestore_v1_StructuredQuery_FieldFilter_Operator_MAX google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS_ANY
 #define _google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAYSIZE ((google_firestore_v1_StructuredQuery_FieldFilter_Operator)(google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS_ANY+1))
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS = 7
 } google_firestore_v1_StructuredQuery_FieldFilter_Operator;
 #define _google_firestore_v1_StructuredQuery_FieldFilter_Operator_MIN google_firestore_v1_StructuredQuery_FieldFilter_Operator_OPERATOR_UNSPECIFIED
 #define _google_firestore_v1_StructuredQuery_FieldFilter_Operator_MAX google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS
 #define _google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAYSIZE ((google_firestore_v1_StructuredQuery_FieldFilter_Operator)(google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS+1))
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 typedef enum _google_firestore_v1_StructuredQuery_UnaryFilter_Operator {

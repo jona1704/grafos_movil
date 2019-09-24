@@ -23,7 +23,13 @@
 #include "Firestore/core/src/firebase/firestore/core/event_listener.h"
 #include "Firestore/core/src/firebase/firestore/core/query_listener.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/util/nullability.h"
+=======
+#include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
+
+OBJC_CLASS(FSTFirestoreClient);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
 
@@ -35,10 +41,13 @@ NS_ASSUME_NONNULL_BEGIN
 namespace firebase {
 namespace firestore {
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace core {
 class FirestoreClient;
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace api {
@@ -65,7 +74,11 @@ class ListenerRegistration {
  public:
   ListenerRegistration(
 <<<<<<< HEAD
+<<<<<<< HEAD
       std::shared_ptr<core::FirestoreClient> client,
+=======
+      FSTFirestoreClient* client,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       FSTFirestoreClient* client,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -82,7 +95,11 @@ class ListenerRegistration {
  private:
   /** The client that was used to register this listen. */
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::shared_ptr<core::FirestoreClient> client_;
+=======
+  objc::Handle<FSTFirestoreClient> client_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   objc::Handle<FSTFirestoreClient> client_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

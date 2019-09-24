@@ -28,10 +28,16 @@
 // ... prev vs. next pointer ordering ...
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <atomic>
 #include <cassert>
 #include <cstdlib>
 
+=======
+#include <assert.h>
+#include <stdlib.h>
+#include "port/port.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <assert.h>
 #include <stdlib.h>
@@ -45,7 +51,11 @@ namespace leveldb {
 class Arena;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 template <typename Key, class Comparator>
+=======
+template<typename Key, class Comparator>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 template<typename Key, class Comparator>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -60,9 +70,12 @@ class SkipList {
   explicit SkipList(Comparator cmp, Arena* arena);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   SkipList(const SkipList&) = delete;
   SkipList& operator=(const SkipList&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Insert key into the list.
@@ -115,11 +128,14 @@ class SkipList {
   enum { kMaxHeight = 12 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   inline int GetMaxHeight() const {
     return max_height_.load(std::memory_order_relaxed);
   }
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Immutable after construction
   Comparator const compare_;
   Arena* const arena_;    // Arena used for allocations of nodes
@@ -138,6 +154,9 @@ class SkipList {
   // Read/written only by Insert().
   Random rnd_;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Node* NewNode(const Key& key, int height);
   int RandomHeight();
@@ -148,9 +167,15 @@ class SkipList {
 
   // Return the earliest node that comes at or after key.
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Return nullptr if there is no such node.
   //
   // If prev is non-null, fills prev[level] with pointer to previous
+=======
+  // Return NULL if there is no such node.
+  //
+  // If prev is non-NULL, fills prev[level] with pointer to previous
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // Return NULL if there is no such node.
   //
@@ -167,6 +192,7 @@ class SkipList {
   // Return head_ if list is empty.
   Node* FindLast() const;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   // Immutable after construction
   Comparator const compare_;
@@ -187,6 +213,8 @@ template <typename Key, class Comparator>
 struct SkipList<Key, Comparator>::Node {
   explicit Node(const Key& k) : key(k) {}
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // No copying allowed
   SkipList(const SkipList&);
   void operator=(const SkipList&);
@@ -196,6 +224,9 @@ struct SkipList<Key, Comparator>::Node {
 template<typename Key, class Comparator>
 struct SkipList<Key,Comparator>::Node {
   explicit Node(const Key& k) : key(k) { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   Key const key;
@@ -207,7 +238,11 @@ struct SkipList<Key,Comparator>::Node {
     // Use an 'acquire load' so that we observe a fully initialized
     // version of the returned Node.
 <<<<<<< HEAD
+<<<<<<< HEAD
     return next_[n].load(std::memory_order_acquire);
+=======
+    return reinterpret_cast<Node*>(next_[n].Acquire_Load());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return reinterpret_cast<Node*>(next_[n].Acquire_Load());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -217,7 +252,11 @@ struct SkipList<Key,Comparator>::Node {
     // Use a 'release store' so that anybody who reads through this
     // pointer observes a fully initialized version of the inserted node.
 <<<<<<< HEAD
+<<<<<<< HEAD
     next_[n].store(x, std::memory_order_release);
+=======
+    next_[n].Release_Store(x);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     next_[n].Release_Store(x);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -227,22 +266,29 @@ struct SkipList<Key,Comparator>::Node {
   Node* NoBarrier_Next(int n) {
     assert(n >= 0);
 <<<<<<< HEAD
+<<<<<<< HEAD
     return next_[n].load(std::memory_order_relaxed);
   }
   void NoBarrier_SetNext(int n, Node* x) {
     assert(n >= 0);
     next_[n].store(x, std::memory_order_relaxed);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     return reinterpret_cast<Node*>(next_[n].NoBarrier_Load());
   }
   void NoBarrier_SetNext(int n, Node* x) {
     assert(n >= 0);
     next_[n].NoBarrier_Store(x);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
  private:
   // Array of length equal to the node height.  next_[0] is lowest level link.
+<<<<<<< HEAD
 <<<<<<< HEAD
   std::atomic<Node*> next_[1];
 };
@@ -269,6 +315,8 @@ inline bool SkipList<Key, Comparator>::Iterator::Valid() const {
 template <typename Key, class Comparator>
 inline const Key& SkipList<Key, Comparator>::Iterator::key() const {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   port::AtomicPointer next_[1];
 };
 
@@ -293,14 +341,22 @@ inline bool SkipList<Key,Comparator>::Iterator::Valid() const {
 
 template<typename Key, class Comparator>
 inline const Key& SkipList<Key,Comparator>::Iterator::key() const {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   assert(Valid());
   return node_->key;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 template <typename Key, class Comparator>
 inline void SkipList<Key, Comparator>::Iterator::Next() {
+=======
+template<typename Key, class Comparator>
+inline void SkipList<Key,Comparator>::Iterator::Next() {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 template<typename Key, class Comparator>
 inline void SkipList<Key,Comparator>::Iterator::Next() {
@@ -310,8 +366,13 @@ inline void SkipList<Key,Comparator>::Iterator::Next() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 template <typename Key, class Comparator>
 inline void SkipList<Key, Comparator>::Iterator::Prev() {
+=======
+template<typename Key, class Comparator>
+inline void SkipList<Key,Comparator>::Iterator::Prev() {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 template<typename Key, class Comparator>
 inline void SkipList<Key,Comparator>::Iterator::Prev() {
@@ -321,6 +382,7 @@ inline void SkipList<Key,Comparator>::Iterator::Prev() {
   assert(Valid());
   node_ = list_->FindLessThan(node_->key);
   if (node_ == list_->head_) {
+<<<<<<< HEAD
 <<<<<<< HEAD
     node_ = nullptr;
   }
@@ -347,6 +409,8 @@ inline void SkipList<Key, Comparator>::Iterator::SeekToLast() {
 template <typename Key, class Comparator>
 int SkipList<Key, Comparator>::RandomHeight() {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     node_ = NULL;
   }
 }
@@ -371,6 +435,9 @@ inline void SkipList<Key,Comparator>::Iterator::SeekToLast() {
 
 template<typename Key, class Comparator>
 int SkipList<Key,Comparator>::RandomHeight() {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Increase height with probability 1 in kBranching
   static const unsigned int kBranching = 4;
@@ -384,6 +451,7 @@ int SkipList<Key,Comparator>::RandomHeight() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 template <typename Key, class Comparator>
 bool SkipList<Key, Comparator>::KeyIsAfterNode(const Key& key, Node* n) const {
   // null n is considered infinite
@@ -395,6 +463,8 @@ typename SkipList<Key, Comparator>::Node*
 SkipList<Key, Comparator>::FindGreaterOrEqual(const Key& key,
                                               Node** prev) const {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 template<typename Key, class Comparator>
 bool SkipList<Key,Comparator>::KeyIsAfterNode(const Key& key, Node* n) const {
   // NULL n is considered infinite
@@ -404,6 +474,9 @@ bool SkipList<Key,Comparator>::KeyIsAfterNode(const Key& key, Node* n) const {
 template<typename Key, class Comparator>
 typename SkipList<Key,Comparator>::Node* SkipList<Key,Comparator>::FindGreaterOrEqual(const Key& key, Node** prev)
     const {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Node* x = head_;
   int level = GetMaxHeight() - 1;
@@ -414,7 +487,11 @@ typename SkipList<Key,Comparator>::Node* SkipList<Key,Comparator>::FindGreaterOr
       x = next;
     } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (prev != nullptr) prev[level] = x;
+=======
+      if (prev != NULL) prev[level] = x;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       if (prev != NULL) prev[level] = x;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -429,9 +506,15 @@ typename SkipList<Key,Comparator>::Node* SkipList<Key,Comparator>::FindGreaterOr
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 template <typename Key, class Comparator>
 typename SkipList<Key, Comparator>::Node*
 SkipList<Key, Comparator>::FindLessThan(const Key& key) const {
+=======
+template<typename Key, class Comparator>
+typename SkipList<Key,Comparator>::Node*
+SkipList<Key,Comparator>::FindLessThan(const Key& key) const {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 template<typename Key, class Comparator>
 typename SkipList<Key,Comparator>::Node*
@@ -443,7 +526,11 @@ SkipList<Key,Comparator>::FindLessThan(const Key& key) const {
     assert(x == head_ || compare_(x->key, key) < 0);
     Node* next = x->Next(level);
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (next == nullptr || compare_(next->key, key) >= 0) {
+=======
+    if (next == NULL || compare_(next->key, key) >= 0) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (next == NULL || compare_(next->key, key) >= 0) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -460,8 +547,13 @@ SkipList<Key,Comparator>::FindLessThan(const Key& key) const {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 template <typename Key, class Comparator>
 typename SkipList<Key, Comparator>::Node* SkipList<Key, Comparator>::FindLast()
+=======
+template<typename Key, class Comparator>
+typename SkipList<Key,Comparator>::Node* SkipList<Key,Comparator>::FindLast()
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 template<typename Key, class Comparator>
 typename SkipList<Key,Comparator>::Node* SkipList<Key,Comparator>::FindLast()
@@ -472,7 +564,11 @@ typename SkipList<Key,Comparator>::Node* SkipList<Key,Comparator>::FindLast()
   while (true) {
     Node* next = x->Next(level);
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (next == nullptr) {
+=======
+    if (next == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (next == NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -489,6 +585,7 @@ typename SkipList<Key,Comparator>::Node* SkipList<Key,Comparator>::FindLast()
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 template <typename Key, class Comparator>
 SkipList<Key, Comparator>::SkipList(Comparator cmp, Arena* arena)
     : compare_(cmp),
@@ -504,6 +601,8 @@ SkipList<Key, Comparator>::SkipList(Comparator cmp, Arena* arena)
 template <typename Key, class Comparator>
 void SkipList<Key, Comparator>::Insert(const Key& key) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 template<typename Key, class Comparator>
 SkipList<Key,Comparator>::SkipList(Comparator cmp, Arena* arena)
     : compare_(cmp),
@@ -518,6 +617,9 @@ SkipList<Key,Comparator>::SkipList(Comparator cmp, Arena* arena)
 
 template<typename Key, class Comparator>
 void SkipList<Key,Comparator>::Insert(const Key& key) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // TODO(opt): We can use a barrier-free variant of FindGreaterOrEqual()
   // here since Insert() is externally synchronized.
@@ -526,7 +628,11 @@ void SkipList<Key,Comparator>::Insert(const Key& key) {
 
   // Our data structure does not allow duplicate insertion
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert(x == nullptr || !Equal(key, x->key));
+=======
+  assert(x == NULL || !Equal(key, x->key));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   assert(x == NULL || !Equal(key, x->key));
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -537,6 +643,7 @@ void SkipList<Key,Comparator>::Insert(const Key& key) {
       prev[i] = head_;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     // It is ok to mutate max_height_ without any synchronization
     // with concurrent readers.  A concurrent reader that observes
     // the new value of max_height_ will see either the old value of
@@ -546,6 +653,8 @@ void SkipList<Key,Comparator>::Insert(const Key& key) {
     // keys.  In the latter case the reader will use the new node.
     max_height_.store(height, std::memory_order_relaxed);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     //fprintf(stderr, "Change height from %d to %d\n", max_height_, height);
 
     // It is ok to mutate max_height_ without any synchronization
@@ -556,6 +665,9 @@ void SkipList<Key,Comparator>::Insert(const Key& key) {
     // immediately drop to the next level since NULL sorts after all
     // keys.  In the latter case the reader will use the new node.
     max_height_.NoBarrier_Store(reinterpret_cast<void*>(height));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -569,15 +681,21 @@ void SkipList<Key,Comparator>::Insert(const Key& key) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 template <typename Key, class Comparator>
 bool SkipList<Key, Comparator>::Contains(const Key& key) const {
   Node* x = FindGreaterOrEqual(key, nullptr);
   if (x != nullptr && Equal(key, x->key)) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 template<typename Key, class Comparator>
 bool SkipList<Key,Comparator>::Contains(const Key& key) const {
   Node* x = FindGreaterOrEqual(key, NULL);
   if (x != NULL && Equal(key, x->key)) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     return true;
   } else {

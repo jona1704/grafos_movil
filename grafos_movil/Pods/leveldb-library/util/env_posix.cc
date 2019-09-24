@@ -4,21 +4,28 @@
 
 #include <dirent.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <fcntl.h>
 #include <pthread.h>
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <errno.h>
 #include <fcntl.h>
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <sys/mman.h>
 #include <sys/resource.h>
 #include <sys/stat.h>
 #include <sys/time.h>
 #include <sys/types.h>
+<<<<<<< HEAD
 <<<<<<< HEAD
 #include <unistd.h>
 
@@ -45,6 +52,8 @@
 #include "util/env_posix_test_helper.h"
 #include "util/posix_logger.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <time.h>
 #include <unistd.h>
 #include <deque>
@@ -57,12 +66,16 @@
 #include "util/mutexlock.h"
 #include "util/posix_logger.h"
 #include "util/env_posix_test_helper.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace leveldb {
 
 namespace {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Set by EnvPosixTestHelper::SetReadOnlyMMapLimit() and MaxOpenFiles().
 int g_open_read_only_file_limit = -1;
@@ -82,16 +95,22 @@ Status PosixError(const std::string& context, int error_number) {
     return Status::IOError(context, std::strerror(error_number));
   }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 static int open_read_only_file_limit = -1;
 static int mmap_limit = -1;
 
 static Status IOError(const std::string& context, int err_number) {
   return Status::IOError(context, strerror(err_number));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
 // Helper class to limit resource usage to avoid exhaustion.
 // Currently used to limit read-only file descriptors and mmap file usage
+<<<<<<< HEAD
 <<<<<<< HEAD
 // so that we do not run out of file descriptors or virtual memory, or run into
 // kernel performance problems for very large databases.
@@ -103,6 +122,8 @@ class Limiter {
   Limiter(const Limiter&) = delete;
   Limiter operator=(const Limiter&) = delete;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // so that we do not end up running out of file descriptors, virtual memory,
 // or running into kernel performance problems for very large databases.
 class Limiter {
@@ -111,11 +132,15 @@ class Limiter {
   Limiter(intptr_t n) {
     SetAllowed(n);
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // If another resource is available, acquire it and return true.
   // Else return false.
   bool Acquire() {
+<<<<<<< HEAD
 <<<<<<< HEAD
     int old_acquires_allowed =
         acquires_allowed_.fetch_sub(1, std::memory_order_relaxed);
@@ -125,6 +150,8 @@ class Limiter {
     acquires_allowed_.fetch_add(1, std::memory_order_relaxed);
     return false;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if (GetAllowed() <= 0) {
       return false;
     }
@@ -136,11 +163,15 @@ class Limiter {
       SetAllowed(x - 1);
       return true;
     }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
   // Release a resource acquired by a previous call to Acquire() that returned
   // true.
+<<<<<<< HEAD
 <<<<<<< HEAD
   void Release() { acquires_allowed_.fetch_add(1, std::memory_order_relaxed); }
 
@@ -392,6 +423,8 @@ class PosixWritableFile final : public WritableFile {
       data += write_result;
       size -= write_result;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void Release() {
     MutexLock l(&mu_);
     SetAllowed(GetAllowed() + 1);
@@ -568,12 +601,16 @@ class PosixWritableFile : public WritableFile {
   virtual Status Flush() {
     if (fflush_unlocked(file_) != 0) {
       return IOError(filename_, errno);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
     return Status::OK();
   }
 
   Status SyncDirIfManifest() {
+<<<<<<< HEAD
 <<<<<<< HEAD
     Status status;
     if (!is_manifest_) {
@@ -716,6 +753,8 @@ class PosixLockTable {
   port::Mutex mu_;
   std::set<std::string> locked_files_ GUARDED_BY(mu_);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     const char* f = filename_.c_str();
     const char* sep = strrchr(f, '/');
     Slice basename;
@@ -789,12 +828,16 @@ class PosixLockTable {
     MutexLock l(&mu_);
     locked_files_.erase(fname);
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 class PosixEnv : public Env {
  public:
   PosixEnv();
+<<<<<<< HEAD
 <<<<<<< HEAD
   ~PosixEnv() override {
     static char msg[] = "PosixEnv singleton destroyed. Unsupported behavior!\n";
@@ -972,6 +1015,8 @@ class PosixEnv : public Env {
   Status GetTestDirectory(std::string* result) override {
     const char* env = std::getenv("TEST_TMPDIR");
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual ~PosixEnv() {
     char msg[] = "Destroying Env::Default()\n";
     fwrite(msg, 1, sizeof(msg), stderr);
@@ -1147,11 +1192,15 @@ class PosixEnv : public Env {
 
   virtual Status GetTestDirectory(std::string* result) {
     const char* env = getenv("TEST_TMPDIR");
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if (env && env[0] != '\0') {
       *result = env;
     } else {
       char buf[100];
+<<<<<<< HEAD
 <<<<<<< HEAD
       std::snprintf(buf, sizeof(buf), "/tmp/leveldbtest-%d",
                     static_cast<int>(::geteuid()));
@@ -1172,6 +1221,8 @@ class PosixEnv : public Env {
     } else {
       *result = new PosixLogger(fp);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       snprintf(buf, sizeof(buf), "/tmp/leveldbtest-%d", int(geteuid()));
       *result = buf;
     }
@@ -1194,11 +1245,15 @@ class PosixEnv : public Env {
       return IOError(fname, errno);
     } else {
       *result = new PosixLogger(f, &PosixEnv::gettid);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       return Status::OK();
     }
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   uint64_t NowMicros() override {
     static constexpr uint64_t kUsecondsPerSecond = 1000000;
@@ -1309,6 +1364,8 @@ void PosixEnv::BackgroundThreadMain() {
     background_work_mutex_.Unlock();
     background_work_function(background_work_arg);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual uint64_t NowMicros() {
     struct timeval tv;
     gettimeofday(&tv, NULL);
@@ -1424,11 +1481,15 @@ void PosixEnv::BGThread() {
 
     PthreadCall("unlock", pthread_mutex_unlock(&mu_));
     (*function)(arg);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 }
 
 namespace {
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 // Wraps an Env instance whose destructor is never created.
@@ -1506,6 +1567,8 @@ Env* Env::Default() {
   static PosixDefaultEnv env_container;
   return env_container.env();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 struct StartThreadState {
   void (*user_function)(void*);
   void* arg;
@@ -1546,6 +1609,9 @@ void EnvPosixTestHelper::SetReadOnlyMMapLimit(int limit) {
 Env* Env::Default() {
   pthread_once(&once, InitDefaultEnv);
   return default_env;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

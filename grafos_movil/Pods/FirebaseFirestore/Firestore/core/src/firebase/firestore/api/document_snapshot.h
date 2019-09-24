@@ -24,6 +24,7 @@
 #include "Firestore/core/src/firebase/firestore/api/snapshot_metadata.h"
 #include "Firestore/core/src/firebase/firestore/core/event_listener.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/document.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
@@ -31,6 +32,8 @@
 #include "absl/types/optional.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
@@ -42,6 +45,9 @@ NS_ASSUME_NONNULL_BEGIN
 OBJC_CLASS(FSTDocument);
 OBJC_CLASS(FSTObjectValue);
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -59,7 +65,11 @@ class DocumentSnapshot {
   DocumentSnapshot(std::shared_ptr<Firestore> firestore,
                    model::DocumentKey document_key,
 <<<<<<< HEAD
+<<<<<<< HEAD
                    absl::optional<model::Document> document,
+=======
+                   FSTDocument* _Nullable document,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                    FSTDocument* _Nullable document,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -68,7 +78,11 @@ class DocumentSnapshot {
   DocumentSnapshot(std::shared_ptr<Firestore> firestore,
                    model::DocumentKey document_key,
 <<<<<<< HEAD
+<<<<<<< HEAD
                    absl::optional<model::Document> document,
+=======
+                   FSTDocument* _Nullable document,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                    FSTDocument* _Nullable document,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -79,7 +93,11 @@ class DocumentSnapshot {
 
   bool exists() const;
 <<<<<<< HEAD
+<<<<<<< HEAD
   const absl::optional<model::Document>& internal_document() const;
+=======
+  FSTDocument* internal_document() const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTDocument* internal_document() const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -106,7 +124,11 @@ class DocumentSnapshot {
   std::shared_ptr<Firestore> firestore_;
   model::DocumentKey internal_key_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   absl::optional<model::Document> internal_document_;
+=======
+  objc::Handle<FSTDocument> internal_document_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   objc::Handle<FSTDocument> internal_document_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -123,6 +145,11 @@ inline bool operator!=(const DocumentSnapshot& lhs,
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

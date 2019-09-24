@@ -34,7 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)initializeSubviews {
 <<<<<<< HEAD
+<<<<<<< HEAD
   WKWebView *webView = [self createWebView];
+=======
+  UIWebView *webView = [self createWebView];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   UIWebView *webView = [self createWebView];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -61,8 +65,13 @@ NS_ASSUME_NONNULL_BEGIN
     @return The newly created web view.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (WKWebView *)createWebView {
   WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectZero];
+=======
+- (UIWebView *)createWebView {
+  UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (UIWebView *)createWebView {
   UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
@@ -85,6 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UIActivityIndicatorView *)createSpinner {
 <<<<<<< HEAD
+<<<<<<< HEAD
   UIActivityIndicatorViewStyle spinnerStyle;
 #if defined(TARGET_OS_MACCATALYST)
   if (@available(iOS 13.0, *)) {
@@ -95,6 +105,9 @@ NS_ASSUME_NONNULL_BEGIN
 #else
   spinnerStyle = UIActivityIndicatorViewStyleGray;
 #endif
+=======
+  UIActivityIndicatorViewStyle spinnerStyle = UIActivityIndicatorViewStyleGray;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   UIActivityIndicatorViewStyle spinnerStyle = UIActivityIndicatorViewStyleGray;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

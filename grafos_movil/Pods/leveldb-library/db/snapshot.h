@@ -17,6 +17,7 @@ class SnapshotList;
 class SnapshotImpl : public Snapshot {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   SnapshotImpl(SequenceNumber sequence_number)
       : sequence_number_(sequence_number) {}
 
@@ -24,10 +25,14 @@ class SnapshotImpl : public Snapshot {
 =======
   SequenceNumber number_;  // const after creation
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+  SequenceNumber number_;  // const after creation
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:
   friend class SnapshotList;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   // SnapshotImpl is kept in a doubly-linked circular list. The SnapshotList
   // implementation operates on the next/previous fields direcly.
@@ -40,16 +45,22 @@ class SnapshotImpl : public Snapshot {
   SnapshotList* list_ = nullptr;
 #endif  // !defined(NDEBUG)
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // SnapshotImpl is kept in a doubly-linked circular list
   SnapshotImpl* prev_;
   SnapshotImpl* next_;
 
   SnapshotList* list_;                 // just for sanity checks
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 class SnapshotList {
  public:
+<<<<<<< HEAD
 <<<<<<< HEAD
   SnapshotList() : head_(0) {
     head_.prev_ = &head_;
@@ -97,6 +108,8 @@ class SnapshotList {
     snapshot->next_->prev_ = snapshot->prev_;
     delete snapshot;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   SnapshotList() {
     list_.prev_ = &list_;
     list_.next_ = &list_;
@@ -122,13 +135,20 @@ class SnapshotList {
     s->prev_->next_ = s->next_;
     s->next_->prev_ = s->prev_;
     delete s;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
  private:
   // Dummy head of doubly-linked list of snapshots
 <<<<<<< HEAD
+<<<<<<< HEAD
   SnapshotImpl head_;
+=======
+  SnapshotImpl list_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   SnapshotImpl list_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

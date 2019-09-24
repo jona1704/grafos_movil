@@ -6,7 +6,10 @@
 
 #include <assert.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/comparator.h"
@@ -22,6 +25,7 @@
 namespace leveldb {
 
 struct TableBuilder::Rep {
+<<<<<<< HEAD
 <<<<<<< HEAD
   Rep(const Options& opt, WritableFile* f)
       : options(opt),
@@ -41,6 +45,8 @@ struct TableBuilder::Rep {
 
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Options options;
   Options index_block_options;
   WritableFile* file;
@@ -51,7 +57,11 @@ struct TableBuilder::Rep {
   std::string last_key;
   int64_t num_entries;
 <<<<<<< HEAD
+<<<<<<< HEAD
   bool closed;  // Either Finish() or Abandon() has been called.
+=======
+  bool closed;          // Either Finish() or Abandon() has been called.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   bool closed;          // Either Finish() or Abandon() has been called.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -71,7 +81,10 @@ struct TableBuilder::Rep {
 
   std::string compressed_output;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   Rep(const Options& opt, WritableFile* f)
       : options(opt),
@@ -87,13 +100,20 @@ struct TableBuilder::Rep {
         pending_index_entry(false) {
     index_block_options.block_restart_interval = 1;
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 TableBuilder::TableBuilder(const Options& options, WritableFile* file)
     : rep_(new Rep(options, file)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (rep_->filter_block != nullptr) {
+=======
+  if (rep_->filter_block != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (rep_->filter_block != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -141,7 +161,11 @@ void TableBuilder::Add(const Slice& key, const Slice& value) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (r->filter_block != nullptr) {
+=======
+  if (r->filter_block != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (r->filter_block != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -170,7 +194,11 @@ void TableBuilder::Flush() {
     r->status = r->file->Flush();
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (r->filter_block != nullptr) {
+=======
+  if (r->filter_block != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (r->filter_block != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -216,7 +244,12 @@ void TableBuilder::WriteBlock(BlockBuilder* block, BlockHandle* handle) {
 
 void TableBuilder::WriteRawBlock(const Slice& block_contents,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                  CompressionType type, BlockHandle* handle) {
+=======
+                                 CompressionType type,
+                                 BlockHandle* handle) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                                  CompressionType type,
                                  BlockHandle* handle) {
@@ -231,7 +264,11 @@ void TableBuilder::WriteRawBlock(const Slice& block_contents,
     uint32_t crc = crc32c::Value(block_contents.data(), block_contents.size());
     crc = crc32c::Extend(crc, trailer, 1);  // Extend crc to cover block type
 <<<<<<< HEAD
+<<<<<<< HEAD
     EncodeFixed32(trailer + 1, crc32c::Mask(crc));
+=======
+    EncodeFixed32(trailer+1, crc32c::Mask(crc));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     EncodeFixed32(trailer+1, crc32c::Mask(crc));
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -243,7 +280,13 @@ void TableBuilder::WriteRawBlock(const Slice& block_contents,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status TableBuilder::status() const { return rep_->status; }
+=======
+Status TableBuilder::status() const {
+  return rep_->status;
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Status TableBuilder::status() const {
   return rep_->status;
@@ -260,7 +303,11 @@ Status TableBuilder::Finish() {
 
   // Write filter block
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (ok() && r->filter_block != nullptr) {
+=======
+  if (ok() && r->filter_block != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (ok() && r->filter_block != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -272,7 +319,11 @@ Status TableBuilder::Finish() {
   if (ok()) {
     BlockBuilder meta_index_block(&r->options);
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (r->filter_block != nullptr) {
+=======
+    if (r->filter_block != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (r->filter_block != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -322,10 +373,13 @@ void TableBuilder::Abandon() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 uint64_t TableBuilder::NumEntries() const { return rep_->num_entries; }
 
 uint64_t TableBuilder::FileSize() const { return rep_->offset; }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 uint64_t TableBuilder::NumEntries() const {
   return rep_->num_entries;
 }
@@ -333,6 +387,9 @@ uint64_t TableBuilder::NumEntries() const {
 uint64_t TableBuilder::FileSize() const {
   return rep_->offset;
 }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 }  // namespace leveldb

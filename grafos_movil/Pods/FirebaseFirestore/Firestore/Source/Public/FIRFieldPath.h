@@ -27,7 +27,10 @@ NS_SWIFT_NAME(FieldPath)
 @interface FIRFieldPath : NSObject <NSCopying>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** :nodoc: */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (instancetype)init NS_UNAVAILABLE;

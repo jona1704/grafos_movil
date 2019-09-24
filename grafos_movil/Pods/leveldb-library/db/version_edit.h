@@ -9,7 +9,10 @@
 #include <utility>
 #include <vector>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "db/dbformat.h"
@@ -20,6 +23,7 @@ class VersionSet;
 
 struct FileMetaData {
 <<<<<<< HEAD
+<<<<<<< HEAD
   FileMetaData() : refs(0), allowed_seeks(1 << 30), file_size(0) {}
 
   int refs;
@@ -29,6 +33,8 @@ struct FileMetaData {
   InternalKey smallest;  // Smallest internal key served by table
   InternalKey largest;   // Largest internal key served by table
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   int refs;
   int allowed_seeks;          // Seeks allowed until compaction
   uint64_t number;
@@ -37,6 +43,9 @@ struct FileMetaData {
   InternalKey largest;        // Largest internal key served by table
 
   FileMetaData() : refs(0), allowed_seeks(1 << 30), file_size(0) { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
@@ -44,7 +53,11 @@ class VersionEdit {
  public:
   VersionEdit() { Clear(); }
 <<<<<<< HEAD
+<<<<<<< HEAD
   ~VersionEdit() {}
+=======
+  ~VersionEdit() { }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   ~VersionEdit() { }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -79,13 +92,19 @@ class VersionEdit {
   // REQUIRES: This version has not been saved (see VersionSet::SaveTo)
   // REQUIRES: "smallest" and "largest" are smallest and largest keys in file
 <<<<<<< HEAD
+<<<<<<< HEAD
   void AddFile(int level, uint64_t file, uint64_t file_size,
                const InternalKey& smallest, const InternalKey& largest) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void AddFile(int level, uint64_t file,
                uint64_t file_size,
                const InternalKey& smallest,
                const InternalKey& largest) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     FileMetaData f;
     f.number = file;
@@ -109,7 +128,11 @@ class VersionEdit {
   friend class VersionSet;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   typedef std::set<std::pair<int, uint64_t> > DeletedFileSet;
+=======
+  typedef std::set< std::pair<int, uint64_t> > DeletedFileSet;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   typedef std::set< std::pair<int, uint64_t> > DeletedFileSet;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -126,9 +149,15 @@ class VersionEdit {
   bool has_last_sequence_;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<std::pair<int, InternalKey> > compact_pointers_;
   DeletedFileSet deleted_files_;
   std::vector<std::pair<int, FileMetaData> > new_files_;
+=======
+  std::vector< std::pair<int, InternalKey> > compact_pointers_;
+  DeletedFileSet deleted_files_;
+  std::vector< std::pair<int, FileMetaData> > new_files_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector< std::pair<int, InternalKey> > compact_pointers_;
   DeletedFileSet deleted_files_;

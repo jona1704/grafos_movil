@@ -29,6 +29,10 @@
 #import "Firestore/Source/API/FIRTimestamp+Internal.h"
 #import "Firestore/Source/API/converters.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#import "Firestore/Source/Model/FSTDocument.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "Firestore/Source/Model/FSTDocument.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -57,7 +61,10 @@ using firebase::firestore::api::SnapshotMetadata;
 using firebase::firestore::api::ThrowInvalidArgument;
 using firebase::firestore::model::DatabaseId;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using firebase::firestore::model::Document;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::model::DocumentKey;
@@ -105,7 +112,11 @@ ServerTimestampBehavior InternalServerTimestampBehavior(FIRServerTimestampBehavi
 - (instancetype)initWithFirestore:(std::shared_ptr<Firestore>)firestore
                       documentKey:(DocumentKey)documentKey
 <<<<<<< HEAD
+<<<<<<< HEAD
                          document:(const absl::optional<Document> &)document
+=======
+                         document:(nullable FSTDocument *)document
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                          document:(nullable FSTDocument *)document
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -117,7 +128,11 @@ ServerTimestampBehavior InternalServerTimestampBehavior(FIRServerTimestampBehavi
 - (instancetype)initWithFirestore:(std::shared_ptr<Firestore>)firestore
                       documentKey:(DocumentKey)documentKey
 <<<<<<< HEAD
+<<<<<<< HEAD
                          document:(const absl::optional<Document> &)document
+=======
+                         document:(nullable FSTDocument *)document
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                          document:(nullable FSTDocument *)document
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -149,7 +164,11 @@ ServerTimestampBehavior InternalServerTimestampBehavior(FIRServerTimestampBehavi
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (const absl::optional<Document> &)internalDocument {
+=======
+- (nullable FSTDocument *)internalDocument {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (nullable FSTDocument *)internalDocument {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -12,10 +12,15 @@
 #include <stddef.h>
 #include <stdint.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include <string>
 #include <vector>
 
+=======
+#include <string>
+#include <vector>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <string>
 #include <vector>
@@ -38,9 +43,12 @@ class FilterBlockBuilder {
   explicit FilterBlockBuilder(const FilterPolicy*);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   FilterBlockBuilder(const FilterBlockBuilder&) = delete;
   FilterBlockBuilder& operator=(const FilterBlockBuilder&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void StartBlock(uint64_t block_offset);
@@ -52,12 +60,15 @@ class FilterBlockBuilder {
 
   const FilterPolicy* policy_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::string keys_;             // Flattened key contents
   std::vector<size_t> start_;    // Starting index in keys_ of each key
   std::string result_;           // Filter data computed so far
   std::vector<Slice> tmp_keys_;  // policy_->CreateFilter() argument
   std::vector<uint32_t> filter_offsets_;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::string keys_;              // Flattened key contents
   std::vector<size_t> start_;     // Starting index in keys_ of each key
   std::string result_;            // Filter data computed so far
@@ -67,13 +78,20 @@ class FilterBlockBuilder {
   // No copying allowed
   FilterBlockBuilder(const FilterBlockBuilder&);
   void operator=(const FilterBlockBuilder&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 class FilterBlockReader {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   // REQUIRES: "contents" and *policy must stay live while *this is live.
+=======
+ // REQUIRES: "contents" and *policy must stay live while *this is live.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  // REQUIRES: "contents" and *policy must stay live while *this is live.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -89,7 +107,11 @@ class FilterBlockReader {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }  // namespace leveldb
+=======
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

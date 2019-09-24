@@ -18,7 +18,10 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_CORE_QUERY_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <iosfwd>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <limits>
@@ -28,6 +31,7 @@
 #include <vector>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/bound.h"
 #include "Firestore/core/src/firebase/firestore/core/filter.h"
 #include "Firestore/core/src/firebase/firestore/core/order_by.h"
@@ -36,10 +40,15 @@
 #include "Firestore/core/src/firebase/firestore/model/document_set.h"
 #include "Firestore/core/src/firebase/firestore/model/resource_path.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/core/filter.h"
 #include "Firestore/core/src/firebase/firestore/model/document.h"
 #include "Firestore/core/src/firebase/firestore/model/resource_path.h"
 #include "Firestore/core/src/firebase/firestore/util/vector_of_ptr.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
@@ -47,8 +56,11 @@ namespace firestore {
 namespace core {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 using CollectionGroupId = std::shared_ptr<const std::string>;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /**
@@ -58,6 +70,11 @@ using CollectionGroupId = std::shared_ptr<const std::string>;
 class Query {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  using FilterList = util::vector_of_ptr<std::shared_ptr<class Filter>>;
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   using FilterList = util::vector_of_ptr<std::shared_ptr<class Filter>>;
 
@@ -68,6 +85,7 @@ class Query {
 
   static Query Invalid() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return Query();
   }
 
@@ -77,12 +95,16 @@ class Query {
 =======
     return Query(model::ResourcePath::Empty());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+    return Query(model::ResourcePath::Empty());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
   /**
    * Initializes a Query with a path and optional additional query constraints.
    * Path must currently be empty if this is a collection group query.
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   Query(model::ResourcePath path,
         CollectionGroupId collection_group,
@@ -99,12 +121,17 @@ class Query {
         start_at_(std::move(start_at)),
         end_at_(std::move(end_at)) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   explicit Query(model::ResourcePath path,
                  std::shared_ptr<const std::string> collection_group = nullptr,
                  FilterList filters = {})
       : path_(std::move(path)),
         collection_group_(std::move(collection_group)),
         filters_(std::move(filters)) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -141,6 +168,7 @@ class Query {
    */
   const model::FieldPath* InequalityFilterField() const;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   /**
    * Returns the first array operator (array-contains or array-contains-any)
@@ -191,12 +219,17 @@ class Query {
   /** Returns true if this Query has an array-contains filter already. */
   bool HasArrayContainsFilter() const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+  /** Returns true if this Query has an array-contains filter already. */
+  bool HasArrayContainsFilter() const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // MARK: - Builder methods
 
   /**
    * Returns a copy of this Query object with the additional specified filter.
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   Query AddingFilter(Filter filter) const;
 
@@ -227,6 +260,9 @@ class Query {
 =======
   Query Filter(std::shared_ptr<core::Filter> filter) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+  Query Filter(std::shared_ptr<core::Filter> filter) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // MARK: - Matching
 
@@ -241,6 +277,7 @@ class Query {
   /** Returns true if the document matches the constraints of this query. */
   bool Matches(const model::Document& doc) const;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   /**
    * Returns a comparator that will sort documents according to the order by
@@ -262,6 +299,10 @@ class Query {
  private:
   bool MatchesPath(const model::Document& doc) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+ private:
+  bool MatchesPath(const model::Document& doc) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   bool MatchesFilters(const model::Document& doc) const;
   bool MatchesOrderBy(const model::Document& doc) const;
   bool MatchesBounds(const model::Document& doc) const;
@@ -275,6 +316,7 @@ class Query {
   // immutable.) Filters are not shared across unrelated Query instances.
   FilterList filters_;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   // A list of fields given to sort by. This does not include the implicit key
   // sort at the end.
@@ -291,6 +333,9 @@ class Query {
 =======
   // TODO(rsgowman): Port collection group queries logic.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+  // TODO(rsgowman): Port collection group queries logic.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 bool operator==(const Query& lhs, const Query& rhs);
@@ -304,6 +349,7 @@ inline bool operator!=(const Query& lhs, const Query& rhs) {
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace std {
 
 template <>
@@ -315,6 +361,8 @@ struct hash<firebase::firestore::core::Query> {
 
 }  // namespace std
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #endif  // FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_CORE_QUERY_H_

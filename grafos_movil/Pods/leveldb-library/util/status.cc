@@ -3,11 +3,17 @@
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "leveldb/status.h"
 
 #include <stdio.h>
 
 #include "port/port.h"
+=======
+#include <stdio.h>
+#include "port/port.h"
+#include "leveldb/status.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <stdio.h>
 #include "port/port.h"
@@ -43,7 +49,11 @@ Status::Status(Code code, const Slice& msg, const Slice& msg2) {
 
 std::string Status::ToString() const {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (state_ == nullptr) {
+=======
+  if (state_ == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (state_ == NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -72,8 +82,13 @@ std::string Status::ToString() const {
         break;
       default:
 <<<<<<< HEAD
+<<<<<<< HEAD
         snprintf(tmp, sizeof(tmp),
                  "Unknown code(%d): ", static_cast<int>(code()));
+=======
+        snprintf(tmp, sizeof(tmp), "Unknown code(%d): ",
+                 static_cast<int>(code()));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         snprintf(tmp, sizeof(tmp), "Unknown code(%d): ",
                  static_cast<int>(code()));

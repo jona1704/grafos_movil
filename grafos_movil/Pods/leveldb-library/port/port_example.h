@@ -11,8 +11,11 @@
 #define STORAGE_LEVELDB_PORT_PORT_EXAMPLE_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "port/thread_annotations.h"
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace leveldb {
@@ -29,7 +32,11 @@ static const bool kLittleEndian = true /* or some other expression */;
 
 // A Mutex represents an exclusive lock.
 <<<<<<< HEAD
+<<<<<<< HEAD
 class LOCKABLE Mutex {
+=======
+class Mutex {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class Mutex {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -40,24 +47,34 @@ class Mutex {
   // Lock the mutex.  Waits until other lockers have exited.
   // Will deadlock if the mutex is already locked by this thread.
 <<<<<<< HEAD
+<<<<<<< HEAD
   void Lock() EXCLUSIVE_LOCK_FUNCTION();
 
   // Unlock the mutex.
   // REQUIRES: This mutex was locked by this thread.
   void Unlock() UNLOCK_FUNCTION();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void Lock();
 
   // Unlock the mutex.
   // REQUIRES: This mutex was locked by this thread.
   void Unlock();
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // Optionally crash if this thread does not hold this mutex.
   // The implementation must be fast, especially if NDEBUG is
   // defined.  The implementation is allowed to skip all checks.
 <<<<<<< HEAD
+<<<<<<< HEAD
   void AssertHeld() ASSERT_EXCLUSIVE_LOCK();
+=======
+  void AssertHeld();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void AssertHeld();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -82,7 +99,10 @@ class CondVar {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // Thread-safe initialization.
 // Used as follows:
 //      static port::OnceType init_control = LEVELDB_ONCE_INIT;
@@ -122,14 +142,22 @@ class AtomicPointer {
   void NoBarrier_Store(void* v);
 };
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // ------------------ Compression -------------------
 
 // Store the snappy compression of "input[0,input_length-1]" in *output.
 // Returns false if snappy is not supported by this port.
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool Snappy_Compress(const char* input, size_t input_length,
                      std::string* output);
+=======
+extern bool Snappy_Compress(const char* input, size_t input_length,
+                            std::string* output);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern bool Snappy_Compress(const char* input, size_t input_length,
                             std::string* output);
@@ -139,8 +167,13 @@ extern bool Snappy_Compress(const char* input, size_t input_length,
 // buffer, store the size of the uncompressed data in *result and
 // return true.  Else return false.
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool Snappy_GetUncompressedLength(const char* input, size_t length,
                                   size_t* result);
+=======
+extern bool Snappy_GetUncompressedLength(const char* input, size_t length,
+                                         size_t* result);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern bool Snappy_GetUncompressedLength(const char* input, size_t length,
                                          size_t* result);
@@ -154,8 +187,13 @@ extern bool Snappy_GetUncompressedLength(const char* input, size_t length,
 // where "n" is the result of a successful call to
 // Snappy_GetUncompressedLength.
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool Snappy_Uncompress(const char* input_data, size_t input_length,
                        char* output);
+=======
+extern bool Snappy_Uncompress(const char* input_data, size_t input_length,
+                              char* output);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern bool Snappy_Uncompress(const char* input_data, size_t input_length,
                               char* output);
@@ -167,7 +205,11 @@ extern bool Snappy_Uncompress(const char* input_data, size_t input_length,
 // Else repeatedly calls (*func)(arg, data, n) and then returns true.
 // The concatenation of all "data[0,n-1]" fragments is the heap profile.
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool GetHeapProfile(void (*func)(void*, const char*, int), void* arg);
+=======
+extern bool GetHeapProfile(void (*func)(void*, const char*, int), void* arg);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern bool GetHeapProfile(void (*func)(void*, const char*, int), void* arg);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

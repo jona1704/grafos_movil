@@ -16,11 +16,14 @@ namespace {
 typedef Iterator* (*BlockFunction)(void*, const ReadOptions&, const Slice&);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class TwoLevelIterator : public Iterator {
  public:
   TwoLevelIterator(Iterator* index_iter, BlockFunction block_function,
                    void* arg, const ReadOptions& options);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 class TwoLevelIterator: public Iterator {
  public:
   TwoLevelIterator(
@@ -28,6 +31,9 @@ class TwoLevelIterator: public Iterator {
     BlockFunction block_function,
     void* arg,
     const ReadOptions& options);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   virtual ~TwoLevelIterator();
@@ -39,7 +45,13 @@ class TwoLevelIterator: public Iterator {
   virtual void Prev();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual bool Valid() const { return data_iter_.Valid(); }
+=======
+  virtual bool Valid() const {
+    return data_iter_.Valid();
+  }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual bool Valid() const {
     return data_iter_.Valid();
@@ -58,7 +70,11 @@ class TwoLevelIterator: public Iterator {
     if (!index_iter_.status().ok()) {
       return index_iter_.status();
 <<<<<<< HEAD
+<<<<<<< HEAD
     } else if (data_iter_.iter() != nullptr && !data_iter_.status().ok()) {
+=======
+    } else if (data_iter_.iter() != NULL && !data_iter_.status().ok()) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     } else if (data_iter_.iter() != NULL && !data_iter_.status().ok()) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -83,8 +99,13 @@ class TwoLevelIterator: public Iterator {
   Status status_;
   IteratorWrapper index_iter_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   IteratorWrapper data_iter_;  // May be nullptr
   // If data_iter_ is non-null, then "data_block_handle_" holds the
+=======
+  IteratorWrapper data_iter_; // May be NULL
+  // If data_iter_ is non-NULL, then "data_block_handle_" holds the
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   IteratorWrapper data_iter_; // May be NULL
   // If data_iter_ is non-NULL, then "data_block_handle_" holds the
@@ -94,37 +115,53 @@ class TwoLevelIterator: public Iterator {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 TwoLevelIterator::TwoLevelIterator(Iterator* index_iter,
                                    BlockFunction block_function, void* arg,
                                    const ReadOptions& options)
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 TwoLevelIterator::TwoLevelIterator(
     Iterator* index_iter,
     BlockFunction block_function,
     void* arg,
     const ReadOptions& options)
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     : block_function_(block_function),
       arg_(arg),
       options_(options),
       index_iter_(index_iter),
 <<<<<<< HEAD
+<<<<<<< HEAD
       data_iter_(nullptr) {}
 
 TwoLevelIterator::~TwoLevelIterator() {}
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       data_iter_(NULL) {
 }
 
 TwoLevelIterator::~TwoLevelIterator() {
 }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 void TwoLevelIterator::Seek(const Slice& target) {
   index_iter_.Seek(target);
   InitDataBlock();
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (data_iter_.iter() != nullptr) data_iter_.Seek(target);
+=======
+  if (data_iter_.iter() != NULL) data_iter_.Seek(target);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (data_iter_.iter() != NULL) data_iter_.Seek(target);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -135,7 +172,11 @@ void TwoLevelIterator::SeekToFirst() {
   index_iter_.SeekToFirst();
   InitDataBlock();
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (data_iter_.iter() != nullptr) data_iter_.SeekToFirst();
+=======
+  if (data_iter_.iter() != NULL) data_iter_.SeekToFirst();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (data_iter_.iter() != NULL) data_iter_.SeekToFirst();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -146,7 +187,11 @@ void TwoLevelIterator::SeekToLast() {
   index_iter_.SeekToLast();
   InitDataBlock();
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (data_iter_.iter() != nullptr) data_iter_.SeekToLast();
+=======
+  if (data_iter_.iter() != NULL) data_iter_.SeekToLast();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (data_iter_.iter() != NULL) data_iter_.SeekToLast();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -166,25 +211,35 @@ void TwoLevelIterator::Prev() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void TwoLevelIterator::SkipEmptyDataBlocksForward() {
   while (data_iter_.iter() == nullptr || !data_iter_.Valid()) {
     // Move to next block
     if (!index_iter_.Valid()) {
       SetDataIterator(nullptr);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 void TwoLevelIterator::SkipEmptyDataBlocksForward() {
   while (data_iter_.iter() == NULL || !data_iter_.Valid()) {
     // Move to next block
     if (!index_iter_.Valid()) {
       SetDataIterator(NULL);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       return;
     }
     index_iter_.Next();
     InitDataBlock();
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (data_iter_.iter() != nullptr) data_iter_.SeekToFirst();
+=======
+    if (data_iter_.iter() != NULL) data_iter_.SeekToFirst();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (data_iter_.iter() != NULL) data_iter_.SeekToFirst();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -193,22 +248,32 @@ void TwoLevelIterator::SkipEmptyDataBlocksForward() {
 
 void TwoLevelIterator::SkipEmptyDataBlocksBackward() {
 <<<<<<< HEAD
+<<<<<<< HEAD
   while (data_iter_.iter() == nullptr || !data_iter_.Valid()) {
     // Move to next block
     if (!index_iter_.Valid()) {
       SetDataIterator(nullptr);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   while (data_iter_.iter() == NULL || !data_iter_.Valid()) {
     // Move to next block
     if (!index_iter_.Valid()) {
       SetDataIterator(NULL);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       return;
     }
     index_iter_.Prev();
     InitDataBlock();
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (data_iter_.iter() != nullptr) data_iter_.SeekToLast();
+=======
+    if (data_iter_.iter() != NULL) data_iter_.SeekToLast();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (data_iter_.iter() != NULL) data_iter_.SeekToLast();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -217,7 +282,11 @@ void TwoLevelIterator::SkipEmptyDataBlocksBackward() {
 
 void TwoLevelIterator::SetDataIterator(Iterator* data_iter) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (data_iter_.iter() != nullptr) SaveError(data_iter_.status());
+=======
+  if (data_iter_.iter() != NULL) SaveError(data_iter_.status());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (data_iter_.iter() != NULL) SaveError(data_iter_.status());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -227,16 +296,22 @@ void TwoLevelIterator::SetDataIterator(Iterator* data_iter) {
 void TwoLevelIterator::InitDataBlock() {
   if (!index_iter_.Valid()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     SetDataIterator(nullptr);
   } else {
     Slice handle = index_iter_.value();
     if (data_iter_.iter() != nullptr &&
         handle.compare(data_block_handle_) == 0) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     SetDataIterator(NULL);
   } else {
     Slice handle = index_iter_.value();
     if (data_iter_.iter() != NULL && handle.compare(data_block_handle_) == 0) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       // data_iter_ is already constructed with this iterator, so
       // no need to change anything
@@ -251,15 +326,21 @@ void TwoLevelIterator::InitDataBlock() {
 }  // namespace
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Iterator* NewTwoLevelIterator(Iterator* index_iter,
                               BlockFunction block_function, void* arg,
                               const ReadOptions& options) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Iterator* NewTwoLevelIterator(
     Iterator* index_iter,
     BlockFunction block_function,
     void* arg,
     const ReadOptions& options) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return new TwoLevelIterator(index_iter, block_function, arg, options);
 }

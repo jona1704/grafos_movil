@@ -26,6 +26,10 @@
 #import "Firestore/Source/API/FIRTransaction+Internal.h"
 #import "Firestore/Source/API/FSTUserDataConverter.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#import "Firestore/Source/Model/FSTDocument.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "Firestore/Source/Model/FSTDocument.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -41,8 +45,11 @@ using firebase::firestore::core::ParsedSetData;
 using firebase::firestore::core::ParsedUpdateData;
 using firebase::firestore::core::Transaction;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using firebase::firestore::model::Document;
 using firebase::firestore::model::MaybeDocument;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::util::MakeNSError;
@@ -127,7 +134,11 @@ NS_ASSUME_NONNULL_BEGIN
   [self validateReference:document];
   _internalTransaction->Lookup(
 <<<<<<< HEAD
+<<<<<<< HEAD
       {document.key}, [self, document, completion](const std::vector<MaybeDocument> &documents,
+=======
+      {document.key}, [self, document, completion](const std::vector<FSTMaybeDocument *> &documents,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       {document.key}, [self, document, completion](const std::vector<FSTMaybeDocument *> &documents,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -138,6 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
         }
 
         HARD_ASSERT(documents.size() == 1, "Mismatch in docs returned from document lookup.");
+<<<<<<< HEAD
 <<<<<<< HEAD
         const MaybeDocument &internalDoc = documents.front();
         if (internalDoc.is_no_document()) {
@@ -154,6 +166,8 @@ NS_ASSUME_NONNULL_BEGIN
                                                  documentKey:internalDoc.key()
                                                     document:Document(internalDoc)
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         FSTMaybeDocument *internalDoc = documents.front();
         if ([internalDoc isKindOfClass:[FSTDeletedDocument class]]) {
           FIRDocumentSnapshot *doc =
@@ -168,6 +182,9 @@ NS_ASSUME_NONNULL_BEGIN
               [[FIRDocumentSnapshot alloc] initWithFirestore:self.firestore.wrapped
                                                  documentKey:internalDoc.key
                                                     document:(FSTDocument *)internalDoc
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                                                    fromCache:false
                                             hasPendingWrites:false];
@@ -175,7 +192,11 @@ NS_ASSUME_NONNULL_BEGIN
         } else {
           HARD_FAIL("BatchGetDocumentsRequest returned unexpected document type: %s",
 <<<<<<< HEAD
+<<<<<<< HEAD
                     internalDoc.type());
+=======
+                    NSStringFromClass([internalDoc class]));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                     NSStringFromClass([internalDoc class]));
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -20,7 +20,10 @@
 
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "absl/algorithm/container.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "absl/memory/memory.h"
@@ -54,10 +57,13 @@ void AsyncQueue::VerifyIsCurrentQueue() const {
 
 void AsyncQueue::ExecuteBlocking(const Operation& operation) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   // This is not guarded by `is_shutting_down_` because it is the execution
   // of the operation, not scheduling. Checking `is_shutting_down_` here
   // would mean *all* operations will not run after shutdown, which is not
   // intended.
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   VerifyIsCurrentExecutor();
@@ -75,6 +81,7 @@ void AsyncQueue::Enqueue(const Operation& operation) {
   EnqueueRelaxed(operation);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 void AsyncQueue::EnqueueAndInitiateShutdown(const Operation& operation) {
   std::lock_guard<std::mutex> lock{shut_down_mutex_};
@@ -121,6 +128,8 @@ DelayedOperation AsyncQueue::EnqueueAfterDelay(Milliseconds delay,
     delay = Milliseconds(0);
   }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void AsyncQueue::EnqueueRelaxed(const Operation& operation) {
   executor_->Execute(Wrap(operation));
 }
@@ -135,6 +144,9 @@ DelayedOperation AsyncQueue::EnqueueAfterDelay(const Milliseconds delay,
   // them.
   HARD_ASSERT(!IsScheduled(timer_id),
               "Attempted to schedule multiple operations with id %s", timer_id);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   Executor::TaggedOperation tagged{static_cast<int>(timer_id), Wrap(operation)};
@@ -190,10 +202,13 @@ void AsyncQueue::RunScheduledOperationsUntil(const TimerId last_timer_id) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void AsyncQueue::SkipDelaysForTimerId(TimerId timer_id) {
   timer_ids_to_skip_.push_back(timer_id);
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }  // namespace util

@@ -24,8 +24,11 @@
 
 #import "FIRTimestamp.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "Firestore/Source/Local/FSTPersistence.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Local/FSTLRUGarbageCollector.h"
 #import "Firestore/Source/Local/FSTLocalViewChanges.h"
@@ -35,6 +38,9 @@
 #import "Firestore/Source/Model/FSTDocument.h"
 #import "Firestore/Source/Model/FSTMutation.h"
 #import "Firestore/Source/Model/FSTMutationBatch.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 #include "Firestore/core/include/firebase/firestore/timestamp.h"
@@ -42,6 +48,7 @@
 #include "Firestore/core/src/firebase/firestore/core/target_id_generator.h"
 #include "Firestore/core/src/firebase/firestore/immutable/sorted_set.h"
 #include "Firestore/core/src/firebase/firestore/local/local_documents_view.h"
+<<<<<<< HEAD
 <<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/local/local_view_changes.h"
 #include "Firestore/core/src/firebase/firestore/local/local_write_result.h"
@@ -52,10 +59,15 @@
 #include "Firestore/core/src/firebase/firestore/local/mutation_queue.h"
 #include "Firestore/core/src/firebase/firestore/local/query_cache.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+#include "Firestore/core/src/firebase/firestore/local/mutation_queue.h"
+#include "Firestore/core/src/firebase/firestore/local/query_cache.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/local/reference_set.h"
 #include "Firestore/core/src/firebase/firestore/local/remote_document_cache.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
 #include "Firestore/core/src/firebase/firestore/model/document_map.h"
+<<<<<<< HEAD
 <<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/mutation_batch.h"
 #include "Firestore/core/src/firebase/firestore/model/mutation_batch_result.h"
@@ -83,6 +95,8 @@ using firebase::firestore::local::QueryCache;
 using firebase::firestore::local::QueryData;
 using firebase::firestore::local::QueryPurpose;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/remote/remote_event.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
@@ -97,6 +111,9 @@ using firebase::firestore::local::LocalDocumentsView;
 using firebase::firestore::local::LruResults;
 using firebase::firestore::local::MutationQueue;
 using firebase::firestore::local::QueryCache;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::local::ReferenceSet;
 using firebase::firestore::local::RemoteDocumentCache;
@@ -108,6 +125,7 @@ using firebase::firestore::model::DocumentVersionMap;
 using firebase::firestore::model::FieldMask;
 using firebase::firestore::model::FieldPath;
 using firebase::firestore::model::ListenSequenceNumber;
+<<<<<<< HEAD
 <<<<<<< HEAD
 using firebase::firestore::model::MaybeDocument;
 using firebase::firestore::model::MaybeDocumentMap;
@@ -121,6 +139,13 @@ using firebase::firestore::model::Precondition;
 using firebase::firestore::model::SnapshotVersion;
 using firebase::firestore::model::TargetId;
 using firebase::firestore::nanopb::ByteString;
+=======
+using firebase::firestore::model::MaybeDocumentMap;
+using firebase::firestore::model::ObjectValue;
+using firebase::firestore::model::Precondition;
+using firebase::firestore::model::SnapshotVersion;
+using firebase::firestore::model::TargetId;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 using firebase::firestore::model::MaybeDocumentMap;
 using firebase::firestore::model::ObjectValue;
@@ -168,7 +193,11 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 
   /** Maps a targetID to data about its query. */
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::unordered_map<TargetId, QueryData> _targetIDs;
+=======
+  std::unordered_map<TargetId, FSTQueryData *> _targetIDs;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::unordered_map<TargetId, FSTQueryData *> _targetIDs;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -203,8 +232,14 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 - (MaybeDocumentMap)userDidChange:(const User &)user {
   // Swap out the mutation queue, grabbing the pending mutation batches before and after.
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<MutationBatch> oldBatches =
       self.persistence.run("OldBatches", [&] { return _mutationQueue->AllMutationBatches(); });
+=======
+  std::vector<FSTMutationBatch *> oldBatches = self.persistence.run(
+      "OldBatches",
+      [&]() -> std::vector<FSTMutationBatch *> { return _mutationQueue->AllMutationBatches(); });
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutationBatch *> oldBatches = self.persistence.run(
       "OldBatches",
@@ -218,8 +253,13 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   [self startMutationQueue];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return self.persistence.run("NewBatches", [&] {
     std::vector<MutationBatch> newBatches = _mutationQueue->AllMutationBatches();
+=======
+  return self.persistence.run("NewBatches", [&]() -> MaybeDocumentMap {
+    std::vector<FSTMutationBatch *> newBatches = _mutationQueue->AllMutationBatches();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return self.persistence.run("NewBatches", [&]() -> MaybeDocumentMap {
     std::vector<FSTMutationBatch *> newBatches = _mutationQueue->AllMutationBatches();
@@ -232,15 +272,21 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
     // Union the old/new changed keys.
     DocumentKeySet changedKeys;
 <<<<<<< HEAD
+<<<<<<< HEAD
     for (const std::vector<MutationBatch> *batches : {&oldBatches, &newBatches}) {
       for (const MutationBatch &batch : *batches) {
         for (const Mutation &mutation : batch.mutations()) {
           changedKeys = changedKeys.insert(mutation.key());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     for (const std::vector<FSTMutationBatch *> &batches : {oldBatches, newBatches}) {
       for (FSTMutationBatch *batch : batches) {
         for (FSTMutation *mutation : [batch mutations]) {
           changedKeys = changedKeys.insert(mutation.key);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         }
       }
@@ -252,6 +298,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (LocalWriteResult)locallyWriteMutations:(std::vector<Mutation> &&)mutations {
   Timestamp localWriteTime = Timestamp::Now();
   DocumentKeySet keys;
@@ -261,6 +308,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 
   return self.persistence.run("Locally write mutations", [&] {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (FSTLocalWriteResult *)locallyWriteMutations:(std::vector<FSTMutation *> &&)mutations {
   Timestamp localWriteTime = Timestamp::Now();
   DocumentKeySet keys;
@@ -269,6 +318,9 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   }
 
   return self.persistence.run("Locally write mutations", [&]() -> FSTLocalWriteResult * {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     // Load and apply all existing mutations. This lets us compute the current base state for
     // all non-idempotent transforms before applying any additional user-provided writes.
@@ -278,6 +330,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
     // state in a separate patch mutation. This is later used to guarantee consistent values
     // and prevents flicker even if the backend sends us an update that already includes our
     // transform.
+<<<<<<< HEAD
 <<<<<<< HEAD
     std::vector<Mutation> baseMutations;
     for (const Mutation &mutation : mutations) {
@@ -308,6 +361,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 
     return _localDocuments->GetDocuments(batch.keys());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     std::vector<FSTMutation *> baseMutations;
     for (FSTMutation *mutation : mutations) {
       auto base_document_it = existingDocuments.find(mutation.key);
@@ -340,11 +395,15 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
     _mutationQueue->PerformConsistencyCheck();
 
     return _localDocuments->GetDocuments(batch.keys);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   });
 }
 
 - (MaybeDocumentMap)rejectBatchID:(BatchId)batchID {
+<<<<<<< HEAD
 <<<<<<< HEAD
   return self.persistence.run("Reject batch", [&] {
     absl::optional<MutationBatch> toReject = _mutationQueue->LookupMutationBatch(batchID);
@@ -363,6 +422,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 
 - (void)setLastStreamToken:(const ByteString &)streamToken {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return self.persistence.run("Reject batch", [&]() -> MaybeDocumentMap {
     FSTMutationBatch *toReject = _mutationQueue->LookupMutationBatch(batchID);
     HARD_ASSERT(toReject, "Attempt to reject nonexistent batch!");
@@ -379,6 +440,9 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 }
 
 - (void)setLastStreamToken:(nullable NSData *)streamToken {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   self.persistence.run("Set stream token",
                        [&]() { _mutationQueue->SetLastStreamToken(streamToken); });
@@ -390,6 +454,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 
 - (MaybeDocumentMap)applyRemoteEvent:(const RemoteEvent &)remoteEvent {
 <<<<<<< HEAD
+<<<<<<< HEAD
   const SnapshotVersion &lastRemoteVersion = _queryCache->GetLastRemoteSnapshotVersion();
 
   return self.persistence.run("Apply remote event", [&] {
@@ -397,16 +462,22 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
     ListenSequenceNumber sequenceNumber = self.persistence.currentSequenceNumber;
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return self.persistence.run("Apply remote event", [&]() -> MaybeDocumentMap {
     // TODO(gsoltis): move the sequence number into the reference delegate.
     ListenSequenceNumber sequenceNumber = self.persistence.currentSequenceNumber;
 
     DocumentKeySet authoritativeUpdates;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     for (const auto &entry : remoteEvent.target_changes()) {
       TargetId targetID = entry.first;
       const TargetChange &change = entry.second;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
       auto found = _targetIDs.find(targetID);
       if (found == _targetIDs.end()) {
@@ -417,6 +488,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 
       QueryData oldQueryData = found->second;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       // Do not ref/unref unassigned targetIDs - it may lead to leaks.
       auto found = _targetIDs.find(targetID);
       if (found == _targetIDs.end()) {
@@ -438,6 +511,9 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
       for (const DocumentKey &key : change.modified_documents()) {
         authoritativeUpdates = authoritativeUpdates.insert(key);
       }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
       _queryCache->RemoveMatchingKeys(change.removed_documents(), targetID);
@@ -446,6 +522,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
       // Update the resume token if the change includes one. Don't clear any preexisting value.
       // Bump the sequence number as well, so that documents being removed now are ordered later
       // than documents that were previously removed from this target.
+<<<<<<< HEAD
 <<<<<<< HEAD
       const ByteString &resumeToken = change.resume_token();
       // Update the resume token if the change includes one.
@@ -459,6 +536,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
         if ([self shouldPersistQueryData:newQueryData oldQueryData:oldQueryData change:change]) {
           _queryCache->UpdateTarget(newQueryData);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       NSData *resumeToken = change.resume_token();
       if (resumeToken.length > 0) {
         FSTQueryData *oldQueryData = queryData;
@@ -469,13 +548,20 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 
         if ([self shouldPersistQueryData:queryData oldQueryData:oldQueryData change:change]) {
           _queryCache->UpdateTarget(queryData);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         }
       }
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     OptionalMaybeDocumentMap changedDocs;
+=======
+    MaybeDocumentMap changedDocs;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     MaybeDocumentMap changedDocs;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -486,6 +572,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
     }
     // Each loop iteration only affects its "own" doc, so it's safe to get all the remote
     // documents in advance in a single call.
+<<<<<<< HEAD
 <<<<<<< HEAD
     OptionalMaybeDocumentMap existingDocs = _remoteDocumentCache->GetAll(updatedKeys);
 
@@ -514,6 +601,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
                   "Current version: %s  Watch version: %s",
                   key.ToString(), existingDoc->version().ToString(), doc.version().ToString());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     MaybeDocumentMap existingDocs = _remoteDocumentCache->GetAll(updatedKeys);
 
     for (const auto &kv : remoteEvent.document_updates()) {
@@ -538,6 +627,9 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
                   "Current version: %s  Watch version: %s",
                   key.ToString(), existingDoc.version.timestamp().ToString(),
                   doc.version.timestamp().ToString());
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       }
 
@@ -551,6 +643,10 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
     // events when we get permission denied errors while trying to resolve the state of a locally
     // cached document that is in limbo.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    const SnapshotVersion &lastRemoteVersion = _queryCache->GetLastRemoteSnapshotVersion();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     const SnapshotVersion &lastRemoteVersion = _queryCache->GetLastRemoteSnapshotVersion();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -559,7 +655,11 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
       HARD_ASSERT(remoteVersion >= lastRemoteVersion,
                   "Watch stream reverted to previous snapshot?? (%s < %s)",
 <<<<<<< HEAD
+<<<<<<< HEAD
                   remoteVersion.ToString(), lastRemoteVersion.ToString());
+=======
+                  remoteVersion.timestamp().ToString(), lastRemoteVersion.timestamp().ToString());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                   remoteVersion.timestamp().ToString(), lastRemoteVersion.timestamp().ToString());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -581,6 +681,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
  * to be too frequent.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (BOOL)shouldPersistQueryData:(const QueryData &)newQueryData
                   oldQueryData:(const QueryData &)oldQueryData
                         change:(const TargetChange &)change {
@@ -591,6 +692,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   // Always persist query data if we don't already have a resume token.
   if (oldQueryData.resume_token().empty()) return YES;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (BOOL)shouldPersistQueryData:(FSTQueryData *)newQueryData
                   oldQueryData:(FSTQueryData *)oldQueryData
                         change:(const TargetChange &)change {
@@ -599,6 +702,9 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 
   // Any resume token is interesting if there isn't one already.
   if (oldQueryData.resumeToken.length == 0) return YES;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // Don't allow resume token changes to be buffered indefinitely. This allows us to be reasonably
@@ -606,8 +712,13 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   // Especially in the browser we may not get time to do anything interesting while the current
   // tab is closing.
 <<<<<<< HEAD
+<<<<<<< HEAD
   int64_t newSeconds = newQueryData.snapshot_version().timestamp().seconds();
   int64_t oldSeconds = oldQueryData.snapshot_version().timestamp().seconds();
+=======
+  int64_t newSeconds = newQueryData.snapshotVersion.timestamp().seconds();
+  int64_t oldSeconds = oldQueryData.snapshotVersion.timestamp().seconds();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   int64_t newSeconds = newQueryData.snapshotVersion.timestamp().seconds();
   int64_t oldSeconds = oldQueryData.snapshotVersion.timestamp().seconds();
@@ -625,6 +736,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)notifyLocalViewChanges:(const std::vector<LocalViewChanges> &)viewChanges {
   self.persistence.run("NotifyLocalViewChanges", [&]() {
     for (const LocalViewChanges &viewChange : viewChanges) {
@@ -634,6 +746,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
       _localViewReferences.AddReferences(viewChange.added_keys(), viewChange.target_id());
       _localViewReferences.RemoveReferences(viewChange.removed_keys(), viewChange.target_id());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (void)notifyLocalViewChanges:(NSArray<FSTLocalViewChanges *> *)viewChanges {
   self.persistence.run("NotifyLocalViewChanges", [&]() {
     for (FSTLocalViewChanges *viewChange in viewChanges) {
@@ -642,11 +756,15 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
       }
       _localViewReferences.AddReferences(viewChange.addedKeys, viewChange.targetID);
       _localViewReferences.AddReferences(viewChange.removedKeys, viewChange.targetID);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
   });
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (absl::optional<MutationBatch>)nextMutationBatchAfterBatchID:(BatchId)batchID {
   return self.persistence.run("NextMutationBatchAfterBatchID", [&] {
@@ -679,6 +797,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   HARD_ASSERT(_targetIDs.find(targetID) == _targetIDs.end(),
               "Tried to allocate an already allocated query: %s", query.ToString());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (nullable FSTMutationBatch *)nextMutationBatchAfterBatchID:(BatchId)batchID {
   FSTMutationBatch *result =
       self.persistence.run("NextMutationBatchAfterBatchID", [&]() -> FSTMutationBatch * {
@@ -710,11 +830,15 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   TargetId targetID = queryData.targetID;
   HARD_ASSERT(_targetIDs.find(targetID) == _targetIDs.end(),
               "Tried to allocate an already allocated query: %s", query);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   _targetIDs[targetID] = queryData;
   return queryData;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (void)releaseQuery:(const Query &)query {
   self.persistence.run("Release query", [&]() {
@@ -729,6 +853,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 
       if (cachedQueryData.snapshot_version() > queryData->snapshot_version()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (void)releaseQuery:(FSTQuery *)query {
   self.persistence.run("Release query", [&]() {
     FSTQueryData *queryData = _queryCache->GetTarget(query);
@@ -741,13 +867,20 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
       FSTQueryData *cachedQueryData = found->second;
 
       if (cachedQueryData.snapshotVersion > queryData.snapshotVersion) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         // If we've been avoiding persisting the resumeToken (see shouldPersistQueryData for
         // conditions and rationale) we need to persist the token now because there will no
         // longer be an in-memory version to fall back on.
         queryData = cachedQueryData;
 <<<<<<< HEAD
+<<<<<<< HEAD
         _queryCache->UpdateTarget(*queryData);
+=======
+        _queryCache->UpdateTarget(queryData);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         _queryCache->UpdateTarget(queryData);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -763,6 +896,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
       [self.persistence.referenceDelegate removeReference:key];
     }
     _targetIDs.erase(targetID);
+<<<<<<< HEAD
 <<<<<<< HEAD
     [self.persistence.referenceDelegate removeTarget:*queryData];
   });
@@ -786,6 +920,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
     absl::optional<MaybeDocument> remoteDoc = _remoteDocumentCache->Get(docKey);
     absl::optional<MaybeDocument> doc = remoteDoc;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     [self.persistence.referenceDelegate removeTarget:queryData];
   });
 }
@@ -809,12 +945,16 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   for (const DocumentKey &docKey : docKeys) {
     FSTMaybeDocument *_Nullable remoteDoc = _remoteDocumentCache->Get(docKey);
     FSTMaybeDocument *_Nullable doc = remoteDoc;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
     auto ackVersionIter = versions.find(docKey);
     HARD_ASSERT(ackVersionIter != versions.end(),
                 "docVersions should contain every doc in the write.");
     const SnapshotVersion &ackVersion = ackVersionIter->second;
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (!doc || doc->version() < ackVersion) {
       doc = batch.ApplyToRemoteDocument(doc, docKey, batchResult);
@@ -824,6 +964,8 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
       } else {
         _remoteDocumentCache->Add(*doc);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if (!doc || doc.version < ackVersion) {
       doc = [batch applyToRemoteDocument:doc documentKey:docKey mutationBatchResult:batchResult];
       if (!doc) {
@@ -831,6 +973,9 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
                     remoteDoc);
       } else {
         _remoteDocumentCache->Add(doc);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       }
     }
@@ -840,14 +985,20 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (LruResults)collectGarbage:(local::LruGarbageCollector *)garbageCollector {
   return self.persistence.run("Collect garbage",
                               [&] { return garbageCollector->Collect(_targetIDs); });
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (LruResults)collectGarbage:(FSTLRUGarbageCollector *)garbageCollector {
   return self.persistence.run("Collect garbage", [&]() -> LruResults {
     return [garbageCollector collectWithLiveTargets:_targetIDs];
   });
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

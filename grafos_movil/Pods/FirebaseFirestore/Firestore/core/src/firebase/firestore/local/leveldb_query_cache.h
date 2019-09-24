@@ -28,7 +28,10 @@
 #import "Firestore/Protos/objc/firestore/local/Target.pbobjc.h"
 #include "Firestore/core/src/firebase/firestore/local/query_cache.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
@@ -40,6 +43,11 @@
 @class FSTLevelDB;
 @class FSTLocalSerializer;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+@class FSTQuery;
+@class FSTQueryData;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @class FSTQuery;
 @class FSTQueryData;
@@ -70,6 +78,7 @@ class LevelDbQueryCache : public QueryCache {
 
   // Target-related methods
 <<<<<<< HEAD
+<<<<<<< HEAD
   void AddTarget(const QueryData& query_data) override;
 
   void UpdateTarget(const QueryData& query_data) override;
@@ -78,6 +87,8 @@ class LevelDbQueryCache : public QueryCache {
 
   absl::optional<QueryData> GetTarget(const core::Query& query) override;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void AddTarget(FSTQueryData* query_data) override;
 
   void UpdateTarget(FSTQueryData* query_data) override;
@@ -85,13 +96,20 @@ class LevelDbQueryCache : public QueryCache {
   void RemoveTarget(FSTQueryData* query_data) override;
 
   FSTQueryData* _Nullable GetTarget(FSTQuery* query) override;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   void EnumerateTargets(const TargetCallback& callback) override;
 
   int RemoveTargets(model::ListenSequenceNumber upper_bound,
 <<<<<<< HEAD
+<<<<<<< HEAD
                     const std::unordered_map<model::TargetId, QueryData>&
+=======
+                    const std::unordered_map<model::TargetId, FSTQueryData*>&
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                     const std::unordered_map<model::TargetId, FSTQueryData*>&
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -143,8 +161,13 @@ class LevelDbQueryCache : public QueryCache {
 
  private:
 <<<<<<< HEAD
+<<<<<<< HEAD
   void Save(const QueryData& query_data);
   bool UpdateMetadata(const QueryData& query_data);
+=======
+  void Save(FSTQueryData* query_data);
+  bool UpdateMetadata(FSTQueryData* query_data);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void Save(FSTQueryData* query_data);
   bool UpdateMetadata(FSTQueryData* query_data);
@@ -155,7 +178,11 @@ class LevelDbQueryCache : public QueryCache {
    * to the equivalent query data.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   QueryData DecodeTarget(absl::string_view encoded);
+=======
+  FSTQueryData* DecodeTarget(absl::string_view encoded);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTQueryData* DecodeTarget(absl::string_view encoded);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -26,6 +26,7 @@
 #import "Firestore/Protos/objc/firestore/local/Target.pbobjc.h"
 #import "Firestore/Protos/objc/google/firestore/v1/Document.pbobjc.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "Firestore/Source/Remote/FSTSerializerBeta.h"
 
 #include "Firestore/core/include/firebase/firestore/timestamp.h"
@@ -60,6 +61,8 @@ using firebase::firestore::nanopb::ByteString;
 using firebase::firestore::nanopb::MakeByteString;
 using firebase::firestore::nanopb::MakeNSData;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Local/FSTQueryData.h"
 #import "Firestore/Source/Model/FSTDocument.h"
@@ -79,6 +82,9 @@ using firebase::firestore::model::ListenSequenceNumber;
 using firebase::firestore::model::ObjectValue;
 using firebase::firestore::model::SnapshotVersion;
 using firebase::firestore::model::TargetId;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 @interface FSTLocalSerializer ()
@@ -98,6 +104,7 @@ using firebase::firestore::model::TargetId;
   return self;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (FSTPBMaybeDocument *)encodedMaybeDocument:(const MaybeDocument &)document {
   FSTPBMaybeDocument *proto = [FSTPBMaybeDocument message];
@@ -122,6 +129,8 @@ using firebase::firestore::model::TargetId;
   } else {
     HARD_FAIL("Unknown document type %s", document.type());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (FSTPBMaybeDocument *)encodedMaybeDocument:(FSTMaybeDocument *)document {
   FSTPBMaybeDocument *proto = [FSTPBMaybeDocument message];
 
@@ -143,6 +152,9 @@ using firebase::firestore::model::TargetId;
     proto.hasCommittedMutations = YES;
   } else {
     HARD_FAIL("Unknown document type %s", NSStringFromClass([document class]));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -150,7 +162,11 @@ using firebase::firestore::model::TargetId;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (MaybeDocument)decodedMaybeDocument:(FSTPBMaybeDocument *)proto {
+=======
+- (FSTMaybeDocument *)decodedMaybeDocument:(FSTPBMaybeDocument *)proto {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTMaybeDocument *)decodedMaybeDocument:(FSTPBMaybeDocument *)proto {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -176,6 +192,7 @@ using firebase::firestore::model::TargetId;
  * that it preserves the updateTime, which is considered an output only value by the server.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (GCFSDocument *)encodedDocument:(const Document &)document {
   FSTSerializerBeta *remoteSerializer = self.remoteSerializer;
 
@@ -184,6 +201,8 @@ using firebase::firestore::model::TargetId;
   proto.fields = [remoteSerializer encodedFields:document.data()];
   proto.updateTime = [remoteSerializer encodedVersion:document.version()];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (GCFSDocument *)encodedDocument:(FSTDocument *)document {
   FSTSerializerBeta *remoteSerializer = self.remoteSerializer;
 
@@ -191,6 +210,9 @@ using firebase::firestore::model::TargetId;
   proto.name = [remoteSerializer encodedDocumentKey:document.key];
   proto.fields = [remoteSerializer encodedFields:document.data];
   proto.updateTime = [remoteSerializer encodedVersion:document.version];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   return proto;
@@ -198,8 +220,13 @@ using firebase::firestore::model::TargetId;
 
 /** Decodes a Document proto to the equivalent model. */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (Document)decodedDocument:(GCFSDocument *)document
      withCommittedMutations:(BOOL)committedMutations {
+=======
+- (FSTDocument *)decodedDocument:(GCFSDocument *)document
+          withCommittedMutations:(BOOL)committedMutations {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTDocument *)decodedDocument:(GCFSDocument *)document
           withCommittedMutations:(BOOL)committedMutations {
@@ -209,6 +236,7 @@ using firebase::firestore::model::TargetId;
   ObjectValue data = [remoteSerializer decodedFields:document.fields];
   DocumentKey key = [remoteSerializer decodedDocumentKey:document.name];
   SnapshotVersion version = [remoteSerializer decodedVersion:document.updateTime];
+<<<<<<< HEAD
 <<<<<<< HEAD
   DocumentState state =
       committedMutations ? DocumentState::kCommittedMutations : DocumentState::kSynced;
@@ -223,6 +251,8 @@ using firebase::firestore::model::TargetId;
   proto.name = [remoteSerializer encodedDocumentKey:document.key()];
   proto.readTime = [remoteSerializer encodedVersion:document.version()];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return [FSTDocument documentWithData:std::move(data)
                                    key:std::move(key)
                                version:version
@@ -237,14 +267,22 @@ using firebase::firestore::model::TargetId;
   FSTPBNoDocument *proto = [FSTPBNoDocument message];
   proto.name = [remoteSerializer encodedDocumentKey:document.key];
   proto.readTime = [remoteSerializer encodedVersion:document.version];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return proto;
 }
 
 /** Decodes a NoDocument proto to the equivalent model. */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (NoDocument)decodedDeletedDocument:(FSTPBNoDocument *)proto
               withCommittedMutations:(BOOL)committedMutations {
+=======
+- (FSTDeletedDocument *)decodedDeletedDocument:(FSTPBNoDocument *)proto
+                        withCommittedMutations:(BOOL)committedMutations {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTDeletedDocument *)decodedDeletedDocument:(FSTPBNoDocument *)proto
                         withCommittedMutations:(BOOL)committedMutations {
@@ -253,6 +291,7 @@ using firebase::firestore::model::TargetId;
 
   DocumentKey key = [remoteSerializer decodedDocumentKey:proto.name];
   SnapshotVersion version = [remoteSerializer decodedVersion:proto.readTime];
+<<<<<<< HEAD
 <<<<<<< HEAD
   return NoDocument(std::move(key), version, committedMutations);
 }
@@ -265,6 +304,8 @@ using firebase::firestore::model::TargetId;
   proto.name = [remoteSerializer encodedDocumentKey:document.key()];
   proto.version = [remoteSerializer encodedVersion:document.version()];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return [FSTDeletedDocument documentWithKey:key
                                      version:version
                        hasCommittedMutations:committedMutations];
@@ -277,13 +318,20 @@ using firebase::firestore::model::TargetId;
   FSTPBUnknownDocument *proto = [FSTPBUnknownDocument message];
   proto.name = [remoteSerializer encodedDocumentKey:document.key];
   proto.version = [remoteSerializer encodedVersion:document.version];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return proto;
 }
 
 /** Decodes an UnknownDocument proto to the equivalent model. */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (UnknownDocument)decodedUnknownDocument:(FSTPBUnknownDocument *)proto {
+=======
+- (FSTUnknownDocument *)decodedUnknownDocument:(FSTPBUnknownDocument *)proto {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTUnknownDocument *)decodedUnknownDocument:(FSTPBUnknownDocument *)proto {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -291,6 +339,7 @@ using firebase::firestore::model::TargetId;
 
   DocumentKey key = [remoteSerializer decodedDocumentKey:proto.name];
   SnapshotVersion version = [remoteSerializer decodedVersion:proto.version];
+<<<<<<< HEAD
 <<<<<<< HEAD
   return UnknownDocument(std::move(key), version);
 }
@@ -309,6 +358,8 @@ using firebase::firestore::model::TargetId;
   NSMutableArray<GCFSWrite *> *writes = proto.writesArray;
   for (const Mutation &mutation : batch.mutations()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return [FSTUnknownDocument documentWithKey:key version:version];
 }
 
@@ -325,6 +376,9 @@ using firebase::firestore::model::TargetId;
   }
   NSMutableArray<GCFSWrite *> *writes = proto.writesArray;
   for (FSTMutation *mutation : [batch mutations]) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     [writes addObject:[remoteSerializer encodedMutation:mutation]];
   }
@@ -332,7 +386,11 @@ using firebase::firestore::model::TargetId;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (MutationBatch)decodedMutationBatch:(FSTPBWriteBatch *)batch {
+=======
+- (FSTMutationBatch *)decodedMutationBatch:(FSTPBWriteBatch *)batch {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTMutationBatch *)decodedMutationBatch:(FSTPBWriteBatch *)batch {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -341,17 +399,23 @@ using firebase::firestore::model::TargetId;
   int batchID = batch.batchId;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<Mutation> baseMutations;
   for (GCFSWrite *write in batch.baseWritesArray) {
     baseMutations.push_back([remoteSerializer decodedMutation:write]);
   }
   std::vector<Mutation> mutations;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::vector<FSTMutation *> baseMutations;
   for (GCFSWrite *write in batch.baseWritesArray) {
     baseMutations.push_back([remoteSerializer decodedMutation:write]);
   }
   std::vector<FSTMutation *> mutations;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   for (GCFSWrite *write in batch.writesArray) {
     mutations.push_back([remoteSerializer decodedMutation:write]);
@@ -359,6 +423,7 @@ using firebase::firestore::model::TargetId;
 
   Timestamp localWriteTime = [remoteSerializer decodedTimestamp:batch.localWriteTime];
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   return MutationBatch(batchID, localWriteTime, std::move(baseMutations), std::move(mutations));
 }
@@ -379,6 +444,8 @@ using firebase::firestore::model::TargetId;
   const Query &query = queryData.query();
   if (query.IsDocumentQuery()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return [[FSTMutationBatch alloc] initWithBatchID:batchID
                                     localWriteTime:localWriteTime
                                      baseMutations:std::move(baseMutations)
@@ -400,6 +467,9 @@ using firebase::firestore::model::TargetId;
 
   FSTQuery *query = queryData.query;
   if ([query isDocumentQuery]) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     proto.documents = [remoteSerializer encodedDocumentsTarget:query];
   } else {
@@ -410,7 +480,11 @@ using firebase::firestore::model::TargetId;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (QueryData)decodedQueryData:(FSTPBTarget *)target {
+=======
+- (FSTQueryData *)decodedQueryData:(FSTPBTarget *)target {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (FSTQueryData *)decodedQueryData:(FSTPBTarget *)target {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -420,9 +494,15 @@ using firebase::firestore::model::TargetId;
   ListenSequenceNumber sequenceNumber = target.lastListenSequenceNumber;
   SnapshotVersion version = [remoteSerializer decodedVersion:target.snapshotVersion];
 <<<<<<< HEAD
+<<<<<<< HEAD
   ByteString resumeToken = MakeByteString(target.resumeToken);
 
   Query query;
+=======
+  NSData *resumeToken = target.resumeToken;
+
+  FSTQuery *query;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData *resumeToken = target.resumeToken;
 
@@ -442,15 +522,21 @@ using firebase::firestore::model::TargetId;
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return QueryData(std::move(query), targetID, sequenceNumber, QueryPurpose::Listen, version,
                    std::move(resumeToken));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return [[FSTQueryData alloc] initWithQuery:query
                                     targetID:targetID
                         listenSequenceNumber:sequenceNumber
                                      purpose:FSTQueryPurposeListen
                              snapshotVersion:version
                                  resumeToken:resumeToken];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

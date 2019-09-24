@@ -21,6 +21,7 @@
 #include <memory>
 #include <unordered_map>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <unordered_set>
 #include <vector>
 
@@ -29,12 +30,17 @@
 #include "Firestore/core/src/firebase/firestore/model/precondition.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <vector>
 
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/precondition.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 #include "Firestore/core/src/firebase/firestore/util/statusor.h"
@@ -43,12 +49,18 @@
 #include "absl/types/optional.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 NS_ASSUME_NONNULL_BEGIN
 
 OBJC_CLASS(FSTMaybeDocument);
 OBJC_CLASS(FSTMutation);
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -66,14 +78,20 @@ class ParsedUpdateData;
 class Transaction {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   // TODO(varconst): change this to take a single `StatusOr` parameter.
   using LookupCallback = std::function<void(
       const std::vector<model::MaybeDocument>&, const util::Status&)>;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // TODO(varconst): once `FSTMaybeDocument` is replaced with a C++ equivalent,
   // this function could take a single `StatusOr` parameter.
   using LookupCallback = std::function<void(
       const std::vector<FSTMaybeDocument*>&, const util::Status&)>;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   Transaction() = default;
@@ -112,6 +130,7 @@ class Transaction {
   void Commit(util::StatusCallback&& callback);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Marks the transaction as permanently failed, so the transaction will not
    * retry.
@@ -125,6 +144,8 @@ class Transaction {
 
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  private:
   /**
    * Every time a document is read, this should be called to record its version.
@@ -133,15 +154,21 @@ class Transaction {
    * as preconditions on the writes sent to the backend.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   util::Status RecordVersion(const model::MaybeDocument& doc);
 
   /** Stores mutations to be written when `Commit` is called. */
   void WriteMutations(std::vector<model::Mutation>&& mutations);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   util::Status RecordVersion(FSTMaybeDocument* doc);
 
   /** Stores mutations to be written when `Commit` is called. */
   void WriteMutations(std::vector<FSTMutation*>&& mutations);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   /**
@@ -165,9 +192,14 @@ class Transaction {
   remote::Datastore* datastore_ = nullptr;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<model::Mutation> mutations_;
   bool committed_ = false;
   bool permanentError_ = false;
+=======
+  std::vector<FSTMutation*> mutations_;
+  bool committed_ = false;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutation*> mutations_;
   bool committed_ = false;
@@ -180,6 +212,7 @@ class Transaction {
   util::Status last_write_error_;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Set of documents that have been written in the transaction.
    *
@@ -188,6 +221,8 @@ class Transaction {
    */
   std::unordered_set<model::DocumentKey, model::DocumentKeyHash> written_docs_;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::unordered_map<model::DocumentKey,
@@ -215,6 +250,11 @@ using TransactionUpdateCallback = std::function<void(
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

@@ -21,18 +21,24 @@
 
 #include "Firestore/core/src/firebase/firestore/immutable/sorted_map.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/document.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/maybe_document.h"
 #include "absl/base/attributes.h"
 #include "absl/types/optional.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
 #include "absl/base/attributes.h"
 
 OBJC_CLASS(FSTDocument);
 OBJC_CLASS(FSTMaybeDocument);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
@@ -44,10 +50,14 @@ namespace model {
  * common.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 using MaybeDocumentMap = immutable::SortedMap<DocumentKey, MaybeDocument>;
 
 using OptionalMaybeDocumentMap =
     immutable::SortedMap<DocumentKey, absl::optional<MaybeDocument>>;
+=======
+using MaybeDocumentMap = immutable::SortedMap<DocumentKey, FSTMaybeDocument*>;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 using MaybeDocumentMap = immutable::SortedMap<DocumentKey, FSTMaybeDocument*>;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -61,6 +71,7 @@ using MaybeDocumentMap = immutable::SortedMap<DocumentKey, FSTMaybeDocument*>;
  * expecting `MaybeDocumentMap`.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * To work around this, in C++ `DocumentMap` is a simple wrapper over a
  * `MaybeDocumentMap` that forwards all functions to the underlying map but with
  * added type safety (it only accepts `Document`, not `MaybeDocument`). Use
@@ -69,6 +80,8 @@ using MaybeDocumentMap = immutable::SortedMap<DocumentKey, FSTMaybeDocument*>;
  * a `MaybeDocumentMap`, use `underlying_map` function to get (read-only) access
  * to the representation. Also use `underlying_map` for iterating and searching.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  * To work around this, in C++ `DocumentMap` is a simple wrapper over
  * a `MaybeDocumentMap` that forwards all functions to the underlying map but
  * with added type safety (it only accepts `FSTDocument`s, not
@@ -77,6 +90,9 @@ using MaybeDocumentMap = immutable::SortedMap<DocumentKey, FSTMaybeDocument*>;
  * to be passed to a function accepting a `MaybeDocumentMap`, use
  * `underlying_map` function to get (read-only) access to the representation.
  * Also use `underlying_map` for iterating and searching.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
  */
 class DocumentMap {
@@ -85,7 +101,11 @@ class DocumentMap {
 
   ABSL_MUST_USE_RESULT DocumentMap insert(const DocumentKey& key,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                           const Document& value) const;
+=======
+                                          FSTDocument* value) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                                           FSTDocument* value) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -112,11 +132,17 @@ class DocumentMap {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 FSTDocument* GetFSTDocumentOrNil(FSTMaybeDocument* maybeDoc);
 
 FSTDocument* GetFSTDocumentOrNil(FSTDocument* doc);
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }  // namespace model
 }  // namespace firestore

@@ -44,7 +44,11 @@ namespace util {
 
 // Translates a set of error_code and error_msg to an NSError.
 <<<<<<< HEAD
+<<<<<<< HEAD
 NSError* MakeNSError(int64_t error_code,
+=======
+NSError* MakeNSError(const int64_t error_code,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NSError* MakeNSError(const int64_t error_code,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

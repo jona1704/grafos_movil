@@ -18,15 +18,21 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_MODEL_PRECONDITION_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <string>
 #include <utility>
 
 #if defined(__OBJC__)
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <utility>
 
 #if defined(__OBJC__)
 #import "Firestore/Source/Model/FSTDocument.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/include/firebase/firestore/timestamp.h"
 #endif  // defined(__OBJC__)
@@ -35,7 +41,10 @@
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "absl/types/optional.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -67,6 +76,7 @@ class Precondition {
 
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
    * Default constructor which is equivalent to Precondition::None(). Prefer
    * calling Precondition::None for readability.
    */
@@ -88,6 +98,8 @@ class Precondition {
   }
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
    * Returns true if the precondition is valid for the given document (and the
    * document is available).
    */
@@ -102,6 +114,9 @@ class Precondition {
     return type_;
   }
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   const SnapshotVersion& update_time() const {
     return update_time_;
@@ -117,10 +132,13 @@ class Precondition {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   size_t Hash() const;
 
   std::string ToString() const;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #if defined(__OBJC__)
   // Objective-C requires a default constructor.
   Precondition()
@@ -176,6 +194,9 @@ class Precondition {
     UNREACHABLE();
   }
 #endif  // defined(__OBJC__)
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:
@@ -190,7 +211,11 @@ class Precondition {
   // For Exists type, preconditions a mutation based on whether the document
   // exists.
 <<<<<<< HEAD
+<<<<<<< HEAD
   bool exists_ = false;
+=======
+  bool exists_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   bool exists_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

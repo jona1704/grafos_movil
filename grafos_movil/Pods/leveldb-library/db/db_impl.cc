@@ -5,6 +5,7 @@
 #include "db/db_impl.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <stdint.h>
 #include <stdio.h>
 
@@ -15,12 +16,17 @@
 #include <vector>
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <algorithm>
 #include <set>
 #include <string>
 #include <stdint.h>
 #include <stdio.h>
 #include <vector>
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "db/builder.h"
 #include "db/db_iter.h"
@@ -52,9 +58,12 @@ const int kNumNonTableCacheFiles = 10;
 // Information kept for every waiting writer
 struct DBImpl::Writer {
 <<<<<<< HEAD
+<<<<<<< HEAD
   explicit Writer(port::Mutex* mu)
       : batch(nullptr), sync(false), done(false), cv(mu) {}
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Status status;
@@ -62,6 +71,7 @@ struct DBImpl::Writer {
   bool sync;
   bool done;
   port::CondVar cv;
+<<<<<<< HEAD
 <<<<<<< HEAD
 };
 
@@ -83,11 +93,16 @@ struct DBImpl::CompactionState {
         total_bytes(0) {}
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   explicit Writer(port::Mutex* mu) : cv(mu) { }
 };
 
 struct DBImpl::CompactionState {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Compaction* const compaction;
 
@@ -98,13 +113,19 @@ struct DBImpl::CompactionState {
   SequenceNumber smallest_snapshot;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Files produced by compaction
   struct Output {
     uint64_t number;
     uint64_t file_size;
     InternalKey smallest, largest;
   };
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::vector<Output> outputs;
 
@@ -114,11 +135,14 @@ struct DBImpl::CompactionState {
 
   uint64_t total_bytes;
 <<<<<<< HEAD
+<<<<<<< HEAD
 };
 
 // Fix user-supplied options to be reasonable
 template <class T, class V>
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   Output* current_output() { return &outputs[outputs.size()-1]; }
 
@@ -132,6 +156,9 @@ template <class T, class V>
 
 // Fix user-supplied options to be reasonable
 template <class T,class V>
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 static void ClipToRange(T* ptr, V minvalue, V maxvalue) {
   if (static_cast<V>(*ptr) > maxvalue) *ptr = maxvalue;
@@ -144,6 +171,7 @@ Options SanitizeOptions(const std::string& dbname,
   Options result = src;
   result.comparator = icmp;
 <<<<<<< HEAD
+<<<<<<< HEAD
   result.filter_policy = (src.filter_policy != nullptr) ? ipolicy : nullptr;
   ClipToRange(&result.max_open_files, 64 + kNumNonTableCacheFiles, 50000);
   ClipToRange(&result.write_buffer_size, 64 << 10, 1 << 30);
@@ -151,12 +179,17 @@ Options SanitizeOptions(const std::string& dbname,
   ClipToRange(&result.block_size, 1 << 10, 4 << 20);
   if (result.info_log == nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   result.filter_policy = (src.filter_policy != NULL) ? ipolicy : NULL;
   ClipToRange(&result.max_open_files,    64 + kNumNonTableCacheFiles, 50000);
   ClipToRange(&result.write_buffer_size, 64<<10,                      1<<30);
   ClipToRange(&result.max_file_size,     1<<20,                       1<<30);
   ClipToRange(&result.block_size,        1<<10,                       4<<20);
   if (result.info_log == NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     // Open a log file in the same directory as the db
     src.env->CreateDir(dbname);  // In case it does not exist
@@ -165,15 +198,21 @@ Options SanitizeOptions(const std::string& dbname,
     if (!s.ok()) {
       // No place suitable for logging
 <<<<<<< HEAD
+<<<<<<< HEAD
       result.info_log = nullptr;
     }
   }
   if (result.block_cache == nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       result.info_log = NULL;
     }
   }
   if (result.block_cache == NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     result.block_cache = NewLRUCache(8 << 20);
   }
@@ -181,11 +220,14 @@ Options SanitizeOptions(const std::string& dbname,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 static int TableCacheSize(const Options& sanitized_options) {
   // Reserve ten files or so for other uses and give the rest to TableCache.
   return sanitized_options.max_open_files - kNumNonTableCacheFiles;
 }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 DBImpl::DBImpl(const Options& raw_options, const std::string& dbname)
@@ -197,6 +239,7 @@ DBImpl::DBImpl(const Options& raw_options, const std::string& dbname)
       owns_info_log_(options_.info_log != raw_options.info_log),
       owns_cache_(options_.block_cache != raw_options.block_cache),
       dbname_(dbname),
+<<<<<<< HEAD
 <<<<<<< HEAD
       table_cache_(new TableCache(dbname_, options_, TableCacheSize(options_))),
       db_lock_(nullptr),
@@ -226,6 +269,8 @@ DBImpl::~DBImpl() {
 
   if (db_lock_ != nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       db_lock_(NULL),
       shutting_down_(NULL),
       bg_cv_(&mutex_),
@@ -258,14 +303,22 @@ DBImpl::~DBImpl() {
   mutex_.Unlock();
 
   if (db_lock_ != NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     env_->UnlockFile(db_lock_);
   }
 
   delete versions_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (mem_ != nullptr) mem_->Unref();
   if (imm_ != nullptr) imm_->Unref();
+=======
+  if (mem_ != NULL) mem_->Unref();
+  if (imm_ != NULL) imm_->Unref();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (mem_ != NULL) mem_->Unref();
   if (imm_ != NULL) imm_->Unref();
@@ -326,8 +379,11 @@ void DBImpl::MaybeIgnoreError(Status* s) const {
 
 void DBImpl::DeleteObsoleteFiles() {
 <<<<<<< HEAD
+<<<<<<< HEAD
   mutex_.AssertHeld();
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (!bg_error_.ok()) {
@@ -342,7 +398,11 @@ void DBImpl::DeleteObsoleteFiles() {
 
   std::vector<std::string> filenames;
 <<<<<<< HEAD
+<<<<<<< HEAD
   env_->GetChildren(dbname_, &filenames);  // Ignoring errors on purpose
+=======
+  env_->GetChildren(dbname_, &filenames); // Ignoring errors on purpose
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   env_->GetChildren(dbname_, &filenames); // Ignoring errors on purpose
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -381,7 +441,12 @@ void DBImpl::DeleteObsoleteFiles() {
           table_cache_->Evict(number);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         Log(options_.info_log, "Delete type=%d #%lld\n", static_cast<int>(type),
+=======
+        Log(options_.info_log, "Delete type=%d #%lld\n",
+            int(type),
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         Log(options_.info_log, "Delete type=%d #%lld\n",
             int(type),
@@ -394,7 +459,11 @@ void DBImpl::DeleteObsoleteFiles() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status DBImpl::Recover(VersionEdit* edit, bool* save_manifest) {
+=======
+Status DBImpl::Recover(VersionEdit* edit, bool *save_manifest) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Status DBImpl::Recover(VersionEdit* edit, bool *save_manifest) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -405,7 +474,11 @@ Status DBImpl::Recover(VersionEdit* edit, bool *save_manifest) {
   // may already exist from a previous failed creation attempt.
   env_->CreateDir(dbname_);
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert(db_lock_ == nullptr);
+=======
+  assert(db_lock_ == NULL);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   assert(db_lock_ == NULL);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -427,8 +500,13 @@ Status DBImpl::Recover(VersionEdit* edit, bool *save_manifest) {
   } else {
     if (options_.error_if_exists) {
 <<<<<<< HEAD
+<<<<<<< HEAD
       return Status::InvalidArgument(dbname_,
                                      "exists (error_if_exists is true)");
+=======
+      return Status::InvalidArgument(
+          dbname_, "exists (error_if_exists is true)");
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return Status::InvalidArgument(
           dbname_, "exists (error_if_exists is true)");
@@ -505,6 +583,7 @@ Status DBImpl::RecoverLogFile(uint64_t log_number, bool last_log,
     Logger* info_log;
     const char* fname;
 <<<<<<< HEAD
+<<<<<<< HEAD
     Status* status;  // null if options_.paranoid_checks==false
     virtual void Corruption(size_t bytes, const Status& s) {
       Log(info_log, "%s%s: dropping %d bytes; %s",
@@ -512,12 +591,17 @@ Status DBImpl::RecoverLogFile(uint64_t log_number, bool last_log,
           static_cast<int>(bytes), s.ToString().c_str());
       if (this->status != nullptr && this->status->ok()) *this->status = s;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     Status* status;  // NULL if options_.paranoid_checks==false
     virtual void Corruption(size_t bytes, const Status& s) {
       Log(info_log, "%s%s: dropping %d bytes; %s",
           (this->status == NULL ? "(ignoring error) " : ""),
           fname, static_cast<int>(bytes), s.ToString().c_str());
       if (this->status != NULL && this->status->ok()) *this->status = s;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
   };
@@ -539,7 +623,11 @@ Status DBImpl::RecoverLogFile(uint64_t log_number, bool last_log,
   reporter.info_log = options_.info_log;
   reporter.fname = fname.c_str();
 <<<<<<< HEAD
+<<<<<<< HEAD
   reporter.status = (options_.paranoid_checks ? &status : nullptr);
+=======
+  reporter.status = (options_.paranoid_checks ? &status : NULL);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   reporter.status = (options_.paranoid_checks ? &status : NULL);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -548,14 +636,20 @@ Status DBImpl::RecoverLogFile(uint64_t log_number, bool last_log,
   // to be skipped instead of propagating bad information (like overly
   // large sequence numbers).
 <<<<<<< HEAD
+<<<<<<< HEAD
   log::Reader reader(file, &reporter, true /*checksum*/, 0 /*initial_offset*/);
   Log(options_.info_log, "Recovering log #%llu",
       (unsigned long long)log_number);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   log::Reader reader(file, &reporter, true/*checksum*/,
                      0/*initial_offset*/);
   Log(options_.info_log, "Recovering log #%llu",
       (unsigned long long) log_number);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // Read all the records and add to a memtable
@@ -564,25 +658,35 @@ Status DBImpl::RecoverLogFile(uint64_t log_number, bool last_log,
   WriteBatch batch;
   int compactions = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
   MemTable* mem = nullptr;
   while (reader.ReadRecord(&record, &scratch) && status.ok()) {
     if (record.size() < 12) {
       reporter.Corruption(record.size(),
                           Status::Corruption("log record too small"));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   MemTable* mem = NULL;
   while (reader.ReadRecord(&record, &scratch) &&
          status.ok()) {
     if (record.size() < 12) {
       reporter.Corruption(
           record.size(), Status::Corruption("log record too small"));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       continue;
     }
     WriteBatchInternal::SetContents(&batch, record);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (mem == nullptr) {
+=======
+    if (mem == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (mem == NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -595,8 +699,14 @@ Status DBImpl::RecoverLogFile(uint64_t log_number, bool last_log,
       break;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     const SequenceNumber last_seq = WriteBatchInternal::Sequence(&batch) +
                                     WriteBatchInternal::Count(&batch) - 1;
+=======
+    const SequenceNumber last_seq =
+        WriteBatchInternal::Sequence(&batch) +
+        WriteBatchInternal::Count(&batch) - 1;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     const SequenceNumber last_seq =
         WriteBatchInternal::Sequence(&batch) +
@@ -610,9 +720,15 @@ Status DBImpl::RecoverLogFile(uint64_t log_number, bool last_log,
       compactions++;
       *save_manifest = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
       status = WriteLevel0Table(mem, edit, nullptr);
       mem->Unref();
       mem = nullptr;
+=======
+      status = WriteLevel0Table(mem, edit, NULL);
+      mem->Unref();
+      mem = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       status = WriteLevel0Table(mem, edit, NULL);
       mem->Unref();
@@ -631,9 +747,15 @@ Status DBImpl::RecoverLogFile(uint64_t log_number, bool last_log,
   // See if we should keep reusing the last log file.
   if (status.ok() && options_.reuse_logs && last_log && compactions == 0) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     assert(logfile_ == nullptr);
     assert(log_ == nullptr);
     assert(mem_ == nullptr);
+=======
+    assert(logfile_ == NULL);
+    assert(log_ == NULL);
+    assert(mem_ == NULL);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     assert(logfile_ == NULL);
     assert(log_ == NULL);
@@ -646,17 +768,23 @@ Status DBImpl::RecoverLogFile(uint64_t log_number, bool last_log,
       log_ = new log::Writer(logfile_, lfile_size);
       logfile_number_ = log_number;
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (mem != nullptr) {
         mem_ = mem;
         mem = nullptr;
       } else {
         // mem can be nullptr if lognum exists but was empty.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       if (mem != NULL) {
         mem_ = mem;
         mem = NULL;
       } else {
         // mem can be NULL if lognum exists but was empty.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         mem_ = new MemTable(internal_comparator_);
         mem_->Ref();
@@ -665,17 +793,23 @@ Status DBImpl::RecoverLogFile(uint64_t log_number, bool last_log,
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (mem != nullptr) {
     // mem did not get reused; compact it.
     if (status.ok()) {
       *save_manifest = true;
       status = WriteLevel0Table(mem, edit, nullptr);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (mem != NULL) {
     // mem did not get reused; compact it.
     if (status.ok()) {
       *save_manifest = true;
       status = WriteLevel0Table(mem, edit, NULL);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
     mem->Unref();
@@ -694,7 +828,11 @@ Status DBImpl::WriteLevel0Table(MemTable* mem, VersionEdit* edit,
   Iterator* iter = mem->NewIterator();
   Log(options_.info_log, "Level-0 table #%llu: started",
 <<<<<<< HEAD
+<<<<<<< HEAD
       (unsigned long long)meta.number);
+=======
+      (unsigned long long) meta.number);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       (unsigned long long) meta.number);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -708,7 +846,12 @@ Status DBImpl::WriteLevel0Table(MemTable* mem, VersionEdit* edit,
 
   Log(options_.info_log, "Level-0 table #%llu: %lld bytes %s",
 <<<<<<< HEAD
+<<<<<<< HEAD
       (unsigned long long)meta.number, (unsigned long long)meta.file_size,
+=======
+      (unsigned long long) meta.number,
+      (unsigned long long) meta.file_size,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       (unsigned long long) meta.number,
       (unsigned long long) meta.file_size,
@@ -718,6 +861,10 @@ Status DBImpl::WriteLevel0Table(MemTable* mem, VersionEdit* edit,
   pending_outputs_.erase(meta.number);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -728,17 +875,23 @@ Status DBImpl::WriteLevel0Table(MemTable* mem, VersionEdit* edit,
     const Slice min_user_key = meta.smallest.user_key();
     const Slice max_user_key = meta.largest.user_key();
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (base != nullptr) {
       level = base->PickLevelForMemTableOutput(min_user_key, max_user_key);
     }
     edit->AddFile(level, meta.number, meta.file_size, meta.smallest,
                   meta.largest);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if (base != NULL) {
       level = base->PickLevelForMemTableOutput(min_user_key, max_user_key);
     }
     edit->AddFile(level, meta.number, meta.file_size,
                   meta.smallest, meta.largest);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -752,7 +905,11 @@ Status DBImpl::WriteLevel0Table(MemTable* mem, VersionEdit* edit,
 void DBImpl::CompactMemTable() {
   mutex_.AssertHeld();
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert(imm_ != nullptr);
+=======
+  assert(imm_ != NULL);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   assert(imm_ != NULL);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -765,7 +922,11 @@ void DBImpl::CompactMemTable() {
   base->Unref();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (s.ok() && shutting_down_.load(std::memory_order_acquire)) {
+=======
+  if (s.ok() && shutting_down_.Acquire_Load()) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (s.ok() && shutting_down_.Acquire_Load()) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -783,8 +944,13 @@ void DBImpl::CompactMemTable() {
     // Commit to the new state
     imm_->Unref();
 <<<<<<< HEAD
+<<<<<<< HEAD
     imm_ = nullptr;
     has_imm_.store(false, std::memory_order_release);
+=======
+    imm_ = NULL;
+    has_imm_.Release_Store(NULL);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     imm_ = NULL;
     has_imm_.Release_Store(NULL);
@@ -807,7 +973,11 @@ void DBImpl::CompactRange(const Slice* begin, const Slice* end) {
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   TEST_CompactMemTable();  // TODO(sanjay): Skip if memtable does not overlap
+=======
+  TEST_CompactMemTable(); // TODO(sanjay): Skip if memtable does not overlap
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   TEST_CompactMemTable(); // TODO(sanjay): Skip if memtable does not overlap
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -817,8 +987,12 @@ void DBImpl::CompactRange(const Slice* begin, const Slice* end) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void DBImpl::TEST_CompactRange(int level, const Slice* begin,
                                const Slice* end) {
+=======
+void DBImpl::TEST_CompactRange(int level, const Slice* begin,const Slice* end) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void DBImpl::TEST_CompactRange(int level, const Slice* begin,const Slice* end) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -831,8 +1005,13 @@ void DBImpl::TEST_CompactRange(int level, const Slice* begin,const Slice* end) {
   manual.level = level;
   manual.done = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (begin == nullptr) {
     manual.begin = nullptr;
+=======
+  if (begin == NULL) {
+    manual.begin = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (begin == NULL) {
     manual.begin = NULL;
@@ -842,8 +1021,13 @@ void DBImpl::TEST_CompactRange(int level, const Slice* begin,const Slice* end) {
     manual.begin = &begin_storage;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (end == nullptr) {
     manual.end = nullptr;
+=======
+  if (end == NULL) {
+    manual.end = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (end == NULL) {
     manual.end = NULL;
@@ -855,6 +1039,7 @@ void DBImpl::TEST_CompactRange(int level, const Slice* begin,const Slice* end) {
 
   MutexLock l(&mutex_);
 <<<<<<< HEAD
+<<<<<<< HEAD
   while (!manual.done && !shutting_down_.load(std::memory_order_acquire) &&
          bg_error_.ok()) {
     if (manual_compaction_ == nullptr) {  // Idle
@@ -863,19 +1048,28 @@ void DBImpl::TEST_CompactRange(int level, const Slice* begin,const Slice* end) {
     } else {  // Running either my compaction or another compaction.
       background_work_finished_signal_.Wait();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   while (!manual.done && !shutting_down_.Acquire_Load() && bg_error_.ok()) {
     if (manual_compaction_ == NULL) {  // Idle
       manual_compaction_ = &manual;
       MaybeScheduleCompaction();
     } else {  // Running either my compaction or another compaction.
       bg_cv_.Wait();
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
   }
   if (manual_compaction_ == &manual) {
     // Cancel my manual compaction since we aborted early for some reason.
 <<<<<<< HEAD
+<<<<<<< HEAD
     manual_compaction_ = nullptr;
+=======
+    manual_compaction_ = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     manual_compaction_ = NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -883,6 +1077,7 @@ void DBImpl::TEST_CompactRange(int level, const Slice* begin,const Slice* end) {
 }
 
 Status DBImpl::TEST_CompactMemTable() {
+<<<<<<< HEAD
 <<<<<<< HEAD
   // nullptr batch means just wait for earlier writes to be done
   Status s = Write(WriteOptions(), nullptr);
@@ -894,6 +1089,8 @@ Status DBImpl::TEST_CompactMemTable() {
     }
     if (imm_ != nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // NULL batch means just wait for earlier writes to be done
   Status s = Write(WriteOptions(), NULL);
   if (s.ok()) {
@@ -903,6 +1100,9 @@ Status DBImpl::TEST_CompactMemTable() {
       bg_cv_.Wait();
     }
     if (imm_ != NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       s = bg_error_;
     }
@@ -915,7 +1115,11 @@ void DBImpl::RecordBackgroundError(const Status& s) {
   if (bg_error_.ok()) {
     bg_error_ = s;
 <<<<<<< HEAD
+<<<<<<< HEAD
     background_work_finished_signal_.SignalAll();
+=======
+    bg_cv_.SignalAll();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     bg_cv_.SignalAll();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -924,6 +1128,7 @@ void DBImpl::RecordBackgroundError(const Status& s) {
 
 void DBImpl::MaybeScheduleCompaction() {
   mutex_.AssertHeld();
+<<<<<<< HEAD
 <<<<<<< HEAD
   if (background_compaction_scheduled_) {
     // Already scheduled
@@ -937,6 +1142,8 @@ void DBImpl::MaybeScheduleCompaction() {
   } else {
     background_compaction_scheduled_ = true;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (bg_compaction_scheduled_) {
     // Already scheduled
   } else if (shutting_down_.Acquire_Load()) {
@@ -949,6 +1156,9 @@ void DBImpl::MaybeScheduleCompaction() {
     // No work to be done
   } else {
     bg_compaction_scheduled_ = true;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     env_->Schedule(&DBImpl::BGWork, this);
   }
@@ -961,8 +1171,13 @@ void DBImpl::BGWork(void* db) {
 void DBImpl::BackgroundCall() {
   MutexLock l(&mutex_);
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert(background_compaction_scheduled_);
   if (shutting_down_.load(std::memory_order_acquire)) {
+=======
+  assert(bg_compaction_scheduled_);
+  if (shutting_down_.Acquire_Load()) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   assert(bg_compaction_scheduled_);
   if (shutting_down_.Acquire_Load()) {
@@ -975,7 +1190,11 @@ void DBImpl::BackgroundCall() {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   background_compaction_scheduled_ = false;
+=======
+  bg_compaction_scheduled_ = false;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   bg_compaction_scheduled_ = false;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -984,7 +1203,11 @@ void DBImpl::BackgroundCall() {
   // so reschedule another compaction if needed.
   MaybeScheduleCompaction();
 <<<<<<< HEAD
+<<<<<<< HEAD
   background_work_finished_signal_.SignalAll();
+=======
+  bg_cv_.SignalAll();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   bg_cv_.SignalAll();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -994,7 +1217,11 @@ void DBImpl::BackgroundCompaction() {
   mutex_.AssertHeld();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (imm_ != nullptr) {
+=======
+  if (imm_ != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (imm_ != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1004,7 +1231,11 @@ void DBImpl::BackgroundCompaction() {
 
   Compaction* c;
 <<<<<<< HEAD
+<<<<<<< HEAD
   bool is_manual = (manual_compaction_ != nullptr);
+=======
+  bool is_manual = (manual_compaction_ != NULL);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   bool is_manual = (manual_compaction_ != NULL);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1013,8 +1244,13 @@ void DBImpl::BackgroundCompaction() {
     ManualCompaction* m = manual_compaction_;
     c = versions_->CompactRange(m->level, m->begin, m->end);
 <<<<<<< HEAD
+<<<<<<< HEAD
     m->done = (c == nullptr);
     if (c != nullptr) {
+=======
+    m->done = (c == NULL);
+    if (c != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     m->done = (c == NULL);
     if (c != NULL) {
@@ -1024,7 +1260,12 @@ void DBImpl::BackgroundCompaction() {
     Log(options_.info_log,
         "Manual compaction at level-%d from %s .. %s; will stop at %s\n",
 <<<<<<< HEAD
+<<<<<<< HEAD
         m->level, (m->begin ? m->begin->DebugString().c_str() : "(begin)"),
+=======
+        m->level,
+        (m->begin ? m->begin->DebugString().c_str() : "(begin)"),
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         m->level,
         (m->begin ? m->begin->DebugString().c_str() : "(begin)"),
@@ -1037,7 +1278,11 @@ void DBImpl::BackgroundCompaction() {
 
   Status status;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (c == nullptr) {
+=======
+  if (c == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (c == NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1048,8 +1293,13 @@ void DBImpl::BackgroundCompaction() {
     FileMetaData* f = c->input(0, 0);
     c->edit()->DeleteFile(c->level(), f->number);
 <<<<<<< HEAD
+<<<<<<< HEAD
     c->edit()->AddFile(c->level() + 1, f->number, f->file_size, f->smallest,
                        f->largest);
+=======
+    c->edit()->AddFile(c->level() + 1, f->number, f->file_size,
+                       f->smallest, f->largest);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     c->edit()->AddFile(c->level() + 1, f->number, f->file_size,
                        f->smallest, f->largest);
@@ -1061,15 +1311,21 @@ void DBImpl::BackgroundCompaction() {
     VersionSet::LevelSummaryStorage tmp;
     Log(options_.info_log, "Moved #%lld to level-%d %lld bytes %s: %s\n",
 <<<<<<< HEAD
+<<<<<<< HEAD
         static_cast<unsigned long long>(f->number), c->level() + 1,
         static_cast<unsigned long long>(f->file_size),
         status.ToString().c_str(), versions_->LevelSummary(&tmp));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         static_cast<unsigned long long>(f->number),
         c->level() + 1,
         static_cast<unsigned long long>(f->file_size),
         status.ToString().c_str(),
         versions_->LevelSummary(&tmp));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   } else {
     CompactionState* compact = new CompactionState(c);
@@ -1086,16 +1342,22 @@ void DBImpl::BackgroundCompaction() {
   if (status.ok()) {
     // Done
 <<<<<<< HEAD
+<<<<<<< HEAD
   } else if (shutting_down_.load(std::memory_order_acquire)) {
     // Ignore compaction errors found during shutting down
   } else {
     Log(options_.info_log, "Compaction error: %s", status.ToString().c_str());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   } else if (shutting_down_.Acquire_Load()) {
     // Ignore compaction errors found during shutting down
   } else {
     Log(options_.info_log,
         "Compaction error: %s", status.ToString().c_str());
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -1111,7 +1373,11 @@ void DBImpl::BackgroundCompaction() {
       m->begin = &m->tmp_storage;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     manual_compaction_ = nullptr;
+=======
+    manual_compaction_ = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     manual_compaction_ = NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1121,7 +1387,11 @@ void DBImpl::BackgroundCompaction() {
 void DBImpl::CleanupCompaction(CompactionState* compact) {
   mutex_.AssertHeld();
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (compact->builder != nullptr) {
+=======
+  if (compact->builder != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (compact->builder != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1130,7 +1400,11 @@ void DBImpl::CleanupCompaction(CompactionState* compact) {
     delete compact->builder;
   } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
     assert(compact->outfile == nullptr);
+=======
+    assert(compact->outfile == NULL);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     assert(compact->outfile == NULL);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1145,8 +1419,13 @@ void DBImpl::CleanupCompaction(CompactionState* compact) {
 
 Status DBImpl::OpenCompactionOutputFile(CompactionState* compact) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert(compact != nullptr);
   assert(compact->builder == nullptr);
+=======
+  assert(compact != NULL);
+  assert(compact->builder == NULL);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   assert(compact != NULL);
   assert(compact->builder == NULL);
@@ -1176,9 +1455,15 @@ Status DBImpl::OpenCompactionOutputFile(CompactionState* compact) {
 Status DBImpl::FinishCompactionOutputFile(CompactionState* compact,
                                           Iterator* input) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert(compact != nullptr);
   assert(compact->outfile != nullptr);
   assert(compact->builder != nullptr);
+=======
+  assert(compact != NULL);
+  assert(compact->outfile != NULL);
+  assert(compact->builder != NULL);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   assert(compact != NULL);
   assert(compact->outfile != NULL);
@@ -1201,7 +1486,11 @@ Status DBImpl::FinishCompactionOutputFile(CompactionState* compact,
   compact->total_bytes += current_bytes;
   delete compact->builder;
 <<<<<<< HEAD
+<<<<<<< HEAD
   compact->builder = nullptr;
+=======
+  compact->builder = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   compact->builder = NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1214,6 +1503,7 @@ Status DBImpl::FinishCompactionOutputFile(CompactionState* compact,
     s = compact->outfile->Close();
   }
   delete compact->outfile;
+<<<<<<< HEAD
 <<<<<<< HEAD
   compact->outfile = nullptr;
 
@@ -1229,6 +1519,8 @@ Status DBImpl::FinishCompactionOutputFile(CompactionState* compact,
           (unsigned long long)current_entries,
           (unsigned long long)current_bytes);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   compact->outfile = NULL;
 
   if (s.ok() && current_entries > 0) {
@@ -1245,6 +1537,9 @@ Status DBImpl::FinishCompactionOutputFile(CompactionState* compact,
           compact->compaction->level(),
           (unsigned long long) current_entries,
           (unsigned long long) current_bytes);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
   }
@@ -1252,12 +1547,15 @@ Status DBImpl::FinishCompactionOutputFile(CompactionState* compact,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status DBImpl::InstallCompactionResults(CompactionState* compact) {
   mutex_.AssertHeld();
   Log(options_.info_log, "Compacted %d@%d + %d@%d files => %lld bytes",
       compact->compaction->num_input_files(0), compact->compaction->level(),
       compact->compaction->num_input_files(1), compact->compaction->level() + 1,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 Status DBImpl::InstallCompactionResults(CompactionState* compact) {
   mutex_.AssertHeld();
@@ -1266,6 +1564,9 @@ Status DBImpl::InstallCompactionResults(CompactionState* compact) {
       compact->compaction->level(),
       compact->compaction->num_input_files(1),
       compact->compaction->level() + 1,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       static_cast<long long>(compact->total_bytes));
 
@@ -1275,8 +1576,14 @@ Status DBImpl::InstallCompactionResults(CompactionState* compact) {
   for (size_t i = 0; i < compact->outputs.size(); i++) {
     const CompactionState::Output& out = compact->outputs[i];
 <<<<<<< HEAD
+<<<<<<< HEAD
     compact->compaction->edit()->AddFile(level + 1, out.number, out.file_size,
                                          out.smallest, out.largest);
+=======
+    compact->compaction->edit()->AddFile(
+        level + 1,
+        out.number, out.file_size, out.smallest, out.largest);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     compact->compaction->edit()->AddFile(
         level + 1,
@@ -1291,8 +1598,14 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
   int64_t imm_micros = 0;  // Micros spent doing imm_ compactions
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Log(options_.info_log, "Compacting %d@%d + %d@%d files",
       compact->compaction->num_input_files(0), compact->compaction->level(),
+=======
+  Log(options_.info_log,  "Compacting %d@%d + %d@%d files",
+      compact->compaction->num_input_files(0),
+      compact->compaction->level(),
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Log(options_.info_log,  "Compacting %d@%d + %d@%d files",
       compact->compaction->num_input_files(0),
@@ -1303,6 +1616,7 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
 
   assert(versions_->NumLevelFiles(compact->compaction->level()) > 0);
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert(compact->builder == nullptr);
   assert(compact->outfile == nullptr);
   if (snapshots_.empty()) {
@@ -1310,12 +1624,17 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
   } else {
     compact->smallest_snapshot = snapshots_.oldest()->sequence_number();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   assert(compact->builder == NULL);
   assert(compact->outfile == NULL);
   if (snapshots_.empty()) {
     compact->smallest_snapshot = versions_->LastSequence();
   } else {
     compact->smallest_snapshot = snapshots_.oldest()->number_;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -1330,6 +1649,7 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
   bool has_current_user_key = false;
   SequenceNumber last_sequence_for_key = kMaxSequenceNumber;
 <<<<<<< HEAD
+<<<<<<< HEAD
   for (; input->Valid() && !shutting_down_.load(std::memory_order_acquire);) {
     // Prioritize immutable compaction work
     if (has_imm_.load(std::memory_order_relaxed)) {
@@ -1340,6 +1660,8 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
         // Wake up MakeRoomForWrite() if necessary.
         background_work_finished_signal_.SignalAll();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   for (; input->Valid() && !shutting_down_.Acquire_Load(); ) {
     // Prioritize immutable compaction work
     if (has_imm_.NoBarrier_Load() != NULL) {
@@ -1348,6 +1670,9 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
       if (imm_ != NULL) {
         CompactMemTable();
         bg_cv_.SignalAll();  // Wakeup MakeRoomForWrite() if necessary
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       }
       mutex_.Unlock();
@@ -1357,7 +1682,11 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
     Slice key = input->key();
     if (compact->compaction->ShouldStopBefore(key) &&
 <<<<<<< HEAD
+<<<<<<< HEAD
         compact->builder != nullptr) {
+=======
+        compact->builder != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         compact->builder != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1377,8 +1706,13 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
     } else {
       if (!has_current_user_key ||
 <<<<<<< HEAD
+<<<<<<< HEAD
           user_comparator()->Compare(ikey.user_key, Slice(current_user_key)) !=
               0) {
+=======
+          user_comparator()->Compare(ikey.user_key,
+                                     Slice(current_user_key)) != 0) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
           user_comparator()->Compare(ikey.user_key,
                                      Slice(current_user_key)) != 0) {
@@ -1392,7 +1726,11 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
       if (last_sequence_for_key <= compact->smallest_snapshot) {
         // Hidden by an newer entry for same user key
 <<<<<<< HEAD
+<<<<<<< HEAD
         drop = true;  // (A)
+=======
+        drop = true;    // (A)
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         drop = true;    // (A)
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1424,7 +1762,11 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
     if (!drop) {
       // Open output file if necessary
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (compact->builder == nullptr) {
+=======
+      if (compact->builder == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       if (compact->builder == NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1453,15 +1795,21 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (status.ok() && shutting_down_.load(std::memory_order_acquire)) {
     status = Status::IOError("Deleting DB during compaction");
   }
   if (status.ok() && compact->builder != nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (status.ok() && shutting_down_.Acquire_Load()) {
     status = Status::IOError("Deleting DB during compaction");
   }
   if (status.ok() && compact->builder != NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     status = FinishCompactionOutputFile(compact, input);
   }
@@ -1470,7 +1818,11 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
   }
   delete input;
 <<<<<<< HEAD
+<<<<<<< HEAD
   input = nullptr;
+=======
+  input = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   input = NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1497,7 +1849,12 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
   }
   VersionSet::LevelSummaryStorage tmp;
 <<<<<<< HEAD
+<<<<<<< HEAD
   Log(options_.info_log, "compacted to: %s", versions_->LevelSummary(&tmp));
+=======
+  Log(options_.info_log,
+      "compacted to: %s", versions_->LevelSummary(&tmp));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Log(options_.info_log,
       "compacted to: %s", versions_->LevelSummary(&tmp));
@@ -1506,6 +1863,7 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
 }
 
 namespace {
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 struct IterState {
@@ -1517,11 +1875,16 @@ struct IterState {
   IterState(port::Mutex* mutex, MemTable* mem, MemTable* imm, Version* version)
       : mu(mutex), version(version), mem(mem), imm(imm) {}
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 struct IterState {
   port::Mutex* mu;
   Version* version;
   MemTable* mem;
   MemTable* imm;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
@@ -1530,7 +1893,11 @@ static void CleanupIteratorState(void* arg1, void* arg2) {
   state->mu->Lock();
   state->mem->Unref();
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (state->imm != nullptr) state->imm->Unref();
+=======
+  if (state->imm != NULL) state->imm->Unref();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (state->imm != NULL) state->imm->Unref();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1539,8 +1906,12 @@ static void CleanupIteratorState(void* arg1, void* arg2) {
   delete state;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 }  // anonymous namespace
+=======
+}  // namespace
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 }  // namespace
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1549,6 +1920,10 @@ Iterator* DBImpl::NewInternalIterator(const ReadOptions& options,
                                       SequenceNumber* latest_snapshot,
                                       uint32_t* seed) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  IterState* cleanup = new IterState;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   IterState* cleanup = new IterState;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1560,7 +1935,11 @@ Iterator* DBImpl::NewInternalIterator(const ReadOptions& options,
   list.push_back(mem_->NewIterator());
   mem_->Ref();
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (imm_ != nullptr) {
+=======
+  if (imm_ != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (imm_ != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1573,14 +1952,20 @@ Iterator* DBImpl::NewInternalIterator(const ReadOptions& options,
   versions_->current()->Ref();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   IterState* cleanup = new IterState(&mutex_, mem_, imm_, versions_->current());
   internal_iter->RegisterCleanup(CleanupIteratorState, cleanup, nullptr);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   cleanup->mu = &mutex_;
   cleanup->mem = mem_;
   cleanup->imm = imm_;
   cleanup->version = versions_->current();
   internal_iter->RegisterCleanup(CleanupIteratorState, cleanup, NULL);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   *seed = ++seed_;
@@ -1600,7 +1985,12 @@ int64_t DBImpl::TEST_MaxNextLevelOverlappingBytes() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status DBImpl::Get(const ReadOptions& options, const Slice& key,
+=======
+Status DBImpl::Get(const ReadOptions& options,
+                   const Slice& key,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Status DBImpl::Get(const ReadOptions& options,
                    const Slice& key,
@@ -1610,9 +2000,14 @@ Status DBImpl::Get(const ReadOptions& options,
   MutexLock l(&mutex_);
   SequenceNumber snapshot;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (options.snapshot != nullptr) {
     snapshot =
         static_cast<const SnapshotImpl*>(options.snapshot)->sequence_number();
+=======
+  if (options.snapshot != NULL) {
+    snapshot = reinterpret_cast<const SnapshotImpl*>(options.snapshot)->number_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (options.snapshot != NULL) {
     snapshot = reinterpret_cast<const SnapshotImpl*>(options.snapshot)->number_;
@@ -1626,7 +2021,11 @@ Status DBImpl::Get(const ReadOptions& options,
   Version* current = versions_->current();
   mem->Ref();
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (imm != nullptr) imm->Ref();
+=======
+  if (imm != NULL) imm->Ref();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (imm != NULL) imm->Ref();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1643,7 +2042,11 @@ Status DBImpl::Get(const ReadOptions& options,
     if (mem->Get(lkey, value, &s)) {
       // Done
 <<<<<<< HEAD
+<<<<<<< HEAD
     } else if (imm != nullptr && imm->Get(lkey, value, &s)) {
+=======
+    } else if (imm != NULL && imm->Get(lkey, value, &s)) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     } else if (imm != NULL && imm->Get(lkey, value, &s)) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1660,7 +2063,11 @@ Status DBImpl::Get(const ReadOptions& options,
   }
   mem->Unref();
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (imm != nullptr) imm->Unref();
+=======
+  if (imm != NULL) imm->Unref();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (imm != NULL) imm->Unref();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1673,6 +2080,7 @@ Iterator* DBImpl::NewIterator(const ReadOptions& options) {
   uint32_t seed;
   Iterator* iter = NewInternalIterator(options, &latest_snapshot, &seed);
 <<<<<<< HEAD
+<<<<<<< HEAD
   return NewDBIterator(this, user_comparator(), iter,
                        (options.snapshot != nullptr
                             ? static_cast<const SnapshotImpl*>(options.snapshot)
@@ -1680,12 +2088,17 @@ Iterator* DBImpl::NewIterator(const ReadOptions& options) {
                             : latest_snapshot),
                        seed);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return NewDBIterator(
       this, user_comparator(), iter,
       (options.snapshot != NULL
        ? reinterpret_cast<const SnapshotImpl*>(options.snapshot)->number_
        : latest_snapshot),
       seed);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -1702,9 +2115,15 @@ const Snapshot* DBImpl::GetSnapshot() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void DBImpl::ReleaseSnapshot(const Snapshot* snapshot) {
   MutexLock l(&mutex_);
   snapshots_.Delete(static_cast<const SnapshotImpl*>(snapshot));
+=======
+void DBImpl::ReleaseSnapshot(const Snapshot* s) {
+  MutexLock l(&mutex_);
+  snapshots_.Delete(reinterpret_cast<const SnapshotImpl*>(s));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void DBImpl::ReleaseSnapshot(const Snapshot* s) {
   MutexLock l(&mutex_);
@@ -1722,9 +2141,15 @@ Status DBImpl::Delete(const WriteOptions& options, const Slice& key) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status DBImpl::Write(const WriteOptions& options, WriteBatch* updates) {
   Writer w(&mutex_);
   w.batch = updates;
+=======
+Status DBImpl::Write(const WriteOptions& options, WriteBatch* my_batch) {
+  Writer w(&mutex_);
+  w.batch = my_batch;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Status DBImpl::Write(const WriteOptions& options, WriteBatch* my_batch) {
   Writer w(&mutex_);
@@ -1744,15 +2169,21 @@ Status DBImpl::Write(const WriteOptions& options, WriteBatch* my_batch) {
 
   // May temporarily unlock and wait.
 <<<<<<< HEAD
+<<<<<<< HEAD
   Status status = MakeRoomForWrite(updates == nullptr);
   uint64_t last_sequence = versions_->LastSequence();
   Writer* last_writer = &w;
   if (status.ok() && updates != nullptr) {  // nullptr batch is for compactions
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Status status = MakeRoomForWrite(my_batch == NULL);
   uint64_t last_sequence = versions_->LastSequence();
   Writer* last_writer = &w;
   if (status.ok() && my_batch != NULL) {  // NULL batch is for compactions
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     WriteBatch* updates = BuildBatchGroup(&last_writer);
     WriteBatchInternal::SetSequence(updates, last_sequence + 1);
@@ -1809,6 +2240,7 @@ Status DBImpl::Write(const WriteOptions& options, WriteBatch* my_batch) {
 
 // REQUIRES: Writer list must be non-empty
 <<<<<<< HEAD
+<<<<<<< HEAD
 // REQUIRES: First writer must have a non-null batch
 WriteBatch* DBImpl::BuildBatchGroup(Writer** last_writer) {
   mutex_.AssertHeld();
@@ -1817,12 +2249,17 @@ WriteBatch* DBImpl::BuildBatchGroup(Writer** last_writer) {
   WriteBatch* result = first->batch;
   assert(result != nullptr);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // REQUIRES: First writer must have a non-NULL batch
 WriteBatch* DBImpl::BuildBatchGroup(Writer** last_writer) {
   assert(!writers_.empty());
   Writer* first = writers_.front();
   WriteBatch* result = first->batch;
   assert(result != NULL);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   size_t size = WriteBatchInternal::ByteSize(first->batch);
@@ -1832,8 +2269,13 @@ WriteBatch* DBImpl::BuildBatchGroup(Writer** last_writer) {
   // down the small write too much.
   size_t max_size = 1 << 20;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (size <= (128 << 10)) {
     max_size = size + (128 << 10);
+=======
+  if (size <= (128<<10)) {
+    max_size = size + (128<<10);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (size <= (128<<10)) {
     max_size = size + (128<<10);
@@ -1851,7 +2293,11 @@ WriteBatch* DBImpl::BuildBatchGroup(Writer** last_writer) {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (w->batch != nullptr) {
+=======
+    if (w->batch != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (w->batch != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1888,8 +2334,14 @@ Status DBImpl::MakeRoomForWrite(bool force) {
       s = bg_error_;
       break;
 <<<<<<< HEAD
+<<<<<<< HEAD
     } else if (allow_delay && versions_->NumLevelFiles(0) >=
                                   config::kL0_SlowdownWritesTrigger) {
+=======
+    } else if (
+        allow_delay &&
+        versions_->NumLevelFiles(0) >= config::kL0_SlowdownWritesTrigger) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     } else if (
         allow_delay &&
@@ -1910,6 +2362,7 @@ Status DBImpl::MakeRoomForWrite(bool force) {
       // There is room in current memtable
       break;
 <<<<<<< HEAD
+<<<<<<< HEAD
     } else if (imm_ != nullptr) {
       // We have filled up the current memtable, but the previous
       // one is still being compacted, so we wait.
@@ -1920,6 +2373,8 @@ Status DBImpl::MakeRoomForWrite(bool force) {
       Log(options_.info_log, "Too many L0 files; waiting...\n");
       background_work_finished_signal_.Wait();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     } else if (imm_ != NULL) {
       // We have filled up the current memtable, but the previous
       // one is still being compacted, so we wait.
@@ -1929,13 +2384,20 @@ Status DBImpl::MakeRoomForWrite(bool force) {
       // There are too many level-0 files.
       Log(options_.info_log, "Too many L0 files; waiting...\n");
       bg_cv_.Wait();
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     } else {
       // Attempt to switch to a new memtable and trigger compaction of old
       assert(versions_->PrevLogNumber() == 0);
       uint64_t new_log_number = versions_->NewFileNumber();
 <<<<<<< HEAD
+<<<<<<< HEAD
       WritableFile* lfile = nullptr;
+=======
+      WritableFile* lfile = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       WritableFile* lfile = NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -1952,15 +2414,21 @@ Status DBImpl::MakeRoomForWrite(bool force) {
       log_ = new log::Writer(lfile);
       imm_ = mem_;
 <<<<<<< HEAD
+<<<<<<< HEAD
       has_imm_.store(true, std::memory_order_release);
       mem_ = new MemTable(internal_comparator_);
       mem_->Ref();
       force = false;  // Do not force another compaction if have room
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       has_imm_.Release_Store(imm_);
       mem_ = new MemTable(internal_comparator_);
       mem_->Ref();
       force = false;   // Do not force another compaction if have room
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       MaybeScheduleCompaction();
     }
@@ -1996,7 +2464,12 @@ bool DBImpl::GetProperty(const Slice& property, std::string* value) {
              "                               Compactions\n"
              "Level  Files Size(MB) Time(sec) Read(MB) Write(MB)\n"
 <<<<<<< HEAD
+<<<<<<< HEAD
              "--------------------------------------------------\n");
+=======
+             "--------------------------------------------------\n"
+             );
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
              "--------------------------------------------------\n"
              );
@@ -2006,12 +2479,15 @@ bool DBImpl::GetProperty(const Slice& property, std::string* value) {
       int files = versions_->NumLevelFiles(level);
       if (stats_[level].micros > 0 || files > 0) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         snprintf(buf, sizeof(buf), "%3d %8d %8.0f %9.0f %8.0f %9.0f\n", level,
                  files, versions_->NumLevelBytes(level) / 1048576.0,
                  stats_[level].micros / 1e6,
                  stats_[level].bytes_read / 1048576.0,
                  stats_[level].bytes_written / 1048576.0);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         snprintf(
             buf, sizeof(buf),
             "%3d %8d %8.0f %9.0f %8.0f %9.0f\n",
@@ -2021,6 +2497,9 @@ bool DBImpl::GetProperty(const Slice& property, std::string* value) {
             stats_[level].micros / 1e6,
             stats_[level].bytes_read / 1048576.0,
             stats_[level].bytes_written / 1048576.0);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         value->append(buf);
       }
@@ -2048,7 +2527,13 @@ bool DBImpl::GetProperty(const Slice& property, std::string* value) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void DBImpl::GetApproximateSizes(const Range* range, int n, uint64_t* sizes) {
+=======
+void DBImpl::GetApproximateSizes(
+    const Range* range, int n,
+    uint64_t* sizes) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void DBImpl::GetApproximateSizes(
     const Range* range, int n,
@@ -2092,16 +2577,22 @@ Status DB::Delete(const WriteOptions& opt, const Slice& key) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 DB::~DB() {}
 
 Status DB::Open(const Options& options, const std::string& dbname, DB** dbptr) {
   *dbptr = nullptr;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 DB::~DB() { }
 
 Status DB::Open(const Options& options, const std::string& dbname,
                 DB** dbptr) {
   *dbptr = NULL;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   DBImpl* impl = new DBImpl(options, dbname);
@@ -2111,7 +2602,11 @@ Status DB::Open(const Options& options, const std::string& dbname,
   bool save_manifest = false;
   Status s = impl->Recover(&edit, &save_manifest);
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (s.ok() && impl->mem_ == nullptr) {
+=======
+  if (s.ok() && impl->mem_ == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (s.ok() && impl->mem_ == NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -2141,7 +2636,11 @@ Status DB::Open(const Options& options, const std::string& dbname,
   impl->mutex_.Unlock();
   if (s.ok()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     assert(impl->mem_ != nullptr);
+=======
+    assert(impl->mem_ != NULL);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     assert(impl->mem_ != NULL);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -2153,7 +2652,12 @@ Status DB::Open(const Options& options, const std::string& dbname,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Snapshot::~Snapshot() {}
+=======
+Snapshot::~Snapshot() {
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Snapshot::~Snapshot() {
 }
@@ -2163,9 +2667,15 @@ Status DestroyDB(const std::string& dbname, const Options& options) {
   Env* env = options.env;
   std::vector<std::string> filenames;
 <<<<<<< HEAD
+<<<<<<< HEAD
   Status result = env->GetChildren(dbname, &filenames);
   if (!result.ok()) {
     // Ignore error in case directory does not exist
+=======
+  // Ignore error in case directory does not exist
+  env->GetChildren(dbname, &filenames);
+  if (filenames.empty()) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // Ignore error in case directory does not exist
   env->GetChildren(dbname, &filenames);
@@ -2177,7 +2687,11 @@ Status DestroyDB(const std::string& dbname, const Options& options) {
   FileLock* lock;
   const std::string lockname = LockFileName(dbname);
 <<<<<<< HEAD
+<<<<<<< HEAD
   result = env->LockFile(lockname, &lock);
+=======
+  Status result = env->LockFile(lockname, &lock);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Status result = env->LockFile(lockname, &lock);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

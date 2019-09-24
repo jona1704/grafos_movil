@@ -105,17 +105,23 @@ class Reader {
    * If this Reader's status is already !ok(), then this may augment the
    * description, but will otherwise leave it alone. Otherwise, this Reader's
 <<<<<<< HEAD
+<<<<<<< HEAD
    * status will be set to Error::DataLoss with the specified
    * description.
    */
   void Fail(absl::string_view description) {
     status_.Update(util::Status(Error::DataLoss, description));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
    * status will be set to FirestoreErrorCode::DataLoss with the specified
    * description.
    */
   void Fail(const absl::string_view description) {
     status_.Update(util::Status(FirestoreErrorCode::DataLoss, description));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 

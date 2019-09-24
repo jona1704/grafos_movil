@@ -3,10 +3,14 @@
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "leveldb/dumpfile.h"
 
 #include <stdio.h>
 
+=======
+#include <stdio.h>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <stdio.h>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -43,6 +47,10 @@ bool GuessType(const std::string& fname, FileType* type) {
 class CorruptionReporter : public log::Reader::Reporter {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  WritableFile* dst_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   WritableFile* dst_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -55,8 +63,11 @@ class CorruptionReporter : public log::Reader::Reporter {
     dst_->Append(r);
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   WritableFile* dst_;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
@@ -86,6 +97,10 @@ Status PrintLogContents(Env* env, const std::string& fname,
 class WriteBatchItemPrinter : public WriteBatch::Handler {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  WritableFile* dst_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   WritableFile* dst_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -104,10 +119,16 @@ class WriteBatchItemPrinter : public WriteBatch::Handler {
     dst_->Append(r);
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   WritableFile* dst_;
 };
 
+=======
+};
+
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 };
 
@@ -168,8 +189,13 @@ Status DumpDescriptor(Env* env, const std::string& fname, WritableFile* dst) {
 Status DumpTable(Env* env, const std::string& fname, WritableFile* dst) {
   uint64_t file_size;
 <<<<<<< HEAD
+<<<<<<< HEAD
   RandomAccessFile* file = nullptr;
   Table* table = nullptr;
+=======
+  RandomAccessFile* file = NULL;
+  Table* table = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   RandomAccessFile* file = NULL;
   Table* table = NULL;
@@ -244,12 +270,18 @@ Status DumpFile(Env* env, const std::string& fname, WritableFile* dst) {
   }
   switch (ftype) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     case kLogFile:
       return DumpLog(env, fname, dst);
     case kDescriptorFile:
       return DumpDescriptor(env, fname, dst);
     case kTableFile:
       return DumpTable(env, fname, dst);
+=======
+    case kLogFile:         return DumpLog(env, fname, dst);
+    case kDescriptorFile:  return DumpDescriptor(env, fname, dst);
+    case kTableFile:       return DumpTable(env, fname, dst);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     case kLogFile:         return DumpLog(env, fname, dst);
     case kDescriptorFile:  return DumpDescriptor(env, fname, dst);

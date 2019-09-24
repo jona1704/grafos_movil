@@ -5,9 +5,15 @@
 #include "db/db_iter.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "db/db_impl.h"
 #include "db/dbformat.h"
 #include "db/filename.h"
+=======
+#include "db/filename.h"
+#include "db/db_impl.h"
+#include "db/dbformat.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include "db/filename.h"
 #include "db/db_impl.h"
@@ -43,7 +49,11 @@ namespace {
 // representation into a single entry while accounting for sequence
 // numbers, deletion markers, overwrites, etc.
 <<<<<<< HEAD
+<<<<<<< HEAD
 class DBIter : public Iterator {
+=======
+class DBIter: public Iterator {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 class DBIter: public Iterator {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -54,12 +64,18 @@ class DBIter: public Iterator {
   // (2) When moving backwards, the internal iterator is positioned
   //     just before all entries whose user key == this->key().
 <<<<<<< HEAD
+<<<<<<< HEAD
   enum Direction { kForward, kReverse };
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   enum Direction {
     kForward,
     kReverse
   };
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   DBIter(DBImpl* db, const Comparator* cmp, Iterator* iter, SequenceNumber s,
@@ -72,6 +88,7 @@ class DBIter: public Iterator {
         valid_(false),
         rnd_(seed),
 <<<<<<< HEAD
+<<<<<<< HEAD
         bytes_until_read_sampling_(RandomCompactionPeriod()) {}
 
   DBIter(const DBIter&) = delete;
@@ -79,11 +96,16 @@ class DBIter: public Iterator {
 
   virtual ~DBIter() { delete iter_; }
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         bytes_counter_(RandomPeriod()) {
   }
   virtual ~DBIter() {
     delete iter_;
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual bool Valid() const { return valid_; }
   virtual Slice key() const {
@@ -127,9 +149,15 @@ class DBIter: public Iterator {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Picks the number of bytes that can be read until a compaction is scheduled.
   size_t RandomCompactionPeriod() {
     return rnd_.Uniform(2 * config::kReadBytesPeriod);
+=======
+  // Pick next gap with average value of config::kReadBytesPeriod.
+  ssize_t RandomPeriod() {
+    return rnd_.Uniform(2*config::kReadBytesPeriod);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // Pick next gap with average value of config::kReadBytesPeriod.
   ssize_t RandomPeriod() {
@@ -142,6 +170,7 @@ class DBIter: public Iterator {
   Iterator* const iter_;
   SequenceNumber const sequence_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   Status status_;
   std::string saved_key_;    // == current key when direction_==kReverse
   std::string saved_value_;  // == current raw value when direction_==kReverse
@@ -150,6 +179,8 @@ class DBIter: public Iterator {
   Random rnd_;
   size_t bytes_until_read_sampling_;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   Status status_;
   std::string saved_key_;     // == current key when direction_==kReverse
@@ -163,11 +194,15 @@ class DBIter: public Iterator {
   // No copying allowed
   DBIter(const DBIter&);
   void operator=(const DBIter&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 inline bool DBIter::ParseKey(ParsedInternalKey* ikey) {
   Slice k = iter_->key();
+<<<<<<< HEAD
 <<<<<<< HEAD
 
   size_t bytes_read = k.size() + iter_->value().size();
@@ -179,12 +214,17 @@ inline bool DBIter::ParseKey(ParsedInternalKey* ikey) {
   bytes_until_read_sampling_ -= bytes_read;
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   ssize_t n = k.size() + iter_->value().size();
   bytes_counter_ -= n;
   while (bytes_counter_ < 0) {
     bytes_counter_ += RandomPeriod();
     db_->RecordReadSample(k);
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (!ParseInternalKey(k, ikey)) {
     status_ = Status::Corruption("corrupted internal key in DBIter");
@@ -270,8 +310,13 @@ void DBIter::Prev() {
         return;
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (user_comparator_->Compare(ExtractUserKey(iter_->key()), saved_key_) <
           0) {
+=======
+      if (user_comparator_->Compare(ExtractUserKey(iter_->key()),
+                                    saved_key_) < 0) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       if (user_comparator_->Compare(ExtractUserKey(iter_->key()),
                                     saved_key_) < 0) {
@@ -332,8 +377,13 @@ void DBIter::Seek(const Slice& target) {
   ClearSavedValue();
   saved_key_.clear();
 <<<<<<< HEAD
+<<<<<<< HEAD
   AppendInternalKey(&saved_key_,
                     ParsedInternalKey(target, sequence_, kValueTypeForSeek));
+=======
+  AppendInternalKey(
+      &saved_key_, ParsedInternalKey(target, sequence_, kValueTypeForSeek));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   AppendInternalKey(
       &saved_key_, ParsedInternalKey(target, sequence_, kValueTypeForSeek));
@@ -367,16 +417,22 @@ void DBIter::SeekToLast() {
 }  // anonymous namespace
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Iterator* NewDBIterator(DBImpl* db, const Comparator* user_key_comparator,
                         Iterator* internal_iter, SequenceNumber sequence,
                         uint32_t seed) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Iterator* NewDBIterator(
     DBImpl* db,
     const Comparator* user_key_comparator,
     Iterator* internal_iter,
     SequenceNumber sequence,
     uint32_t seed) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return new DBIter(db, user_key_comparator, internal_iter, sequence, seed);
 }

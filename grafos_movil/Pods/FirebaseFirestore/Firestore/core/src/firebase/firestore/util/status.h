@@ -47,7 +47,11 @@ class ABSL_MUST_USE_RESULT Status {
   /// \brief Create a status with the specified error code and msg as a
   /// human-readable string containing more detailed information.
 <<<<<<< HEAD
+<<<<<<< HEAD
   Status(Error code, absl::string_view msg);
+=======
+  Status(FirestoreErrorCode code, absl::string_view msg);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Status(FirestoreErrorCode code, absl::string_view msg);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -79,8 +83,13 @@ class ABSL_MUST_USE_RESULT Status {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Error code() const {
     return ok() ? Error::Ok : state_->code;
+=======
+  FirestoreErrorCode code() const {
+    return ok() ? FirestoreErrorCode::Ok : state_->code;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FirestoreErrorCode code() const {
     return ok() ? FirestoreErrorCode::Ok : state_->code;
@@ -129,7 +138,11 @@ class ABSL_MUST_USE_RESULT Status {
     State(const State& other);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     Error code;
+=======
+    FirestoreErrorCode code;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     FirestoreErrorCode code;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -160,7 +173,11 @@ class PlatformError {
    * this PlatformError.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual std::unique_ptr<PlatformError> WrapWith(Error code,
+=======
+  virtual std::unique_ptr<PlatformError> WrapWith(FirestoreErrorCode code,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual std::unique_ptr<PlatformError> WrapWith(FirestoreErrorCode code,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

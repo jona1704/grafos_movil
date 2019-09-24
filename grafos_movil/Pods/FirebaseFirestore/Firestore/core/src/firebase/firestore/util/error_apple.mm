@@ -31,15 +31,21 @@ namespace util {
 
 // Translates a set of error_code and error_msg to an NSError.
 <<<<<<< HEAD
+<<<<<<< HEAD
 NSError* MakeNSError(int64_t error_code,
                      absl::string_view error_msg,
                      NSError* cause) {
   if (error_code == Error::Ok) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 NSError* MakeNSError(const int64_t error_code,
                      const absl::string_view error_msg,
                      NSError* cause) {
   if (error_code == FirestoreErrorCode::Ok) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     return nil;
   }

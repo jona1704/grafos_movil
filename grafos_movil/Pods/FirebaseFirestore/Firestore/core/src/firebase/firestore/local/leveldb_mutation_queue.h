@@ -40,12 +40,18 @@
 @class FSTLevelDB;
 @class FSTLocalSerializer;
 <<<<<<< HEAD
+<<<<<<< HEAD
 @class FSTPBMutationQueue;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class FSTMutation;
 @class FSTMutationBatch;
 @class FSTPBMutationQueue;
 @class FSTQuery;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 NS_ASSUME_NONNULL_BEGIN
@@ -70,6 +76,7 @@ class LevelDbMutationQueue : public MutationQueue {
 
   bool IsEmpty() override;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   void AcknowledgeBatch(const model::MutationBatch& batch,
                         const nanopb::ByteString& stream_token) override;
@@ -106,6 +113,8 @@ class LevelDbMutationQueue : public MutationQueue {
 
   void SetLastStreamToken(const nanopb::ByteString& stream_token) override;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void AcknowledgeBatch(FSTMutationBatch* batch,
                         NSData* _Nullable stream_token) override;
 
@@ -138,6 +147,9 @@ class LevelDbMutationQueue : public MutationQueue {
   NSData* _Nullable GetLastStreamToken() override;
 
   void SetLastStreamToken(NSData* _Nullable stream_token) override;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:
@@ -146,7 +158,11 @@ class LevelDbMutationQueue : public MutationQueue {
    * multiple mutations affecting the same document key are applied in order.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<model::MutationBatch> AllMutationBatchesWithIds(
+=======
+  std::vector<FSTMutationBatch*> AllMutationBatchesWithIds(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutationBatch*> AllMutationBatchesWithIds(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -164,7 +180,11 @@ class LevelDbMutationQueue : public MutationQueue {
   FSTPBMutationQueue* _Nullable MetadataForKey(const std::string& key);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::MutationBatch ParseMutationBatch(absl::string_view encoded);
+=======
+  FSTMutationBatch* ParseMutationBatch(absl::string_view encoded);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTMutationBatch* ParseMutationBatch(absl::string_view encoded);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

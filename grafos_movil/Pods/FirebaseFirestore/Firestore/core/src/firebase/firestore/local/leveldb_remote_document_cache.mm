@@ -22,13 +22,19 @@
 
 #import "Firestore/Protos/objc/firestore/local/MaybeDocument.pbobjc.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #import "Firestore/Source/Local/FSTLevelDB.h"
 #import "Firestore/Source/Local/FSTLocalSerializer.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Local/FSTLevelDB.h"
 #import "Firestore/Source/Local/FSTLocalSerializer.h"
 #import "Firestore/Source/Model/FSTDocument.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 #include "Firestore/core/src/firebase/firestore/local/leveldb_key.h"
@@ -36,18 +42,25 @@
 #include "leveldb/db.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::model::DocumentKey;
 using firebase::firestore::model::DocumentKeySet;
 using firebase::firestore::model::DocumentMap;
 using firebase::firestore::model::MaybeDocumentMap;
 using leveldb::Status;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
 namespace local {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 using core::Query;
 using model::Document;
@@ -61,11 +74,14 @@ using leveldb::Status;
 
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 LevelDbRemoteDocumentCache::LevelDbRemoteDocumentCache(
     FSTLevelDB* db, FSTLocalSerializer* serializer)
     : db_(db), serializer_(serializer) {
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 void LevelDbRemoteDocumentCache::Add(const MaybeDocument& document) {
   std::string ldb_key = LevelDbRemoteDocumentKey::Key(document.key());
@@ -74,12 +90,17 @@ void LevelDbRemoteDocumentCache::Add(const MaybeDocument& document) {
 
   db_.indexManager->AddToCollectionParentIndex(document.key().path().PopLast());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void LevelDbRemoteDocumentCache::Add(FSTMaybeDocument* document) {
   std::string ldb_key = LevelDbRemoteDocumentKey::Key(document.key);
   db_.currentTransaction->Put(ldb_key,
                               [serializer_ encodedMaybeDocument:document]);
 
   db_.indexManager->AddToCollectionParentIndex(document.key.path().PopLast());
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -89,7 +110,11 @@ void LevelDbRemoteDocumentCache::Remove(const DocumentKey& key) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 absl::optional<MaybeDocument> LevelDbRemoteDocumentCache::Get(
+=======
+FSTMaybeDocument* _Nullable LevelDbRemoteDocumentCache::Get(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 FSTMaybeDocument* _Nullable LevelDbRemoteDocumentCache::Get(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -99,7 +124,11 @@ FSTMaybeDocument* _Nullable LevelDbRemoteDocumentCache::Get(
   Status status = db_.currentTransaction->Get(ldb_key, &value);
   if (status.IsNotFound()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return absl::nullopt;
+=======
+    return nil;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     return nil;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -112,9 +141,15 @@ FSTMaybeDocument* _Nullable LevelDbRemoteDocumentCache::Get(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 OptionalMaybeDocumentMap LevelDbRemoteDocumentCache::GetAll(
     const DocumentKeySet& keys) {
   OptionalMaybeDocumentMap results;
+=======
+MaybeDocumentMap LevelDbRemoteDocumentCache::GetAll(
+    const DocumentKeySet& keys) {
+  MaybeDocumentMap results;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 MaybeDocumentMap LevelDbRemoteDocumentCache::GetAll(
     const DocumentKeySet& keys) {
@@ -129,7 +164,11 @@ MaybeDocumentMap LevelDbRemoteDocumentCache::GetAll(
     if (!it->Valid() || !currentKey.Decode(it->key()) ||
         currentKey.document_key() != key) {
 <<<<<<< HEAD
+<<<<<<< HEAD
       results = results.insert(key, absl::nullopt);
+=======
+      results = results.insert(key, nil);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       results = results.insert(key, nil);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -142,9 +181,15 @@ MaybeDocumentMap LevelDbRemoteDocumentCache::GetAll(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 DocumentMap LevelDbRemoteDocumentCache::GetMatching(const Query& query) {
   HARD_ASSERT(
       !query.IsCollectionGroupQuery(),
+=======
+DocumentMap LevelDbRemoteDocumentCache::GetMatching(FSTQuery* query) {
+  HARD_ASSERT(
+      ![query isCollectionGroupQuery],
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 DocumentMap LevelDbRemoteDocumentCache::GetMatching(FSTQuery* query) {
   HARD_ASSERT(
@@ -156,7 +201,11 @@ DocumentMap LevelDbRemoteDocumentCache::GetMatching(FSTQuery* query) {
 
   // Use the query path as a prefix for testing if a document matches the query.
 <<<<<<< HEAD
+<<<<<<< HEAD
   const model::ResourcePath& query_path = query.path();
+=======
+  const model::ResourcePath& query_path = query.path;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   const model::ResourcePath& query_path = query.path;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -181,12 +230,15 @@ DocumentMap LevelDbRemoteDocumentCache::GetMatching(FSTQuery* query) {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     MaybeDocument maybe_doc = DecodeMaybeDocument(it->value(), document_key);
     if (!query_path.IsPrefixOf(maybe_doc.key().path())) {
       break;
     } else if (maybe_doc.is_document()) {
       results = results.insert(maybe_doc.key(), Document(maybe_doc));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     FSTMaybeDocument* maybe_doc =
         DecodeMaybeDocument(it->value(), document_key);
     if (!query_path.IsPrefixOf(maybe_doc.key.path())) {
@@ -194,6 +246,9 @@ DocumentMap LevelDbRemoteDocumentCache::GetMatching(FSTQuery* query) {
     } else if ([maybe_doc isKindOfClass:[FSTDocument class]]) {
       results =
           results.insert(maybe_doc.key, static_cast<FSTDocument*>(maybe_doc));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
   }
@@ -202,7 +257,11 @@ DocumentMap LevelDbRemoteDocumentCache::GetMatching(FSTQuery* query) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 MaybeDocument LevelDbRemoteDocumentCache::DecodeMaybeDocument(
+=======
+FSTMaybeDocument* LevelDbRemoteDocumentCache::DecodeMaybeDocument(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 FSTMaybeDocument* LevelDbRemoteDocumentCache::DecodeMaybeDocument(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -219,15 +278,21 @@ FSTMaybeDocument* LevelDbRemoteDocumentCache::DecodeMaybeDocument(
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   MaybeDocument maybeDocument = [serializer_ decodedMaybeDocument:proto];
   HARD_ASSERT(maybeDocument.key() == key,
               "Read document has key (%s) instead of expected key (%s).",
               maybeDocument.key().ToString(), key.ToString());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   FSTMaybeDocument* maybeDocument = [serializer_ decodedMaybeDocument:proto];
   HARD_ASSERT(maybeDocument.key == key,
               "Read document has key (%s) instead of expected key (%s).",
               maybeDocument.key.ToString(), key.ToString());
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return maybeDocument;
 }

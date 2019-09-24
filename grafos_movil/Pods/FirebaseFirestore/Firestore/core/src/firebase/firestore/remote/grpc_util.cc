@@ -40,7 +40,11 @@ Status ConvertStatus(const grpc::Status& from) {
       "Unknown gRPC error code: %s", error_code);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return {static_cast<Error>(error_code), from.error_message()};
+=======
+  return {static_cast<FirestoreErrorCode>(error_code), from.error_message()};
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return {static_cast<FirestoreErrorCode>(error_code), from.error_message()};
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

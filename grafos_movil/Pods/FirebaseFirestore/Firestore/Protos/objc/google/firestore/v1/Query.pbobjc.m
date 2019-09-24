@@ -543,7 +543,11 @@ GPBEnumDescriptor *GCFSStructuredQuery_FieldFilter_Operator_EnumDescriptor(void)
         "OperatorUnspecified\000LessThan\000LessThanOrE"
         "qual\000GreaterThan\000GreaterThanOrEqual\000Equa"
 <<<<<<< HEAD
+<<<<<<< HEAD
         "l\000ArrayContains\000In\000ArrayContainsAny\000";
+=======
+        "l\000ArrayContains\000";
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         "l\000ArrayContains\000";
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -556,8 +560,11 @@ GPBEnumDescriptor *GCFSStructuredQuery_FieldFilter_Operator_EnumDescriptor(void)
         GCFSStructuredQuery_FieldFilter_Operator_Equal,
         GCFSStructuredQuery_FieldFilter_Operator_ArrayContains,
 <<<<<<< HEAD
+<<<<<<< HEAD
         GCFSStructuredQuery_FieldFilter_Operator_In,
         GCFSStructuredQuery_FieldFilter_Operator_ArrayContainsAny,
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     };
@@ -584,8 +591,11 @@ BOOL GCFSStructuredQuery_FieldFilter_Operator_IsValidValue(int32_t value__) {
     case GCFSStructuredQuery_FieldFilter_Operator_Equal:
     case GCFSStructuredQuery_FieldFilter_Operator_ArrayContains:
 <<<<<<< HEAD
+<<<<<<< HEAD
     case GCFSStructuredQuery_FieldFilter_Operator_In:
     case GCFSStructuredQuery_FieldFilter_Operator_ArrayContainsAny:
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       return YES;

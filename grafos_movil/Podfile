@@ -7,10 +7,16 @@ target 'Prueba' do
 
   # Pods for Prueba
 <<<<<<< HEAD
+<<<<<<< HEAD
   pod 'Firebase/Analytics'
   pod 'Firebase/Core'
   pod 'FirebaseUI/Auth'
   pod 'Firebase/Firestore'
+=======
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'

@@ -28,7 +28,11 @@ void Helper::HandleInvalidStatusCtorArg(Status* status) {
   HARD_FAIL("%s", kMessage);
   // Fall back to Internal for non-debug builds
 <<<<<<< HEAD
+<<<<<<< HEAD
   *status = Status(Error::Internal, kMessage);
+=======
+  *status = Status(FirestoreErrorCode::Internal, kMessage);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   *status = Status(FirestoreErrorCode::Internal, kMessage);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

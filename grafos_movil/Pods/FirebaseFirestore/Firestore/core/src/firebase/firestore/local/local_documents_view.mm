@@ -20,6 +20,7 @@
 #include <utility>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/local/mutation_queue.h"
 #include "Firestore/core/src/firebase/firestore/local/remote_document_cache.h"
 #include "Firestore/core/src/firebase/firestore/model/document.h"
@@ -27,6 +28,8 @@
 #include "Firestore/core/src/firebase/firestore/model/document_map.h"
 #include "Firestore/core/src/firebase/firestore/model/no_document.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Model/FSTDocument.h"
 #import "Firestore/Source/Model/FSTMutation.h"
@@ -36,6 +39,9 @@
 #include "Firestore/core/src/firebase/firestore/local/remote_document_cache.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_map.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/resource_path.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
@@ -47,6 +53,7 @@ namespace firebase {
 namespace firestore {
 namespace local {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 using core::Query;
 using model::Document;
@@ -60,19 +67,30 @@ using model::MutationBatch;
 using model::NoDocument;
 using model::OptionalMaybeDocumentMap;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using model::DocumentKey;
 using model::DocumentKeySet;
 using model::DocumentMap;
 using model::MaybeDocumentMap;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using model::ResourcePath;
 using model::SnapshotVersion;
 using util::MakeString;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 absl::optional<MaybeDocument> LocalDocumentsView::GetDocument(
     const DocumentKey& key) {
   std::vector<MutationBatch> batches =
+=======
+FSTMaybeDocument* _Nullable LocalDocumentsView::GetDocument(
+    const DocumentKey& key) {
+  std::vector<FSTMutationBatch*> batches =
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 FSTMaybeDocument* _Nullable LocalDocumentsView::GetDocument(
     const DocumentKey& key) {
@@ -83,23 +101,30 @@ FSTMaybeDocument* _Nullable LocalDocumentsView::GetDocument(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 absl::optional<MaybeDocument> LocalDocumentsView::GetDocument(
     const DocumentKey& key, const std::vector<MutationBatch>& batches) {
   absl::optional<MaybeDocument> document = remote_document_cache_->Get(key);
   for (const MutationBatch& batch : batches) {
     document = batch.ApplyToLocalDocument(document, key);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 FSTMaybeDocument* _Nullable LocalDocumentsView::GetDocument(
     const DocumentKey& key, const std::vector<FSTMutationBatch*>& batches) {
   FSTMaybeDocument* _Nullable document = remote_document_cache_->Get(key);
   for (FSTMutationBatch* batch : batches) {
     document = [batch applyToLocalDocument:document documentKey:key];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
   return document;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 OptionalMaybeDocumentMap LocalDocumentsView::ApplyLocalMutationsToDocuments(
     const OptionalMaybeDocumentMap& docs,
@@ -112,6 +137,8 @@ OptionalMaybeDocumentMap LocalDocumentsView::ApplyLocalMutationsToDocuments(
     for (const MutationBatch& batch : batches) {
       local_view = batch.ApplyToLocalDocument(local_view, key);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 MaybeDocumentMap LocalDocumentsView::ApplyLocalMutationsToDocuments(
     const MaybeDocumentMap& docs,
     const std::vector<FSTMutationBatch*>& batches) {
@@ -122,6 +149,9 @@ MaybeDocumentMap LocalDocumentsView::ApplyLocalMutationsToDocuments(
     FSTMaybeDocument* local_view = kv.second;
     for (FSTMutationBatch* batch : batches) {
       local_view = [batch applyToLocalDocument:local_view documentKey:key];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
     results = results.insert(key, local_view);
@@ -131,7 +161,11 @@ MaybeDocumentMap LocalDocumentsView::ApplyLocalMutationsToDocuments(
 
 MaybeDocumentMap LocalDocumentsView::GetDocuments(const DocumentKeySet& keys) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   OptionalMaybeDocumentMap docs = remote_document_cache_->GetAll(keys);
+=======
+  MaybeDocumentMap docs = remote_document_cache_->GetAll(keys);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   MaybeDocumentMap docs = remote_document_cache_->GetAll(keys);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -144,7 +178,13 @@ MaybeDocumentMap LocalDocumentsView::GetDocuments(const DocumentKeySet& keys) {
  */
 MaybeDocumentMap LocalDocumentsView::GetLocalViewOfDocuments(
 <<<<<<< HEAD
+<<<<<<< HEAD
     const OptionalMaybeDocumentMap& base_docs) {
+=======
+    const MaybeDocumentMap& base_docs) {
+  MaybeDocumentMap results;
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     const MaybeDocumentMap& base_docs) {
   MaybeDocumentMap results;
@@ -154,6 +194,7 @@ MaybeDocumentMap LocalDocumentsView::GetLocalViewOfDocuments(
   for (const auto& kv : base_docs) {
     all_keys = all_keys.insert(kv.first);
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
   std::vector<MutationBatch> batches =
       mutation_queue_->AllMutationBatchesAffectingDocumentKeys(all_keys);
@@ -173,6 +214,8 @@ MaybeDocumentMap LocalDocumentsView::GetLocalViewOfDocuments(
     }
     results = results.insert(key, *maybe_doc);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::vector<FSTMutationBatch*> batches =
       mutation_queue_->AllMutationBatchesAffectingDocumentKeys(all_keys);
 
@@ -189,6 +232,9 @@ MaybeDocumentMap LocalDocumentsView::GetLocalViewOfDocuments(
                                 hasCommittedMutations:NO];
     }
     results = results.insert(key, maybe_doc);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -196,15 +242,21 @@ MaybeDocumentMap LocalDocumentsView::GetLocalViewOfDocuments(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 DocumentMap LocalDocumentsView::GetDocumentsMatchingQuery(const Query& query) {
   if (query.IsDocumentQuery()) {
     return GetDocumentsMatchingDocumentQuery(query.path());
   } else if (query.IsCollectionGroupQuery()) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 DocumentMap LocalDocumentsView::GetDocumentsMatchingQuery(FSTQuery* query) {
   if ([query isDocumentQuery]) {
     return GetDocumentsMatchingDocumentQuery(query.path);
   } else if ([query isCollectionGroupQuery]) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     return GetDocumentsMatchingCollectionGroupQuery(query);
   } else {
@@ -217,9 +269,15 @@ DocumentMap LocalDocumentsView::GetDocumentsMatchingDocumentQuery(
   DocumentMap result;
   // Just do a simple document lookup.
 <<<<<<< HEAD
+<<<<<<< HEAD
   absl::optional<MaybeDocument> doc = GetDocument(DocumentKey{doc_path});
   if (doc && doc->is_document()) {
     result = result.insert(doc->key(), Document(*doc));
+=======
+  FSTMaybeDocument* doc = GetDocument(DocumentKey{doc_path});
+  if ([doc isKindOfClass:[FSTDocument class]]) {
+    result = result.insert(doc.key, static_cast<FSTDocument*>(doc));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTMaybeDocument* doc = GetDocument(DocumentKey{doc_path});
   if ([doc isKindOfClass:[FSTDocument class]]) {
@@ -231,6 +289,7 @@ DocumentMap LocalDocumentsView::GetDocumentsMatchingDocumentQuery(
 
 model::DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionGroupQuery(
 <<<<<<< HEAD
+<<<<<<< HEAD
     const Query& query) {
   HARD_ASSERT(
       query.path().empty(),
@@ -238,12 +297,17 @@ model::DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionGroupQuery(
 
   const std::string& collection_id = *query.collection_group();
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     FSTQuery* query) {
   HARD_ASSERT(
       query.path.empty(),
       "Currently we only support collection group queries at the root.");
 
   const std::string& collection_id = *query.collectionGroup;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::vector<ResourcePath> parents =
       index_manager_->GetCollectionParents(collection_id);
@@ -253,8 +317,13 @@ model::DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionGroupQuery(
   // collection_id and aggregate the results.
   for (const ResourcePath& parent : parents) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     Query collection_query =
         query.AsCollectionQueryAtPath(parent.Append(collection_id));
+=======
+    FSTQuery* collection_query =
+        [query collectionQueryAtPath:parent.Append(collection_id)];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     FSTQuery* collection_query =
         [query collectionQueryAtPath:parent.Append(collection_id)];
@@ -264,7 +333,12 @@ model::DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionGroupQuery(
     for (const auto& kv : collection_results.underlying_map()) {
       const DocumentKey& key = kv.first;
 <<<<<<< HEAD
+<<<<<<< HEAD
       results = results.insert(key, Document(kv.second));
+=======
+      FSTDocument* doc = static_cast<FSTDocument*>(kv.second);
+      results = results.insert(key, doc);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       FSTDocument* doc = static_cast<FSTDocument*>(kv.second);
       results = results.insert(key, doc);
@@ -275,6 +349,7 @@ model::DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionGroupQuery(
 }
 
 DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionQuery(
+<<<<<<< HEAD
 <<<<<<< HEAD
     const Query& query) {
   DocumentMap results = remote_document_cache_->GetMatching(query);
@@ -303,6 +378,8 @@ DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionQuery(
       if (mutated_doc && mutated_doc->is_document()) {
         results = results.insert(key, Document(*mutated_doc));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     FSTQuery* query) {
   DocumentMap results = remote_document_cache_->GetMatching(query);
   // Get locally persisted mutation batches.
@@ -333,6 +410,9 @@ DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionQuery(
 
       if ([mutated_doc isKindOfClass:[FSTDocument class]]) {
         results = results.insert(key, static_cast<FSTDocument*>(mutated_doc));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       } else {
         results = results.erase(key);
@@ -348,8 +428,13 @@ DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionQuery(
   for (const auto& kv : unfiltered.underlying_map()) {
     const DocumentKey& key = kv.first;
 <<<<<<< HEAD
+<<<<<<< HEAD
     Document doc(kv.second);
     if (!query.Matches(doc)) {
+=======
+    auto* doc = static_cast<FSTDocument*>(kv.second);
+    if (![query matchesDocument:doc]) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     auto* doc = static_cast<FSTDocument*>(kv.second);
     if (![query matchesDocument:doc]) {
@@ -363,6 +448,7 @@ DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionQuery(
 
 DocumentMap LocalDocumentsView::AddMissingBaseDocuments(
 <<<<<<< HEAD
+<<<<<<< HEAD
     const std::vector<MutationBatch>& matching_batches,
     DocumentMap existing_docs) {
   DocumentKeySet missing_doc_keys;
@@ -373,6 +459,8 @@ DocumentMap LocalDocumentsView::AddMissingBaseDocuments(
           !existing_docs.underlying_map().contains(key)) {
         missing_doc_keys = missing_doc_keys.insert(key);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     const std::vector<FSTMutationBatch*>& matching_batches,
     DocumentMap existing_docs) {
   DocumentKeySet missing_doc_keys;
@@ -382,11 +470,15 @@ DocumentMap LocalDocumentsView::AddMissingBaseDocuments(
           existing_docs.underlying_map().find([mutation key]) ==
               existing_docs.underlying_map().end()) {
         missing_doc_keys = missing_doc_keys.insert([mutation key]);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       }
     }
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   OptionalMaybeDocumentMap missing_docs =
       remote_document_cache_->GetAll(missing_doc_keys);
@@ -395,6 +487,8 @@ DocumentMap LocalDocumentsView::AddMissingBaseDocuments(
     if (maybe_doc && maybe_doc->is_document()) {
       existing_docs = existing_docs.insert(kv.first, Document(*maybe_doc));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   MaybeDocumentMap missing_docs =
       remote_document_cache_->GetAll(missing_doc_keys);
   for (const auto& kv : missing_docs) {
@@ -402,6 +496,9 @@ DocumentMap LocalDocumentsView::AddMissingBaseDocuments(
     if (maybe_doc != nil && [maybe_doc isKindOfClass:[FSTDocument class]]) {
       existing_docs =
           existing_docs.insert(kv.first, static_cast<FSTDocument*>(maybe_doc));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
   }

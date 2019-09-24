@@ -83,7 +83,11 @@ class LocalSerializer {
    * equivalent model.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::MaybeDocument DecodeMaybeDocument(
+=======
+  std::unique_ptr<model::MaybeDocument> DecodeMaybeDocument(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::unique_ptr<model::MaybeDocument> DecodeMaybeDocument(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -129,7 +133,11 @@ class LocalSerializer {
       const model::NoDocument& no_doc) const;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::NoDocument DecodeNoDocument(
+=======
+  std::unique_ptr<model::NoDocument> DecodeNoDocument(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::unique_ptr<model::NoDocument> DecodeNoDocument(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -138,7 +146,11 @@ class LocalSerializer {
   firestore_client_UnknownDocument EncodeUnknownDocument(
       const model::UnknownDocument& unknown_doc) const;
 <<<<<<< HEAD
+<<<<<<< HEAD
   model::UnknownDocument DecodeUnknownDocument(
+=======
+  std::unique_ptr<model::UnknownDocument> DecodeUnknownDocument(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::unique_ptr<model::UnknownDocument> DecodeUnknownDocument(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -18,12 +18,15 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_QUERY_CACHE_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <functional>
 #include <unordered_map>
 
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #if !defined(__OBJC__)
 #error "For now, this file must only be included by ObjC source files."
 #endif  // !defined(__OBJC__)
@@ -33,6 +36,9 @@
 #include <functional>
 #include <unordered_map>
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
@@ -40,12 +46,18 @@
 #include "Firestore/core/src/firebase/firestore/model/types.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class FSTQuery;
 @class FSTQueryData;
 
 NS_ASSUME_NONNULL_BEGIN
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
@@ -55,7 +67,11 @@ using OrphanedDocumentCallback =
     std::function<void(const model::DocumentKey&, model::ListenSequenceNumber)>;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 using TargetCallback = std::function<void(const QueryData&)>;
+=======
+using TargetCallback = std::function<void(FSTQueryData*)>;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 using TargetCallback = std::function<void(FSTQueryData*)>;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -66,7 +82,12 @@ using TargetCallback = std::function<void(FSTQueryData*)>;
  * to the server, but also metadata about the targets.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * The cache is keyed by Query and entries in the cache are QueryData instances.
+=======
+ * The cache is keyed by FSTQuery and entries in the cache are FSTQueryData
+ * instances.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
  * The cache is keyed by FSTQuery and entries in the cache are FSTQueryData
  * instances.
@@ -86,9 +107,15 @@ class QueryCache {
    * exist in the cache.
    *
 <<<<<<< HEAD
+<<<<<<< HEAD
    * @param query_data A new QueryData instance to put in the cache.
    */
   virtual void AddTarget(const QueryData& query_data) = 0;
+=======
+   * @param query_data A new FSTQueryData instance to put in the cache.
+   */
+  virtual void AddTarget(FSTQueryData* query_data) = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
    * @param query_data A new FSTQueryData instance to put in the cache.
    */
@@ -100,6 +127,7 @@ class QueryCache {
    *
    * The cache key is extracted from `queryData.query`. The entry must already
    * exist in the cache, and it will be replaced.
+<<<<<<< HEAD
 <<<<<<< HEAD
    *
    * @param query_data A QueryData instance to replace an existing entry in
@@ -120,6 +148,8 @@ class QueryCache {
    */
   virtual absl::optional<QueryData> GetTarget(const core::Query& query) = 0;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
    * @param query_data An FSTQueryData instance to replace an existing entry in
    * the cache
    */
@@ -137,6 +167,9 @@ class QueryCache {
    * the query.
    */
   virtual FSTQueryData* _Nullable GetTarget(FSTQuery* query) = 0;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   virtual void EnumerateTargets(const TargetCallback& callback) = 0;
@@ -144,7 +177,12 @@ class QueryCache {
   virtual int RemoveTargets(
       model::ListenSequenceNumber upper_bound,
 <<<<<<< HEAD
+<<<<<<< HEAD
       const std::unordered_map<model::TargetId, QueryData>& live_targets) = 0;
+=======
+      const std::unordered_map<model::TargetId, FSTQueryData*>&
+          live_targets) = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       const std::unordered_map<model::TargetId, FSTQueryData*>&
           live_targets) = 0;
@@ -207,6 +245,11 @@ class QueryCache {
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+NS_ASSUME_NONNULL_END
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 NS_ASSUME_NONNULL_END
 

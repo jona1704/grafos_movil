@@ -3,11 +3,17 @@
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "db/filename.h"
 
 #include <ctype.h>
 #include <stdio.h>
 
+=======
+#include <ctype.h>
+#include <stdio.h>
+#include "db/filename.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <ctype.h>
 #include <stdio.h>
@@ -20,6 +26,7 @@
 namespace leveldb {
 
 // A utility routine: write "data" to the named file and Sync() it.
+<<<<<<< HEAD
 <<<<<<< HEAD
 Status WriteStringToFileSync(Env* env, const Slice& data,
                              const std::string& fname);
@@ -46,6 +53,8 @@ std::string SSTTableFileName(const std::string& dbname, uint64_t number) {
   assert(number > 0);
   return MakeFileName(dbname, number, "sst");
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern Status WriteStringToFileSync(Env* env, const Slice& data,
                                     const std::string& fname);
 
@@ -71,6 +80,9 @@ std::string TableFileName(const std::string& name, uint64_t number) {
 std::string SSTTableFileName(const std::string& name, uint64_t number) {
   assert(number > 0);
   return MakeFileName(name, number, "sst");
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -87,7 +99,13 @@ std::string CurrentFileName(const std::string& dbname) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::string LockFileName(const std::string& dbname) { return dbname + "/LOCK"; }
+=======
+std::string LockFileName(const std::string& dbname) {
+  return dbname + "/LOCK";
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 std::string LockFileName(const std::string& dbname) {
   return dbname + "/LOCK";
@@ -109,6 +127,10 @@ std::string OldInfoLogFileName(const std::string& dbname) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -120,14 +142,20 @@ std::string OldInfoLogFileName(const std::string& dbname) {
 //    dbname/MANIFEST-[0-9]+
 //    dbname/[0-9]+.(log|sst|ldb)
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool ParseFileName(const std::string& filename, uint64_t* number,
                    FileType* type) {
   Slice rest(filename);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 bool ParseFileName(const std::string& fname,
                    uint64_t* number,
                    FileType* type) {
   Slice rest(fname);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (rest == "CURRENT") {
     *number = 0;

@@ -55,7 +55,11 @@ class Repairer {
         next_file_number_(1) {
     // TableCache can be small since we expect each table to be opened once.
 <<<<<<< HEAD
+<<<<<<< HEAD
     table_cache_ = new TableCache(dbname_, options_, 10);
+=======
+    table_cache_ = new TableCache(dbname_, &options_, 10);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     table_cache_ = new TableCache(dbname_, &options_, 10);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -89,7 +93,13 @@ class Repairer {
           "Some data may have been lost. "
           "****",
 <<<<<<< HEAD
+<<<<<<< HEAD
           dbname_.c_str(), static_cast<int>(tables_.size()), bytes);
+=======
+          dbname_.c_str(),
+          static_cast<int>(tables_.size()),
+          bytes);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
           dbname_.c_str(),
           static_cast<int>(tables_.size()),
@@ -106,7 +116,10 @@ class Repairer {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::string const dbname_;
   Env* const env_;
   InternalKeyComparator const icmp_;
@@ -123,6 +136,9 @@ class Repairer {
   std::vector<TableInfo> tables_;
   uint64_t next_file_number_;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Status FindFiles() {
     std::vector<std::string> filenames;
@@ -164,7 +180,12 @@ class Repairer {
       if (!status.ok()) {
         Log(options_.info_log, "Log #%llu: ignoring conversion error: %s",
 <<<<<<< HEAD
+<<<<<<< HEAD
             (unsigned long long)logs_[i], status.ToString().c_str());
+=======
+            (unsigned long long) logs_[i],
+            status.ToString().c_str());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             (unsigned long long) logs_[i],
             status.ToString().c_str());
@@ -183,7 +204,12 @@ class Repairer {
         // We print error messages for corruption, but continue repairing.
         Log(info_log, "Log #%llu: dropping %d bytes; %s",
 <<<<<<< HEAD
+<<<<<<< HEAD
             (unsigned long long)lognum, static_cast<int>(bytes),
+=======
+            (unsigned long long) lognum,
+            static_cast<int>(bytes),
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             (unsigned long long) lognum,
             static_cast<int>(bytes),
@@ -210,8 +236,13 @@ class Repairer {
     // propagating bad information (like overly large sequence
     // numbers).
 <<<<<<< HEAD
+<<<<<<< HEAD
     log::Reader reader(lfile, &reporter, false /*do not checksum*/,
                        0 /*initial_offset*/);
+=======
+    log::Reader reader(lfile, &reporter, false/*do not checksum*/,
+                       0/*initial_offset*/);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     log::Reader reader(lfile, &reporter, false/*do not checksum*/,
                        0/*initial_offset*/);
@@ -227,8 +258,13 @@ class Repairer {
     while (reader.ReadRecord(&record, &scratch)) {
       if (record.size() < 12) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         reporter.Corruption(record.size(),
                             Status::Corruption("log record too small"));
+=======
+        reporter.Corruption(
+            record.size(), Status::Corruption("log record too small"));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         reporter.Corruption(
             record.size(), Status::Corruption("log record too small"));
@@ -242,7 +278,12 @@ class Repairer {
       } else {
         Log(options_.info_log, "Log #%llu: ignoring %s",
 <<<<<<< HEAD
+<<<<<<< HEAD
             (unsigned long long)log, status.ToString().c_str());
+=======
+            (unsigned long long) log,
+            status.ToString().c_str());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             (unsigned long long) log,
             status.ToString().c_str());
@@ -261,7 +302,11 @@ class Repairer {
     delete iter;
     mem->Unref();
 <<<<<<< HEAD
+<<<<<<< HEAD
     mem = nullptr;
+=======
+    mem = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     mem = NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -272,7 +317,13 @@ class Repairer {
     }
     Log(options_.info_log, "Log #%llu: %d ops saved to Table #%llu %s",
 <<<<<<< HEAD
+<<<<<<< HEAD
         (unsigned long long)log, counter, (unsigned long long)meta.number,
+=======
+        (unsigned long long) log,
+        counter,
+        (unsigned long long) meta.number,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         (unsigned long long) log,
         counter,
@@ -314,7 +365,12 @@ class Repairer {
       ArchiveFile(SSTTableFileName(dbname_, number));
       Log(options_.info_log, "Table #%llu: dropped: %s",
 <<<<<<< HEAD
+<<<<<<< HEAD
           (unsigned long long)t.meta.number, status.ToString().c_str());
+=======
+          (unsigned long long) t.meta.number,
+          status.ToString().c_str());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
           (unsigned long long) t.meta.number,
           status.ToString().c_str());
@@ -333,7 +389,12 @@ class Repairer {
       if (!ParseInternalKey(key, &parsed)) {
         Log(options_.info_log, "Table #%llu: unparsable key %s",
 <<<<<<< HEAD
+<<<<<<< HEAD
             (unsigned long long)t.meta.number, EscapeString(key).c_str());
+=======
+            (unsigned long long) t.meta.number,
+            EscapeString(key).c_str());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             (unsigned long long) t.meta.number,
             EscapeString(key).c_str());
@@ -357,7 +418,13 @@ class Repairer {
     delete iter;
     Log(options_.info_log, "Table #%llu: %d entries %s",
 <<<<<<< HEAD
+<<<<<<< HEAD
         (unsigned long long)t.meta.number, counter, status.ToString().c_str());
+=======
+        (unsigned long long) t.meta.number,
+        counter,
+        status.ToString().c_str());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         (unsigned long long) t.meta.number,
         counter,
@@ -404,7 +471,11 @@ class Repairer {
     }
     delete builder;
 <<<<<<< HEAD
+<<<<<<< HEAD
     builder = nullptr;
+=======
+    builder = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     builder = NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -414,7 +485,11 @@ class Repairer {
     }
     delete file;
 <<<<<<< HEAD
+<<<<<<< HEAD
     file = nullptr;
+=======
+    file = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     file = NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -425,7 +500,11 @@ class Repairer {
       if (s.ok()) {
         Log(options_.info_log, "Table #%llu: %d entries repaired",
 <<<<<<< HEAD
+<<<<<<< HEAD
             (unsigned long long)t.meta.number, counter);
+=======
+            (unsigned long long) t.meta.number, counter);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             (unsigned long long) t.meta.number, counter);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -461,17 +540,23 @@ class Repairer {
       // TODO(opt): separate out into multiple levels
       const TableInfo& t = tables_[i];
 <<<<<<< HEAD
+<<<<<<< HEAD
       edit_.AddFile(0, t.meta.number, t.meta.file_size, t.meta.smallest,
                     t.meta.largest);
     }
 
     // fprintf(stderr, "NewDescriptor:\n%s\n", edit_.DebugString().c_str());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       edit_.AddFile(0, t.meta.number, t.meta.file_size,
                     t.meta.smallest, t.meta.largest);
     }
 
     //fprintf(stderr, "NewDescriptor:\n%s\n", edit_.DebugString().c_str());
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     {
       log::Writer log(file);
@@ -484,7 +569,11 @@ class Repairer {
     }
     delete file;
 <<<<<<< HEAD
+<<<<<<< HEAD
     file = nullptr;
+=======
+    file = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     file = NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -516,7 +605,11 @@ class Repairer {
     const char* slash = strrchr(fname.c_str(), '/');
     std::string new_dir;
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (slash != nullptr) {
+=======
+    if (slash != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (slash != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -526,6 +619,7 @@ class Repairer {
     env_->CreateDir(new_dir);  // Ignore error
     std::string new_file = new_dir;
     new_file.append("/");
+<<<<<<< HEAD
 <<<<<<< HEAD
     new_file.append((slash == nullptr) ? fname.c_str() : slash + 1);
     Status s = env_->RenameFile(fname, new_file);
@@ -549,11 +643,16 @@ class Repairer {
   std::vector<TableInfo> tables_;
   uint64_t next_file_number_;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     new_file.append((slash == NULL) ? fname.c_str() : slash + 1);
     Status s = env_->RenameFile(fname, new_file);
     Log(options_.info_log, "Archiving %s: %s\n",
         fname.c_str(), s.ToString().c_str());
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 }  // namespace

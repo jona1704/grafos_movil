@@ -21,7 +21,11 @@ struct Table::Rep {
   ~Rep() {
     delete filter;
 <<<<<<< HEAD
+<<<<<<< HEAD
     delete[] filter_data;
+=======
+    delete [] filter_data;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     delete [] filter_data;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -40,15 +44,21 @@ struct Table::Rep {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status Table::Open(const Options& options, RandomAccessFile* file,
                    uint64_t size, Table** table) {
   *table = nullptr;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Status Table::Open(const Options& options,
                    RandomAccessFile* file,
                    uint64_t size,
                    Table** table) {
   *table = NULL;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (size < Footer::kEncodedLength) {
     return Status::Corruption("file is too short to be an sstable");
@@ -66,7 +76,12 @@ Status Table::Open(const Options& options,
 
   // Read the index block
 <<<<<<< HEAD
+<<<<<<< HEAD
   BlockContents index_block_contents;
+=======
+  BlockContents contents;
+  Block* index_block = NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   BlockContents contents;
   Block* index_block = NULL;
@@ -77,12 +92,18 @@ Status Table::Open(const Options& options,
       opt.verify_checksums = true;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     s = ReadBlock(file, opt, footer.index_handle(), &index_block_contents);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     s = ReadBlock(file, opt, footer.index_handle(), &contents);
     if (s.ok()) {
       index_block = new Block(contents);
     }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -90,7 +111,10 @@ Status Table::Open(const Options& options,
     // We've successfully read the footer and the index block: we're
     // ready to serve requests.
 <<<<<<< HEAD
+<<<<<<< HEAD
     Block* index_block = new Block(index_block_contents);
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     Rep* rep = new Table::Rep;
@@ -100,17 +124,23 @@ Status Table::Open(const Options& options,
     rep->index_block = index_block;
     rep->cache_id = (options.block_cache ? options.block_cache->NewId() : 0);
 <<<<<<< HEAD
+<<<<<<< HEAD
     rep->filter_data = nullptr;
     rep->filter = nullptr;
     *table = new Table(rep);
     (*table)->ReadMeta(footer);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     rep->filter_data = NULL;
     rep->filter = NULL;
     *table = new Table(rep);
     (*table)->ReadMeta(footer);
   } else {
     delete index_block;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 
@@ -119,7 +149,11 @@ Status Table::Open(const Options& options,
 
 void Table::ReadMeta(const Footer& footer) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (rep_->options.filter_policy == nullptr) {
+=======
+  if (rep_->options.filter_policy == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (rep_->options.filter_policy == NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -169,7 +203,11 @@ void Table::ReadFilter(const Slice& filter_handle_value) {
   }
   if (block.heap_allocated) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     rep_->filter_data = block.data.data();  // Will need to delete later
+=======
+    rep_->filter_data = block.data.data();     // Will need to delete later
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     rep_->filter_data = block.data.data();     // Will need to delete later
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -178,7 +216,13 @@ void Table::ReadFilter(const Slice& filter_handle_value) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Table::~Table() { delete rep_; }
+=======
+Table::~Table() {
+  delete rep_;
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Table::~Table() {
   delete rep_;
@@ -203,6 +247,7 @@ static void ReleaseBlock(void* arg, void* h) {
 // Convert an index iterator value (i.e., an encoded BlockHandle)
 // into an iterator over the contents of the corresponding block.
 <<<<<<< HEAD
+<<<<<<< HEAD
 Iterator* Table::BlockReader(void* arg, const ReadOptions& options,
                              const Slice& index_value) {
   Table* table = reinterpret_cast<Table*>(arg);
@@ -210,6 +255,8 @@ Iterator* Table::BlockReader(void* arg, const ReadOptions& options,
   Block* block = nullptr;
   Cache::Handle* cache_handle = nullptr;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Iterator* Table::BlockReader(void* arg,
                              const ReadOptions& options,
                              const Slice& index_value) {
@@ -217,6 +264,9 @@ Iterator* Table::BlockReader(void* arg,
   Cache* block_cache = table->rep_->options.block_cache;
   Block* block = NULL;
   Cache::Handle* cache_handle = NULL;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   BlockHandle handle;
@@ -228,6 +278,7 @@ Iterator* Table::BlockReader(void* arg,
   if (s.ok()) {
     BlockContents contents;
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (block_cache != nullptr) {
       char cache_key_buffer[16];
       EncodeFixed64(cache_key_buffer, table->rep_->cache_id);
@@ -236,6 +287,8 @@ Iterator* Table::BlockReader(void* arg,
       cache_handle = block_cache->Lookup(key);
       if (cache_handle != nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if (block_cache != NULL) {
       char cache_key_buffer[16];
       EncodeFixed64(cache_key_buffer, table->rep_->cache_id);
@@ -243,6 +296,9 @@ Iterator* Table::BlockReader(void* arg,
       Slice key(cache_key_buffer, sizeof(cache_key_buffer));
       cache_handle = block_cache->Lookup(key);
       if (cache_handle != NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
         block = reinterpret_cast<Block*>(block_cache->Value(cache_handle));
       } else {
@@ -251,8 +307,13 @@ Iterator* Table::BlockReader(void* arg,
           block = new Block(contents);
           if (contents.cachable && options.fill_cache) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             cache_handle = block_cache->Insert(key, block, block->size(),
                                                &DeleteCachedBlock);
+=======
+            cache_handle = block_cache->Insert(
+                key, block, block->size(), &DeleteCachedBlock);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
             cache_handle = block_cache->Insert(
                 key, block, block->size(), &DeleteCachedBlock);
@@ -270,15 +331,21 @@ Iterator* Table::BlockReader(void* arg,
 
   Iterator* iter;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (block != nullptr) {
     iter = block->NewIterator(table->rep_->options.comparator);
     if (cache_handle == nullptr) {
       iter->RegisterCleanup(&DeleteBlock, block, nullptr);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (block != NULL) {
     iter = block->NewIterator(table->rep_->options.comparator);
     if (cache_handle == NULL) {
       iter->RegisterCleanup(&DeleteBlock, block, NULL);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     } else {
       iter->RegisterCleanup(&ReleaseBlock, block_cache, cache_handle);
@@ -296,9 +363,15 @@ Iterator* Table::NewIterator(const ReadOptions& options) const {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status Table::InternalGet(const ReadOptions& options, const Slice& k, void* arg,
                           void (*handle_result)(void*, const Slice&,
                                                 const Slice&)) {
+=======
+Status Table::InternalGet(const ReadOptions& options, const Slice& k,
+                          void* arg,
+                          void (*saver)(void*, const Slice&, const Slice&)) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Status Table::InternalGet(const ReadOptions& options, const Slice& k,
                           void* arg,
@@ -312,7 +385,12 @@ Status Table::InternalGet(const ReadOptions& options, const Slice& k,
     FilterBlockReader* filter = rep_->filter;
     BlockHandle handle;
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (filter != nullptr && handle.DecodeFrom(&handle_value).ok() &&
+=======
+    if (filter != NULL &&
+        handle.DecodeFrom(&handle_value).ok() &&
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (filter != NULL &&
         handle.DecodeFrom(&handle_value).ok() &&
@@ -324,7 +402,11 @@ Status Table::InternalGet(const ReadOptions& options, const Slice& k,
       block_iter->Seek(k);
       if (block_iter->Valid()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         (*handle_result)(arg, block_iter->key(), block_iter->value());
+=======
+        (*saver)(arg, block_iter->key(), block_iter->value());
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         (*saver)(arg, block_iter->key(), block_iter->value());
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -341,6 +423,10 @@ Status Table::InternalGet(const ReadOptions& options, const Slice& k,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -29,6 +29,7 @@
 
 #include "Firestore/core/src/firebase/firestore/core/database_info.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
@@ -42,11 +43,22 @@
 #include "Firestore/core/src/firebase/firestore/remote/watch_change.h"
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+#include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
+#include "Firestore/core/src/firebase/firestore/model/types.h"
+#include "Firestore/core/src/firebase/firestore/remote/watch_change.h"
+#include "Firestore/core/src/firebase/firestore/util/status.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "grpcpp/support/byte_buffer.h"
 
 #import "Firestore/Protos/objc/google/firestore/v1/Firestore.pbobjc.h"
 #import "Firestore/Source/Core/FSTTypes.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#import "Firestore/Source/Local/FSTQueryData.h"
+#import "Firestore/Source/Model/FSTMutation.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "Firestore/Source/Local/FSTQueryData.h"
 #import "Firestore/Source/Model/FSTMutation.h"
@@ -82,7 +94,11 @@ class WatchStreamSerializer {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   GCFSListenRequest* CreateWatchRequest(const local::QueryData& query) const;
+=======
+  GCFSListenRequest* CreateWatchRequest(FSTQueryData* query) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   GCFSListenRequest* CreateWatchRequest(FSTQueryData* query) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -119,15 +135,21 @@ class WriteStreamSerializer {
 
   void UpdateLastStreamToken(GCFSWriteResponse* proto);
 <<<<<<< HEAD
+<<<<<<< HEAD
   void SetLastStreamToken(const nanopb::ByteString& token) {
     last_stream_token_ = token;
   }
   nanopb::ByteString GetLastStreamToken() const {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void SetLastStreamToken(NSData* token) {
     last_stream_token_ = token;
   }
   NSData* GetLastStreamToken() const {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     return last_stream_token_;
   }
@@ -135,7 +157,11 @@ class WriteStreamSerializer {
   GCFSWriteRequest* CreateHandshake() const;
   GCFSWriteRequest* CreateWriteMutationsRequest(
 <<<<<<< HEAD
+<<<<<<< HEAD
       const std::vector<model::Mutation>& mutations) const;
+=======
+      const std::vector<FSTMutation*>& mutations) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       const std::vector<FSTMutation*>& mutations) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -153,7 +179,11 @@ class WriteStreamSerializer {
                                    util::Status* out_status) const;
   model::SnapshotVersion ToCommitVersion(GCFSWriteResponse* proto) const;
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<model::MutationResult> ToMutationResults(
+=======
+  std::vector<FSTMutationResult*> ToMutationResults(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   std::vector<FSTMutationResult*> ToMutationResults(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -166,7 +196,11 @@ class WriteStreamSerializer {
  private:
   FSTSerializerBeta* serializer_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   nanopb::ByteString last_stream_token_;
+=======
+  NSData* last_stream_token_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   NSData* last_stream_token_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -183,7 +217,11 @@ class DatastoreSerializer {
 
   GCFSCommitRequest* CreateCommitRequest(
 <<<<<<< HEAD
+<<<<<<< HEAD
       const std::vector<model::Mutation>& mutations) const;
+=======
+      const std::vector<FSTMutation*>& mutations) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       const std::vector<FSTMutation*>& mutations) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -198,15 +236,21 @@ class DatastoreSerializer {
    * document key.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<model::MaybeDocument> MergeLookupResponses(
       const std::vector<grpc::ByteBuffer>& responses,
       util::Status* out_status) const;
   model::MaybeDocument ToMaybeDocument(
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   std::vector<FSTMaybeDocument*> MergeLookupResponses(
       const std::vector<grpc::ByteBuffer>& responses,
       util::Status* out_status) const;
   FSTMaybeDocument* ToMaybeDocument(
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       GCFSBatchGetDocumentsResponse* response) const;
 

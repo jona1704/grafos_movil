@@ -13,9 +13,13 @@
 #include <stdint.h>
 #include <string.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include <string>
 
+=======
+#include <string>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <string>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -25,6 +29,7 @@
 namespace leveldb {
 
 // Standard Put... routines append to a string
+<<<<<<< HEAD
 <<<<<<< HEAD
 void PutFixed32(std::string* dst, uint32_t value);
 void PutFixed64(std::string* dst, uint64_t value);
@@ -53,6 +58,8 @@ int VarintLength(uint64_t v);
 void EncodeFixed32(char* dst, uint32_t value);
 void EncodeFixed64(char* dst, uint64_t value);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern void PutFixed32(std::string* dst, uint32_t value);
 extern void PutFixed64(std::string* dst, uint64_t value);
 extern void PutVarint32(std::string* dst, uint32_t value);
@@ -79,14 +86,22 @@ extern int VarintLength(uint64_t v);
 // REQUIRES: dst has enough space for the value being written
 extern void EncodeFixed32(char* dst, uint32_t value);
 extern void EncodeFixed64(char* dst, uint64_t value);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 // Lower-level versions of Put... that write directly into a character buffer
 // and return a pointer just past the last byte written.
 // REQUIRES: dst has enough space for the value being written
 <<<<<<< HEAD
+<<<<<<< HEAD
 char* EncodeVarint32(char* dst, uint32_t value);
 char* EncodeVarint64(char* dst, uint64_t value);
+=======
+extern char* EncodeVarint32(char* dst, uint32_t value);
+extern char* EncodeVarint64(char* dst, uint64_t value);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 extern char* EncodeVarint32(char* dst, uint32_t value);
 extern char* EncodeVarint64(char* dst, uint64_t value);
@@ -103,15 +118,21 @@ inline uint32_t DecodeFixed32(const char* ptr) {
     return result;
   } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return ((static_cast<uint32_t>(static_cast<unsigned char>(ptr[0]))) |
             (static_cast<uint32_t>(static_cast<unsigned char>(ptr[1])) << 8) |
             (static_cast<uint32_t>(static_cast<unsigned char>(ptr[2])) << 16) |
             (static_cast<uint32_t>(static_cast<unsigned char>(ptr[3])) << 24));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     return ((static_cast<uint32_t>(static_cast<unsigned char>(ptr[0])))
         | (static_cast<uint32_t>(static_cast<unsigned char>(ptr[1])) << 8)
         | (static_cast<uint32_t>(static_cast<unsigned char>(ptr[2])) << 16)
         | (static_cast<uint32_t>(static_cast<unsigned char>(ptr[3])) << 24));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 }
@@ -131,15 +152,21 @@ inline uint64_t DecodeFixed64(const char* ptr) {
 
 // Internal routine for use by fallback path of GetVarint32Ptr
 <<<<<<< HEAD
+<<<<<<< HEAD
 const char* GetVarint32PtrFallback(const char* p, const char* limit,
                                    uint32_t* value);
 inline const char* GetVarint32Ptr(const char* p, const char* limit,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern const char* GetVarint32PtrFallback(const char* p,
                                           const char* limit,
                                           uint32_t* value);
 inline const char* GetVarint32Ptr(const char* p,
                                   const char* limit,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
                                   uint32_t* value) {
   if (p < limit) {

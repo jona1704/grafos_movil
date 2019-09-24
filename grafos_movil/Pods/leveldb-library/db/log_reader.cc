@@ -6,7 +6,10 @@
 
 #include <stdio.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/env.h"
@@ -17,7 +20,12 @@ namespace leveldb {
 namespace log {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Reader::Reporter::~Reporter() {}
+=======
+Reader::Reporter::~Reporter() {
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Reader::Reporter::~Reporter() {
 }
@@ -35,6 +43,7 @@ Reader::Reader(SequentialFile* file, Reporter* reporter, bool checksum,
       end_of_buffer_offset_(0),
       initial_offset_(initial_offset),
 <<<<<<< HEAD
+<<<<<<< HEAD
       resyncing_(initial_offset > 0) {}
 
 Reader::~Reader() { delete[] backing_store_; }
@@ -42,6 +51,8 @@ Reader::~Reader() { delete[] backing_store_; }
 bool Reader::SkipToInitialBlock() {
   const size_t offset_in_block = initial_offset_ % kBlockSize;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       resyncing_(initial_offset > 0) {
 }
 
@@ -51,12 +62,19 @@ Reader::~Reader() {
 
 bool Reader::SkipToInitialBlock() {
   size_t offset_in_block = initial_offset_ % kBlockSize;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   uint64_t block_start_location = initial_offset_ - offset_in_block;
 
   // Don't search a block if we'd be in the trailer
   if (offset_in_block > kBlockSize - 6) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    offset_in_block = 0;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     offset_in_block = 0;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -120,7 +138,13 @@ bool Reader::ReadRecord(Slice* record, std::string* scratch) {
           // of a block followed by a kFullType or kFirstType record
           // at the beginning of the next block.
 <<<<<<< HEAD
+<<<<<<< HEAD
           if (!scratch->empty()) {
+=======
+          if (scratch->empty()) {
+            in_fragmented_record = false;
+          } else {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
           if (scratch->empty()) {
             in_fragmented_record = false;
@@ -142,7 +166,13 @@ bool Reader::ReadRecord(Slice* record, std::string* scratch) {
           // of a block followed by a kFullType or kFirstType record
           // at the beginning of the next block.
 <<<<<<< HEAD
+<<<<<<< HEAD
           if (!scratch->empty()) {
+=======
+          if (scratch->empty()) {
+            in_fragmented_record = false;
+          } else {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
           if (scratch->empty()) {
             in_fragmented_record = false;
@@ -210,7 +240,13 @@ bool Reader::ReadRecord(Slice* record, std::string* scratch) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 uint64_t Reader::LastRecordOffset() { return last_record_offset_; }
+=======
+uint64_t Reader::LastRecordOffset() {
+  return last_record_offset_;
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 uint64_t Reader::LastRecordOffset() {
   return last_record_offset_;
@@ -223,7 +259,11 @@ void Reader::ReportCorruption(uint64_t bytes, const char* reason) {
 
 void Reader::ReportDrop(uint64_t bytes, const Status& reason) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (reporter_ != nullptr &&
+=======
+  if (reporter_ != NULL &&
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (reporter_ != NULL &&
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

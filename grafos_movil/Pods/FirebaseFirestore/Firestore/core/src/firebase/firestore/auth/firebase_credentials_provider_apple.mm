@@ -98,7 +98,11 @@ void FirebaseCredentialsProvider::GetToken(TokenListener completion) {
       // outstanding so the response is likely for a previous user (which
       // user, we can't be sure).
 <<<<<<< HEAD
+<<<<<<< HEAD
       completion(util::Status(Error::Aborted,
+=======
+      completion(util::Status(FirestoreErrorCode::Aborted,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       completion(util::Status(FirestoreErrorCode::Aborted,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -112,9 +116,15 @@ void FirebaseCredentialsProvider::GetToken(TokenListener completion) {
         }
       } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
         Error error_code = Error::Unknown;
         if (error.domain == FIRFirestoreErrorDomain) {
           error_code = static_cast<Error>(error.code);
+=======
+        FirestoreErrorCode error_code = FirestoreErrorCode::Unknown;
+        if (error.domain == FIRFirestoreErrorDomain) {
+          error_code = static_cast<FirestoreErrorCode>(error.code);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
         FirestoreErrorCode error_code = FirestoreErrorCode::Unknown;
         if (error.domain == FIRFirestoreErrorDomain) {

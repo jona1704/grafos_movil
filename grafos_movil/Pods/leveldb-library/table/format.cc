@@ -22,7 +22,12 @@ void BlockHandle::EncodeTo(std::string* dst) const {
 
 Status BlockHandle::DecodeFrom(Slice* input) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (GetVarint64(input, &offset_) && GetVarint64(input, &size_)) {
+=======
+  if (GetVarint64(input, &offset_) &&
+      GetVarint64(input, &size_)) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (GetVarint64(input, &offset_) &&
       GetVarint64(input, &size_)) {
@@ -67,13 +72,19 @@ Status Footer::DecodeFrom(Slice* input) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Status ReadBlock(RandomAccessFile* file, const ReadOptions& options,
                  const BlockHandle& handle, BlockContents* result) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Status ReadBlock(RandomAccessFile* file,
                  const ReadOptions& options,
                  const BlockHandle& handle,
                  BlockContents* result) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   result->data = Slice();
   result->cachable = false;
@@ -96,7 +107,11 @@ Status ReadBlock(RandomAccessFile* file,
 
   // Check the crc of the type and the block contents
 <<<<<<< HEAD
+<<<<<<< HEAD
   const char* data = contents.data();  // Pointer to where Read put the data
+=======
+  const char* data = contents.data();    // Pointer to where Read put the data
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   const char* data = contents.data();    // Pointer to where Read put the data
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

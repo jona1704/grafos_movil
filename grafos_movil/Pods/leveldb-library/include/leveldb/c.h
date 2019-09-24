@@ -49,6 +49,7 @@ extern "C" {
 #include <stdint.h>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "leveldb/export.h"
 
 /* Exported types */
@@ -217,6 +218,8 @@ LEVELDB_EXPORT void leveldb_filterpolicy_destroy(leveldb_filterpolicy_t*);
 
 LEVELDB_EXPORT leveldb_filterpolicy_t* leveldb_filterpolicy_create_bloom(
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /* Exported types */
 
 typedef struct leveldb_t               leveldb_t;
@@ -405,11 +408,15 @@ extern leveldb_filterpolicy_t* leveldb_filterpolicy_create(
 extern void leveldb_filterpolicy_destroy(leveldb_filterpolicy_t*);
 
 extern leveldb_filterpolicy_t* leveldb_filterpolicy_create_bloom(
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     int bits_per_key);
 
 /* Read options */
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 LEVELDB_EXPORT leveldb_readoptions_t* leveldb_readoptions_create();
 LEVELDB_EXPORT void leveldb_readoptions_destroy(leveldb_readoptions_t*);
@@ -440,6 +447,8 @@ LEVELDB_EXPORT void leveldb_env_destroy(leveldb_env_t*);
 /* If not NULL, the returned buffer must be released using leveldb_free(). */
 LEVELDB_EXPORT char* leveldb_env_get_test_directory(leveldb_env_t*);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern leveldb_readoptions_t* leveldb_readoptions_create();
 extern void leveldb_readoptions_destroy(leveldb_readoptions_t*);
 extern void leveldb_readoptions_set_verify_checksums(
@@ -467,6 +476,9 @@ extern void leveldb_cache_destroy(leveldb_cache_t* cache);
 
 extern leveldb_env_t* leveldb_create_default_env();
 extern void leveldb_env_destroy(leveldb_env_t*);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 /* Utility */
@@ -476,6 +488,7 @@ extern void leveldb_env_destroy(leveldb_env_t*);
    in this file.  Note that in certain cases (typically on Windows), you
    may need to call this routine instead of free(ptr) to dispose of
    malloc()-ed memory returned by this library. */
+<<<<<<< HEAD
 <<<<<<< HEAD
 LEVELDB_EXPORT void leveldb_free(void* ptr);
 
@@ -491,6 +504,8 @@ LEVELDB_EXPORT int leveldb_minor_version();
 
 #endif /* STORAGE_LEVELDB_INCLUDE_C_H_ */
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern void leveldb_free(void* ptr);
 
 /* Return the major version number for this release. */
@@ -504,4 +519,7 @@ extern int leveldb_minor_version();
 #endif
 
 #endif  /* STORAGE_LEVELDB_INCLUDE_C_H_ */
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

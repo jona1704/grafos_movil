@@ -20,15 +20,21 @@
 
 #include "Firestore/core/src/firebase/firestore/api/query_core.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 
 namespace api = firebase::firestore::api;
 namespace core = firebase::firestore::core;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace api = firebase::firestore::api;
 
 @class FSTQuery;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 NS_ASSUME_NONNULL_BEGIN
@@ -38,7 +44,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithQuery:(api::Query &&)query NS_DESIGNATED_INITIALIZER;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (instancetype)initWithQuery:(core::Query)query
+=======
+- (instancetype)initWithQuery:(FSTQuery *)query
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (instancetype)initWithQuery:(FSTQuery *)query
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -49,6 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Internal FIRQuery API we don't want exposed in our public header files. */
 @interface FIRQuery (Internal)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (const core::Query &)query;
 
@@ -115,10 +126,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (FIRQuery *)queryWhereFieldPath:(FIRFieldPath *)path in:(id)value;
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (FSTQuery *)query;
 
 - (const api::Query &)apiQuery;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @end
 

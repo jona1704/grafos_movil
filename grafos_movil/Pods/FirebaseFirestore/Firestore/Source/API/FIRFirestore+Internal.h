@@ -35,6 +35,7 @@ namespace util = firebase::firestore::util;
 NS_ASSUME_NONNULL_BEGIN
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Provides a registry management interface for FIRFirestore instances. */
 @protocol FSTFirestoreInstanceRegistry
 
@@ -43,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @interface FIRFirestore (/* Init */)
@@ -54,10 +57,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithDatabaseID:(model::DatabaseId)databaseID
                     persistenceKey:(std::string)persistenceKey
 <<<<<<< HEAD
+<<<<<<< HEAD
                credentialsProvider:(std::shared_ptr<auth::CredentialsProvider>)credentialsProvider
                        workerQueue:(std::shared_ptr<util::AsyncQueue>)workerQueue
                        firebaseApp:(FIRApp *)app
                   instanceRegistry:(nullable id<FSTFirestoreInstanceRegistry>)registry;
+=======
+               credentialsProvider:(std::unique_ptr<auth::CredentialsProvider>)credentialsProvider
+                       workerQueue:(std::shared_ptr<util::AsyncQueue>)workerQueue
+                       firebaseApp:(FIRApp *)app;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                credentialsProvider:(std::unique_ptr<auth::CredentialsProvider>)credentialsProvider
                        workerQueue:(std::shared_ptr<util::AsyncQueue>)workerQueue
@@ -74,8 +83,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (FIRFirestore *)recoverFromFirestore:(std::shared_ptr<api::Firestore>)firestore;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)terminateInternalWithCompletion:(nullable void (^)(NSError *_Nullable error))completion;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /**
  * Shutdown this `FIRFirestore`, releasing all resources (abandoning any outstanding writes,
  * removing all listens, closing all network connections, etc.).
@@ -84,6 +96,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)shutdownWithCompletion:(nullable void (^)(NSError *_Nullable error))completion
     NS_SWIFT_NAME(shutdown(completion:));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 - (const std::shared_ptr<util::AsyncQueue> &)workerQueue;

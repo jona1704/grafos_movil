@@ -28,7 +28,10 @@
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
 #include "Firestore/core/src/firebase/firestore/model/document_map.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/maybe_document.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/types.h"
@@ -37,6 +40,11 @@
 @class FSTLevelDB;
 @class FSTLocalSerializer;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+@class FSTMaybeDocument;
+@class FSTQuery;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @class FSTMaybeDocument;
 @class FSTQuery;
@@ -54,6 +62,7 @@ class LevelDbRemoteDocumentCache : public RemoteDocumentCache {
   LevelDbRemoteDocumentCache(FSTLevelDB* db, FSTLocalSerializer* serializer);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   void Add(const model::MaybeDocument& document) override;
   void Remove(const model::DocumentKey& key) override;
 
@@ -67,6 +76,8 @@ class LevelDbRemoteDocumentCache : public RemoteDocumentCache {
   model::MaybeDocument DecodeMaybeDocument(absl::string_view encoded,
                                            const model::DocumentKey& key);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void Add(FSTMaybeDocument* document) override;
   void Remove(const model::DocumentKey& key) override;
 
@@ -77,6 +88,9 @@ class LevelDbRemoteDocumentCache : public RemoteDocumentCache {
  private:
   FSTMaybeDocument* DecodeMaybeDocument(absl::string_view encoded,
                                         const model::DocumentKey& key);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // This instance is owned by FSTLevelDB; avoid a retain cycle.

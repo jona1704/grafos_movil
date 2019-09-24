@@ -54,7 +54,11 @@ const AsyncQueue::Milliseconds kIdleTimeout{std::chrono::seconds(60)};
 
 Stream::Stream(const std::shared_ptr<AsyncQueue>& worker_queue,
 <<<<<<< HEAD
+<<<<<<< HEAD
                std::shared_ptr<CredentialsProvider> credentials_provider,
+=======
+               CredentialsProvider* credentials_provider,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                CredentialsProvider* credentials_provider,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -64,7 +68,11 @@ Stream::Stream(const std::shared_ptr<AsyncQueue>& worker_queue,
     : backoff_{worker_queue, backoff_timer_id, kBackoffFactor,
                kBackoffInitialDelay, kBackoffMaxDelay},
 <<<<<<< HEAD
+<<<<<<< HEAD
       credentials_provider_{std::move(credentials_provider)},
+=======
+      credentials_provider_{credentials_provider},
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       credentials_provider_{credentials_provider},
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -287,7 +295,11 @@ void Stream::Close(const Status& status) {
 
 void Stream::HandleErrorStatus(const Status& status) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (status.code() == Error::ResourceExhausted) {
+=======
+  if (status.code() == FirestoreErrorCode::ResourceExhausted) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (status.code() == FirestoreErrorCode::ResourceExhausted) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -296,7 +308,11 @@ void Stream::HandleErrorStatus(const Status& status) {
         GetDebugDescription());
     backoff_.ResetToMax();
 <<<<<<< HEAD
+<<<<<<< HEAD
   } else if (status.code() == Error::Unauthenticated) {
+=======
+  } else if (status.code() == FirestoreErrorCode::Unauthenticated) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   } else if (status.code() == FirestoreErrorCode::Unauthenticated) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -309,8 +325,14 @@ void Stream::HandleErrorStatus(const Status& status) {
 void Stream::OnStreamFinish(const Status& status) {
   EnsureOnQueue();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   LOG_DEBUG("%s Stream error: '%s'", GetDebugDescription(), status.ToString());
+=======
+  // TODO(varconst): log error here?
+  LOG_DEBUG("%s Stream error", GetDebugDescription());
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // TODO(varconst): log error here?
   LOG_DEBUG("%s Stream error", GetDebugDescription());

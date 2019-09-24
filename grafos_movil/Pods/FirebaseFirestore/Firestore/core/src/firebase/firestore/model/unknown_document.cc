@@ -17,7 +17,10 @@
 #include "Firestore/core/src/firebase/firestore/model/unknown_document.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <string>
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <utility>
@@ -26,6 +29,7 @@ namespace firebase {
 namespace firestore {
 namespace model {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 static_assert(
     sizeof(MaybeDocument) == sizeof(UnknownDocument),
@@ -60,6 +64,11 @@ UnknownDocument::UnknownDocument(DocumentKey key, SnapshotVersion version)
 UnknownDocument::UnknownDocument(const MaybeDocument& document)
     : MaybeDocument(document) {
   HARD_ASSERT(type() == Type::UnknownDocument);
+=======
+UnknownDocument::UnknownDocument(DocumentKey key, SnapshotVersion version)
+    : MaybeDocument(std::move(key), std::move(version)) {
+  set_type(Type::UnknownDocument);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 UnknownDocument::UnknownDocument(DocumentKey key, SnapshotVersion version)
     : MaybeDocument(std::move(key), std::move(version)) {

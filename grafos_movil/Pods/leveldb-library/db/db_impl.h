@@ -6,11 +6,16 @@
 #define STORAGE_LEVELDB_DB_DB_IMPL_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <atomic>
 #include <deque>
 #include <set>
 #include <string>
 
+=======
+#include <deque>
+#include <set>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <deque>
 #include <set>
@@ -35,10 +40,13 @@ class DBImpl : public DB {
  public:
   DBImpl(const Options& options, const std::string& dbname);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   DBImpl(const DBImpl&) = delete;
   DBImpl& operator=(const DBImpl&) = delete;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   virtual ~DBImpl();
@@ -48,7 +56,12 @@ class DBImpl : public DB {
   virtual Status Delete(const WriteOptions&, const Slice& key);
   virtual Status Write(const WriteOptions& options, WriteBatch* updates);
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual Status Get(const ReadOptions& options, const Slice& key,
+=======
+  virtual Status Get(const ReadOptions& options,
+                     const Slice& key,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual Status Get(const ReadOptions& options,
                      const Slice& key,
@@ -89,6 +102,7 @@ class DBImpl : public DB {
   struct Writer;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Information for a manual compaction
   struct ManualCompaction {
     int level;
@@ -116,6 +130,8 @@ class DBImpl : public DB {
 
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   Iterator* NewInternalIterator(const ReadOptions&,
                                 SequenceNumber* latest_snapshot,
                                 uint32_t* seed);
@@ -132,7 +148,11 @@ class DBImpl : public DB {
 
   // Delete any unneeded files and stale in-memory entries.
 <<<<<<< HEAD
+<<<<<<< HEAD
   void DeleteObsoleteFiles() EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+=======
+  void DeleteObsoleteFiles();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void DeleteObsoleteFiles();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -152,8 +172,12 @@ class DBImpl : public DB {
   Status MakeRoomForWrite(bool force /* compact even if there is room? */)
       EXCLUSIVE_LOCKS_REQUIRED(mutex_);
 <<<<<<< HEAD
+<<<<<<< HEAD
   WriteBatch* BuildBatchGroup(Writer** last_writer)
       EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+=======
+  WriteBatch* BuildBatchGroup(Writer** last_writer);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   WriteBatch* BuildBatchGroup(Writer** last_writer);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -164,7 +188,11 @@ class DBImpl : public DB {
   static void BGWork(void* db);
   void BackgroundCall();
 <<<<<<< HEAD
+<<<<<<< HEAD
   void BackgroundCompaction() EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+=======
+  void  BackgroundCompaction() EXCLUSIVE_LOCKS_REQUIRED(mutex_);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   void  BackgroundCompaction() EXCLUSIVE_LOCKS_REQUIRED(mutex_);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -179,10 +207,13 @@ class DBImpl : public DB {
       EXCLUSIVE_LOCKS_REQUIRED(mutex_);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const Comparator* user_comparator() const {
     return internal_comparator_.user_comparator();
   }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Constant after construction
@@ -190,6 +221,7 @@ class DBImpl : public DB {
   const InternalKeyComparator internal_comparator_;
   const InternalFilterPolicy internal_filter_policy_;
   const Options options_;  // options_.comparator == &internal_comparator_
+<<<<<<< HEAD
 <<<<<<< HEAD
   const bool owns_info_log_;
   const bool owns_cache_;
@@ -200,6 +232,8 @@ class DBImpl : public DB {
 
   // Lock over the persistent DB state.  Non-null iff successfully acquired.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   bool owns_info_log_;
   bool owns_cache_;
   const std::string dbname_;
@@ -208,11 +242,15 @@ class DBImpl : public DB {
   TableCache* table_cache_;
 
   // Lock over the persistent DB state.  Non-NULL iff successfully acquired.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   FileLock* db_lock_;
 
   // State below is protected by mutex_
   port::Mutex mutex_;
+<<<<<<< HEAD
 <<<<<<< HEAD
   std::atomic<bool> shutting_down_;
   port::CondVar background_work_finished_signal_ GUARDED_BY(mutex_);
@@ -246,6 +284,8 @@ class DBImpl : public DB {
 
   CompactionStats stats_[config::kNumLevels] GUARDED_BY(mutex_);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   port::AtomicPointer shutting_down_;
   port::CondVar bg_cv_;          // Signalled when background work finishes
   MemTable* mem_;
@@ -308,21 +348,30 @@ class DBImpl : public DB {
   const Comparator* user_comparator() const {
     return internal_comparator_.user_comparator();
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
 // Sanitize db options.  The caller should delete result.info_log if
 // it is not equal to src.info_log.
 <<<<<<< HEAD
+<<<<<<< HEAD
 Options SanitizeOptions(const std::string& db,
                         const InternalKeyComparator* icmp,
                         const InternalFilterPolicy* ipolicy,
                         const Options& src);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 extern Options SanitizeOptions(const std::string& db,
                                const InternalKeyComparator* icmp,
                                const InternalFilterPolicy* ipolicy,
                                const Options& src);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 }  // namespace leveldb

@@ -10,8 +10,11 @@
 namespace leveldb {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Options::Options() : comparator(BytewiseComparator()), env(Env::Default()) {}
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Options::Options()
     : comparator(BytewiseComparator()),
       create_if_missing(false),
@@ -29,6 +32,9 @@ Options::Options()
       reuse_logs(false),
       filter_policy(NULL) {
 }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 }  // namespace leveldb

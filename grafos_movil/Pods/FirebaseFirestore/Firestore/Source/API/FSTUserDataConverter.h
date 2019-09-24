@@ -29,6 +29,11 @@
 
 @class FIRTimestamp;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+@class FSTObjectValue;
+@class FSTMutation;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @class FSTObjectValue;
 @class FSTMutation;

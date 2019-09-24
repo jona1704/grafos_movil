@@ -17,6 +17,7 @@
 #include "Firestore/core/src/firebase/firestore/remote/remote_store.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <string>
 #include <utility>
 
@@ -33,6 +34,8 @@
 #include "absl/memory/memory.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include <utility>
 
 #import "Firestore/Source/Local/FSTLocalStore.h"
@@ -67,11 +70,15 @@ using firebase::firestore::remote::WatchTargetChangeState;
 using firebase::firestore::util::AsyncQueue;
 using firebase::firestore::util::Status;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
 namespace remote {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 using core::Transaction;
 using local::QueryData;
@@ -89,6 +96,8 @@ using nanopb::ByteString;
 using util::AsyncQueue;
 using util::Status;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /**
@@ -172,8 +181,13 @@ void RemoteStore::Shutdown() {
 // Watch Stream
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void RemoteStore::Listen(const QueryData& query_data) {
   TargetId targetKey = query_data.target_id();
+=======
+void RemoteStore::Listen(FSTQueryData* query_data) {
+  TargetId targetKey = query_data.targetID;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void RemoteStore::Listen(FSTQueryData* query_data) {
   TargetId targetKey = query_data.targetID;
@@ -214,15 +228,21 @@ void RemoteStore::StopListening(TargetId target_id) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void RemoteStore::SendWatchRequest(const QueryData& query_data) {
   // We need to increment the the expected number of pending responses we're due
   // from watch so we wait for the ack to process any messages from this target.
   watch_change_aggregator_->RecordPendingTargetRequest(query_data.target_id());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void RemoteStore::SendWatchRequest(FSTQueryData* query_data) {
   // We need to increment the the expected number of pending responses we're due
   // from watch so we wait for the ack to process any messages from this target.
   watch_change_aggregator_->RecordPendingTargetRequest(query_data.targetID);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   watch_stream_->WatchQuery(query_data);
 }
@@ -330,6 +350,7 @@ void RemoteStore::RaiseWatchSnapshot(const SnapshotVersion& snapshot_version) {
   for (const auto& entry : remote_event.target_changes()) {
     const TargetChange& target_change = entry.second;
 <<<<<<< HEAD
+<<<<<<< HEAD
     const ByteString& resumeToken = target_change.resume_token();
 
     if (!resumeToken.empty()) {
@@ -345,6 +366,8 @@ void RemoteStore::RaiseWatchSnapshot(const SnapshotVersion& snapshot_version) {
         listen_targets_[target_id] = query_data->Copy(
             snapshot_version, resumeToken, query_data->sequence_number());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     NSData* resumeToken = target_change.resume_token();
 
     if (resumeToken.length > 0) {
@@ -359,6 +382,9 @@ void RemoteStore::RaiseWatchSnapshot(const SnapshotVersion& snapshot_version) {
             queryDataByReplacingSnapshotVersion:snapshot_version
                                     resumeToken:resumeToken
                                  sequenceNumber:query_data.sequenceNumber];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
       }
     }
@@ -373,6 +399,7 @@ void RemoteStore::RaiseWatchSnapshot(const SnapshotVersion& snapshot_version) {
       continue;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     QueryData query_data = found->second;
 
     // Clear the resume token for the query, since we're in a known mismatch
@@ -380,6 +407,8 @@ void RemoteStore::RaiseWatchSnapshot(const SnapshotVersion& snapshot_version) {
     query_data = QueryData(query_data.query(), target_id,
                            query_data.sequence_number(), query_data.purpose());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     FSTQueryData* query_data = found->second;
 
     // Clear the resume token for the query, since we're in a known mismatch
@@ -388,6 +417,9 @@ void RemoteStore::RaiseWatchSnapshot(const SnapshotVersion& snapshot_version) {
                                             targetID:target_id
                                 listenSequenceNumber:query_data.sequenceNumber
                                              purpose:query_data.purpose];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     listen_targets_[target_id] = query_data;
 
@@ -400,22 +432,32 @@ void RemoteStore::RaiseWatchSnapshot(const SnapshotVersion& snapshot_version) {
     // that we flag the first re-listen this way without impacting future
     // listens of this target (that might happen e.g. on reconnect).
 <<<<<<< HEAD
+<<<<<<< HEAD
     QueryData request_query_data(query_data.query(), target_id,
                                  query_data.sequence_number(),
                                  QueryPurpose::ExistenceFilterMismatch);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     FSTQueryData* request_query_data = [[FSTQueryData alloc]
                initWithQuery:query_data.query
                     targetID:target_id
         listenSequenceNumber:query_data.sequenceNumber
                      purpose:FSTQueryPurposeExistenceFilterMismatch];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     SendWatchRequest(request_query_data);
   }
 
   // Finally handle remote event
 <<<<<<< HEAD
+<<<<<<< HEAD
   sync_engine_->ApplyRemoteEvent(remote_event);
+=======
+  [sync_engine_ applyRemoteEvent:remote_event];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   [sync_engine_ applyRemoteEvent:remote_event];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -431,7 +473,12 @@ void RemoteStore::ProcessTargetError(const WatchTargetChange& change) {
       listen_targets_.erase(found);
       watch_change_aggregator_->RemoveTarget(target_id);
 <<<<<<< HEAD
+<<<<<<< HEAD
       sync_engine_->HandleRejectedListen(target_id, change.cause());
+=======
+      [sync_engine_ rejectListenWithTargetID:target_id
+                                       error:util::MakeNSError(change.cause())];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       [sync_engine_ rejectListenWithTargetID:target_id
                                        error:util::MakeNSError(change.cause())];
@@ -446,9 +493,15 @@ void RemoteStore::FillWritePipeline() {
   BatchId last_batch_id_retrieved = write_pipeline_.empty()
                                         ? kBatchIdUnknown
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         : write_pipeline_.back().batch_id();
   while (CanAddToWritePipeline()) {
     absl::optional<MutationBatch> batch =
+=======
+                                        : write_pipeline_.back().batchID;
+  while (CanAddToWritePipeline()) {
+    FSTMutationBatch* batch =
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                                         : write_pipeline_.back().batchID;
   while (CanAddToWritePipeline()) {
@@ -462,8 +515,13 @@ void RemoteStore::FillWritePipeline() {
       break;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     AddToWritePipeline(*batch);
     last_batch_id_retrieved = batch->batch_id();
+=======
+    AddToWritePipeline(batch);
+    last_batch_id_retrieved = batch.batchID;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     AddToWritePipeline(batch);
     last_batch_id_retrieved = batch.batchID;
@@ -480,7 +538,11 @@ bool RemoteStore::CanAddToWritePipeline() const {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void RemoteStore::AddToWritePipeline(const MutationBatch& batch) {
+=======
+void RemoteStore::AddToWritePipeline(FSTMutationBatch* batch) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 void RemoteStore::AddToWritePipeline(FSTMutationBatch* batch) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -491,7 +553,11 @@ void RemoteStore::AddToWritePipeline(FSTMutationBatch* batch) {
 
   if (write_stream_->IsOpen() && write_stream_->handshake_complete()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     write_stream_->WriteMutations(batch.mutations());
+=======
+    write_stream_->WriteMutations(batch.mutations);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     write_stream_->WriteMutations(batch.mutations);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -519,8 +585,13 @@ void RemoteStore::OnWriteStreamHandshakeComplete() {
 
   // Send the write pipeline now that the stream is established.
 <<<<<<< HEAD
+<<<<<<< HEAD
   for (const MutationBatch& write : write_pipeline_) {
     write_stream_->WriteMutations(write.mutations());
+=======
+  for (FSTMutationBatch* write : write_pipeline_) {
+    write_stream_->WriteMutations(write.mutations);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   for (FSTMutationBatch* write : write_pipeline_) {
     write_stream_->WriteMutations(write.mutations);
@@ -531,7 +602,11 @@ void RemoteStore::OnWriteStreamHandshakeComplete() {
 void RemoteStore::OnWriteStreamMutationResult(
     SnapshotVersion commit_version,
 <<<<<<< HEAD
+<<<<<<< HEAD
     std::vector<MutationResult> mutation_results) {
+=======
+    std::vector<FSTMutationResult*> mutation_results) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     std::vector<FSTMutationResult*> mutation_results) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -539,6 +614,7 @@ void RemoteStore::OnWriteStreamMutationResult(
   // to the first write in our write pipeline.
   HARD_ASSERT(!write_pipeline_.empty(), "Got result for empty write pipeline");
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   MutationBatch batch = write_pipeline_.front();
   write_pipeline_.erase(write_pipeline_.begin());
@@ -548,6 +624,8 @@ void RemoteStore::OnWriteStreamMutationResult(
                                    write_stream_->GetLastStreamToken());
   sync_engine_->HandleSuccessfulWrite(batch_result);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   FSTMutationBatch* batch = write_pipeline_.front();
   write_pipeline_.erase(write_pipeline_.begin());
 
@@ -557,6 +635,9 @@ void RemoteStore::OnWriteStreamMutationResult(
       mutationResults:std::move(mutation_results)
           streamToken:write_stream_->GetLastStreamToken()];
   [sync_engine_ applySuccessfulWriteWithResult:batchResult];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // It's possible that with the completion of this mutation another slot has
@@ -603,7 +684,12 @@ void RemoteStore::HandleHandshakeError(const Status& status) {
   // comments on `Datastore::IsPermanentWriteError` for details.
   if (Datastore::IsPermanentError(status)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     std::string token = util::ToString(write_stream_->GetLastStreamToken());
+=======
+    NSString* token =
+        [write_stream_->GetLastStreamToken() base64EncodedStringWithOptions:0];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     NSString* token =
         [write_stream_->GetLastStreamToken() base64EncodedStringWithOptions:0];
@@ -613,8 +699,13 @@ void RemoteStore::HandleHandshakeError(const Status& status) {
               "error code: '%s', details: '%s'",
               this, token, status.code(), status.error_message());
 <<<<<<< HEAD
+<<<<<<< HEAD
     write_stream_->SetLastStreamToken({});
     [local_store_ setLastStreamToken:{}];
+=======
+    write_stream_->SetLastStreamToken(nil);
+    [local_store_ setLastStreamToken:nil];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     write_stream_->SetLastStreamToken(nil);
     [local_store_ setLastStreamToken:nil];
@@ -637,7 +728,11 @@ void RemoteStore::HandleWriteError(const Status& status) {
   // If this was a permanent error, the request itself was the problem so it's
   // not going to succeed if we resend it.
 <<<<<<< HEAD
+<<<<<<< HEAD
   MutationBatch batch = write_pipeline_.front();
+=======
+  FSTMutationBatch* batch = write_pipeline_.front();
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTMutationBatch* batch = write_pipeline_.front();
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -648,7 +743,12 @@ void RemoteStore::HandleWriteError(const Status& status) {
   write_stream_->InhibitBackoff();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   sync_engine_->HandleRejectedWrite(batch.batch_id(), status);
+=======
+  [sync_engine_ rejectFailedWriteWithBatchID:batch.batchID
+                                       error:util::MakeNSError(status)];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   [sync_engine_ rejectFailedWriteWithBatchID:batch.batchID
                                        error:util::MakeNSError(status)];
@@ -671,6 +771,7 @@ std::shared_ptr<Transaction> RemoteStore::CreateTransaction() {
 
 DocumentKeySet RemoteStore::GetRemoteKeysForTarget(TargetId target_id) const {
 <<<<<<< HEAD
+<<<<<<< HEAD
   return sync_engine_->GetRemoteKeys(target_id);
 }
 
@@ -680,12 +781,17 @@ absl::optional<QueryData> RemoteStore::GetQueryDataForTarget(
   return found != listen_targets_.end() ? found->second
                                         : absl::optional<QueryData>{};
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return [sync_engine_ remoteKeysForTarget:target_id];
 }
 
 FSTQueryData* RemoteStore::GetQueryDataForTarget(TargetId target_id) const {
   auto found = listen_targets_.find(target_id);
   return found != listen_targets_.end() ? found->second : nil;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 

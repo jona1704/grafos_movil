@@ -29,10 +29,15 @@
 #include "table/block_builder.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <assert.h>
 
 #include <algorithm>
 
+=======
+#include <algorithm>
+#include <assert.h>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <algorithm>
 #include <assert.h>
@@ -45,16 +50,22 @@ namespace leveldb {
 
 BlockBuilder::BlockBuilder(const Options* options)
 <<<<<<< HEAD
+<<<<<<< HEAD
     : options_(options), restarts_(), counter_(0), finished_(false) {
   assert(options->block_restart_interval >= 1);
   restarts_.push_back(0);  // First restart point is at offset 0
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     : options_(options),
       restarts_(),
       counter_(0),
       finished_(false) {
   assert(options->block_restart_interval >= 1);
   restarts_.push_back(0);       // First restart point is at offset 0
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -62,7 +73,11 @@ void BlockBuilder::Reset() {
   buffer_.clear();
   restarts_.clear();
 <<<<<<< HEAD
+<<<<<<< HEAD
   restarts_.push_back(0);  // First restart point is at offset 0
+=======
+  restarts_.push_back(0);       // First restart point is at offset 0
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   restarts_.push_back(0);       // First restart point is at offset 0
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -73,9 +88,15 @@ void BlockBuilder::Reset() {
 
 size_t BlockBuilder::CurrentSizeEstimate() const {
 <<<<<<< HEAD
+<<<<<<< HEAD
   return (buffer_.size() +                       // Raw data buffer
           restarts_.size() * sizeof(uint32_t) +  // Restart array
           sizeof(uint32_t));                     // Restart array length
+=======
+  return (buffer_.size() +                        // Raw data buffer
+          restarts_.size() * sizeof(uint32_t) +   // Restart array
+          sizeof(uint32_t));                      // Restart array length
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return (buffer_.size() +                        // Raw data buffer
           restarts_.size() * sizeof(uint32_t) +   // Restart array
@@ -98,7 +119,11 @@ void BlockBuilder::Add(const Slice& key, const Slice& value) {
   assert(!finished_);
   assert(counter_ <= options_->block_restart_interval);
 <<<<<<< HEAD
+<<<<<<< HEAD
   assert(buffer_.empty()  // No values yet?
+=======
+  assert(buffer_.empty() // No values yet?
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   assert(buffer_.empty() // No values yet?
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

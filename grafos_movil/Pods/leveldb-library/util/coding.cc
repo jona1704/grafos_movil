@@ -7,6 +7,7 @@
 namespace leveldb {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void EncodeFixed32(char* dst, uint32_t value) {
   if (port::kLittleEndian) {
     memcpy(dst, &value, sizeof(value));
@@ -31,6 +32,8 @@ void EncodeFixed64(char* dst, uint64_t value) {
     dst[6] = (value >> 48) & 0xff;
     dst[7] = (value >> 56) & 0xff;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void EncodeFixed32(char* buf, uint32_t value) {
   if (port::kLittleEndian) {
     memcpy(buf, &value, sizeof(value));
@@ -54,6 +57,9 @@ void EncodeFixed64(char* buf, uint64_t value) {
     buf[5] = (value >> 40) & 0xff;
     buf[6] = (value >> 48) & 0xff;
     buf[7] = (value >> 56) & 0xff;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 }
@@ -74,6 +80,7 @@ char* EncodeVarint32(char* dst, uint32_t v) {
   // Operate on characters as unsigneds
   unsigned char* ptr = reinterpret_cast<unsigned char*>(dst);
   static const int B = 128;
+<<<<<<< HEAD
 <<<<<<< HEAD
   if (v < (1 << 7)) {
     *(ptr++) = v;
@@ -96,6 +103,8 @@ char* EncodeVarint32(char* dst, uint32_t v) {
     *(ptr++) = (v >> 21) | B;
     *(ptr++) = v >> 28;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (v < (1<<7)) {
     *(ptr++) = v;
   } else if (v < (1<<14)) {
@@ -116,6 +125,9 @@ char* EncodeVarint32(char* dst, uint32_t v) {
     *(ptr++) = (v>>14) | B;
     *(ptr++) = (v>>21) | B;
     *(ptr++) = v>>28;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
   return reinterpret_cast<char*>(ptr);
@@ -132,7 +144,11 @@ char* EncodeVarint64(char* dst, uint64_t v) {
   unsigned char* ptr = reinterpret_cast<unsigned char*>(dst);
   while (v >= B) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     *(ptr++) = v | B;
+=======
+    *(ptr++) = (v & (B-1)) | B;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     *(ptr++) = (v & (B-1)) | B;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -163,7 +179,12 @@ int VarintLength(uint64_t v) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const char* GetVarint32PtrFallback(const char* p, const char* limit,
+=======
+const char* GetVarint32PtrFallback(const char* p,
+                                   const char* limit,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 const char* GetVarint32PtrFallback(const char* p,
                                    const char* limit,
@@ -183,7 +204,11 @@ const char* GetVarint32PtrFallback(const char* p,
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   return nullptr;
+=======
+  return NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -194,7 +219,11 @@ bool GetVarint32(Slice* input, uint32_t* value) {
   const char* limit = p + input->size();
   const char* q = GetVarint32Ptr(p, limit, value);
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (q == nullptr) {
+=======
+  if (q == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (q == NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -220,7 +249,11 @@ const char* GetVarint64Ptr(const char* p, const char* limit, uint64_t* value) {
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   return nullptr;
+=======
+  return NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -231,7 +264,11 @@ bool GetVarint64(Slice* input, uint64_t* value) {
   const char* limit = p + input->size();
   const char* q = GetVarint64Ptr(p, limit, value);
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (q == nullptr) {
+=======
+  if (q == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (q == NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -247,8 +284,13 @@ const char* GetLengthPrefixedSlice(const char* p, const char* limit,
   uint32_t len;
   p = GetVarint32Ptr(p, limit, &len);
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (p == nullptr) return nullptr;
   if (p + len > limit) return nullptr;
+=======
+  if (p == NULL) return NULL;
+  if (p + len > limit) return NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (p == NULL) return NULL;
   if (p + len > limit) return NULL;
@@ -260,7 +302,12 @@ const char* GetLengthPrefixedSlice(const char* p, const char* limit,
 bool GetLengthPrefixedSlice(Slice* input, Slice* result) {
   uint32_t len;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (GetVarint32(input, &len) && input->size() >= len) {
+=======
+  if (GetVarint32(input, &len) &&
+      input->size() >= len) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (GetVarint32(input, &len) &&
       input->size() >= len) {

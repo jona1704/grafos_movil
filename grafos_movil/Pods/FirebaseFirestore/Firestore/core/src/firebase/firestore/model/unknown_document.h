@@ -18,8 +18,11 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_MODEL_UNKNOWN_DOCUMENT_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <memory>
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/maybe_document.h"
@@ -37,6 +40,7 @@ class UnknownDocument : public MaybeDocument {
   UnknownDocument(DocumentKey key, SnapshotVersion version);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Casts a MaybeDocument to a UnknownDocument. This is a checked operation
    * that will assert if the type of the MaybeDocument isn't actually
@@ -49,6 +53,11 @@ class UnknownDocument : public MaybeDocument {
 
  private:
   class Rep;
+=======
+  bool HasPendingWrites() const override {
+    return true;
+  }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   bool HasPendingWrites() const override {
     return true;

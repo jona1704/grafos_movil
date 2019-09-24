@@ -19,6 +19,7 @@
 #include <vector>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/auth/user.h"
 #include "Firestore/core/src/firebase/firestore/local/local_view_changes.h"
 #include "Firestore/core/src/firebase/firestore/local/local_write_result.h"
@@ -33,6 +34,8 @@
 #include "Firestore/core/src/firebase/firestore/model/types.h"
 #include "Firestore/core/src/firebase/firestore/nanopb/byte_string.h"
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Source/Local/FSTLRUGarbageCollector.h"
 
 #include "Firestore/core/src/firebase/firestore/auth/user.h"
@@ -41,6 +44,9 @@
 #include "Firestore/core/src/firebase/firestore/model/document_map.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 namespace firebase {
@@ -54,6 +60,7 @@ class RemoteEvent;
 }  // namespace firebase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @protocol FSTPersistence;
 
 namespace auth = firebase::firestore::auth;
@@ -62,6 +69,8 @@ namespace local = firebase::firestore::local;
 namespace model = firebase::firestore::model;
 namespace nanopb = firebase::firestore::nanopb;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 @class FSTLocalViewChanges;
 @class FSTLocalWriteResult;
 @class FSTMutation;
@@ -74,6 +83,9 @@ namespace nanopb = firebase::firestore::nanopb;
 namespace auth = firebase::firestore::auth;
 namespace local = firebase::firestore::local;
 namespace model = firebase::firestore::model;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace remote = firebase::firestore::remote;
 
@@ -135,15 +147,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Accepts locally generated Mutations and commits them to storage. */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (local::LocalWriteResult)locallyWriteMutations:(std::vector<model::Mutation> &&)mutations;
 
 /** Returns the current value of a document with a given key, or nil if not found. */
 - (absl::optional<model::MaybeDocument>)readDocument:(const model::DocumentKey &)key;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (FSTLocalWriteResult *)locallyWriteMutations:(std::vector<FSTMutation *> &&)mutations;
 
 /** Returns the current value of a document with a given key, or nil if not found. */
 - (nullable FSTMaybeDocument *)readDocument:(const model::DocumentKey &)key;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 /**
@@ -160,8 +178,12 @@ NS_ASSUME_NONNULL_BEGIN
  * @return The resulting (modified) documents.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (model::MaybeDocumentMap)acknowledgeBatchWithResult:
     (const model::MutationBatchResult &)batchResult;
+=======
+- (model::MaybeDocumentMap)acknowledgeBatchWithResult:(FSTMutationBatchResult *)batchResult;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (model::MaybeDocumentMap)acknowledgeBatchWithResult:(FSTMutationBatchResult *)batchResult;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -176,7 +198,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Returns the last recorded stream token for the current user. */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (nanopb::ByteString)lastStreamToken;
+=======
+- (nullable NSData *)lastStreamToken;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (nullable NSData *)lastStreamToken;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -187,7 +213,11 @@ NS_ASSUME_NONNULL_BEGIN
  * the stream token.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)setLastStreamToken:(const nanopb::ByteString &)streamToken;
+=======
+- (void)setLastStreamToken:(nullable NSData *)streamToken;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (void)setLastStreamToken:(nullable NSData *)streamToken;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -218,6 +248,7 @@ NS_ASSUME_NONNULL_BEGIN
  * A query must be allocated in the local store before the store can be used to manage its view.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (local::QueryData)allocateQuery:(core::Query)query;
 
 /** Unpin all the documents associated with @a query. */
@@ -229,6 +260,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** Notify the local store of the changed views to locally pin / unpin documents. */
 - (void)notifyLocalViewChanges:(const std::vector<local::LocalViewChanges> &)viewChanges;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (FSTQueryData *)allocateQuery:(FSTQuery *)query;
 
 /** Unpin all the documents associated with @a query. */
@@ -239,6 +272,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Notify the local store of the changed views to locally pin / unpin documents. */
 - (void)notifyLocalViewChanges:(NSArray<FSTLocalViewChanges *> *)viewChanges;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 /**
@@ -247,6 +283,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param batchID The batch to search after, or -1 for the first mutation in the queue.
  * @return the next mutation or nil if there wasn't one.
  */
+<<<<<<< HEAD
 <<<<<<< HEAD
 - (absl::optional<model::MutationBatch>)nextMutationBatchAfterBatchID:(model::BatchId)batchID;
 
@@ -257,6 +294,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (model::BatchId)getHighestUnacknowledgedBatchId;
 
 - (local::LruResults)collectGarbage:(local::LruGarbageCollector *)garbageCollector;
+=======
+- (nullable FSTMutationBatch *)nextMutationBatchAfterBatchID:(model::BatchId)batchID;
+
+- (local::LruResults)collectGarbage:(FSTLRUGarbageCollector *)garbageCollector;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (nullable FSTMutationBatch *)nextMutationBatchAfterBatchID:(model::BatchId)batchID;
 

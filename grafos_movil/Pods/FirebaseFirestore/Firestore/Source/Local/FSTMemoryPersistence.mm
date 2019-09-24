@@ -25,7 +25,10 @@
 #include "Firestore/core/src/firebase/firestore/local/index_manager.h"
 #include "Firestore/core/src/firebase/firestore/local/listen_sequence.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/local/lru_garbage_collector.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/local/memory_index_manager.h"
@@ -33,7 +36,10 @@
 #include "Firestore/core/src/firebase/firestore/local/memory_query_cache.h"
 #include "Firestore/core/src/firebase/firestore/local/memory_remote_document_cache.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/local/proto_sizer.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/local/reference_set.h"
@@ -45,7 +51,10 @@ using firebase::firestore::auth::HashUser;
 using firebase::firestore::auth::User;
 using firebase::firestore::local::ListenSequence;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using firebase::firestore::local::LruGarbageCollector;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::local::LruParams;
@@ -54,8 +63,11 @@ using firebase::firestore::local::MemoryMutationQueue;
 using firebase::firestore::local::MemoryQueryCache;
 using firebase::firestore::local::MemoryRemoteDocumentCache;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using firebase::firestore::local::ProtoSizer;
 using firebase::firestore::local::QueryData;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 using firebase::firestore::local::ReferenceSet;
@@ -188,7 +200,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation FSTMemoryLRUReferenceDelegate {
 <<<<<<< HEAD
+<<<<<<< HEAD
   local::LruDelegateBridge _delegateBridge;
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // This delegate should have the same lifetime as the persistence layer, but mark as
@@ -199,7 +214,11 @@ NS_ASSUME_NONNULL_BEGIN
   std::unordered_map<DocumentKey, ListenSequenceNumber, DocumentKeyHash> _sequenceNumbers;
   ReferenceSet *_additionalReferences;
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::unique_ptr<LruGarbageCollector> _gc;
+=======
+  FSTLRUGarbageCollector *_gc;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   FSTLRUGarbageCollector *_gc;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -215,9 +234,14 @@ NS_ASSUME_NONNULL_BEGIN
   if (self = [super init]) {
     _persistence = persistence;
 <<<<<<< HEAD
+<<<<<<< HEAD
     _delegateBridge = local::LruDelegateBridge(self);
     _gc = absl::make_unique<LruGarbageCollector>(&_delegateBridge, lruParams);
     _currentSequenceNumber = local::kListenSequenceNumberInvalid;
+=======
+    _gc = [[FSTLRUGarbageCollector alloc] initWithDelegate:self params:lruParams];
+    _currentSequenceNumber = kFSTListenSequenceNumberInvalid;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     _gc = [[FSTLRUGarbageCollector alloc] initWithDelegate:self params:lruParams];
     _currentSequenceNumber = kFSTListenSequenceNumberInvalid;
@@ -232,6 +256,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (local::LruGarbageCollector *)gc {
   return _gc.get();
 }
@@ -239,12 +264,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (ListenSequenceNumber)currentSequenceNumber {
   HARD_ASSERT(_currentSequenceNumber != local::kListenSequenceNumberInvalid,
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (FSTLRUGarbageCollector *)gc {
   return _gc;
 }
 
 - (ListenSequenceNumber)currentSequenceNumber {
   HARD_ASSERT(_currentSequenceNumber != kFSTListenSequenceNumberInvalid,
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
               "Asking for a sequence number outside of a transaction");
   return _currentSequenceNumber;
@@ -257,14 +287,20 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)removeTarget:(const QueryData &)queryData {
   QueryData updated = queryData.Copy(queryData.snapshot_version(), queryData.resume_token(),
                                      _currentSequenceNumber);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (void)removeTarget:(FSTQueryData *)queryData {
   FSTQueryData *updated = [queryData queryDataByReplacingSnapshotVersion:queryData.snapshotVersion
                                                              resumeToken:queryData.resumeToken
                                                           sequenceNumber:_currentSequenceNumber];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   _persistence.queryCache->UpdateTarget(updated);
 }
@@ -279,7 +315,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)commitTransaction {
 <<<<<<< HEAD
+<<<<<<< HEAD
   _currentSequenceNumber = local::kListenSequenceNumberInvalid;
+=======
+  _currentSequenceNumber = kFSTListenSequenceNumberInvalid;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   _currentSequenceNumber = kFSTListenSequenceNumberInvalid;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -304,8 +344,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (int)removeTargetsThroughSequenceNumber:(ListenSequenceNumber)sequenceNumber
 <<<<<<< HEAD
+<<<<<<< HEAD
                               liveQueries:
                                   (const std::unordered_map<TargetId, QueryData> &)liveQueries {
+=======
+                              liveQueries:(const std::unordered_map<TargetId, FSTQueryData *> &)
+                                              liveQueries {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                               liveQueries:(const std::unordered_map<TargetId, FSTQueryData *> &)
                                               liveQueries {
@@ -372,6 +417,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (int64_t)byteSize {
   // Note that this method is only used for testing because this delegate is only
   // used for testing. The algorithm here (loop through everything, serialize it
@@ -384,6 +430,8 @@ NS_ASSUME_NONNULL_BEGIN
   for (const auto &entry : queues) {
     count += entry.second->CalculateByteSize(sizer);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 - (size_t)byteSize {
   // Note that this method is only used for testing because this delegate is only
   // used for testing. The algorithm here (loop through everything, serialize it
@@ -394,6 +442,9 @@ NS_ASSUME_NONNULL_BEGIN
   const MutationQueues &queues = [_persistence mutationQueues];
   for (const auto &entry : queues) {
     count += entry.second->CalculateByteSize(_serializer);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
   return count;
@@ -418,7 +469,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (ListenSequenceNumber)currentSequenceNumber {
 <<<<<<< HEAD
+<<<<<<< HEAD
   return local::kListenSequenceNumberInvalid;
+=======
+  return kFSTListenSequenceNumberInvalid;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return kFSTListenSequenceNumberInvalid;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -431,9 +486,14 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (void)removeTarget:(const QueryData &)queryData {
   for (const DocumentKey &docKey :
        _persistence.queryCache->GetMatchingKeys(queryData.target_id())) {
+=======
+- (void)removeTarget:(FSTQueryData *)queryData {
+  for (const DocumentKey &docKey : _persistence.queryCache->GetMatchingKeys(queryData.targetID)) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 - (void)removeTarget:(FSTQueryData *)queryData {
   for (const DocumentKey &docKey : _persistence.queryCache->GetMatchingKeys(queryData.targetID)) {

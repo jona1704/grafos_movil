@@ -22,7 +22,10 @@
 #include <string>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/immutable/append_only_list.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "Firestore/core/src/firebase/firestore/model/document.h"
@@ -49,8 +52,11 @@ class Filter {
     GreaterThan,
     ArrayContains,
 <<<<<<< HEAD
+<<<<<<< HEAD
     In,
     ArrayContainsAny,
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   };
@@ -58,6 +64,7 @@ class Filter {
   // For lack of RTTI, all subclasses must identify themselves so that
   // comparisons properly take type into account.
   enum class Type {
+<<<<<<< HEAD
 <<<<<<< HEAD
     kArrayContainsAnyFilter,
     kArrayContainsFilter,
@@ -154,6 +161,8 @@ class Filter {
  private:
   std::shared_ptr<const Rep> rep_;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     kRelationFilter,
     kNanFilter,
     kNullFilter,
@@ -198,6 +207,9 @@ class Filter {
 
  private:
   virtual bool Equals(const Filter& other) const = 0;
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 
@@ -206,9 +218,12 @@ inline bool operator!=(const Filter& lhs, const Filter& rhs) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** A list of Filters, as used in Queries and elsewhere. */
 using FilterList = immutable::AppendOnlyList<Filter>;
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 std::ostream& operator<<(std::ostream& os, const Filter& filter);

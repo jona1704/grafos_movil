@@ -20,14 +20,18 @@
 
 #include <stdint.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #include "leveldb/export.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "leveldb/slice.h"
 
 namespace leveldb {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 class LEVELDB_EXPORT Cache;
 
@@ -42,6 +46,8 @@ class LEVELDB_EXPORT Cache {
   Cache(const Cache&) = delete;
   Cache& operator=(const Cache&) = delete;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 class Cache;
 
 // Create a new cache with a fixed size capacity.  This implementation
@@ -51,6 +57,9 @@ extern Cache* NewLRUCache(size_t capacity);
 class Cache {
  public:
   Cache() { }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // Destroys all existing entries by calling the "deleter"
@@ -59,7 +68,11 @@ class Cache {
 
   // Opaque handle to an entry stored in the cache.
 <<<<<<< HEAD
+<<<<<<< HEAD
   struct Handle {};
+=======
+  struct Handle { };
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   struct Handle { };
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -77,7 +90,11 @@ class Cache {
                          void (*deleter)(const Slice& key, void* value)) = 0;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   // If the cache has no mapping for "key", returns nullptr.
+=======
+  // If the cache has no mapping for "key", returns NULL.
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   // If the cache has no mapping for "key", returns NULL.
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -128,11 +145,17 @@ class Cache {
   struct Rep;
   Rep* rep_;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // No copying allowed
   Cache(const Cache&);
   void operator=(const Cache&);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 };
 

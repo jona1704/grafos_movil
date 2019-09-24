@@ -17,7 +17,12 @@ static const size_t kFilterBase = 1 << kFilterBaseLg;
 
 FilterBlockBuilder::FilterBlockBuilder(const FilterPolicy* policy)
 <<<<<<< HEAD
+<<<<<<< HEAD
     : policy_(policy) {}
+=======
+    : policy_(policy) {
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     : policy_(policy) {
 }
@@ -67,7 +72,11 @@ void FilterBlockBuilder::GenerateFilter() {
   for (size_t i = 0; i < num_keys; i++) {
     const char* base = keys_.data() + start_[i];
 <<<<<<< HEAD
+<<<<<<< HEAD
     size_t length = start_[i + 1] - start_[i];
+=======
+    size_t length = start_[i+1] - start_[i];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     size_t length = start_[i+1] - start_[i];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -86,11 +95,14 @@ void FilterBlockBuilder::GenerateFilter() {
 FilterBlockReader::FilterBlockReader(const FilterPolicy* policy,
                                      const Slice& contents)
 <<<<<<< HEAD
+<<<<<<< HEAD
     : policy_(policy), data_(nullptr), offset_(nullptr), num_(0), base_lg_(0) {
   size_t n = contents.size();
   if (n < 5) return;  // 1 byte for base_lg_ and 4 for start of offset array
   base_lg_ = contents[n - 1];
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     : policy_(policy),
       data_(NULL),
       offset_(NULL),
@@ -99,6 +111,9 @@ FilterBlockReader::FilterBlockReader(const FilterPolicy* policy,
   size_t n = contents.size();
   if (n < 5) return;  // 1 byte for base_lg_ and 4 for start of offset array
   base_lg_ = contents[n-1];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   uint32_t last_word = DecodeFixed32(contents.data() + n - 5);
   if (last_word > n - 5) return;
@@ -111,8 +126,13 @@ bool FilterBlockReader::KeyMayMatch(uint64_t block_offset, const Slice& key) {
   uint64_t index = block_offset >> base_lg_;
   if (index < num_) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     uint32_t start = DecodeFixed32(offset_ + index * 4);
     uint32_t limit = DecodeFixed32(offset_ + index * 4 + 4);
+=======
+    uint32_t start = DecodeFixed32(offset_ + index*4);
+    uint32_t limit = DecodeFixed32(offset_ + index*4 + 4);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     uint32_t start = DecodeFixed32(offset_ + index*4);
     uint32_t limit = DecodeFixed32(offset_ + index*4 + 4);
@@ -129,7 +149,11 @@ bool FilterBlockReader::KeyMayMatch(uint64_t block_offset, const Slice& key) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }  // namespace leveldb
+=======
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

@@ -18,8 +18,12 @@
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_QUERY_DATA_H_
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <iosfwd>
 #include <string>
+=======
+#include <cstdint>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include <cstdint>
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -38,7 +42,11 @@ namespace local {
 enum class QueryPurpose {
   /** A regular, normal query. */
 <<<<<<< HEAD
+<<<<<<< HEAD
   Listen,
+=======
+  kListen,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   kListen,
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -46,6 +54,7 @@ enum class QueryPurpose {
   /**
    * The query was used to refill a query after an existence filter mismatch.
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   ExistenceFilterMismatch,
 
@@ -56,12 +65,17 @@ enum class QueryPurpose {
 std::ostream& operator<<(std::ostream& os, QueryPurpose purpose);
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   kExistenceFilterMismatch,
 
   /** The query was used to resolve a limbo document. */
   kLimboResolution,
 };
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 /**
  * An immutable set of metadata that the store will need to keep track of for
@@ -83,6 +97,7 @@ class QueryData {
    *     point in time from which the server should resume sending results.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   QueryData(core::Query query,
             model::TargetId target_id,
             model::ListenSequenceNumber sequence_number,
@@ -90,18 +105,24 @@ class QueryData {
             model::SnapshotVersion snapshot_version,
             nanopb::ByteString resume_token);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   QueryData(core::Query&& query,
             model::TargetId target_id,
             model::ListenSequenceNumber sequence_number,
             QueryPurpose purpose,
             model::SnapshotVersion&& snapshot_version,
             nanopb::ByteString&& resume_token);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   /**
    * Convenience constructor for use when creating a QueryData for the first
    * time.
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   QueryData(core::Query query,
             int target_id,
@@ -116,6 +137,10 @@ class QueryData {
   // TODO(rsgowman): Define once WatchStream::EmptyResumeToken exists.
   // QueryData(const core::Query& query, int target_id, QueryPurpose purpose);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+  // TODO(rsgowman): Define once WatchStream::EmptyResumeToken exists.
+  // QueryData(const core::Query& query, int target_id, QueryPurpose purpose);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   /**
    * Constructs an invalid QueryData. Reading any properties of the returned
@@ -124,7 +149,10 @@ class QueryData {
   static QueryData Invalid();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** The query being listened to. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   const core::Query& query() const {
@@ -132,10 +160,13 @@ class QueryData {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * The TargetId to which the query corresponds, assigned by the FSTLocalStore
    * for user queries or the FSTSyncEngine for limbo queries.
    */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   model::TargetId target_id() const {
@@ -147,7 +178,10 @@ class QueryData {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** The purpose of the query. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   QueryPurpose purpose() const {
@@ -155,13 +189,17 @@ class QueryData {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /** The latest snapshot version seen for this target. */
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   const model::SnapshotVersion& snapshot_version() const {
     return snapshot_version_;
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   /**
    * An opaque, server-assigned token that allows watching a query to be resumed
@@ -171,10 +209,13 @@ class QueryData {
    */
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   const nanopb::ByteString& resume_token() const {
     return resume_token_;
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   QueryData Copy(model::SnapshotVersion snapshot_version,
                  nanopb::ByteString resume_token,
@@ -191,6 +232,10 @@ class QueryData {
   QueryData Copy(model::SnapshotVersion&& snapshot_version,
                  nanopb::ByteString&& resume_token) const;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+  QueryData Copy(model::SnapshotVersion&& snapshot_version,
+                 nanopb::ByteString&& resume_token) const;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
  private:
   core::Query query_;
@@ -202,7 +247,10 @@ class QueryData {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator==(const QueryData& lhs, const QueryData& rhs) {
   return lhs.query() == rhs.query() && lhs.target_id() == rhs.target_id() &&
          lhs.sequence_number() == rhs.sequence_number() &&
@@ -211,6 +259,9 @@ inline bool operator==(const QueryData& lhs, const QueryData& rhs) {
          lhs.resume_token() == rhs.resume_token();
 }
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 inline bool operator!=(const QueryData& lhs, const QueryData& rhs) {
   return !(lhs == rhs);

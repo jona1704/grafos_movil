@@ -17,6 +17,7 @@
 #include "Firestore/core/src/firebase/firestore/local/memory_remote_document_cache.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <utility>
 
 #import "Firestore/Source/Local/FSTMemoryPersistence.h"
@@ -25,6 +26,8 @@
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #import "Firestore/Protos/objc/firestore/local/MaybeDocument.pbobjc.h"
 #import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Local/FSTMemoryPersistence.h"
@@ -38,11 +41,15 @@ using firebase::firestore::model::DocumentMap;
 using firebase::firestore::model::ListenSequenceNumber;
 using firebase::firestore::model::MaybeDocumentMap;
 
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace firebase {
 namespace firestore {
 namespace local {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 using core::Query;
 using model::Document;
@@ -54,6 +61,8 @@ using model::MaybeDocument;
 using model::MaybeDocumentMap;
 using model::OptionalMaybeDocumentMap;
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 namespace {
 /**
  * Returns an estimate of the number of bytes used to store the given
@@ -68,6 +77,9 @@ size_t DocumentKeyByteSize(const DocumentKey& key) {
   return count;
 }
 }  // namespace
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 MemoryRemoteDocumentCache::MemoryRemoteDocumentCache(
@@ -76,17 +88,23 @@ MemoryRemoteDocumentCache::MemoryRemoteDocumentCache(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void MemoryRemoteDocumentCache::Add(const MaybeDocument& document) {
   docs_ = docs_.insert(document.key(), document);
 
   persistence_.indexManager->AddToCollectionParentIndex(
       document.key().path().PopLast());
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 void MemoryRemoteDocumentCache::Add(FSTMaybeDocument* document) {
   docs_ = docs_.insert(document.key, document);
 
   persistence_.indexManager->AddToCollectionParentIndex(
       document.key.path().PopLast());
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -94,6 +112,7 @@ void MemoryRemoteDocumentCache::Remove(const DocumentKey& key) {
   docs_ = docs_.erase(key);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 absl::optional<MaybeDocument> MemoryRemoteDocumentCache::Get(
     const DocumentKey& key) {
@@ -107,6 +126,8 @@ OptionalMaybeDocumentMap MemoryRemoteDocumentCache::GetAll(
     // Make sure each key has a corresponding entry, which is nullopt in case
     // the document is not found.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 FSTMaybeDocument* _Nullable MemoryRemoteDocumentCache::Get(
     const DocumentKey& key) {
   auto found = docs_.find(key);
@@ -118,6 +139,9 @@ MaybeDocumentMap MemoryRemoteDocumentCache::GetAll(const DocumentKeySet& keys) {
   for (const DocumentKey& key : keys) {
     // Make sure each key has a corresponding entry, which is null in case the
     // document is not found.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     // TODO(http://b/32275378): Don't conflate missing / deleted.
     results = results.insert(key, Get(key));
@@ -126,9 +150,15 @@ MaybeDocumentMap MemoryRemoteDocumentCache::GetAll(const DocumentKeySet& keys) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 DocumentMap MemoryRemoteDocumentCache::GetMatching(const Query& query) {
   HARD_ASSERT(
       !query.IsCollectionGroupQuery(),
+=======
+DocumentMap MemoryRemoteDocumentCache::GetMatching(FSTQuery* query) {
+  HARD_ASSERT(
+      ![query isCollectionGroupQuery],
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 DocumentMap MemoryRemoteDocumentCache::GetMatching(FSTQuery* query) {
   HARD_ASSERT(
@@ -140,6 +170,7 @@ DocumentMap MemoryRemoteDocumentCache::GetMatching(FSTQuery* query) {
 
   // Documents are ordered by key, so we can use a prefix scan to narrow down
   // the documents we need to match the query against.
+<<<<<<< HEAD
 <<<<<<< HEAD
   DocumentKey prefix{query.path().Append("")};
   for (auto it = docs_.lower_bound(prefix); it != docs_.end(); ++it) {
@@ -156,6 +187,8 @@ DocumentMap MemoryRemoteDocumentCache::GetMatching(FSTQuery* query) {
     if (query.Matches(doc)) {
       results = results.insert(key, std::move(doc));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   DocumentKey prefix{query.path.Append("")};
   for (auto it = docs_.lower_bound(prefix); it != docs_.end(); ++it) {
     const DocumentKey& key = it->first;
@@ -169,6 +202,9 @@ DocumentMap MemoryRemoteDocumentCache::GetMatching(FSTQuery* query) {
     FSTDocument* doc = static_cast<FSTDocument*>(maybeDoc);
     if ([query matchesDocument:doc]) {
       results = results.insert(key, doc);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     }
   }
@@ -193,17 +229,23 @@ std::vector<DocumentKey> MemoryRemoteDocumentCache::RemoveOrphanedDocuments(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 int64_t MemoryRemoteDocumentCache::CalculateByteSize(const Sizer& sizer) {
   int64_t count = 0;
   for (const auto& kv : docs_) {
     count += sizer.CalculateByteSize(kv.second);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 size_t MemoryRemoteDocumentCache::CalculateByteSize(
     FSTLocalSerializer* serializer) {
   size_t count = 0;
   for (const auto& kv : docs_) {
     count += DocumentKeyByteSize(kv.first);
     count += [[serializer encodedMaybeDocument:kv.second] serializedSize];
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
   return count;

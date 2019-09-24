@@ -24,9 +24,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @interface FIRComponentContainer () {
   dispatch_queue_t _containerQueue;
 }
+=======
+@interface FIRComponentContainer ()
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 @interface FIRComponentContainer ()
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -74,8 +78,11 @@ static NSMutableSet<Class> *sFIRComponentRegistrants;
     _cachedInstances = [NSMutableDictionary<NSString *, id> dictionary];
     _components = [NSMutableDictionary<NSString *, FIRComponentCreationBlock> dictionary];
 <<<<<<< HEAD
+<<<<<<< HEAD
     _containerQueue =
         dispatch_queue_create("com.google.FirebaseComponentContainer", DISPATCH_QUEUE_SERIAL);
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -104,7 +111,11 @@ static NSMutableSet<Class> *sFIRComponentRegistrants;
       self.components[protocolName] = component.creationBlock;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       // Instantiate the instance if it has requested to be instantiated.
+=======
+      // Instantiate the
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       // Instantiate the
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -152,9 +163,13 @@ static NSMutableSet<Class> *sFIRComponentRegistrants;
   // The instance is ready to be returned, but check if it should be cached first before returning.
   if (shouldCache) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     dispatch_sync(_containerQueue, ^{
       self.cachedInstances[protocolName] = instance;
     });
+=======
+    self.cachedInstances[protocolName] = instance;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     self.cachedInstances[protocolName] = instance;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -169,11 +184,15 @@ static NSMutableSet<Class> *sFIRComponentRegistrants;
   // Check if there is a cached instance, and return it if so.
   NSString *protocolName = NSStringFromProtocol(protocol);
 <<<<<<< HEAD
+<<<<<<< HEAD
   __block id cachedInstance;
   dispatch_sync(_containerQueue, ^{
     cachedInstance = self.cachedInstances[protocolName];
   });
 
+=======
+  id cachedInstance = self.cachedInstances[protocolName];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   id cachedInstance = self.cachedInstances[protocolName];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -191,6 +210,7 @@ static NSMutableSet<Class> *sFIRComponentRegistrants;
 - (void)removeAllCachedInstances {
   // Loop through the cache and notify each instance that is a maintainer to clean up after itself.
 <<<<<<< HEAD
+<<<<<<< HEAD
   // Design note: we're getting a copy here, unlocking the cached instances, iterating over the
   // copy, then locking and removing all cached instances. A race condition *could* exist where a
   // new cached instance is created between the copy and the removal, but the chances are slim and
@@ -205,6 +225,9 @@ static NSMutableSet<Class> *sFIRComponentRegistrants;
 =======
   for (id instance in self.cachedInstances.allValues) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+  for (id instance in self.cachedInstances.allValues) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     if ([instance conformsToProtocol:@protocol(FIRComponentLifecycleMaintainer)] &&
         [instance respondsToSelector:@selector(appWillBeDeleted:)]) {
       [instance appWillBeDeleted:self.app];
@@ -212,12 +235,16 @@ static NSMutableSet<Class> *sFIRComponentRegistrants;
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   instancesCopy = nil;
 
   // Empty the cache.
   dispatch_sync(_containerQueue, ^{
     [self.cachedInstances removeAllObjects];
   });
+=======
+  [self.cachedInstances removeAllObjects];
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   [self.cachedInstances removeAllObjects];
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

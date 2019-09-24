@@ -32,6 +32,10 @@
 #import "Firestore/Source/API/FIRGeoPoint+Internal.h"
 #import "Firestore/Source/API/converters.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#import "Firestore/Source/Model/FSTMutation.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #import "Firestore/Source/Model/FSTMutation.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -46,7 +50,11 @@
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
 #include "Firestore/core/src/firebase/firestore/model/precondition.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/model/transform_operation.h"
+=======
+#include "Firestore/core/src/firebase/firestore/model/transform_operations.h"
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 #include "Firestore/core/src/firebase/firestore/model/transform_operations.h"
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -359,7 +367,12 @@ NS_ASSUME_NONNULL_BEGIN
 
   } else if ([fieldValue isKindOfClass:[FSTServerTimestampFieldValue class]]) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     context.AddToFieldTransforms(*context.path(), ServerTimestampTransform());
+=======
+    context.AddToFieldTransforms(*context.path(), absl::make_unique<ServerTimestampTransform>(
+                                                      ServerTimestampTransform::Get()));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     context.AddToFieldTransforms(*context.path(), absl::make_unique<ServerTimestampTransform>(
                                                       ServerTimestampTransform::Get()));
@@ -369,7 +382,12 @@ NS_ASSUME_NONNULL_BEGIN
     std::vector<FieldValue> parsedElements =
         [self parseArrayTransformElements:((FSTArrayUnionFieldValue *)fieldValue).elements];
 <<<<<<< HEAD
+<<<<<<< HEAD
     ArrayTransform array_union(TransformOperation::Type::ArrayUnion, std::move(parsedElements));
+=======
+    auto array_union = absl::make_unique<ArrayTransform>(TransformOperation::Type::ArrayUnion,
+                                                         std::move(parsedElements));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     auto array_union = absl::make_unique<ArrayTransform>(TransformOperation::Type::ArrayUnion,
                                                          std::move(parsedElements));
@@ -380,7 +398,12 @@ NS_ASSUME_NONNULL_BEGIN
     std::vector<FieldValue> parsedElements =
         [self parseArrayTransformElements:((FSTArrayRemoveFieldValue *)fieldValue).elements];
 <<<<<<< HEAD
+<<<<<<< HEAD
     ArrayTransform array_remove(TransformOperation::Type::ArrayRemove, std::move(parsedElements));
+=======
+    auto array_remove = absl::make_unique<ArrayTransform>(TransformOperation::Type::ArrayRemove,
+                                                          std::move(parsedElements));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     auto array_remove = absl::make_unique<ArrayTransform>(TransformOperation::Type::ArrayRemove,
                                                           std::move(parsedElements));
@@ -392,7 +415,11 @@ NS_ASSUME_NONNULL_BEGIN
         (FSTNumericIncrementFieldValue *)fieldValue;
     FieldValue operand = [self parsedQueryValue:numericIncrementFieldValue.operand];
 <<<<<<< HEAD
+<<<<<<< HEAD
     NumericIncrementTransform numeric_increment(std::move(operand));
+=======
+    auto numeric_increment = absl::make_unique<NumericIncrementTransform>(operand);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     auto numeric_increment = absl::make_unique<NumericIncrementTransform>(operand);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

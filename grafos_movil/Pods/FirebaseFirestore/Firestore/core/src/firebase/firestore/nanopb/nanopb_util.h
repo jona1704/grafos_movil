@@ -27,7 +27,10 @@
 #include "Firestore/core/src/firebase/firestore/nanopb/byte_string.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Firestore/core/src/firebase/firestore/util/nullability.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
@@ -50,8 +53,12 @@ inline pb_size_t CheckedSize(size_t size) {
  * given buffer. Returns a null instance if the given buffer is null or empty.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 pb_bytes_array_t* _Nullable CopyBytesArray(
     const pb_bytes_array_t* _Nullable buffer);
+=======
+pb_bytes_array_t* CopyBytesArray(const pb_bytes_array_t* buffer);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 pb_bytes_array_t* CopyBytesArray(const pb_bytes_array_t* buffer);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -61,8 +68,12 @@ pb_bytes_array_t* CopyBytesArray(const pb_bytes_array_t* buffer);
  * Returns a null instance if the given size is zero.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 pb_bytes_array_t* _Nullable MakeBytesArray(const void* _Nullable data,
                                            size_t size);
+=======
+pb_bytes_array_t* MakeBytesArray(const void* data, size_t size);
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 pb_bytes_array_t* MakeBytesArray(const void* data, size_t size);
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -72,8 +83,12 @@ pb_bytes_array_t* MakeBytesArray(const void* data, size_t size);
  * Returns a null instance if the size of the given vector is zero.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 inline pb_bytes_array_t* _Nullable MakeBytesArray(
     const std::vector<uint8_t>& bytes) {
+=======
+inline pb_bytes_array_t* MakeBytesArray(const std::vector<uint8_t>& bytes) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 inline pb_bytes_array_t* MakeBytesArray(const std::vector<uint8_t>& bytes) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -83,6 +98,7 @@ inline pb_bytes_array_t* MakeBytesArray(const std::vector<uint8_t>& bytes) {
 /**
  * Creates a string_view of the given nanopb bytes.
  */
+<<<<<<< HEAD
 <<<<<<< HEAD
 absl::string_view MakeStringView(const pb_bytes_array_t* _Nullable str);
 
@@ -97,6 +113,8 @@ inline pb_bytes_array_t* _Nullable MakeBytesArray(const std::string& str) {
 
 std::string MakeString(const pb_bytes_array_t* _Nullable str);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 absl::string_view MakeStringView(const ByteString& bytes);
 
 inline pb_bytes_array_t* MakeBytesArray(const std::string& str) {
@@ -104,6 +122,9 @@ inline pb_bytes_array_t* MakeBytesArray(const std::string& str) {
 }
 
 std::string MakeString(const pb_bytes_array_t* str);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
 /**
@@ -115,9 +136,13 @@ inline std::vector<uint8_t> MakeVector(const ByteString& str) {
 
 #if __OBJC__
 <<<<<<< HEAD
+<<<<<<< HEAD
 inline ByteString MakeByteString(NSData* _Nullable value) {
   if (value == nil) return ByteString();
 
+=======
+inline ByteString MakeByteString(NSData* value) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 inline ByteString MakeByteString(NSData* value) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -125,6 +150,7 @@ inline ByteString MakeByteString(NSData* value) {
   return ByteString::Take(MakeBytesArray(value.bytes, size));
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 inline NSData* _Nonnull MakeNSData(const ByteString& str) {
   return [[NSData alloc] initWithBytes:str.data() length:str.size()];
@@ -134,6 +160,11 @@ inline NSData* _Nullable MakeNullableNSData(const ByteString& str) {
   if (str.empty()) return nil;
   return MakeNSData(str);
 }
+=======
+inline NSData* MakeNSData(const ByteString& str) {
+  return [[NSData alloc] initWithBytes:str.data() length:str.size()];
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 inline NSData* MakeNSData(const ByteString& str) {
   return [[NSData alloc] initWithBytes:str.data() length:str.size()];

@@ -85,7 +85,11 @@ firestore_client_MaybeDocument LocalSerializer::EncodeMaybeDocument(
       return result;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     case MaybeDocument::Type::Invalid:
+=======
+    case MaybeDocument::Type::Unknown:
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     case MaybeDocument::Type::Unknown:
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -97,9 +101,15 @@ firestore_client_MaybeDocument LocalSerializer::EncodeMaybeDocument(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 MaybeDocument LocalSerializer::DecodeMaybeDocument(
     Reader* reader, const firestore_client_MaybeDocument& proto) const {
   if (!reader->status().ok()) return {};
+=======
+std::unique_ptr<MaybeDocument> LocalSerializer::DecodeMaybeDocument(
+    Reader* reader, const firestore_client_MaybeDocument& proto) const {
+  if (!reader->status().ok()) return nullptr;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 std::unique_ptr<MaybeDocument> LocalSerializer::DecodeMaybeDocument(
     Reader* reader, const firestore_client_MaybeDocument& proto) const {
@@ -124,7 +134,11 @@ std::unique_ptr<MaybeDocument> LocalSerializer::DecodeMaybeDocument(
                        firestore_client_MaybeDocument_no_document_tag,
                        firestore_client_MaybeDocument_document_tag));
 <<<<<<< HEAD
+<<<<<<< HEAD
       return {};
+=======
+      return nullptr;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       return nullptr;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -170,7 +184,11 @@ firestore_client_NoDocument LocalSerializer::EncodeNoDocument(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 NoDocument LocalSerializer::DecodeNoDocument(
+=======
+std::unique_ptr<NoDocument> LocalSerializer::DecodeNoDocument(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 std::unique_ptr<NoDocument> LocalSerializer::DecodeNoDocument(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -182,16 +200,22 @@ std::unique_ptr<NoDocument> LocalSerializer::DecodeNoDocument(
   // Instead, we should grab this from the proto (see other ports). However,
   // we'll defer until the nanopb-master gets merged to master.
 <<<<<<< HEAD
+<<<<<<< HEAD
   return NoDocument(rpc_serializer_.DecodeKey(
                         reader, rpc_serializer_.DecodeString(proto.name)),
                     version,
                     /*has_committed_mutations=*/false);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return absl::make_unique<NoDocument>(
       rpc_serializer_.DecodeKey(reader,
                                 rpc_serializer_.DecodeString(proto.name)),
       std::move(version),
       /*has_committed_mutations=*/false);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -207,7 +231,11 @@ firestore_client_UnknownDocument LocalSerializer::EncodeUnknownDocument(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 UnknownDocument LocalSerializer::DecodeUnknownDocument(
+=======
+std::unique_ptr<UnknownDocument> LocalSerializer::DecodeUnknownDocument(
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 std::unique_ptr<UnknownDocument> LocalSerializer::DecodeUnknownDocument(
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -216,14 +244,20 @@ std::unique_ptr<UnknownDocument> LocalSerializer::DecodeUnknownDocument(
       rpc_serializer_.DecodeSnapshotVersion(reader, proto.version);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return UnknownDocument(rpc_serializer_.DecodeKey(
                              reader, rpc_serializer_.DecodeString(proto.name)),
                          version);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   return absl::make_unique<UnknownDocument>(
       rpc_serializer_.DecodeKey(reader,
                                 rpc_serializer_.DecodeString(proto.name)),
       std::move(version));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 }
 
@@ -287,7 +321,12 @@ QueryData LocalSerializer::DecodeQueryData(
   if (!reader->status().ok()) return QueryData::Invalid();
   return QueryData(std::move(query), target_id, sequence_number,
 <<<<<<< HEAD
+<<<<<<< HEAD
                    QueryPurpose::Listen, version, std::move(resume_token));
+=======
+                   QueryPurpose::kListen, std::move(version),
+                   std::move(resume_token));
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
                    QueryPurpose::kListen, std::move(version),
                    std::move(resume_token));
@@ -299,6 +338,7 @@ firestore_client_WriteBatch LocalSerializer::EncodeMutationBatch(
   firestore_client_WriteBatch result{};
 
   result.batch_id = mutation_batch.batch_id();
+<<<<<<< HEAD
 <<<<<<< HEAD
 
   pb_size_t count = CheckedSize(mutation_batch.base_mutations().size());
@@ -320,6 +360,8 @@ firestore_client_WriteBatch LocalSerializer::EncodeMutationBatch(
   }
 
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   pb_size_t count = CheckedSize(mutation_batch.mutations().size());
   result.writes_count = count;
   result.writes = MakeArray<google_firestore_v1_Write>(count);
@@ -329,6 +371,9 @@ firestore_client_WriteBatch LocalSerializer::EncodeMutationBatch(
     result.writes[i] = rpc_serializer_.EncodeMutation(*mutation.get());
     i++;
   }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   result.local_write_time =
       rpc_serializer_.EncodeTimestamp(mutation_batch.local_write_time());
@@ -342,6 +387,7 @@ MutationBatch LocalSerializer::DecodeMutationBatch(
   Timestamp local_write_time =
       rpc_serializer_.DecodeTimestamp(reader, proto.local_write_time);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   std::vector<Mutation> base_mutations;
   for (size_t i = 0; i < proto.base_writes_count; i++) {
@@ -353,13 +399,20 @@ MutationBatch LocalSerializer::DecodeMutationBatch(
 =======
   std::vector<std::unique_ptr<Mutation>> mutations;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+  std::vector<std::unique_ptr<Mutation>> mutations;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   for (size_t i = 0; i < proto.writes_count; i++) {
     mutations.push_back(
         rpc_serializer_.DecodeMutation(reader, proto.writes[i]));
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return MutationBatch(batch_id, local_write_time, std::move(base_mutations),
+=======
+  return MutationBatch(batch_id, std::move(local_write_time),
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return MutationBatch(batch_id, std::move(local_write_time),
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254

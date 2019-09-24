@@ -90,6 +90,7 @@ class FieldValue {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   bool is_boolean() const {
     return type() == Type::Boolean;
   }
@@ -136,14 +137,21 @@ class FieldValue {
 
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   /**
    * Checks if the given type is a numeric, such as Type::Integer or
    * Type::Double.
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   bool is_number() const {
     Type t = type();
     return t == Type::Integer || t == Type::Double;
+=======
+  static bool IsNumber(Type type) {
+    return type == Type::Integer || type == Type::Double;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   static bool IsNumber(Type type) {
     return type == Type::Integer || type == Type::Double;
@@ -182,10 +190,13 @@ class FieldValue {
   const Map& object_value() const;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   bool is_null() const {
     return type() == Type::Null;
   }
 
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   bool is_nan() const {

@@ -9,7 +9,10 @@
 #include "leveldb/cache.h"
 #include "port/port.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "port/thread_annotations.h"
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 #include "util/hash.h"
@@ -18,7 +21,12 @@
 namespace leveldb {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Cache::~Cache() {}
+=======
+Cache::~Cache() {
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Cache::~Cache() {
 }
@@ -54,6 +62,7 @@ struct LRUHandle {
   LRUHandle* next;
   LRUHandle* prev;
 <<<<<<< HEAD
+<<<<<<< HEAD
   size_t charge;  // TODO(opt): Only allow uint32_t?
   size_t key_length;
   bool in_cache;     // Whether entry is in the cache.
@@ -68,6 +77,8 @@ struct LRUHandle {
 
     return Slice(key_data, key_length);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   size_t charge;      // TODO(opt): Only allow uint32_t?
   size_t key_length;
   bool in_cache;      // Whether entry is in the cache.
@@ -83,6 +94,9 @@ struct LRUHandle {
     } else {
       return Slice(key_data, key_length);
     }
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   }
 };
@@ -95,7 +109,11 @@ struct LRUHandle {
 class HandleTable {
  public:
 <<<<<<< HEAD
+<<<<<<< HEAD
   HandleTable() : length_(0), elems_(0), list_(nullptr) { Resize(); }
+=======
+  HandleTable() : length_(0), elems_(0), list_(NULL) { Resize(); }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   HandleTable() : length_(0), elems_(0), list_(NULL) { Resize(); }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -109,9 +127,15 @@ class HandleTable {
     LRUHandle** ptr = FindPointer(h->key(), h->hash);
     LRUHandle* old = *ptr;
 <<<<<<< HEAD
+<<<<<<< HEAD
     h->next_hash = (old == nullptr ? nullptr : old->next_hash);
     *ptr = h;
     if (old == nullptr) {
+=======
+    h->next_hash = (old == NULL ? NULL : old->next_hash);
+    *ptr = h;
+    if (old == NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     h->next_hash = (old == NULL ? NULL : old->next_hash);
     *ptr = h;
@@ -131,7 +155,11 @@ class HandleTable {
     LRUHandle** ptr = FindPointer(key, hash);
     LRUHandle* result = *ptr;
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (result != nullptr) {
+=======
+    if (result != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     if (result != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -154,7 +182,12 @@ class HandleTable {
   LRUHandle** FindPointer(const Slice& key, uint32_t hash) {
     LRUHandle** ptr = &list_[hash & (length_ - 1)];
 <<<<<<< HEAD
+<<<<<<< HEAD
     while (*ptr != nullptr && ((*ptr)->hash != hash || key != (*ptr)->key())) {
+=======
+    while (*ptr != NULL &&
+           ((*ptr)->hash != hash || key != (*ptr)->key())) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
     while (*ptr != NULL &&
            ((*ptr)->hash != hash || key != (*ptr)->key())) {
@@ -175,7 +208,11 @@ class HandleTable {
     for (uint32_t i = 0; i < length_; i++) {
       LRUHandle* h = list_[i];
 <<<<<<< HEAD
+<<<<<<< HEAD
       while (h != nullptr) {
+=======
+      while (h != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
       while (h != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -206,8 +243,13 @@ class LRUCache {
 
   // Like Cache methods, but with an extra "hash" parameter.
 <<<<<<< HEAD
+<<<<<<< HEAD
   Cache::Handle* Insert(const Slice& key, uint32_t hash, void* value,
                         size_t charge,
+=======
+  Cache::Handle* Insert(const Slice& key, uint32_t hash,
+                        void* value, size_t charge,
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   Cache::Handle* Insert(const Slice& key, uint32_t hash,
                         void* value, size_t charge,
@@ -225,15 +267,21 @@ class LRUCache {
  private:
   void LRU_Remove(LRUHandle* e);
 <<<<<<< HEAD
+<<<<<<< HEAD
   void LRU_Append(LRUHandle* list, LRUHandle* e);
   void Ref(LRUHandle* e);
   void Unref(LRUHandle* e);
   bool FinishErase(LRUHandle* e) EXCLUSIVE_LOCKS_REQUIRED(mutex_);
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   void LRU_Append(LRUHandle*list, LRUHandle* e);
   void Ref(LRUHandle* e);
   void Unref(LRUHandle* e);
   bool FinishErase(LRUHandle* e);
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 
   // Initialized before use.
@@ -242,7 +290,11 @@ class LRUCache {
   // mutex_ protects the following state.
   mutable port::Mutex mutex_;
 <<<<<<< HEAD
+<<<<<<< HEAD
   size_t usage_ GUARDED_BY(mutex_);
+=======
+  size_t usage_;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   size_t usage_;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -250,6 +302,7 @@ class LRUCache {
   // Dummy head of LRU list.
   // lru.prev is newest entry, lru.next is oldest entry.
   // Entries have refs==1 and in_cache==true.
+<<<<<<< HEAD
 <<<<<<< HEAD
   LRUHandle lru_ GUARDED_BY(mutex_);
 
@@ -262,6 +315,8 @@ class LRUCache {
 
 LRUCache::LRUCache() : capacity_(0), usage_(0) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   LRUHandle lru_;
 
   // Dummy head of in-use list.
@@ -273,6 +328,9 @@ LRUCache::LRUCache() : capacity_(0), usage_(0) {
 
 LRUCache::LRUCache()
     : usage_(0) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   // Make empty circular linked lists.
   lru_.next = &lru_;
@@ -284,7 +342,11 @@ LRUCache::LRUCache()
 LRUCache::~LRUCache() {
   assert(in_use_.next == &in_use_);  // Error if caller has an unreleased handle
 <<<<<<< HEAD
+<<<<<<< HEAD
   for (LRUHandle* e = lru_.next; e != &lru_;) {
+=======
+  for (LRUHandle* e = lru_.next; e != &lru_; ) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   for (LRUHandle* e = lru_.next; e != &lru_; ) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -309,6 +371,7 @@ void LRUCache::Unref(LRUHandle* e) {
   assert(e->refs > 0);
   e->refs--;
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (e->refs == 0) {  // Deallocate.
     assert(!e->in_cache);
     (*e->deleter)(e->key(), e->value);
@@ -316,11 +379,16 @@ void LRUCache::Unref(LRUHandle* e) {
   } else if (e->in_cache && e->refs == 1) {
     // No longer in use; move to lru_ list.
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   if (e->refs == 0) { // Deallocate.
     assert(!e->in_cache);
     (*e->deleter)(e->key(), e->value);
     free(e);
   } else if (e->in_cache && e->refs == 1) {  // No longer in use; move to lru_ list.
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     LRU_Remove(e);
     LRU_Append(&lru_, e);
@@ -344,7 +412,11 @@ Cache::Handle* LRUCache::Lookup(const Slice& key, uint32_t hash) {
   MutexLock l(&mutex_);
   LRUHandle* e = table_.Lookup(key, hash);
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (e != nullptr) {
+=======
+  if (e != NULL) {
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   if (e != NULL) {
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -359,6 +431,7 @@ void LRUCache::Release(Cache::Handle* handle) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Cache::Handle* LRUCache::Insert(const Slice& key, uint32_t hash, void* value,
                                 size_t charge,
                                 void (*deleter)(const Slice& key,
@@ -368,6 +441,8 @@ Cache::Handle* LRUCache::Insert(const Slice& key, uint32_t hash, void* value,
   LRUHandle* e =
       reinterpret_cast<LRUHandle*>(malloc(sizeof(LRUHandle) - 1 + key.size()));
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 Cache::Handle* LRUCache::Insert(
     const Slice& key, uint32_t hash, void* value, size_t charge,
     void (*deleter)(const Slice& key, void* value)) {
@@ -375,6 +450,9 @@ Cache::Handle* LRUCache::Insert(
 
   LRUHandle* e = reinterpret_cast<LRUHandle*>(
       malloc(sizeof(LRUHandle)-1 + key.size()));
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   e->value = value;
   e->deleter = deleter;
@@ -392,10 +470,15 @@ Cache::Handle* LRUCache::Insert(
     usage_ += charge;
     FinishErase(table_.Insert(e));
 <<<<<<< HEAD
+<<<<<<< HEAD
   } else {  // don't cache. (capacity_==0 is supported and turns off caching.)
     // next is read by key() in an assert, so it must be initialized
     e->next = nullptr;
   }
+=======
+  } // else don't cache.  (Tests use capacity_==0 to turn off caching.)
+
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   } // else don't cache.  (Tests use capacity_==0 to turn off caching.)
 
@@ -413,15 +496,21 @@ Cache::Handle* LRUCache::Insert(
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // If e != nullptr, finish removing *e from the cache; it has already been
 // removed from the hash table.  Return whether e != nullptr.
 bool LRUCache::FinishErase(LRUHandle* e) {
   if (e != nullptr) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 // If e != NULL, finish removing *e from the cache; it has already been removed
 // from the hash table.  Return whether e != NULL.  Requires mutex_ held.
 bool LRUCache::FinishErase(LRUHandle* e) {
   if (e != NULL) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     assert(e->in_cache);
     LRU_Remove(e);
@@ -430,7 +519,11 @@ bool LRUCache::FinishErase(LRUHandle* e) {
     Unref(e);
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   return e != nullptr;
+=======
+  return e != NULL;
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   return e != NULL;
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -467,11 +560,14 @@ class ShardedLRUCache : public Cache {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   static uint32_t Shard(uint32_t hash) { return hash >> (32 - kNumShardBits); }
 
  public:
   explicit ShardedLRUCache(size_t capacity) : last_id_(0) {
 =======
+=======
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
   static uint32_t Shard(uint32_t hash) {
     return hash >> (32 - kNumShardBits);
   }
@@ -479,6 +575,9 @@ class ShardedLRUCache : public Cache {
  public:
   explicit ShardedLRUCache(size_t capacity)
       : last_id_(0) {
+<<<<<<< HEAD
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+=======
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
     const size_t per_shard = (capacity + (kNumShards - 1)) / kNumShards;
     for (int s = 0; s < kNumShards; s++) {
@@ -486,7 +585,11 @@ class ShardedLRUCache : public Cache {
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   virtual ~ShardedLRUCache() {}
+=======
+  virtual ~ShardedLRUCache() { }
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
   virtual ~ShardedLRUCache() { }
 >>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
@@ -531,7 +634,13 @@ class ShardedLRUCache : public Cache {
 }  // end anonymous namespace
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Cache* NewLRUCache(size_t capacity) { return new ShardedLRUCache(capacity); }
+=======
+Cache* NewLRUCache(size_t capacity) {
+  return new ShardedLRUCache(capacity);
+}
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
 =======
 Cache* NewLRUCache(size_t capacity) {
   return new ShardedLRUCache(capacity);
