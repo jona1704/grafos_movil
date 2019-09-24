@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Prueba.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+<<<<<<< HEAD
+			<integer>24</integer>
+=======
+			<integer>15</integer>
+>>>>>>> 8990fd99b9c866a4e223da4e70190964eb1a9254
+		</dict>
+	</dict>
+</dict>
+</plist>
